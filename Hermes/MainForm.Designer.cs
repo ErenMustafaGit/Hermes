@@ -30,7 +30,8 @@ namespace Hermes
         private void InitializeComponent()
         {
             this.label1 = new System.Windows.Forms.Label();
-            this.sibeBarUS1 = new Hermes.SideBarUserControls();
+            this.sideBarUserControls1 = new Hermes.SideBarUserControls();
+            this.accueil1 = new Hermes.Accueil();
             this.SuspendLayout();
             // 
             // label1
@@ -42,12 +43,19 @@ namespace Hermes
             this.label1.TabIndex = 1;
             this.label1.Text = "X";
             // 
-            // sibeBarUS1
+            // sideBarUserControls1
             // 
-            this.sibeBarUS1.Location = new System.Drawing.Point(0, 0);
-            this.sibeBarUS1.Name = "sibeBarUS1";
-            this.sibeBarUS1.Size = new System.Drawing.Size(308, 640);
-            this.sibeBarUS1.TabIndex = 0;
+            this.sideBarUserControls1.Location = new System.Drawing.Point(0, 0);
+            this.sideBarUserControls1.Name = "sideBarUserControls1";
+            this.sideBarUserControls1.Size = new System.Drawing.Size(424, 640);
+            this.sideBarUserControls1.TabIndex = 2;
+            // 
+            // accueil1
+            // 
+            this.accueil1.Location = new System.Drawing.Point(137, 0);
+            this.accueil1.Name = "accueil1";
+            this.accueil1.Size = new System.Drawing.Size(939, 640);
+            this.accueil1.TabIndex = 3;
             // 
             // MainForm
             // 
@@ -56,8 +64,9 @@ namespace Hermes
             this.AutoValidate = System.Windows.Forms.AutoValidate.EnableAllowFocusChange;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(249)))), ((int)(((byte)(249)))));
             this.ClientSize = new System.Drawing.Size(1080, 640);
+            this.Controls.Add(this.accueil1);
+            this.Controls.Add(this.sideBarUserControls1);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.sibeBarUS1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -71,9 +80,9 @@ namespace Hermes
         }
 
         #endregion
-
-        private SideBarUserControls sibeBarUS1;
         private System.Windows.Forms.Label label1;
+        private SideBarUserControls sideBarUserControls1;
+        private Accueil accueil1;
     }
 }
 

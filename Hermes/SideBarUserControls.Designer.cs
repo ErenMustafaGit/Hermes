@@ -29,11 +29,11 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
+            this.lblBilan = new System.Windows.Forms.Label();
+            this.lblDepenses = new System.Windows.Forms.Label();
+            this.lblParticipants = new System.Windows.Forms.Label();
+            this.lblEvenements = new System.Windows.Forms.Label();
+            this.lblAccueil = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -45,11 +45,11 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(12)))), ((int)(((byte)(12)))));
-            this.panel1.Controls.Add(this.label9);
-            this.panel1.Controls.Add(this.label8);
-            this.panel1.Controls.Add(this.label7);
-            this.panel1.Controls.Add(this.label6);
-            this.panel1.Controls.Add(this.label5);
+            this.panel1.Controls.Add(this.lblBilan);
+            this.panel1.Controls.Add(this.lblDepenses);
+            this.panel1.Controls.Add(this.lblParticipants);
+            this.panel1.Controls.Add(this.lblEvenements);
+            this.panel1.Controls.Add(this.lblAccueil);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.label4);
             this.panel1.Controls.Add(this.label3);
@@ -57,63 +57,63 @@
             this.panel1.Controls.Add(this.lbl);
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(424, 850);
+            this.panel1.Size = new System.Drawing.Size(135, 850);
             this.panel1.TabIndex = 0;
             // 
-            // label9
+            // lblBilan
             // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.5F);
-            this.label9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(249)))), ((int)(((byte)(249)))));
-            this.label9.Location = new System.Drawing.Point(131, 521);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(50, 22);
-            this.label9.TabIndex = 10;
-            this.label9.Text = "Bilan";
+            this.lblBilan.AutoSize = true;
+            this.lblBilan.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.5F);
+            this.lblBilan.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(249)))), ((int)(((byte)(249)))));
+            this.lblBilan.Location = new System.Drawing.Point(131, 521);
+            this.lblBilan.Name = "lblBilan";
+            this.lblBilan.Size = new System.Drawing.Size(50, 22);
+            this.lblBilan.TabIndex = 10;
+            this.lblBilan.Text = "Bilan";
             // 
-            // label8
+            // lblDepenses
             // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.5F);
-            this.label8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(249)))), ((int)(((byte)(249)))));
-            this.label8.Location = new System.Drawing.Point(131, 425);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(91, 22);
-            this.label8.TabIndex = 9;
-            this.label8.Text = "Dépenses";
+            this.lblDepenses.AutoSize = true;
+            this.lblDepenses.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.5F);
+            this.lblDepenses.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(249)))), ((int)(((byte)(249)))));
+            this.lblDepenses.Location = new System.Drawing.Point(131, 425);
+            this.lblDepenses.Name = "lblDepenses";
+            this.lblDepenses.Size = new System.Drawing.Size(91, 22);
+            this.lblDepenses.TabIndex = 9;
+            this.lblDepenses.Text = "Dépenses";
             // 
-            // label7
+            // lblParticipants
             // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.5F);
-            this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(249)))), ((int)(((byte)(249)))));
-            this.label7.Location = new System.Drawing.Point(131, 326);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(104, 22);
-            this.label7.TabIndex = 8;
-            this.label7.Text = "Participants";
+            this.lblParticipants.AutoSize = true;
+            this.lblParticipants.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.5F);
+            this.lblParticipants.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(249)))), ((int)(((byte)(249)))));
+            this.lblParticipants.Location = new System.Drawing.Point(131, 326);
+            this.lblParticipants.Name = "lblParticipants";
+            this.lblParticipants.Size = new System.Drawing.Size(104, 22);
+            this.lblParticipants.TabIndex = 8;
+            this.lblParticipants.Text = "Participants";
             // 
-            // label6
+            // lblEvenements
             // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.5F);
-            this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(249)))), ((int)(((byte)(249)))));
-            this.label6.Location = new System.Drawing.Point(131, 222);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(109, 22);
-            this.label6.TabIndex = 7;
-            this.label6.Text = "Évènements";
+            this.lblEvenements.AutoSize = true;
+            this.lblEvenements.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.5F);
+            this.lblEvenements.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(249)))), ((int)(((byte)(249)))));
+            this.lblEvenements.Location = new System.Drawing.Point(131, 222);
+            this.lblEvenements.Name = "lblEvenements";
+            this.lblEvenements.Size = new System.Drawing.Size(109, 22);
+            this.lblEvenements.TabIndex = 7;
+            this.lblEvenements.Text = "Évènements";
             // 
-            // label5
+            // lblAccueil
             // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.5F);
-            this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(249)))), ((int)(((byte)(249)))));
-            this.label5.Location = new System.Drawing.Point(131, 127);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(68, 22);
-            this.label5.TabIndex = 6;
-            this.label5.Text = "Accueil";
+            this.lblAccueil.AutoSize = true;
+            this.lblAccueil.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.5F);
+            this.lblAccueil.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(249)))), ((int)(((byte)(249)))));
+            this.lblAccueil.Location = new System.Drawing.Point(131, 127);
+            this.lblAccueil.Name = "lblAccueil";
+            this.lblAccueil.Size = new System.Drawing.Size(68, 22);
+            this.lblAccueil.TabIndex = 6;
+            this.lblAccueil.Text = "Accueil";
             // 
             // label1
             // 
@@ -170,12 +170,12 @@
             this.lbl.TabIndex = 1;
             this.lbl.Text = "l";
             // 
-            // SibeBarUS
+            // SideBarUserControls
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.panel1);
-            this.Name = "SibeBarUS";
+            this.Name = "SideBarUserControls";
             this.Size = new System.Drawing.Size(424, 640);
             this.Load += new System.EventHandler(this.SibeBarUS_Load);
             this.panel1.ResumeLayout(false);
@@ -192,10 +192,10 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label lbl;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label lblAccueil;
+        private System.Windows.Forms.Label lblEvenements;
+        private System.Windows.Forms.Label lblBilan;
+        private System.Windows.Forms.Label lblDepenses;
+        private System.Windows.Forms.Label lblParticipants;
     }
 }
