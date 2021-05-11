@@ -12,7 +12,7 @@ namespace Hermes
         public string LastName;
         public string FirstName;
         public int PhoneNumber;
-        public int nbParts;
+        public int NbParts;
         public double Balance;
         public string Mail;
     }
