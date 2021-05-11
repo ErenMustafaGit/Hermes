@@ -80,7 +80,7 @@ namespace Hermes
                         Balance = dataReader.GetInt32(5),
                         Mail = dataReader.GetString(6)
                     };
-                    participants.Add(oneParticipant)
+                    participants.Add(oneParticipant);
                 }
             }
             catch (OleDbException er)
