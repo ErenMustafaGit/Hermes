@@ -28,37 +28,38 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.sideBar = new System.Windows.Forms.Panel();
             this.lblBilan = new System.Windows.Forms.Label();
             this.lblDepenses = new System.Windows.Forms.Label();
             this.lblParticipants = new System.Windows.Forms.Label();
             this.lblEvenements = new System.Windows.Forms.Label();
             this.lblAccueil = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.lbl = new System.Windows.Forms.Label();
-            this.panel1.SuspendLayout();
+            this.lblIconeBilan = new System.Windows.Forms.Label();
+            this.lblIconeDepense = new System.Windows.Forms.Label();
+            this.lblIconeParticipant = new System.Windows.Forms.Label();
+            this.lblIconeEvenement = new System.Windows.Forms.Label();
+            this.lblIconeAccueil = new System.Windows.Forms.Label();
+            this.sideBar.SuspendLayout();
             this.SuspendLayout();
             // 
-            // panel1
+            // sideBar
             // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(12)))), ((int)(((byte)(12)))));
-            this.panel1.Controls.Add(this.lblBilan);
-            this.panel1.Controls.Add(this.lblDepenses);
-            this.panel1.Controls.Add(this.lblParticipants);
-            this.panel1.Controls.Add(this.lblEvenements);
-            this.panel1.Controls.Add(this.lblAccueil);
-            this.panel1.Controls.Add(this.label1);
-            this.panel1.Controls.Add(this.label4);
-            this.panel1.Controls.Add(this.label3);
-            this.panel1.Controls.Add(this.label2);
-            this.panel1.Controls.Add(this.lbl);
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(135, 850);
-            this.panel1.TabIndex = 0;
+            this.sideBar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(12)))), ((int)(((byte)(12)))));
+            this.sideBar.Controls.Add(this.lblBilan);
+            this.sideBar.Controls.Add(this.lblDepenses);
+            this.sideBar.Controls.Add(this.lblParticipants);
+            this.sideBar.Controls.Add(this.lblEvenements);
+            this.sideBar.Controls.Add(this.lblAccueil);
+            this.sideBar.Controls.Add(this.lblIconeBilan);
+            this.sideBar.Controls.Add(this.lblIconeDepense);
+            this.sideBar.Controls.Add(this.lblIconeParticipant);
+            this.sideBar.Controls.Add(this.lblIconeEvenement);
+            this.sideBar.Controls.Add(this.lblIconeAccueil);
+            this.sideBar.Location = new System.Drawing.Point(0, 0);
+            this.sideBar.Name = "sideBar";
+            this.sideBar.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.sideBar.Size = new System.Drawing.Size(424, 640);
+            this.sideBar.TabIndex = 0;
             // 
             // lblBilan
             // 
@@ -115,83 +116,87 @@
             this.lblAccueil.TabIndex = 6;
             this.lblAccueil.Text = "Accueil";
             // 
-            // label1
+            // lblIconeBilan
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Webdings", 30F);
-            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
-            this.label1.Location = new System.Drawing.Point(43, 506);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(58, 42);
-            this.label1.TabIndex = 5;
-            this.label1.Text = "x";
+            this.lblIconeBilan.AutoSize = true;
+            this.lblIconeBilan.Font = new System.Drawing.Font("Webdings", 30F);
+            this.lblIconeBilan.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
+            this.lblIconeBilan.Location = new System.Drawing.Point(43, 506);
+            this.lblIconeBilan.Name = "lblIconeBilan";
+            this.lblIconeBilan.Size = new System.Drawing.Size(58, 42);
+            this.lblIconeBilan.TabIndex = 5;
+            this.lblIconeBilan.Text = "x";
             // 
-            // label4
+            // lblIconeDepense
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Webdings", 30F);
-            this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
-            this.label4.Location = new System.Drawing.Point(43, 411);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(58, 42);
-            this.label4.TabIndex = 4;
-            this.label4.Text = "d";
+            this.lblIconeDepense.AutoSize = true;
+            this.lblIconeDepense.Font = new System.Drawing.Font("Webdings", 30F);
+            this.lblIconeDepense.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
+            this.lblIconeDepense.Location = new System.Drawing.Point(43, 411);
+            this.lblIconeDepense.Name = "lblIconeDepense";
+            this.lblIconeDepense.Size = new System.Drawing.Size(58, 42);
+            this.lblIconeDepense.TabIndex = 4;
+            this.lblIconeDepense.Text = "d";
             // 
-            // label3
+            // lblIconeParticipant
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Webdings", 30F);
-            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
-            this.label3.Location = new System.Drawing.Point(43, 311);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(58, 42);
-            this.label3.TabIndex = 3;
-            this.label3.Text = "s";
+            this.lblIconeParticipant.AutoSize = true;
+            this.lblIconeParticipant.Font = new System.Drawing.Font("Webdings", 30F);
+            this.lblIconeParticipant.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
+            this.lblIconeParticipant.Location = new System.Drawing.Point(43, 311);
+            this.lblIconeParticipant.Name = "lblIconeParticipant";
+            this.lblIconeParticipant.Size = new System.Drawing.Size(58, 42);
+            this.lblIconeParticipant.TabIndex = 3;
+            this.lblIconeParticipant.Text = "s";
             // 
-            // label2
+            // lblIconeEvenement
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Webdings", 30F);
-            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
-            this.label2.Location = new System.Drawing.Point(43, 208);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(58, 42);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "p";
+            this.lblIconeEvenement.AutoSize = true;
+            this.lblIconeEvenement.Font = new System.Drawing.Font("Webdings", 30F);
+            this.lblIconeEvenement.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
+            this.lblIconeEvenement.Location = new System.Drawing.Point(43, 208);
+            this.lblIconeEvenement.Name = "lblIconeEvenement";
+            this.lblIconeEvenement.Size = new System.Drawing.Size(58, 42);
+            this.lblIconeEvenement.TabIndex = 2;
+            this.lblIconeEvenement.Text = "p";
+            this.lblIconeEvenement.Click += new System.EventHandler(this.LblIconeEvenement_Click);
             // 
-            // lbl
+            // lblIconeAccueil
             // 
-            this.lbl.AutoSize = true;
-            this.lbl.Font = new System.Drawing.Font("Webdings", 30F);
-            this.lbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
-            this.lbl.Location = new System.Drawing.Point(43, 112);
-            this.lbl.Name = "lbl";
-            this.lbl.Size = new System.Drawing.Size(58, 42);
-            this.lbl.TabIndex = 1;
-            this.lbl.Text = "l";
+            this.lblIconeAccueil.AutoSize = true;
+            this.lblIconeAccueil.Font = new System.Drawing.Font("Webdings", 30F);
+            this.lblIconeAccueil.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
+            this.lblIconeAccueil.Location = new System.Drawing.Point(43, 112);
+            this.lblIconeAccueil.Name = "lblIconeAccueil";
+            this.lblIconeAccueil.Size = new System.Drawing.Size(58, 42);
+            this.lblIconeAccueil.TabIndex = 1;
+            this.lblIconeAccueil.Text = "l";
+            this.lblIconeAccueil.Click += new System.EventHandler(this.LblIconeAccueil_Click);
             // 
             // SideBarUserControls
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.panel1);
+            this.BackColor = System.Drawing.Color.Transparent;
+            this.Controls.Add(this.sideBar);
+            this.ForeColor = System.Drawing.SystemColors.ControlText;
             this.Name = "SideBarUserControls";
             this.Size = new System.Drawing.Size(424, 640);
-            this.Load += new System.EventHandler(this.SibeBarUS_Load);
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
+            this.Load += new System.EventHandler(this.SideBarUserControls_Load);
+            this.sideBar.ResumeLayout(false);
+            this.sideBar.PerformLayout();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label lbl;
+        private System.Windows.Forms.Panel sideBar;
+        private System.Windows.Forms.Label lblIconeBilan;
+        private System.Windows.Forms.Label lblIconeDepense;
+        private System.Windows.Forms.Label lblIconeParticipant;
+        private System.Windows.Forms.Label lblIconeEvenement;
+        private System.Windows.Forms.Label lblIconeAccueil;
         private System.Windows.Forms.Label lblAccueil;
         private System.Windows.Forms.Label lblEvenements;
         private System.Windows.Forms.Label lblBilan;

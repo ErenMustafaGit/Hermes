@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -15,17 +16,24 @@ namespace Hermes
         //Variable utilisé pour déplacer la fênetre, en effet FormBorderStle = none ne permet pas de déplacer
         // la formulaire.
         private Point movementPoint;
+        private Panel sideBar;
 
         public MainForm()
         {
             InitializeComponent();
         }
 
+
+
         private void MainForm_Load(object sender, EventArgs e)
         {
-
+            sideBarUserControls1.BringToFront();
+            sideBarUserControls1.setPanel = pnlEcran;
+            this.sideBar = sideBarUserControls1.getSideBar;
+           // this.sideBar.MouseEnter += new EventHandler(sideBar_enter);
+           // this.sideBar.MouseLeave += new EventHandler(sideBar_leave);
         }
-
+        
 
         // L'évenement MouseMove et MouseDown sont utilisé pour 
         // permette de faire la translation de la fênetre
@@ -43,6 +51,14 @@ namespace Hermes
             movementPoint = new Point(e.X, e.Y);
         }
 
+        private void sideBar_enter(object sender, EventArgs e)
+        {
+            this.sideBar.Size = new Size(424, this.sideBar.Height);
+        }
 
+        private void sideBar_leave(object sender, EventArgs e)
+        {
+            this.sideBar.Size = new Size(134, this.sideBar.Height);
+        }
     }
 }

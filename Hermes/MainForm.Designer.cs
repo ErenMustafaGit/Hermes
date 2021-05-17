@@ -30,8 +30,8 @@ namespace Hermes
         private void InitializeComponent()
         {
             this.label1 = new System.Windows.Forms.Label();
+            this.pnlEcran = new System.Windows.Forms.Panel();
             this.sideBarUserControls1 = new Hermes.SideBarUserControls();
-            this.accueil1 = new Hermes.Accueil();
             this.SuspendLayout();
             // 
             // label1
@@ -43,19 +43,21 @@ namespace Hermes
             this.label1.TabIndex = 1;
             this.label1.Text = "X";
             // 
+            // pnlEcran
+            // 
+            this.pnlEcran.Location = new System.Drawing.Point(135, 0);
+            this.pnlEcran.Name = "pnlEcran";
+            this.pnlEcran.Size = new System.Drawing.Size(892, 640);
+            this.pnlEcran.TabIndex = 3;
+            // 
             // sideBarUserControls1
             // 
-            this.sideBarUserControls1.Location = new System.Drawing.Point(0, 0);
+            this.sideBarUserControls1.BackColor = System.Drawing.Color.White;
+            this.sideBarUserControls1.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.sideBarUserControls1.Location = new System.Drawing.Point(-1, 0);
             this.sideBarUserControls1.Name = "sideBarUserControls1";
-            this.sideBarUserControls1.Size = new System.Drawing.Size(424, 640);
-            this.sideBarUserControls1.TabIndex = 2;
-            // 
-            // accueil1
-            // 
-            this.accueil1.Location = new System.Drawing.Point(137, 0);
-            this.accueil1.Name = "accueil1";
-            this.accueil1.Size = new System.Drawing.Size(939, 640);
-            this.accueil1.TabIndex = 3;
+            this.sideBarUserControls1.Size = new System.Drawing.Size(136, 640);
+            this.sideBarUserControls1.TabIndex = 4;
             // 
             // MainForm
             // 
@@ -64,8 +66,8 @@ namespace Hermes
             this.AutoValidate = System.Windows.Forms.AutoValidate.EnableAllowFocusChange;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(249)))), ((int)(((byte)(249)))));
             this.ClientSize = new System.Drawing.Size(1080, 640);
-            this.Controls.Add(this.accueil1);
             this.Controls.Add(this.sideBarUserControls1);
+            this.Controls.Add(this.pnlEcran);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "MainForm";
@@ -81,8 +83,8 @@ namespace Hermes
 
         #endregion
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Panel pnlEcran;
         private SideBarUserControls sideBarUserControls1;
-        private Accueil accueil1;
     }
 }
 
