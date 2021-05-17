@@ -14,6 +14,8 @@ namespace Hermes
         Invalid,
         HelveticaNeue,
         HelveticaNeue_Light,
+        HelveticaNeue_Medium,
+        HelveticaNeue_Bold,
         Icons,
     }
 
@@ -25,6 +27,8 @@ namespace Hermes
         {
             { AppFont.HelveticaNeue, Resources.Fonts.HelveticaNeue },
             { AppFont.HelveticaNeue_Light, Resources.Fonts.HelveticaNeue_Light },
+            { AppFont.HelveticaNeue_Medium, Resources.Fonts.HelveticaNeue_Medium },
+            { AppFont.HelveticaNeue_Bold, Resources.Fonts.HelveticaNeue_Bold },
             { AppFont.Icons, Resources.Fonts.Icons },
         };
 
