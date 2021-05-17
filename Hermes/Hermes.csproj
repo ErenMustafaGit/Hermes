@@ -46,6 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AjoutRapideBouton.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="AjoutRapideBouton.Designer.cs">
+      <DependentUpon>AjoutRapideBouton.cs</DependentUpon>
+    </Compile>
     <Compile Include="Database.cs" />
     <Compile Include="Accueil.cs">
       <SubType>UserControl</SubType>
@@ -78,6 +84,9 @@
     </Compile>
     <EmbeddedResource Include="Accueil.resx">
       <DependentUpon>Accueil.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AjoutRapideBouton.resx">
+      <DependentUpon>AjoutRapideBouton.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Evenements.resx">
       <DependentUpon>Evenements.cs</DependentUpon>
