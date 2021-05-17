@@ -45,9 +45,9 @@ namespace Hermes
             // 
             // pnlEcran
             // 
-            this.pnlEcran.Location = new System.Drawing.Point(135, 0);
+            this.pnlEcran.Location = new System.Drawing.Point(113, 0);
             this.pnlEcran.Name = "pnlEcran";
-            this.pnlEcran.Size = new System.Drawing.Size(892, 640);
+            this.pnlEcran.Size = new System.Drawing.Size(914, 640);
             this.pnlEcran.TabIndex = 3;
             // 
             // sideBarUserControls1
@@ -56,7 +56,7 @@ namespace Hermes
             this.sideBarUserControls1.ForeColor = System.Drawing.SystemColors.ControlText;
             this.sideBarUserControls1.Location = new System.Drawing.Point(-1, 0);
             this.sideBarUserControls1.Name = "sideBarUserControls1";
-            this.sideBarUserControls1.Size = new System.Drawing.Size(136, 640);
+            this.sideBarUserControls1.Size = new System.Drawing.Size(114, 640);
             this.sideBarUserControls1.TabIndex = 4;
             // 
             // MainForm

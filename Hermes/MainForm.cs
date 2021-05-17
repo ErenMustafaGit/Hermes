@@ -30,6 +30,7 @@ namespace Hermes
             sideBarUserControls1.BringToFront();
             sideBarUserControls1.setPanel = pnlEcran;
             this.sideBar = sideBarUserControls1.getSideBar;
+            this.pnlEcran.Controls.Add(new Accueil());
            // this.sideBar.MouseEnter += new EventHandler(sideBar_enter);
            // this.sideBar.MouseLeave += new EventHandler(sideBar_leave);
         }

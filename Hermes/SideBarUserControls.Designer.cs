@@ -66,7 +66,7 @@
             this.lblBilan.AutoSize = true;
             this.lblBilan.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.5F);
             this.lblBilan.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(249)))), ((int)(((byte)(249)))));
-            this.lblBilan.Location = new System.Drawing.Point(131, 521);
+            this.lblBilan.Location = new System.Drawing.Point(116, 521);
             this.lblBilan.Name = "lblBilan";
             this.lblBilan.Size = new System.Drawing.Size(50, 22);
             this.lblBilan.TabIndex = 10;
@@ -77,7 +77,7 @@
             this.lblDepenses.AutoSize = true;
             this.lblDepenses.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.5F);
             this.lblDepenses.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(249)))), ((int)(((byte)(249)))));
-            this.lblDepenses.Location = new System.Drawing.Point(131, 425);
+            this.lblDepenses.Location = new System.Drawing.Point(116, 425);
             this.lblDepenses.Name = "lblDepenses";
             this.lblDepenses.Size = new System.Drawing.Size(91, 22);
             this.lblDepenses.TabIndex = 9;
@@ -88,7 +88,7 @@
             this.lblParticipants.AutoSize = true;
             this.lblParticipants.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.5F);
             this.lblParticipants.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(249)))), ((int)(((byte)(249)))));
-            this.lblParticipants.Location = new System.Drawing.Point(131, 326);
+            this.lblParticipants.Location = new System.Drawing.Point(116, 326);
             this.lblParticipants.Name = "lblParticipants";
             this.lblParticipants.Size = new System.Drawing.Size(104, 22);
             this.lblParticipants.TabIndex = 8;
@@ -99,7 +99,7 @@
             this.lblEvenements.AutoSize = true;
             this.lblEvenements.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.5F);
             this.lblEvenements.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(249)))), ((int)(((byte)(249)))));
-            this.lblEvenements.Location = new System.Drawing.Point(131, 222);
+            this.lblEvenements.Location = new System.Drawing.Point(116, 222);
             this.lblEvenements.Name = "lblEvenements";
             this.lblEvenements.Size = new System.Drawing.Size(109, 22);
             this.lblEvenements.TabIndex = 7;
@@ -110,7 +110,7 @@
             this.lblAccueil.AutoSize = true;
             this.lblAccueil.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.5F);
             this.lblAccueil.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(249)))), ((int)(((byte)(249)))));
-            this.lblAccueil.Location = new System.Drawing.Point(131, 127);
+            this.lblAccueil.Location = new System.Drawing.Point(116, 127);
             this.lblAccueil.Name = "lblAccueil";
             this.lblAccueil.Size = new System.Drawing.Size(68, 22);
             this.lblAccueil.TabIndex = 6;
@@ -121,7 +121,7 @@
             this.lblIconeBilan.AutoSize = true;
             this.lblIconeBilan.Font = new System.Drawing.Font("Webdings", 30F);
             this.lblIconeBilan.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
-            this.lblIconeBilan.Location = new System.Drawing.Point(43, 506);
+            this.lblIconeBilan.Location = new System.Drawing.Point(30, 506);
             this.lblIconeBilan.Name = "lblIconeBilan";
             this.lblIconeBilan.Size = new System.Drawing.Size(58, 42);
             this.lblIconeBilan.TabIndex = 5;
@@ -132,7 +132,7 @@
             this.lblIconeDepense.AutoSize = true;
             this.lblIconeDepense.Font = new System.Drawing.Font("Webdings", 30F);
             this.lblIconeDepense.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
-            this.lblIconeDepense.Location = new System.Drawing.Point(43, 411);
+            this.lblIconeDepense.Location = new System.Drawing.Point(30, 411);
             this.lblIconeDepense.Name = "lblIconeDepense";
             this.lblIconeDepense.Size = new System.Drawing.Size(58, 42);
             this.lblIconeDepense.TabIndex = 4;
@@ -143,7 +143,7 @@
             this.lblIconeParticipant.AutoSize = true;
             this.lblIconeParticipant.Font = new System.Drawing.Font("Webdings", 30F);
             this.lblIconeParticipant.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
-            this.lblIconeParticipant.Location = new System.Drawing.Point(43, 311);
+            this.lblIconeParticipant.Location = new System.Drawing.Point(30, 311);
             this.lblIconeParticipant.Name = "lblIconeParticipant";
             this.lblIconeParticipant.Size = new System.Drawing.Size(58, 42);
             this.lblIconeParticipant.TabIndex = 3;
@@ -154,7 +154,7 @@
             this.lblIconeEvenement.AutoSize = true;
             this.lblIconeEvenement.Font = new System.Drawing.Font("Webdings", 30F);
             this.lblIconeEvenement.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
-            this.lblIconeEvenement.Location = new System.Drawing.Point(43, 208);
+            this.lblIconeEvenement.Location = new System.Drawing.Point(30, 208);
             this.lblIconeEvenement.Name = "lblIconeEvenement";
             this.lblIconeEvenement.Size = new System.Drawing.Size(58, 42);
             this.lblIconeEvenement.TabIndex = 2;
@@ -166,7 +166,7 @@
             this.lblIconeAccueil.AutoSize = true;
             this.lblIconeAccueil.Font = new System.Drawing.Font("Webdings", 30F);
             this.lblIconeAccueil.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
-            this.lblIconeAccueil.Location = new System.Drawing.Point(43, 112);
+            this.lblIconeAccueil.Location = new System.Drawing.Point(30, 112);
             this.lblIconeAccueil.Name = "lblIconeAccueil";
             this.lblIconeAccueil.Size = new System.Drawing.Size(58, 42);
             this.lblIconeAccueil.TabIndex = 1;

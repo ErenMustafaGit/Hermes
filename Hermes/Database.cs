@@ -14,7 +14,7 @@ namespace Hermes
 {
     class Database
     {
-        string chcon = "Provider=Microsoft.Jet.OLEDB.4.0;Data Source='X:\\a21 sterne pie\\Base de données\\bdEvents.mdb'";
+        string chcon = "Provider=Microsoft.Jet.OLEDB.4.0;Data Source='../../../bdEvents.mdb'";
         OleDbConnection connection = new OleDbConnection();
 
         public List<PartyEvent> FetchEvents()
@@ -76,6 +76,7 @@ namespace Hermes
                     theParticipant.LastName = dataReader.GetString(2);
                     theParticipant.PhoneNumber = dataReader.GetString(3);
                     theParticipant.NbParts = dataReader.GetInt32(4);
+
                     //Si le solde est null
                     if (!dataReader.IsDBNull(5))
                     {
