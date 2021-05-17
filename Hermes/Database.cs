@@ -70,7 +70,19 @@ namespace Hermes
                 OleDbDataReader dataReader = command.ExecuteReader();
                 while (dataReader.Read())
                 {
-                    Participant oneParticipant = new Participant()
+                    Participant theParticipant = new Participant();
+                    theParticipant.CodeParticipant = dataReader.GetInt32(0);
+                    theParticipant.FirstName = dataReader.GetString(1);
+                    theParticipant.LastName = dataReader.GetString(2);
+                    theParticipant.PhoneNumber = dataReader.GetString(3);
+                    theParticipant.NbParts = dataReader.GetInt32(4);
+                    //Si le solde est null
+                    if (!dataReader.IsDBNull(5))
+                    {
+                        theParticipant.Balance = dataReader.GetDouble(5);
+                    }
+                    theParticipant.Mail = dataReader.GetString(6);
+                    /*
                     {
                         CodeParticipant = dataReader.GetInt32(0),
                         FirstName = dataReader.GetString(1),
@@ -79,8 +91,8 @@ namespace Hermes
                         NbParts = dataReader.GetInt32(4),
                         Balance = dataReader.GetInt32(5),
                         Mail = dataReader.GetString(6)
-                    };
-                    participants.Add(oneParticipant);
+                    };*/
+                    participants.Add(theParticipant);
                 }
             }
             catch (OleDbException er)
@@ -111,7 +123,19 @@ namespace Hermes
                 OleDbDataReader dataReader = command.ExecuteReader();
                 while (dataReader.Read())
                 {
-                    Expenditure oneExpenditure = new Expenditure()
+                    Expenditure theExpenditure = new Expenditure();
+                    theExpenditure.NumExpenditure = dataReader.GetInt32(0);
+                    theExpenditure.Description = dataReader.GetString(1);
+
+                    theExpenditure.Amount = dataReader.GetDecimal(2);
+                    theExpenditure.DateExpenditure = dataReader.GetDateTime(3);
+                    if (!dataReader.IsDBNull(4))
+                    {
+                        theExpenditure.Comment = dataReader.GetString(4);
+                    }
+                    theExpenditure.CodeEvent = dataReader.GetInt32(5);
+                    theExpenditure.CodeParticipant = dataReader.GetInt32(6);
+                    /*
                     {
                         NumExpenditure = dataReader.GetInt32(0),
                         Description = dataReader.GetString(1),
@@ -120,8 +144,8 @@ namespace Hermes
                         Comment = dataReader.GetString(4),
                         CodeEvent = dataReader.GetInt32(5),
                         CodeParticipant = dataReader.GetInt32(6)
-                    };
-                    expenditures.Add(oneExpenditure);
+                    };*/
+                    expenditures.Add(theExpenditure);
                 }
             }
             catch (OleDbException er)
