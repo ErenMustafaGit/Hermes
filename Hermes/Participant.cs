@@ -37,7 +37,7 @@ namespace Hermes
                 string chcon = "Provider=Microsoft.Jet.OLEDB.4.0;Data Source='../../../bdEvents.mdb'";
                 connection.ConnectionString = chcon;
                 connection.Open();
-                string sql = "select * from Evenements where codeParticipant = '" + codeParticipant + "'";
+                string sql = "select * from Participants where codeParticipant = " + codeParticipant;
                 OleDbCommand command = new OleDbCommand(sql, connection);
                 OleDbDataReader dataReader = command.ExecuteReader();
 

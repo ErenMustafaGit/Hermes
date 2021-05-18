@@ -28,35 +28,29 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.lblEvenement = new System.Windows.Forms.Label();
+            this.pnlScroll = new System.Windows.Forms.Panel();
             this.SuspendLayout();
             // 
-            // lblEvenement
+            // pnlScroll
             // 
-            this.lblEvenement.AutoSize = true;
-            this.lblEvenement.Font = new System.Drawing.Font("Arial", 39.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblEvenement.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(12)))), ((int)(((byte)(12)))));
-            this.lblEvenement.Location = new System.Drawing.Point(130, 131);
-            this.lblEvenement.Name = "lblEvenement";
-            this.lblEvenement.Size = new System.Drawing.Size(336, 62);
-            this.lblEvenement.TabIndex = 1;
-            this.lblEvenement.Text = "Evenements";
+            this.pnlScroll.Location = new System.Drawing.Point(0, 21);
+            this.pnlScroll.Name = "pnlScroll";
+            this.pnlScroll.Size = new System.Drawing.Size(1044, 604);
+            this.pnlScroll.TabIndex = 2;
             // 
             // Evenements
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.lblEvenement);
+            this.Controls.Add(this.pnlScroll);
             this.Name = "Evenements";
             this.Size = new System.Drawing.Size(1064, 640);
             this.Load += new System.EventHandler(this.Evenements_Load);
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Label lblEvenement;
+        private System.Windows.Forms.Panel pnlScroll;
     }
 }

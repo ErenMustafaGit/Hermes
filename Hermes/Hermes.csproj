@@ -74,6 +74,12 @@
     <Compile Include="AjoutRapideBouton.Designer.cs">
       <DependentUpon>AjoutRapideBouton.cs</DependentUpon>
     </Compile>
+    <Compile Include="ResumePartyEvent.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ResumePartyEvent.Designer.cs">
+      <DependentUpon>ResumePartyEvent.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\AppFontLabel.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -141,6 +147,9 @@
     <EmbeddedResource Include="Resources\Fonts.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Fonts.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ResumePartyEvent.resx">
+      <DependentUpon>ResumePartyEvent.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SideBarUserControls.resx">
       <DependentUpon>SideBarUserControls.cs</DependentUpon>
