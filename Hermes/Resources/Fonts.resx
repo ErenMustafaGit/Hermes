@@ -121,8 +121,14 @@
   <data name="HelveticaNeue" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>HelveticaNeue.otf;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="HelveticaNeue_Bold" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>helveticaneue-bold.otf;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="HelveticaNeue_Light" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>HelveticaNeue-Light.otf;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="HelveticaNeue_Medium" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>helveticaneue-medium.otf;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="Icons" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>icons.ttf;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>

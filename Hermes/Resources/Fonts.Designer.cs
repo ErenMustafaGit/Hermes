@@ -73,9 +73,29 @@ namespace Hermes.Resources {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
+        internal static byte[] HelveticaNeue_Bold {
+            get {
+                object obj = ResourceManager.GetObject("HelveticaNeue_Bold", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
         internal static byte[] HelveticaNeue_Light {
             get {
                 object obj = ResourceManager.GetObject("HelveticaNeue_Light", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] HelveticaNeue_Medium {
+            get {
+                object obj = ResourceManager.GetObject("HelveticaNeue_Medium", resourceCulture);
                 return ((byte[])(obj));
             }
         }

@@ -115,7 +115,7 @@ namespace Hermes.UI
                 this.AppFontHeight, style);
 
             // Required to render non-system fonts. Breaks ClearType, though...
-            //this.UseCompatibleTextRendering = true;
+            // this.UseCompatibleTextRendering = true;
         }
     }
 }
