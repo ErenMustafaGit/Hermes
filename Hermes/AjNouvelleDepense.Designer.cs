@@ -1,6 +1,6 @@
 ﻿namespace Hermes
 {
-    partial class Evenements
+    partial class AjNouvelleDepense
     {
         /// <summary> 
         /// Variable nécessaire au concepteur.
@@ -28,28 +28,28 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.lblEvenement = new System.Windows.Forms.Label();
+            this.lblNouvelleDepense = new Hermes.UI.AppFontLabel();
             this.SuspendLayout();
             // 
-            // lblEvenement
+            // lblNouvelleDepense
             // 
-            this.lblEvenement.AutoSize = true;
-            this.lblEvenement.Font = new System.Drawing.Font("Arial", 39.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblEvenement.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(12)))), ((int)(((byte)(12)))));
-            this.lblEvenement.Location = new System.Drawing.Point(130, 131);
-            this.lblEvenement.Name = "lblEvenement";
-            this.lblEvenement.Size = new System.Drawing.Size(336, 62);
-            this.lblEvenement.TabIndex = 1;
-            this.lblEvenement.Text = "Evenements";
+            this.lblNouvelleDepense.AppFont = Hermes.AppFont.HelveticaNeue;
+            this.lblNouvelleDepense.AppFontHeight = 20F;
+            this.lblNouvelleDepense.AutoSize = true;
+            this.lblNouvelleDepense.IsBold = true;
+            this.lblNouvelleDepense.Location = new System.Drawing.Point(180, 192);
+            this.lblNouvelleDepense.Name = "lblNouvelleDepense";
+            this.lblNouvelleDepense.Size = new System.Drawing.Size(228, 31);
+            this.lblNouvelleDepense.TabIndex = 0;
+            this.lblNouvelleDepense.Text = "Nouvelle dépense";
             // 
-            // Evenements
+            // AjNouvelleDepense
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.lblEvenement);
-            this.Name = "Evenements";
+            this.Controls.Add(this.lblNouvelleDepense);
+            this.Name = "AjNouvelleDepense";
             this.Size = new System.Drawing.Size(1064, 640);
-            this.Load += new System.EventHandler(this.Evenements_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -57,6 +57,6 @@
 
         #endregion
 
-        private System.Windows.Forms.Label lblEvenement;
+        private UI.AppFontLabel lblNouvelleDepense;
     }
 }

@@ -13,15 +13,46 @@ namespace Hermes
 {
     public partial class AjoutRapideBouton : UserControl
     {
+        Panel ecran;
 
         public AjoutRapideBouton()
         {
             InitializeComponent();
         }
 
+        public Panel setPanel
+        {
+            set { this.ecran = value; }
+        }
+
+        //public string setEvenement
+
         private void AjoutRapideBouton_Load(object sender, EventArgs e)
         {
-            this.cbbEvenements.Size = new Size(245, 30);
+            Database base_de_donnee = new Database();
+            
+            List<PartyEvent> evenement = base_de_donnee.FetchEvents();
+            foreach(PartyEvent ee in evenement)
+            {
+                cbbEvenements.Items.Add(ee.TitleEvent.ToString());
+            }
+        }
+
+        private void btnAjouter_Click(object sender, EventArgs e)
+        {
+            AjNouvelleDepense aj = new AjNouvelleDepense();
+            aj.setPanel = this.ecran;
+            if(cbbEvenements.SelectedIndex != -1)
+            {
+                this.ecran.Controls.Clear();
+                this.ecran.Controls.Add(aj);
+            }
+            else
+            {
+                MessageBox.Show("Veuillez selectionener");
+            }
+            
+           
         }
     }
 }

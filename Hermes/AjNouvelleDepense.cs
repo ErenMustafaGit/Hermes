@@ -10,18 +10,19 @@ using System.Windows.Forms;
 
 namespace Hermes
 {
-    public partial class Evenements : UserControl
+    public partial class AjNouvelleDepense : UserControl
     {
-        public Evenements()
+        Panel ecran;
+        public AjNouvelleDepense()
         {
             InitializeComponent();
         }
 
-
-
-        private void Evenements_Load(object sender, EventArgs e)
+        public Panel setPanel
         {
-
+            set { this.ecran = value; }
         }
+
+
     }
 }

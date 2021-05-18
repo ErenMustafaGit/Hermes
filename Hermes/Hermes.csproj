@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
@@ -62,6 +62,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AjNouvelleDepense.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="AjNouvelleDepense.Designer.cs">
+      <DependentUpon>AjNouvelleDepense.cs</DependentUpon>
+    </Compile>
     <Compile Include="AjoutRapideBouton.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -110,6 +116,9 @@
     </Compile>
     <EmbeddedResource Include="Accueil.resx">
       <DependentUpon>Accueil.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AjNouvelleDepense.resx">
+      <DependentUpon>AjNouvelleDepense.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="AjoutRapideBouton.resx">
       <DependentUpon>AjoutRapideBouton.cs</DependentUpon>
