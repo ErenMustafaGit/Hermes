@@ -28,135 +28,142 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.lblBienvenue = new System.Windows.Forms.Label();
-            this.lblCree = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.lbliconeParticipants = new System.Windows.Forms.Label();
-            this.lblInformationParticipants = new System.Windows.Forms.Label();
-            this.lblevenementEnregistres = new System.Windows.Forms.Label();
-            this.lbliconeEvenement = new System.Windows.Forms.Label();
+            this.lbliconeParticipants = new Hermes.UI.AppFontLabel();
+            this.lbliconeEvenement = new Hermes.UI.AppFontLabel();
             this.ajoutRapideBouton1 = new Hermes.AjoutRapideBouton();
+            this.appFontLabel2 = new Hermes.UI.AppFontLabel();
+            this.appFontLabel1 = new Hermes.UI.AppFontLabel();
+            this.appFontLabel3 = new Hermes.UI.AppFontLabel();
+            this.appFontLabel4 = new Hermes.UI.AppFontLabel();
+            this.appFontLabel6 = new Hermes.UI.AppFontLabel();
+            this.lblInformationParticipants = new Hermes.UI.AppFontLabel();
+            this.lblevenementEnregistres = new Hermes.UI.AppFontLabel();
             this.SuspendLayout();
-            // 
-            // lblBienvenue
-            // 
-            this.lblBienvenue.AutoSize = true;
-            this.lblBienvenue.Font = new System.Drawing.Font("Arial", 39.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblBienvenue.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(12)))), ((int)(((byte)(12)))));
-            this.lblBienvenue.Location = new System.Drawing.Point(119, 125);
-            this.lblBienvenue.Name = "lblBienvenue";
-            this.lblBienvenue.Size = new System.Drawing.Size(349, 124);
-            this.lblBienvenue.TabIndex = 0;
-            this.lblBienvenue.Text = "Bienvenue\r\nsur Hermès !\r\n";
-            // 
-            // lblCree
-            // 
-            this.lblCree.AutoSize = true;
-            this.lblCree.BackColor = System.Drawing.Color.Transparent;
-            this.lblCree.Font = new System.Drawing.Font("Arial", 13F);
-            this.lblCree.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(12)))), ((int)(((byte)(12)))));
-            this.lblCree.Location = new System.Drawing.Point(127, 292);
-            this.lblCree.Name = "lblCree";
-            this.lblCree.Size = new System.Drawing.Size(336, 42);
-            this.lblCree.TabIndex = 1;
-            this.lblCree.Text = "Créez des évènements, invitez des gens,\r\npartagez l\'addition.";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Arial", 13F);
-            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(147)))), ((int)(((byte)(248)))));
-            this.label1.Location = new System.Drawing.Point(126, 292);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(57, 21);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "Créez";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Arial", 13F);
-            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(147)))), ((int)(((byte)(248)))));
-            this.label2.Location = new System.Drawing.Point(318, 292);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(60, 21);
-            this.label2.TabIndex = 3;
-            this.label2.Text = "invitez";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Arial", 13F);
-            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(147)))), ((int)(((byte)(248)))));
-            this.label3.Location = new System.Drawing.Point(127, 313);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(79, 21);
-            this.label3.TabIndex = 4;
-            this.label3.Text = "partagez";
             // 
             // lbliconeParticipants
             // 
+            this.lbliconeParticipants.AppFont = Hermes.AppFont.Icons;
+            this.lbliconeParticipants.AppFontHeight = 35F;
             this.lbliconeParticipants.AutoSize = true;
-            this.lbliconeParticipants.Font = new System.Drawing.Font("Webdings", 45F);
-            this.lbliconeParticipants.Location = new System.Drawing.Point(122, 366);
+            this.lbliconeParticipants.Location = new System.Drawing.Point(113, 388);
             this.lbliconeParticipants.Name = "lbliconeParticipants";
-            this.lbliconeParticipants.Size = new System.Drawing.Size(87, 61);
-            this.lbliconeParticipants.TabIndex = 5;
-            this.lbliconeParticipants.Text = "a";
+            this.lbliconeParticipants.Size = new System.Drawing.Size(52, 48);
+            this.lbliconeParticipants.TabIndex = 11;
+            this.lbliconeParticipants.Text = "O";
+            // 
+            // lbliconeEvenement
+            // 
+            this.lbliconeEvenement.AppFont = Hermes.AppFont.Icons;
+            this.lbliconeEvenement.AppFontHeight = 35F;
+            this.lbliconeEvenement.AutoSize = true;
+            this.lbliconeEvenement.Location = new System.Drawing.Point(107, 463);
+            this.lbliconeEvenement.Name = "lbliconeEvenement";
+            this.lbliconeEvenement.Size = new System.Drawing.Size(52, 48);
+            this.lbliconeEvenement.TabIndex = 10;
+            this.lbliconeEvenement.Text = "O";
+            // 
+            // ajoutRapideBouton1
+            // 
+            this.ajoutRapideBouton1.Location = new System.Drawing.Point(539, 125);
+            this.ajoutRapideBouton1.Name = "ajoutRapideBouton1";
+            this.ajoutRapideBouton1.Size = new System.Drawing.Size(416, 386);
+            this.ajoutRapideBouton1.TabIndex = 9;
+            this.ajoutRapideBouton1.Load += new System.EventHandler(this.ajoutRapideBouton1_Load);
+            // 
+            // appFontLabel2
+            // 
+            this.appFontLabel2.AppFont = Hermes.AppFont.HelveticaNeue;
+            this.appFontLabel2.AppFontHeight = 13F;
+            this.appFontLabel2.AutoSize = true;
+            this.appFontLabel2.Location = new System.Drawing.Point(109, 292);
+            this.appFontLabel2.Name = "appFontLabel2";
+            this.appFontLabel2.Size = new System.Drawing.Size(348, 42);
+            this.appFontLabel2.TabIndex = 13;
+            this.appFontLabel2.Text = "Créez des évènements,  invitez des gens,\r\npartagez l\'addition.\r\n";
+            // 
+            // appFontLabel1
+            // 
+            this.appFontLabel1.AppFont = Hermes.AppFont.HelveticaNeue;
+            this.appFontLabel1.AppFontHeight = 13F;
+            this.appFontLabel1.AutoSize = true;
+            this.appFontLabel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(147)))), ((int)(((byte)(248)))));
+            this.appFontLabel1.Location = new System.Drawing.Point(109, 292);
+            this.appFontLabel1.Name = "appFontLabel1";
+            this.appFontLabel1.Size = new System.Drawing.Size(58, 21);
+            this.appFontLabel1.TabIndex = 14;
+            this.appFontLabel1.Text = "Créez";
+            // 
+            // appFontLabel3
+            // 
+            this.appFontLabel3.AppFont = Hermes.AppFont.HelveticaNeue;
+            this.appFontLabel3.AppFontHeight = 13F;
+            this.appFontLabel3.AutoSize = true;
+            this.appFontLabel3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(147)))), ((int)(((byte)(248)))));
+            this.appFontLabel3.Location = new System.Drawing.Point(311, 292);
+            this.appFontLabel3.Name = "appFontLabel3";
+            this.appFontLabel3.Size = new System.Drawing.Size(62, 21);
+            this.appFontLabel3.TabIndex = 15;
+            this.appFontLabel3.Text = "invitez";
+            // 
+            // appFontLabel4
+            // 
+            this.appFontLabel4.AppFont = Hermes.AppFont.HelveticaNeue;
+            this.appFontLabel4.AppFontHeight = 13F;
+            this.appFontLabel4.AutoSize = true;
+            this.appFontLabel4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(147)))), ((int)(((byte)(248)))));
+            this.appFontLabel4.Location = new System.Drawing.Point(109, 313);
+            this.appFontLabel4.Name = "appFontLabel4";
+            this.appFontLabel4.Size = new System.Drawing.Size(82, 21);
+            this.appFontLabel4.TabIndex = 16;
+            this.appFontLabel4.Text = "partagez";
+            // 
+            // appFontLabel6
+            // 
+            this.appFontLabel6.AppFont = Hermes.AppFont.HelveticaNeue_Bold;
+            this.appFontLabel6.AppFontHeight = 39F;
+            this.appFontLabel6.AutoSize = true;
+            this.appFontLabel6.Location = new System.Drawing.Point(102, 137);
+            this.appFontLabel6.Name = "appFontLabel6";
+            this.appFontLabel6.Size = new System.Drawing.Size(339, 130);
+            this.appFontLabel6.TabIndex = 18;
+            this.appFontLabel6.Text = "Bienvenue\r\nsur Hermès !";
             // 
             // lblInformationParticipants
             // 
+            this.lblInformationParticipants.AppFont = Hermes.AppFont.HelveticaNeue;
+            this.lblInformationParticipants.AppFontHeight = 10F;
             this.lblInformationParticipants.AutoSize = true;
-            this.lblInformationParticipants.Font = new System.Drawing.Font("Arial", 10F);
-            this.lblInformationParticipants.Location = new System.Drawing.Point(215, 393);
+            this.lblInformationParticipants.Location = new System.Drawing.Point(197, 406);
             this.lblInformationParticipants.Name = "lblInformationParticipants";
-            this.lblInformationParticipants.Size = new System.Drawing.Size(178, 16);
-            this.lblInformationParticipants.TabIndex = 6;
+            this.lblInformationParticipants.Size = new System.Drawing.Size(182, 16);
+            this.lblInformationParticipants.TabIndex = 19;
             this.lblInformationParticipants.Text = "Il y a X participants inscrits.";
             // 
             // lblevenementEnregistres
             // 
+            this.lblevenementEnregistres.AppFont = Hermes.AppFont.HelveticaNeue;
+            this.lblevenementEnregistres.AppFontHeight = 10F;
             this.lblevenementEnregistres.AutoSize = true;
-            this.lblevenementEnregistres.Font = new System.Drawing.Font("Arial", 10F);
-            this.lblevenementEnregistres.Location = new System.Drawing.Point(215, 462);
+            this.lblevenementEnregistres.Location = new System.Drawing.Point(197, 481);
             this.lblevenementEnregistres.Name = "lblevenementEnregistres";
-            this.lblevenementEnregistres.Size = new System.Drawing.Size(209, 16);
-            this.lblevenementEnregistres.TabIndex = 8;
+            this.lblevenementEnregistres.Size = new System.Drawing.Size(212, 16);
+            this.lblevenementEnregistres.TabIndex = 20;
             this.lblevenementEnregistres.Text = "Il y a X évènements enregistrés.";
-            // 
-            // lbliconeEvenement
-            // 
-            this.lbliconeEvenement.AutoSize = true;
-            this.lbliconeEvenement.Font = new System.Drawing.Font("Webdings", 45F);
-            this.lbliconeEvenement.Location = new System.Drawing.Point(122, 442);
-            this.lbliconeEvenement.Name = "lbliconeEvenement";
-            this.lbliconeEvenement.Size = new System.Drawing.Size(87, 61);
-            this.lbliconeEvenement.TabIndex = 7;
-            this.lbliconeEvenement.Text = "e";
-            // 
-            // ajoutRapideBouton1
-            // 
-            this.ajoutRapideBouton1.Location = new System.Drawing.Point(582, 136);
-            this.ajoutRapideBouton1.Name = "ajoutRapideBouton1";
-            this.ajoutRapideBouton1.Size = new System.Drawing.Size(425, 376);
-            this.ajoutRapideBouton1.TabIndex = 9;
             // 
             // Accueil
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.ajoutRapideBouton1);
             this.Controls.Add(this.lblevenementEnregistres);
-            this.Controls.Add(this.lbliconeEvenement);
             this.Controls.Add(this.lblInformationParticipants);
+            this.Controls.Add(this.appFontLabel6);
+            this.Controls.Add(this.appFontLabel4);
+            this.Controls.Add(this.appFontLabel3);
+            this.Controls.Add(this.appFontLabel1);
+            this.Controls.Add(this.appFontLabel2);
             this.Controls.Add(this.lbliconeParticipants);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.lblCree);
-            this.Controls.Add(this.lblBienvenue);
+            this.Controls.Add(this.lbliconeEvenement);
+            this.Controls.Add(this.ajoutRapideBouton1);
             this.Name = "Accueil";
             this.Size = new System.Drawing.Size(1064, 640);
             this.Load += new System.EventHandler(this.Accueil_Load);
@@ -166,16 +173,15 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Label lblBienvenue;
-        private System.Windows.Forms.Label lblCree;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label lbliconeParticipants;
-        private System.Windows.Forms.Label lblInformationParticipants;
-        private System.Windows.Forms.Label lblevenementEnregistres;
-        private System.Windows.Forms.Label lbliconeEvenement;
         private AjoutRapideBouton ajoutRapideBouton1;
+        private UI.AppFontLabel lbliconeEvenement;
+        private UI.AppFontLabel lbliconeParticipants;
+        private UI.AppFontLabel appFontLabel2;
+        private UI.AppFontLabel appFontLabel1;
+        private UI.AppFontLabel appFontLabel3;
+        private UI.AppFontLabel appFontLabel4;
+        private UI.AppFontLabel appFontLabel6;
+        private UI.AppFontLabel lblInformationParticipants;
+        private UI.AppFontLabel lblevenementEnregistres;
     }
 }

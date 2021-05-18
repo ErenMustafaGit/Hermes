@@ -56,8 +56,9 @@ namespace Hermes
             this.sideBarUserControls1.ForeColor = System.Drawing.SystemColors.ControlText;
             this.sideBarUserControls1.Location = new System.Drawing.Point(-1, 0);
             this.sideBarUserControls1.Name = "sideBarUserControls1";
-            this.sideBarUserControls1.Size = new System.Drawing.Size(114, 640);
+            this.sideBarUserControls1.Size = new System.Drawing.Size(116, 640);
             this.sideBarUserControls1.TabIndex = 4;
+            this.sideBarUserControls1.Load += new System.EventHandler(this.SideBarUserControls1_Load);
             // 
             // MainForm
             // 

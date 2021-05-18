@@ -55,7 +55,7 @@ namespace Hermes
 
             try
             {
-                string chcon = "Provider=Microsoft.Jet.OLEDB.4.0;Data Source='X:\\a21 sterne pie\\Base de données\\bdEvents.mdb'";
+                string chcon = "Provider=Microsoft.Jet.OLEDB.4.0;Data Source='../../../bdEvents.mdb'";
                 connection.ConnectionString = chcon;
                 connection.Open();
                 string sql = "select * from Evenements where codeEvent = '" + codeEvent + "'";

@@ -29,149 +29,162 @@
         private void InitializeComponent()
         {
             this.sideBar = new System.Windows.Forms.Panel();
-            this.lblBilan = new System.Windows.Forms.Label();
-            this.lblDepenses = new System.Windows.Forms.Label();
-            this.lblParticipants = new System.Windows.Forms.Label();
-            this.lblEvenements = new System.Windows.Forms.Label();
-            this.lblAccueil = new System.Windows.Forms.Label();
-            this.lblIconeBilan = new System.Windows.Forms.Label();
-            this.lblIconeDepense = new System.Windows.Forms.Label();
-            this.lblIconeParticipant = new System.Windows.Forms.Label();
-            this.lblIconeEvenement = new System.Windows.Forms.Label();
-            this.lblIconeAccueil = new System.Windows.Forms.Label();
+            this.lblIconeBilan = new Hermes.UI.AppFontLabel();
+            this.lblIconeDepense = new Hermes.UI.AppFontLabel();
+            this.lblIconeParticipant = new Hermes.UI.AppFontLabel();
+            this.lblIconeEvenement = new Hermes.UI.AppFontLabel();
+            this.lblIconeAccueil = new Hermes.UI.AppFontLabel();
+            this.lblBilan = new Hermes.UI.AppFontLabel();
+            this.lblDepenses = new Hermes.UI.AppFontLabel();
+            this.lblParticipants = new Hermes.UI.AppFontLabel();
+            this.lblEvenements = new Hermes.UI.AppFontLabel();
+            this.lblAccueil = new Hermes.UI.AppFontLabel();
             this.sideBar.SuspendLayout();
             this.SuspendLayout();
             // 
             // sideBar
             // 
             this.sideBar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(12)))), ((int)(((byte)(12)))));
-            this.sideBar.Controls.Add(this.lblBilan);
-            this.sideBar.Controls.Add(this.lblDepenses);
-            this.sideBar.Controls.Add(this.lblParticipants);
-            this.sideBar.Controls.Add(this.lblEvenements);
-            this.sideBar.Controls.Add(this.lblAccueil);
             this.sideBar.Controls.Add(this.lblIconeBilan);
             this.sideBar.Controls.Add(this.lblIconeDepense);
             this.sideBar.Controls.Add(this.lblIconeParticipant);
             this.sideBar.Controls.Add(this.lblIconeEvenement);
             this.sideBar.Controls.Add(this.lblIconeAccueil);
+            this.sideBar.Controls.Add(this.lblBilan);
+            this.sideBar.Controls.Add(this.lblDepenses);
+            this.sideBar.Controls.Add(this.lblParticipants);
+            this.sideBar.Controls.Add(this.lblEvenements);
+            this.sideBar.Controls.Add(this.lblAccueil);
             this.sideBar.Location = new System.Drawing.Point(0, 0);
             this.sideBar.Name = "sideBar";
             this.sideBar.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.sideBar.Size = new System.Drawing.Size(424, 640);
+            this.sideBar.Size = new System.Drawing.Size(421, 640);
             this.sideBar.TabIndex = 0;
+            this.sideBar.Paint += new System.Windows.Forms.PaintEventHandler(this.sideBar_Paint);
+            // 
+            // lblIconeBilan
+            // 
+            this.lblIconeBilan.AppFont = Hermes.AppFont.Icons;
+            this.lblIconeBilan.AppFontHeight = 20F;
+            this.lblIconeBilan.AutoSize = true;
+            this.lblIconeBilan.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(249)))), ((int)(((byte)(249)))));
+            this.lblIconeBilan.Location = new System.Drawing.Point(39, 514);
+            this.lblIconeBilan.Name = "lblIconeBilan";
+            this.lblIconeBilan.Size = new System.Drawing.Size(29, 27);
+            this.lblIconeBilan.TabIndex = 17;
+            this.lblIconeBilan.Text = "O";
+            // 
+            // lblIconeDepense
+            // 
+            this.lblIconeDepense.AppFont = Hermes.AppFont.Icons;
+            this.lblIconeDepense.AppFontHeight = 20F;
+            this.lblIconeDepense.AutoSize = true;
+            this.lblIconeDepense.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(249)))), ((int)(((byte)(249)))));
+            this.lblIconeDepense.Location = new System.Drawing.Point(39, 411);
+            this.lblIconeDepense.Name = "lblIconeDepense";
+            this.lblIconeDepense.Size = new System.Drawing.Size(29, 27);
+            this.lblIconeDepense.TabIndex = 15;
+            this.lblIconeDepense.Text = "O";
+            // 
+            // lblIconeParticipant
+            // 
+            this.lblIconeParticipant.AppFont = Hermes.AppFont.Icons;
+            this.lblIconeParticipant.AppFontHeight = 20F;
+            this.lblIconeParticipant.AutoSize = true;
+            this.lblIconeParticipant.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(249)))), ((int)(((byte)(249)))));
+            this.lblIconeParticipant.Location = new System.Drawing.Point(39, 312);
+            this.lblIconeParticipant.Name = "lblIconeParticipant";
+            this.lblIconeParticipant.Size = new System.Drawing.Size(29, 27);
+            this.lblIconeParticipant.TabIndex = 13;
+            this.lblIconeParticipant.Text = "O";
+            // 
+            // lblIconeEvenement
+            // 
+            this.lblIconeEvenement.AppFont = Hermes.AppFont.Icons;
+            this.lblIconeEvenement.AppFontHeight = 20F;
+            this.lblIconeEvenement.AutoSize = true;
+            this.lblIconeEvenement.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(249)))), ((int)(((byte)(249)))));
+            this.lblIconeEvenement.Location = new System.Drawing.Point(39, 210);
+            this.lblIconeEvenement.Name = "lblIconeEvenement";
+            this.lblIconeEvenement.Size = new System.Drawing.Size(29, 27);
+            this.lblIconeEvenement.TabIndex = 12;
+            this.lblIconeEvenement.Text = "O";
+            this.lblIconeEvenement.Click += new System.EventHandler(this.LblIconeEvenement_Click);
+            // 
+            // lblIconeAccueil
+            // 
+            this.lblIconeAccueil.AppFont = Hermes.AppFont.Icons;
+            this.lblIconeAccueil.AppFontHeight = 20F;
+            this.lblIconeAccueil.AutoSize = true;
+            this.lblIconeAccueil.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(249)))), ((int)(((byte)(249)))));
+            this.lblIconeAccueil.Location = new System.Drawing.Point(39, 113);
+            this.lblIconeAccueil.Name = "lblIconeAccueil";
+            this.lblIconeAccueil.Size = new System.Drawing.Size(29, 27);
+            this.lblIconeAccueil.TabIndex = 11;
+            this.lblIconeAccueil.Text = "O";
+            this.lblIconeAccueil.Click += new System.EventHandler(this.LblIconeAccueil_Click);
             // 
             // lblBilan
             // 
+            this.lblBilan.AppFont = Hermes.AppFont.HelveticaNeue;
+            this.lblBilan.AppFontHeight = 12F;
             this.lblBilan.AutoSize = true;
-            this.lblBilan.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.5F);
             this.lblBilan.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(249)))), ((int)(((byte)(249)))));
-            this.lblBilan.Location = new System.Drawing.Point(116, 521);
+            this.lblBilan.Location = new System.Drawing.Point(113, 522);
             this.lblBilan.Name = "lblBilan";
-            this.lblBilan.Size = new System.Drawing.Size(50, 22);
+            this.lblBilan.Size = new System.Drawing.Size(46, 19);
             this.lblBilan.TabIndex = 10;
             this.lblBilan.Text = "Bilan";
+            this.lblBilan.Click += new System.EventHandler(this.LblBilan_Click);
             // 
             // lblDepenses
             // 
+            this.lblDepenses.AppFont = Hermes.AppFont.HelveticaNeue;
+            this.lblDepenses.AppFontHeight = 12F;
             this.lblDepenses.AutoSize = true;
-            this.lblDepenses.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.5F);
             this.lblDepenses.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(249)))), ((int)(((byte)(249)))));
-            this.lblDepenses.Location = new System.Drawing.Point(116, 425);
+            this.lblDepenses.Location = new System.Drawing.Point(113, 418);
             this.lblDepenses.Name = "lblDepenses";
-            this.lblDepenses.Size = new System.Drawing.Size(91, 22);
+            this.lblDepenses.Size = new System.Drawing.Size(81, 19);
             this.lblDepenses.TabIndex = 9;
             this.lblDepenses.Text = "Dépenses";
             // 
             // lblParticipants
             // 
+            this.lblParticipants.AppFont = Hermes.AppFont.HelveticaNeue;
+            this.lblParticipants.AppFontHeight = 12F;
             this.lblParticipants.AutoSize = true;
-            this.lblParticipants.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.5F);
             this.lblParticipants.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(249)))), ((int)(((byte)(249)))));
-            this.lblParticipants.Location = new System.Drawing.Point(116, 326);
+            this.lblParticipants.Location = new System.Drawing.Point(113, 319);
             this.lblParticipants.Name = "lblParticipants";
-            this.lblParticipants.Size = new System.Drawing.Size(104, 22);
+            this.lblParticipants.Size = new System.Drawing.Size(95, 19);
             this.lblParticipants.TabIndex = 8;
             this.lblParticipants.Text = "Participants";
             // 
             // lblEvenements
             // 
+            this.lblEvenements.AppFont = Hermes.AppFont.HelveticaNeue;
+            this.lblEvenements.AppFontHeight = 12F;
             this.lblEvenements.AutoSize = true;
-            this.lblEvenements.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.5F);
             this.lblEvenements.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(249)))), ((int)(((byte)(249)))));
-            this.lblEvenements.Location = new System.Drawing.Point(116, 222);
+            this.lblEvenements.Location = new System.Drawing.Point(113, 217);
             this.lblEvenements.Name = "lblEvenements";
-            this.lblEvenements.Size = new System.Drawing.Size(109, 22);
+            this.lblEvenements.Size = new System.Drawing.Size(99, 19);
             this.lblEvenements.TabIndex = 7;
             this.lblEvenements.Text = "Évènements";
             // 
             // lblAccueil
             // 
+            this.lblAccueil.AppFont = Hermes.AppFont.HelveticaNeue;
+            this.lblAccueil.AppFontHeight = 12F;
             this.lblAccueil.AutoSize = true;
-            this.lblAccueil.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.5F);
             this.lblAccueil.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(249)))), ((int)(((byte)(249)))));
-            this.lblAccueil.Location = new System.Drawing.Point(116, 127);
+            this.lblAccueil.Location = new System.Drawing.Point(113, 120);
             this.lblAccueil.Name = "lblAccueil";
-            this.lblAccueil.Size = new System.Drawing.Size(68, 22);
+            this.lblAccueil.Size = new System.Drawing.Size(63, 19);
             this.lblAccueil.TabIndex = 6;
             this.lblAccueil.Text = "Accueil";
-            // 
-            // lblIconeBilan
-            // 
-            this.lblIconeBilan.AutoSize = true;
-            this.lblIconeBilan.Font = new System.Drawing.Font("Webdings", 30F);
-            this.lblIconeBilan.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
-            this.lblIconeBilan.Location = new System.Drawing.Point(30, 506);
-            this.lblIconeBilan.Name = "lblIconeBilan";
-            this.lblIconeBilan.Size = new System.Drawing.Size(58, 42);
-            this.lblIconeBilan.TabIndex = 5;
-            this.lblIconeBilan.Text = "x";
-            // 
-            // lblIconeDepense
-            // 
-            this.lblIconeDepense.AutoSize = true;
-            this.lblIconeDepense.Font = new System.Drawing.Font("Webdings", 30F);
-            this.lblIconeDepense.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
-            this.lblIconeDepense.Location = new System.Drawing.Point(30, 411);
-            this.lblIconeDepense.Name = "lblIconeDepense";
-            this.lblIconeDepense.Size = new System.Drawing.Size(58, 42);
-            this.lblIconeDepense.TabIndex = 4;
-            this.lblIconeDepense.Text = "d";
-            // 
-            // lblIconeParticipant
-            // 
-            this.lblIconeParticipant.AutoSize = true;
-            this.lblIconeParticipant.Font = new System.Drawing.Font("Webdings", 30F);
-            this.lblIconeParticipant.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
-            this.lblIconeParticipant.Location = new System.Drawing.Point(30, 311);
-            this.lblIconeParticipant.Name = "lblIconeParticipant";
-            this.lblIconeParticipant.Size = new System.Drawing.Size(58, 42);
-            this.lblIconeParticipant.TabIndex = 3;
-            this.lblIconeParticipant.Text = "s";
-            // 
-            // lblIconeEvenement
-            // 
-            this.lblIconeEvenement.AutoSize = true;
-            this.lblIconeEvenement.Font = new System.Drawing.Font("Webdings", 30F);
-            this.lblIconeEvenement.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
-            this.lblIconeEvenement.Location = new System.Drawing.Point(30, 208);
-            this.lblIconeEvenement.Name = "lblIconeEvenement";
-            this.lblIconeEvenement.Size = new System.Drawing.Size(58, 42);
-            this.lblIconeEvenement.TabIndex = 2;
-            this.lblIconeEvenement.Text = "p";
-            this.lblIconeEvenement.Click += new System.EventHandler(this.LblIconeEvenement_Click);
-            // 
-            // lblIconeAccueil
-            // 
-            this.lblIconeAccueil.AutoSize = true;
-            this.lblIconeAccueil.Font = new System.Drawing.Font("Webdings", 30F);
-            this.lblIconeAccueil.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
-            this.lblIconeAccueil.Location = new System.Drawing.Point(30, 112);
-            this.lblIconeAccueil.Name = "lblIconeAccueil";
-            this.lblIconeAccueil.Size = new System.Drawing.Size(58, 42);
-            this.lblIconeAccueil.TabIndex = 1;
-            this.lblIconeAccueil.Text = "l";
-            this.lblIconeAccueil.Click += new System.EventHandler(this.LblIconeAccueil_Click);
+            this.lblAccueil.Click += new System.EventHandler(this.LblAccueil_Click);
             // 
             // SideBarUserControls
             // 
@@ -192,15 +205,16 @@
         #endregion
 
         private System.Windows.Forms.Panel sideBar;
-        private System.Windows.Forms.Label lblIconeBilan;
-        private System.Windows.Forms.Label lblIconeDepense;
-        private System.Windows.Forms.Label lblIconeParticipant;
-        private System.Windows.Forms.Label lblIconeEvenement;
-        private System.Windows.Forms.Label lblIconeAccueil;
-        private System.Windows.Forms.Label lblAccueil;
-        private System.Windows.Forms.Label lblEvenements;
-        private System.Windows.Forms.Label lblBilan;
-        private System.Windows.Forms.Label lblDepenses;
-        private System.Windows.Forms.Label lblParticipants;
+        private System.Windows.Forms.Label s;
+        private UI.AppFontLabel lblAccueil;
+        private UI.AppFontLabel lblEvenements;
+        private UI.AppFontLabel lblBilan;
+        private UI.AppFontLabel lblDepenses;
+        private UI.AppFontLabel lblParticipants;
+        private UI.AppFontLabel lblIconeAccueil;
+        private UI.AppFontLabel lblIconeEvenement;
+        private UI.AppFontLabel lblIconeParticipant;
+        private UI.AppFontLabel lblIconeDepense;
+        private UI.AppFontLabel lblIconeBilan;
     }
 }
