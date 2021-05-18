@@ -46,9 +46,6 @@ namespace Hermes
 
 
 
-        private void Evenements_Load(object sender, EventArgs e)
-        {
-
-        }
+        
     }
 }
