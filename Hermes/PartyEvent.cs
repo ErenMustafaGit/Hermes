@@ -88,6 +88,49 @@ namespace Hermes
             return theEvent;
         }
 
+        public List<Participant> GetGuests()
+        {
+            List<Participant> guests = new List<Participant>();
+            try
+            {
+                connection.ConnectionString = chcon;
+                connection.Open();
+                string sqlCodePart = "select codePart from Invites where codeEvent = " + this.CodeEvent;
+                OleDbCommand command = new OleDbCommand(sqlCodePart, connection);
+                OleDbDataReader dataReader = command.ExecuteReader();
+                while (dataReader.Read())
+                {
+                    string sqlGuest = "select * from Participants where codeParticipant = " + dataReader.GetInt32(0);
+                    OleDbCommand commandGuest = new OleDbCommand(sqlGuest, connection);
+                    OleDbDataReader dataReaderGuest = commandGuest.ExecuteReader();
+
+                    dataReaderGuest.Read();
+                    Participant guest = new Participant();
+                    guest.CodeParticipant = dataReaderGuest.GetInt32(0);
+                    guest.FirstName = dataReaderGuest.GetString(1);
+                    guest.LastName = dataReaderGuest.GetString(2);
+                    guest.PhoneNumber = dataReaderGuest.GetString(3);
+                    guest.NbParts = dataReaderGuest.GetInt32(4);
+
+                    //Si le solde est null
+                    if (!dataReaderGuest.IsDBNull(5))
+                    {
+                        guest.Balance = dataReaderGuest.GetDouble(5);
+                    }
+                    guest.Mail = dataReaderGuest.GetString(6);
+                    guests.Add(guest);
+                }
+            }
+            catch (OleDbException er)
+            {
+                MessageBox.Show(er.ToString());
+            }
+            finally
+            {
+                connection.Close();
+            }
+            return guests;
+        }
         public int GetNbPart()
         {
             int nbPart = -1;
