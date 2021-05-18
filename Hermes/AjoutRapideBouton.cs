@@ -49,10 +49,15 @@ namespace Hermes
             }
             else
             {
-                MessageBox.Show("Veuillez selectionener");
+                MessageBox.Show("Veuillez selectionner un évènement !");
             }
             
            
+        }
+
+        private void appFontLabel1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

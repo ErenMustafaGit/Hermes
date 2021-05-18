@@ -32,6 +32,7 @@
             this.cbbEvenements = new System.Windows.Forms.ComboBox();
             this.btnAjouter = new System.Windows.Forms.Button();
             this.lblQuelEvenement = new Hermes.UI.AppFontLabel();
+            this.appFontLabel1 = new Hermes.UI.AppFontLabel();
             this.SuspendLayout();
             // 
             // lblAjoutRapide
@@ -40,9 +41,8 @@
             this.lblAjoutRapide.Font = new System.Drawing.Font("Arial", 25F, System.Drawing.FontStyle.Bold);
             this.lblAjoutRapide.Location = new System.Drawing.Point(73, 87);
             this.lblAjoutRapide.Name = "lblAjoutRapide";
-            this.lblAjoutRapide.Size = new System.Drawing.Size(252, 80);
+            this.lblAjoutRapide.Size = new System.Drawing.Size(0, 40);
             this.lblAjoutRapide.TabIndex = 0;
-            this.lblAjoutRapide.Text = "Ajout rapide\r\nd\'une dépense\r\n";
             // 
             // cbbEvenements
             // 
@@ -75,14 +75,27 @@
             this.lblQuelEvenement.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(49)))), ((int)(((byte)(49)))));
             this.lblQuelEvenement.Location = new System.Drawing.Point(77, 214);
             this.lblQuelEvenement.Name = "lblQuelEvenement";
-            this.lblQuelEvenement.Size = new System.Drawing.Size(125, 13);
+            this.lblQuelEvenement.Size = new System.Drawing.Size(137, 14);
             this.lblQuelEvenement.TabIndex = 4;
             this.lblQuelEvenement.Text = "Dans quel évènements ?";
+            // 
+            // appFontLabel1
+            // 
+            this.appFontLabel1.AppFont = Hermes.AppFont.HelveticaNeue_Bold;
+            this.appFontLabel1.AppFontHeight = 27F;
+            this.appFontLabel1.AutoSize = true;
+            this.appFontLabel1.Location = new System.Drawing.Point(72, 98);
+            this.appFontLabel1.Name = "appFontLabel1";
+            this.appFontLabel1.Size = new System.Drawing.Size(266, 90);
+            this.appFontLabel1.TabIndex = 5;
+            this.appFontLabel1.Text = "Ajout rapide\r\nd\'une dépense\r\n";
+            this.appFontLabel1.Click += new System.EventHandler(this.appFontLabel1_Click);
             // 
             // AjoutRapideBouton
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.appFontLabel1);
             this.Controls.Add(this.lblQuelEvenement);
             this.Controls.Add(this.btnAjouter);
             this.Controls.Add(this.cbbEvenements);
@@ -101,5 +114,6 @@
         private System.Windows.Forms.ComboBox cbbEvenements;
         private System.Windows.Forms.Button btnAjouter;
         private UI.AppFontLabel lblQuelEvenement;
+        private UI.AppFontLabel appFontLabel1;
     }
 }

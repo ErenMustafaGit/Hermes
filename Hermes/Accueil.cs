@@ -41,5 +41,10 @@ namespace Hermes
         {
 
         }
+
+        private void ajoutRapideBouton1_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
