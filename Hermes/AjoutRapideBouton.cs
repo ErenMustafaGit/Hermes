@@ -40,11 +40,12 @@ namespace Hermes
 
         private void btnAjouter_Click(object sender, EventArgs e)
         {
-            AjNouvelleDepense aj = new AjNouvelleDepense();
-            aj.setPanel = this.ecran;
+            
             if(cbbEvenements.SelectedIndex != -1)
             {
                 this.ecran.Controls.Clear();
+                AjNouvelleDepense aj = new AjNouvelleDepense(cbbEvenements.SelectedIndex);
+                aj.setPanel = this.ecran;
                 this.ecran.Controls.Add(aj);
             }
             else

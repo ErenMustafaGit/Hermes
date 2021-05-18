@@ -32,12 +32,13 @@ namespace Hermes
             this.label1 = new System.Windows.Forms.Label();
             this.pnlEcran = new System.Windows.Forms.Panel();
             this.sideBarUserControls1 = new Hermes.SideBarUserControls();
+            this.pnlEcran.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(1044, 19);
+            this.label1.Location = new System.Drawing.Point(928, 23);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(14, 13);
             this.label1.TabIndex = 1;
@@ -45,9 +46,10 @@ namespace Hermes
             // 
             // pnlEcran
             // 
+            this.pnlEcran.Controls.Add(this.label1);
             this.pnlEcran.Location = new System.Drawing.Point(113, 0);
             this.pnlEcran.Name = "pnlEcran";
-            this.pnlEcran.Size = new System.Drawing.Size(914, 640);
+            this.pnlEcran.Size = new System.Drawing.Size(967, 640);
             this.pnlEcran.TabIndex = 3;
             // 
             // sideBarUserControls1
@@ -69,7 +71,6 @@ namespace Hermes
             this.ClientSize = new System.Drawing.Size(1080, 640);
             this.Controls.Add(this.sideBarUserControls1);
             this.Controls.Add(this.pnlEcran);
-            this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -77,8 +78,9 @@ namespace Hermes
             this.Load += new System.EventHandler(this.MainForm_Load);
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MainForm_MouseDown);
             this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.MainForm_MouseMove);
+            this.pnlEcran.ResumeLayout(false);
+            this.pnlEcran.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
