@@ -27,13 +27,22 @@ namespace Hermes
 
         private void AjNouvelleDepense_Load(object sender, EventArgs e)
         {
-            Database base_de_donnee = new Database();
-            List<PartyEvent> evenement = base_de_donnee.FetchEvents();
-            foreach (PartyEvent ee in evenement)
-            {
-                cbbEvenement.Items.Add(ee.TitleEvent.ToString());
-            }
-            cbbEvenement.SelectedIndex = this.indice;
+            Database database = new Database();
+
+            DataTable events = PartyEvent.toDataTable(database.FetchEvents());
+            cboEvenements.DataSource = events;
+            cboEvenements.DisplayMember = "TitleEvent";
+            cboEvenements.ValueMember = "CodeEvent";
+            cboEvenements.SelectedIndex = indice - 1;
+
+
+            PartyEvent selectedEvent = PartyEvent.GetPartyEvent(int.Parse(cboEvenements.SelectedValue.ToString()));
+            /*DataTable guests = Participant.toDataTable(selectedEvent.GetGuests)
+            cboPayePar.DataSource = guests;
+            cboPayePar.DisplayMember = ""*/
+
+            dtpDebut.Value = selectedEvent.BeginDate;
+            dtpFin.Value = selectedEvent.EndDate;
         }
 
         private void cbbEvenement_SelectedIndexChanged(object sender, EventArgs e)
@@ -87,6 +96,15 @@ namespace Hermes
         private void lblAnnuler_MouseLeave(object sender, EventArgs e)
         {
             this.Cursor = Cursors.Default;
+        }
+
+        private void CboPayePar_SelectedValueChanged(object sender, EventArgs e)
+        {
+            if(nupPersonne.Value == 0)
+            {
+                Participant personWhoPay = Participant.GetParticipant(int.Parse(cboPayePar.SelectedValue.ToString()));
+                nupPersonne.Value = personWhoPay.NbParts;
+            }
         }
     }
 }

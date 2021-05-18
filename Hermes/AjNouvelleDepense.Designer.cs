@@ -28,12 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.cbbEvenement = new System.Windows.Forms.ComboBox();
+            this.cboEvenements = new System.Windows.Forms.ComboBox();
             this.txtWhere = new System.Windows.Forms.TextBox();
             this.nupPersonne = new System.Windows.Forms.NumericUpDown();
             this.dtpDebut = new System.Windows.Forms.DateTimePicker();
             this.dtpFin = new System.Windows.Forms.DateTimePicker();
-            this.cbbPayéPar = new System.Windows.Forms.ComboBox();
+            this.cboPayePar = new System.Windows.Forms.ComboBox();
             this.appFontLabel8 = new Hermes.UI.AppFontLabel();
             this.lblAnnuler = new Hermes.UI.AppFontLabel();
             this.appFontLabel6 = new Hermes.UI.AppFontLabel();
@@ -46,15 +46,16 @@
             ((System.ComponentModel.ISupportInitialize)(this.nupPersonne)).BeginInit();
             this.SuspendLayout();
             // 
-            // cbbEvenement
+            // cboEvenements
             // 
-            this.cbbEvenement.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F);
-            this.cbbEvenement.FormattingEnabled = true;
-            this.cbbEvenement.Location = new System.Drawing.Point(171, 259);
-            this.cbbEvenement.Name = "cbbEvenement";
-            this.cbbEvenement.Size = new System.Drawing.Size(249, 28);
-            this.cbbEvenement.TabIndex = 3;
-            this.cbbEvenement.SelectedIndexChanged += new System.EventHandler(this.cbbEvenement_SelectedIndexChanged);
+            this.cboEvenements.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboEvenements.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F);
+            this.cboEvenements.FormattingEnabled = true;
+            this.cboEvenements.Location = new System.Drawing.Point(171, 259);
+            this.cboEvenements.Name = "cboEvenements";
+            this.cboEvenements.Size = new System.Drawing.Size(249, 28);
+            this.cboEvenements.TabIndex = 3;
+            this.cboEvenements.SelectedIndexChanged += new System.EventHandler(this.cbbEvenement_SelectedIndexChanged);
             // 
             // txtWhere
             // 
@@ -96,14 +97,16 @@
             this.dtpFin.Value = new System.DateTime(2021, 5, 18, 18, 23, 0, 0);
             this.dtpFin.ValueChanged += new System.EventHandler(this.dtpFin_ValueChanged);
             // 
-            // cbbPayéPar
+            // cboPayePar
             // 
-            this.cbbPayéPar.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F);
-            this.cbbPayéPar.FormattingEnabled = true;
-            this.cbbPayéPar.Location = new System.Drawing.Point(479, 415);
-            this.cbbPayéPar.Name = "cbbPayéPar";
-            this.cbbPayéPar.Size = new System.Drawing.Size(263, 28);
-            this.cbbPayéPar.TabIndex = 15;
+            this.cboPayePar.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboPayePar.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F);
+            this.cboPayePar.FormattingEnabled = true;
+            this.cboPayePar.Location = new System.Drawing.Point(479, 415);
+            this.cboPayePar.Name = "cboPayePar";
+            this.cboPayePar.Size = new System.Drawing.Size(263, 28);
+            this.cboPayePar.TabIndex = 15;
+            this.cboPayePar.SelectedValueChanged += new System.EventHandler(this.CboPayePar_SelectedValueChanged);
             // 
             // appFontLabel8
             // 
@@ -217,7 +220,7 @@
             this.Controls.Add(this.appFontLabel8);
             this.Controls.Add(this.lblAnnuler);
             this.Controls.Add(this.appFontLabel6);
-            this.Controls.Add(this.cbbPayéPar);
+            this.Controls.Add(this.cboPayePar);
             this.Controls.Add(this.dtpFin);
             this.Controls.Add(this.appFontLabel5);
             this.Controls.Add(this.appFontLabel4);
@@ -227,7 +230,7 @@
             this.Controls.Add(this.appFontLabel3);
             this.Controls.Add(this.appFontLabel2);
             this.Controls.Add(this.appFontLabel1);
-            this.Controls.Add(this.cbbEvenement);
+            this.Controls.Add(this.cboEvenements);
             this.Controls.Add(this.lblNouvelleDepense);
             this.Name = "AjNouvelleDepense";
             this.Size = new System.Drawing.Size(1064, 640);
@@ -241,7 +244,7 @@
         #endregion
 
         private UI.AppFontLabel lblNouvelleDepense;
-        private System.Windows.Forms.ComboBox cbbEvenement;
+        private System.Windows.Forms.ComboBox cboEvenements;
         private UI.AppFontLabel appFontLabel1;
         private UI.AppFontLabel appFontLabel2;
         private UI.AppFontLabel appFontLabel3;
@@ -252,7 +255,7 @@
         private UI.AppFontLabel appFontLabel5;
         private System.Windows.Forms.DateTimePicker dtpFin;
         private UI.AppFontLabel appFontLabel6;
-        private System.Windows.Forms.ComboBox cbbPayéPar;
+        private System.Windows.Forms.ComboBox cboPayePar;
         private UI.AppFontLabel lblAnnuler;
         private UI.AppFontLabel appFontLabel8;
     }

@@ -29,22 +29,21 @@ namespace Hermes
 
         private void AjoutRapideBouton_Load(object sender, EventArgs e)
         {
-            Database base_de_donnee = new Database();
+            Database database = new Database();
             
-            List<PartyEvent> evenement = base_de_donnee.FetchEvents();
-            foreach(PartyEvent ee in evenement)
-            {
-                cbbEvenements.Items.Add(ee.TitleEvent.ToString());
-            }
+            DataTable events = PartyEvent.toDataTable(database.FetchEvents());
+            cboEvenements.DataSource = events;
+            cboEvenements.DisplayMember = "TitleEvent";
+            cboEvenements.ValueMember = "CodeEvent";
         }
 
         private void btnAjouter_Click(object sender, EventArgs e)
         {
             
-            if(cbbEvenements.SelectedIndex != -1)
+            if(cboEvenements.SelectedIndex != -1)
             {
                 this.ecran.Controls.Clear();
-                AjNouvelleDepense aj = new AjNouvelleDepense(cbbEvenements.SelectedIndex);
+                AjNouvelleDepense aj = new AjNouvelleDepense(int.Parse(cboEvenements.SelectedValue.ToString()));
                 aj.setPanel = this.ecran;
                 this.ecran.Controls.Add(aj);
             }
