@@ -13,6 +13,9 @@ namespace Hermes
 {
     class PartyEvent
     {
+        string chcon = "Provider=Microsoft.Jet.OLEDB.4.0;Data Source='../../../bdEvents.mdb'";
+        OleDbConnection connection = new OleDbConnection();
+        
         public int CodeEvent;
         public string TitleEvent;
         public DateTime BeginDate;
@@ -83,6 +86,31 @@ namespace Hermes
                 connection.Close();
             }
             return theEvent;
+        }
+
+        public int GetNbPart()
+        {
+            int nbPart = -1;
+
+            try
+            {
+                connection.ConnectionString = chcon;
+                connection.Open();
+
+                string sql = "SELECT count(*) FROM Invites WHERE codeEvent = " + this.CodeEvent;
+                OleDbCommand command = new OleDbCommand(sql, connection);
+
+                nbPart = (int)command.ExecuteScalar();
+            }
+            catch (OleDbException er)
+            {
+                MessageBox.Show(er.ToString());
+            }
+            finally
+            {
+                connection.Close();
+            }
+            return nbPart;
         }
 
     }
