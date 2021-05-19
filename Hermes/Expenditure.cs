@@ -15,7 +15,7 @@ namespace Hermes
     //Dépense
     class Expenditure
     {
-        string chcon = "Provider=Microsoft.Jet.OLEDB.4.0;Data Source='../../../bdEvents.mdb'";
+        static string chcon = "Provider=Microsoft.Jet.OLEDB.4.0;Data Source='../../../../bdEvents.mdb'";
         OleDbConnection connection = new OleDbConnection();
 
         public int NumExpenditure;
@@ -162,7 +162,6 @@ namespace Hermes
             Expenditure theExpenditure = new Expenditure();
             try
             {
-                string chcon = "Provider=Microsoft.Jet.OLEDB.4.0;Data Source='X:\\a21 sterne pie\\Base de données\\bdEvents.mdb'";
                 OleDbConnection connection = new OleDbConnection();
                 connection.ConnectionString = chcon;
                 OleDbCommand command = new OleDbCommand("select * from Expenditure where numDepense='" + numExpenditure + "'");

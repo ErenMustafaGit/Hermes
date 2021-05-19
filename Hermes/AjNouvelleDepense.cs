@@ -35,14 +35,19 @@ namespace Hermes
             cboEvenements.ValueMember = "CodeEvent";
             cboEvenements.SelectedIndex = indice - 1;
 
-
             PartyEvent selectedEvent = PartyEvent.GetPartyEvent(int.Parse(cboEvenements.SelectedValue.ToString()));
-            /*DataTable guests = Participant.toDataTable(selectedEvent.GetGuests)
-            cboPayePar.DataSource = guests;
-            cboPayePar.DisplayMember = ""*/
+
+            updateGuests();
 
             dtpDebut.Value = selectedEvent.BeginDate;
-            dtpFin.Value = selectedEvent.EndDate;
+        }
+        public void updateGuests()
+        {
+            PartyEvent selectedEvent = PartyEvent.GetPartyEvent(int.Parse(cboEvenements.SelectedValue.ToString()));
+            DataTable guests = Participant.toConcatenateDataTable(selectedEvent.GetGuests());
+            cboPayePar.DataSource = guests;
+            cboPayePar.DisplayMember = "name";
+            cboPayePar.ValueMember = "codeParticipant";
         }
 
         private void cbbEvenement_SelectedIndexChanged(object sender, EventArgs e)
@@ -65,7 +70,6 @@ namespace Hermes
 
         private void dtpDebut_ValueChanged(object sender, EventArgs e)
         {
-            dtpFin.MinDate = dtpDebut.Value;
         }
 
         private void appFontLabel7_Click(object sender, EventArgs e)
@@ -100,11 +104,17 @@ namespace Hermes
 
         private void CboPayePar_SelectedValueChanged(object sender, EventArgs e)
         {
-            if(nupPersonne.Value == 0)
-            {
-                Participant personWhoPay = Participant.GetParticipant(int.Parse(cboPayePar.SelectedValue.ToString()));
-                nupPersonne.Value = personWhoPay.NbParts;
-            }
+            //sup
+        }
+
+        private void cboPayePar_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cboEvenements_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            updateGuests();
         }
     }
 }

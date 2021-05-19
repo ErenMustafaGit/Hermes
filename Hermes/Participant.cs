@@ -13,7 +13,7 @@ namespace Hermes
 {
     class Participant
     {
-        string chcon = "Provider=Microsoft.Jet.OLEDB.4.0;Data Source='../../../bdEvents.mdb'";
+        static string chcon = "Provider=Microsoft.Jet.OLEDB.4.0;Data Source='../../../../bdEvents.mdb'";
         OleDbConnection connection = new OleDbConnection();
 
         public int CodeParticipant;
@@ -34,7 +34,6 @@ namespace Hermes
 
             try
             {
-                string chcon = "Provider=Microsoft.Jet.OLEDB.4.0;Data Source='../../../bdEvents.mdb'";
                 connection.ConnectionString = chcon;
                 connection.Open();
                 string sql = "select * from Participants where codeParticipant = " + codeParticipant;
@@ -91,6 +90,29 @@ namespace Hermes
                 Double balance = participants[i].Balance;
                 string mail = participants[i].Mail;
                 table.Rows.Add(codeParticipant, lastName, firstName, phoneNumber, nbParts, balance, mail);
+            }
+            return table;
+        }
+
+        public static DataTable toConcatenateDataTable(List<Participant> participants)
+        {
+            DataTable table = new DataTable();
+            table.Columns.Add("CodeParticipant", typeof(int));
+            table.Columns.Add("Name", typeof(string));
+            table.Columns.Add("PhoneNumber", typeof(string));
+            table.Columns.Add("NbParts", typeof(int));
+            table.Columns.Add("Balance", typeof(Double));
+            table.Columns.Add("Mail", typeof(string));
+
+            for (int i = 0; i < participants.Count; i++)
+            {
+                int codeParticipant = participants[i].CodeParticipant;
+                string name = participants[i].LastName + " " + participants[i].FirstName;
+                string phoneNumber = participants[i].PhoneNumber;
+                int nbParts = participants[i].NbParts;
+                Double balance = participants[i].Balance;
+                string mail = participants[i].Mail;
+                table.Rows.Add(codeParticipant, name, phoneNumber, nbParts, balance, mail);
             }
             return table;
         }
