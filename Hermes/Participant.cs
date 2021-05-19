@@ -11,7 +11,7 @@ using System.Windows.Forms;
 
 namespace Hermes
 {
-    class Participant
+    public class Participant
     {
         string chcon = "Provider=Microsoft.Jet.OLEDB.4.0;Data Source='../../../bdEvents.mdb'";
         OleDbConnection connection = new OleDbConnection();

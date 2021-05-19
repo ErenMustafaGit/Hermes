@@ -12,156 +12,131 @@ using System.Windows.Forms;
 
 namespace Hermes
 {
-    class Database
+    public static class Database
     {
-        string chcon = "Provider=Microsoft.Jet.OLEDB.4.0;Data Source='../../../bdEvents.mdb'";
-        OleDbConnection connection = new OleDbConnection();
+        const string ConnectionString = "Provider=Microsoft.Jet.OLEDB.4.0;Data Source='../../../bdEvents.mdb'";
+        static OleDbConnection connection = null;
 
-        public List<PartyEvent> FetchEvents()
+        public static OleDbConnection Connect()
+        {
+            if (connection != null)
+            {
+                // If we already have a connection open, we just return it.
+                if (connection.State == ConnectionState.Open)
+                    return connection;
+
+                // Otherwise, we disconnect it and recreate one.
+                Disconnect();
+            }
+
+            connection = new OleDbConnection(ConnectionString);
+            connection.Open();
+            return connection;
+        }
+
+        public static void Disconnect()
+        {
+            connection?.Close();
+            connection = null;
+        }
+
+        public static List<PartyEvent> FetchEvents()
         {
             List<PartyEvent> partyEvents = new List<PartyEvent>();
 
-            try
+            OleDbConnection db = Database.Connect();
+            OleDbCommand command = new OleDbCommand("select * from Evenements", db); // FIXME: request specific fields to not mess the order up
+            OleDbDataReader dataReader = command.ExecuteReader();
+            while (dataReader.Read())
             {
-                connection.ConnectionString = chcon;
-                connection.Open();
-                OleDbCommand command = new OleDbCommand("select * from Evenements", connection);
-                OleDbDataReader dataReader = command.ExecuteReader();
-                while (dataReader.Read())
+                PartyEvent ev = new PartyEvent()
                 {
-                    PartyEvent oneEvent = new PartyEvent()
-                    {
-                        CodeEvent = dataReader.GetInt32(0),
-                        TitleEvent = dataReader.GetString(1),
-                        BeginDate = dataReader.GetDateTime(2),
-                        EndDate = dataReader.GetDateTime(3),
-                        Description = dataReader.GetString(4),
-                        BalanceYN = dataReader.GetBoolean(5),
-                        CodeCreator = dataReader.GetInt32(6)
-                    };
-                    partyEvents.Add(oneEvent);
-                }
-            }
-            catch (OleDbException er)
-            {
-                MessageBox.Show("Erreur de requête SQL \n\n\n\n" + er);
-            }
-            catch (InvalidOperationException er)
-            {
-                MessageBox.Show("Problème d'accès à la base \n\n\n\n" + er);
+                    CodeEvent = dataReader.GetInt32(0),
+                    TitleEvent = dataReader.GetString(1),
+                    BeginDate = dataReader.GetDateTime(2),
+                    EndDate = dataReader.GetDateTime(3),
+                    Description = dataReader.GetString(4),
+                    BalanceYN = dataReader.GetBoolean(5),
+                    CodeCreator = dataReader.GetInt32(6)
+                };
+                partyEvents.Add(ev);
             }
 
-            finally
-            {
-                connection.Close();
-            }
             return partyEvents;
         }
 
-        public List<Participant> FetchParticipant()
+        public static List<Participant> FetchParticipant()
         {
             List<Participant> participants = new List<Participant>();
 
-            try
+            OleDbConnection db = Database.Connect();
+            OleDbCommand command = new OleDbCommand("select * from Participants", db);
+            OleDbDataReader dataReader = command.ExecuteReader();
+            while (dataReader.Read())
             {
-                connection.ConnectionString = chcon;
-                connection.Open();
-                OleDbCommand command = new OleDbCommand("select * from Participants", connection);
-                OleDbDataReader dataReader = command.ExecuteReader();
-                while (dataReader.Read())
+                Participant participant = new Participant();
+                participant.CodeParticipant = dataReader.GetInt32(0);
+                participant.FirstName = dataReader.GetString(1);
+                participant.LastName = dataReader.GetString(2);
+                participant.PhoneNumber = dataReader.GetString(3);
+                participant.NbParts = dataReader.GetInt32(4);
+
+                //Si le solde est null
+                if (!dataReader.IsDBNull(5))
                 {
-                    Participant theParticipant = new Participant();
-                    theParticipant.CodeParticipant = dataReader.GetInt32(0);
-                    theParticipant.FirstName = dataReader.GetString(1);
-                    theParticipant.LastName = dataReader.GetString(2);
-                    theParticipant.PhoneNumber = dataReader.GetString(3);
-                    theParticipant.NbParts = dataReader.GetInt32(4);
-
-                    //Si le solde est null
-                    if (!dataReader.IsDBNull(5))
-                    {
-                        theParticipant.Balance = dataReader.GetDouble(5);
-                    }
-                    theParticipant.Mail = dataReader.GetString(6);
-                    /*
-                    {
-                        CodeParticipant = dataReader.GetInt32(0),
-                        FirstName = dataReader.GetString(1),
-                        LastName = dataReader.GetString(2),
-                        PhoneNumber = dataReader.GetInt32(3),
-                        NbParts = dataReader.GetInt32(4),
-                        Balance = dataReader.GetInt32(5),
-                        Mail = dataReader.GetString(6)
-                    };*/
-                    participants.Add(theParticipant);
+                    participant.Balance = dataReader.GetDouble(5);
                 }
+                participant.Mail = dataReader.GetString(6);
+                /*
+                {
+                    CodeParticipant = dataReader.GetInt32(0),
+                    FirstName = dataReader.GetString(1),
+                    LastName = dataReader.GetString(2),
+                    PhoneNumber = dataReader.GetInt32(3),
+                    NbParts = dataReader.GetInt32(4),
+                    Balance = dataReader.GetInt32(5),
+                    Mail = dataReader.GetString(6)
+                };*/
+                participants.Add(participant);
             }
-            catch (OleDbException er)
-            {
-                MessageBox.Show("Erreur de requête SQL \n\n\n\n" + er);
-            }
-            catch (InvalidOperationException er)
-            {
-                MessageBox.Show("Problème d'accès à la base \n\n\n\n" + er);
-            }
-
-            finally
-            {
-                connection.Close();
-            }
+            
             return participants;
         }
 
-        public List<Expenditure> FetchExpenditure()
+        public static List<Expenditure> FetchExpenditure()
         {
             List<Expenditure> expenditures = new List<Expenditure>();
 
-            try
+            OleDbConnection db = Database.Connect();
+            OleDbCommand command = new OleDbCommand("select * from Depenses", db);
+            OleDbDataReader dataReader = command.ExecuteReader();
+            while (dataReader.Read())
             {
-                connection.ConnectionString = chcon;
-                connection.Open();
-                OleDbCommand command = new OleDbCommand("select * from Depenses", connection);
-                OleDbDataReader dataReader = command.ExecuteReader();
-                while (dataReader.Read())
+                Expenditure theExpenditure = new Expenditure();
+                theExpenditure.NumExpenditure = dataReader.GetInt32(0);
+                theExpenditure.Description = dataReader.GetString(1);
+
+                theExpenditure.Amount = dataReader.GetDecimal(2);
+                theExpenditure.DateExpenditure = dataReader.GetDateTime(3);
+                if (!dataReader.IsDBNull(4))
                 {
-                    Expenditure theExpenditure = new Expenditure();
-                    theExpenditure.NumExpenditure = dataReader.GetInt32(0);
-                    theExpenditure.Description = dataReader.GetString(1);
-
-                    theExpenditure.Amount = dataReader.GetDecimal(2);
-                    theExpenditure.DateExpenditure = dataReader.GetDateTime(3);
-                    if (!dataReader.IsDBNull(4))
-                    {
-                        theExpenditure.Comment = dataReader.GetString(4);
-                    }
-                    theExpenditure.CodeEvent = dataReader.GetInt32(5);
-                    theExpenditure.CodeParticipant = dataReader.GetInt32(6);
-                    /*
-                    {
-                        NumExpenditure = dataReader.GetInt32(0),
-                        Description = dataReader.GetString(1),
-                        Amount = dataReader.GetInt32(2),
-                        DateExpenditure = dataReader.GetDateTime(3),
-                        Comment = dataReader.GetString(4),
-                        CodeEvent = dataReader.GetInt32(5),
-                        CodeParticipant = dataReader.GetInt32(6)
-                    };*/
-                    expenditures.Add(theExpenditure);
+                    theExpenditure.Comment = dataReader.GetString(4);
                 }
+                theExpenditure.CodeEvent = dataReader.GetInt32(5);
+                theExpenditure.CodeParticipant = dataReader.GetInt32(6);
+                /*
+                {
+                    NumExpenditure = dataReader.GetInt32(0),
+                    Description = dataReader.GetString(1),
+                    Amount = dataReader.GetInt32(2),
+                    DateExpenditure = dataReader.GetDateTime(3),
+                    Comment = dataReader.GetString(4),
+                    CodeEvent = dataReader.GetInt32(5),
+                    CodeParticipant = dataReader.GetInt32(6)
+                };*/
+                expenditures.Add(theExpenditure);
             }
-            catch (OleDbException er)
-            {
-                MessageBox.Show("Erreur de requête SQL \n\n\n\n" + er);
-            }
-            catch (InvalidOperationException er)
-            {
-                MessageBox.Show("Problème d'accès à la base \n\n\n\n" + er);
-            }
-
-            finally
-            {
-                connection.Close();
-            }
+            
             return expenditures;
         }
     }

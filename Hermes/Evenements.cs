@@ -30,8 +30,7 @@ namespace Hermes
 
         private void Evenements_Load(object sender, EventArgs e)
         {
-            Database database = new Database();
-            List<PartyEvent> events = database.FetchEvents();
+            List<PartyEvent> events = Database.FetchEvents();
 
             int modulo = 3;
             for(int i = 0; i<events.Count; i++)
