@@ -40,6 +40,18 @@ namespace Hermes
             updateGuests();
 
             dtpDebut.Value = selectedEvent.BeginDate;
+
+            /*Test d'un insert
+            Expenditure exp = new Expenditure()
+            {
+                NumExpenditure = 100,
+                Description = "ji",
+                Comment = "test",
+                DateExpenditure = dtpDebut.Value,
+                CodeEvent = int.Parse(cboEvenements.SelectedValue.ToString()),
+                CodeParticipant = int.Parse(cboPayePar.SelectedValue.ToString()),
+            };
+            database.InsertExpenditure(exp);*/
         }
         public void updateGuests()
         {
@@ -52,15 +64,7 @@ namespace Hermes
 
         private void cbbEvenement_SelectedIndexChanged(object sender, EventArgs e)
         {
-            /*
-            Database base_de_donnee = new Database();
-            List<PartyEvent> evenement = base_de_donnee.FetchEvents();
-            foreach (PartyEvent ee in evenement)
-            {
-                cbbPayéPar.Items.Add(ee.TitleEvent.ToString());
-            }
-            cbbEvenement.SelectedIndex = this.indice;
-            */
+           //supp
         }
 
         private void dtpFin_ValueChanged(object sender, EventArgs e)
@@ -109,12 +113,34 @@ namespace Hermes
 
         private void cboPayePar_SelectionChangeCommitted(object sender, EventArgs e)
         {
-
+            //
         }
 
         private void cboEvenements_SelectionChangeCommitted(object sender, EventArgs e)
         {
+            PartyEvent selectedEvent = PartyEvent.GetPartyEvent(int.Parse(cboEvenements.SelectedValue.ToString()));
+            dtpDebut.Value = selectedEvent.BeginDate;
             updateGuests();
+        }
+
+        //Continuer
+        private void AppFontLabel8_Click(object sender, EventArgs e)
+        {
+            ;
+            this.ecran.Controls.Clear();
+            AjNouvelleDepense2 suite = new AjNouvelleDepense2(int.Parse(cboEvenements.SelectedValue.ToString()), dtpDebut.Value, txtWhere.Text, int.Parse(cboPayePar.SelectedValue.ToString()), numAmount.Value);
+            suite.setPanel = this.ecran;
+            this.ecran.Controls.Add(suite);
+        }
+
+        private void AppFontLabel8_MouseHover(object sender, EventArgs e)
+        {
+            this.Cursor = Cursors.Hand;
+        }
+
+        private void AppFontLabel8_MouseLeave(object sender, EventArgs e)
+        {
+            this.Cursor = Cursors.Default;
         }
     }
 }

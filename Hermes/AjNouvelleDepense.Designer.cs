@@ -90,7 +90,7 @@
             this.cboPayePar.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboPayePar.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F);
             this.cboPayePar.FormattingEnabled = true;
-            this.cboPayePar.Location = new System.Drawing.Point(479, 415);
+            this.cboPayePar.Location = new System.Drawing.Point(479, 340);
             this.cboPayePar.Name = "cboPayePar";
             this.cboPayePar.Size = new System.Drawing.Size(263, 28);
             this.cboPayePar.TabIndex = 15;
@@ -108,6 +108,9 @@
             this.appFontLabel8.Size = new System.Drawing.Size(61, 14);
             this.appFontLabel8.TabIndex = 19;
             this.appFontLabel8.Text = "Continuer";
+            this.appFontLabel8.Click += new System.EventHandler(this.AppFontLabel8_Click);
+            this.appFontLabel8.MouseLeave += new System.EventHandler(this.AppFontLabel8_MouseLeave);
+            this.appFontLabel8.MouseHover += new System.EventHandler(this.AppFontLabel8_MouseHover);
             // 
             // lblAnnuler
             // 
@@ -129,7 +132,7 @@
             this.appFontLabel6.AppFont = Hermes.AppFont.HelveticaNeue;
             this.appFontLabel6.AppFontHeight = 10F;
             this.appFontLabel6.AutoSize = true;
-            this.appFontLabel6.Location = new System.Drawing.Point(476, 387);
+            this.appFontLabel6.Location = new System.Drawing.Point(476, 312);
             this.appFontLabel6.Name = "appFontLabel6";
             this.appFontLabel6.Size = new System.Drawing.Size(86, 16);
             this.appFontLabel6.TabIndex = 16;
@@ -153,9 +156,9 @@
             this.lblAmount.AutoSize = true;
             this.lblAmount.Location = new System.Drawing.Point(168, 385);
             this.lblAmount.Name = "lblAmount";
-            this.lblAmount.Size = new System.Drawing.Size(170, 16);
+            this.lblAmount.Size = new System.Drawing.Size(86, 16);
             this.lblAmount.TabIndex = 8;
-            this.lblAmount.Text = "Combien de personne ? *";
+            this.lblAmount.Text = "Combien ? *";
             // 
             // appFontLabel2
             // 

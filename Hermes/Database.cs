@@ -112,6 +112,32 @@ namespace Hermes
             return participants;
         }
 
+        public void InsertExpenditure(Expenditure expenditure)
+        {
+            try
+            {
+                connection.ConnectionString = chcon;
+                connection.Open();
+                string sqlInsert = String.Format("INSERT INTO Depenses VALUES ({0},{1},{2},{3},{4},{5})", expenditure.NumExpenditure, expenditure.Description, expenditure.DateExpenditure, expenditure.Comment, expenditure.CodeEvent, expenditure.CodeParticipant);
+                OleDbCommand command = new OleDbCommand(sqlInsert, connection );
+                int nb = command.ExecuteNonQuery();
+                MessageBox.Show(nb.ToString());
+            }
+            catch (OleDbException er)
+            {
+                MessageBox.Show("Erreur de requête SQL \n\n\n\n" + er);
+            }
+            catch (InvalidOperationException er)
+            {
+                MessageBox.Show("Problème d'accès à la base \n\n\n\n" + er);
+            }
+
+            finally
+            {
+                connection.Close();
+            }
+        }
+
         public List<Expenditure> FetchExpenditure()
         {
             List<Expenditure> expenditures = new List<Expenditure>();
@@ -136,16 +162,7 @@ namespace Hermes
                     }
                     theExpenditure.CodeEvent = dataReader.GetInt32(5);
                     theExpenditure.CodeParticipant = dataReader.GetInt32(6);
-                    /*
-                    {
-                        NumExpenditure = dataReader.GetInt32(0),
-                        Description = dataReader.GetString(1),
-                        Amount = dataReader.GetInt32(2),
-                        DateExpenditure = dataReader.GetDateTime(3),
-                        Comment = dataReader.GetString(4),
-                        CodeEvent = dataReader.GetInt32(5),
-                        CodeParticipant = dataReader.GetInt32(6)
-                    };*/
+
                     expenditures.Add(theExpenditure);
                 }
             }
