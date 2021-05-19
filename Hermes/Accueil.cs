@@ -12,7 +12,7 @@ namespace Hermes
 {
     public partial class Accueil : UserControl
     {
-        Database base_de_donnee = new Database();
+        
 
         Panel ecran;
         public Accueil()
@@ -29,6 +29,7 @@ namespace Hermes
 
         private void Accueil_Load(object sender, EventArgs e)
         {
+            Database base_de_donnee = new Database();
             ajoutRapideBouton1.setPanel = this.ecran;
             List<Participant> participants = base_de_donnee.FetchParticipant();
             List<PartyEvent> evenements = base_de_donnee.FetchEvents();

@@ -75,6 +75,7 @@ namespace Hermes
 
             //Aparaition du US concerné
             Evenements ee = new Evenements();
+            ee.setPanel = this.ecrans;
             this.ecrans.Controls.Add(ee);
         }
 
