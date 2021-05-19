@@ -78,6 +78,7 @@
             this.btnValider.TabIndex = 4;
             this.btnValider.Text = "Valider";
             this.btnValider.UseVisualStyleBackColor = false;
+            this.btnValider.Click += new System.EventHandler(this.BtnValider_Click);
             // 
             // button1
             // 

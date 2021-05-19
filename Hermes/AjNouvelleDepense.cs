@@ -41,17 +41,7 @@ namespace Hermes
 
             dtpDebut.Value = selectedEvent.BeginDate;
 
-            /*Test d'un insert
-            Expenditure exp = new Expenditure()
-            {
-                NumExpenditure = 100,
-                Description = "ji",
-                Comment = "test",
-                DateExpenditure = dtpDebut.Value,
-                CodeEvent = int.Parse(cboEvenements.SelectedValue.ToString()),
-                CodeParticipant = int.Parse(cboPayePar.SelectedValue.ToString()),
-            };
-            database.InsertExpenditure(exp);*/
+           
         }
         public void updateGuests()
         {

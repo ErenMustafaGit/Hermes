@@ -14,8 +14,8 @@ namespace Hermes
 {
     class Database
     {
-        string chcon = "Provider=Microsoft.Jet.OLEDB.4.0;Data Source='../../../../bdEvents.mdb'";
-        OleDbConnection connection = new OleDbConnection();
+        static string chcon = "Provider=Microsoft.Jet.OLEDB.4.0;Data Source='../../../bdEvents.mdb'";
+        static OleDbConnection connection = new OleDbConnection();
 
         public List<PartyEvent> FetchEvents()
         {
@@ -112,8 +112,9 @@ namespace Hermes
             return participants;
         }
 
-        public void InsertExpenditure(Expenditure expenditure)
+        public static void InsertExpenditure(Expenditure expenditure, List<Participant> beneficiaire)
         {
+            bool added = false;
             try
             {
                 connection.ConnectionString = chcon;
@@ -122,6 +123,20 @@ namespace Hermes
                 OleDbCommand command = new OleDbCommand(sqlInsert, connection );
                 int nb = command.ExecuteNonQuery();
                 MessageBox.Show(nb.ToString());
+                if (nb > 0)
+                    added = true;
+
+                for(int i = 0; i<beneficiaire.Count; i++)
+                {
+                    string sqlBeneficiaire = String.Format("INSERT INTO Depenses Beneficiaires ({0},{1})", expenditure.NumExpenditure, beneficiaire[i].CodeParticipant);
+                    command.CommandText = sqlBeneficiaire;
+                    nb = command.ExecuteNonQuery();
+                    if (nb == 0)
+                    {
+                        added = false;
+                        throw new OleDbException("Erreur dans l'insert");
+                    }
+                }
             }
             catch (OleDbException er)
             {

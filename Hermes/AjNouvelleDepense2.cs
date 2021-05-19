@@ -68,5 +68,20 @@ namespace Hermes
             }
             
         }
+
+        private void BtnValider_Click(object sender, EventArgs e)
+        {
+            
+            Expenditure newExpenditure = new Expenditure()
+            {
+                NumExpenditure = 100,
+                Description = this.Description,
+                Comment = rtxtCommentaire.Text,
+                DateExpenditure = this.Date,
+                CodeEvent = this.CodeEvenement,
+                CodeParticipant = this.CodePayeur,
+            };
+            Database.InsertExpenditure(newExpenditure);
+        }
     }
 }
