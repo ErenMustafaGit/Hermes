@@ -33,6 +33,11 @@ namespace Hermes
 
         private void CompleteInfoEvenement_Load(object sender, EventArgs e)
         {
+            pnlParticipant.AutoScroll = false;
+            pnlParticipant.HorizontalScroll.Enabled = false;
+            pnlParticipant.HorizontalScroll.Visible = false;
+            pnlParticipant.HorizontalScroll.Maximum = 0;
+            pnlParticipant.AutoScroll = true;
             /*
             string chcon = "Provider=Microsoft.Jet.OLEDB.4.0;Data Source='../../../bdEvents.mdb'";
             OleDbConnection connection = new OleDbConnection(chcon);
@@ -76,8 +81,6 @@ namespace Hermes
             List<PartyEvent> evenement = base_de_donnee.FetchEvents();
             PartyEvent evenement_concerné = evenement[index];
 
-            //for(int i = 0; )
-
             lblNomEvenement.Text = evenement_concerné.TitleEvent;
             lblDescEvenement.Text = evenement_concerné.Description;
             lblDateStart.Text = evenement_concerné.BeginDate.ToLongDateString();
@@ -87,6 +90,17 @@ namespace Hermes
                 lblTrueFalse.Text = Hermes.UI.Icons.EMOTE_THUMBS_UP;
             else
                 lblTrueFalse.Text = Hermes.UI.Icons.GEAR;
+
+            List<Participant> participant = evenement_concerné.GetGuests();
+
+            for (int i = 0; i < participant.Count; i++)
+            {
+                UserEvenement user = new UserEvenement();
+                user.recupParticipant = participant[i];
+                user.Top = 20 + 80 * i;
+                pnlParticipant.Controls.Add(user);
+
+            }
 
         }
 

@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.lblIconeCreateurParticipant = new Hermes.UI.AppFontLabel();
-            this.appFontLabel1 = new Hermes.UI.AppFontLabel();
+            this.lblTxtParticipant = new Hermes.UI.AppFontLabel();
             this.SuspendLayout();
             // 
             // lblIconeCreateurParticipant
@@ -39,32 +39,32 @@
             this.lblIconeCreateurParticipant.AutoSize = true;
             this.lblIconeCreateurParticipant.Location = new System.Drawing.Point(11, 13);
             this.lblIconeCreateurParticipant.Name = "lblIconeCreateurParticipant";
-            this.lblIconeCreateurParticipant.Size = new System.Drawing.Size(52, 48);
+            this.lblIconeCreateurParticipant.Size = new System.Drawing.Size(42, 38);
             this.lblIconeCreateurParticipant.TabIndex = 4;
             this.lblIconeCreateurParticipant.Text = "O";
             this.lblIconeCreateurParticipant.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.lblIconeCreateurParticipant.Click += new System.EventHandler(this.lblIconeCreateurParticipant_Click);
             // 
-            // appFontLabel1
+            // lblTxtParticipant
             // 
-            this.appFontLabel1.AppFont = Hermes.AppFont.HelveticaNeue;
-            this.appFontLabel1.AppFontHeight = 13F;
-            this.appFontLabel1.AutoSize = true;
-            this.appFontLabel1.Location = new System.Drawing.Point(83, 23);
-            this.appFontLabel1.Name = "appFontLabel1";
-            this.appFontLabel1.Size = new System.Drawing.Size(220, 26);
-            this.appFontLabel1.TabIndex = 1;
-            this.appFontLabel1.Text = "Alexander Yanovskyy";
-            this.appFontLabel1.Click += new System.EventHandler(this.appFontLabel1_Click);
+            this.lblTxtParticipant.AppFont = Hermes.AppFont.HelveticaNeue;
+            this.lblTxtParticipant.AppFontHeight = 13F;
+            this.lblTxtParticipant.AutoSize = true;
+            this.lblTxtParticipant.Location = new System.Drawing.Point(83, 23);
+            this.lblTxtParticipant.Name = "lblTxtParticipant";
+            this.lblTxtParticipant.Size = new System.Drawing.Size(182, 21);
+            this.lblTxtParticipant.TabIndex = 1;
+            this.lblTxtParticipant.Text = "Alexander Yanovskyy";
+            this.lblTxtParticipant.Click += new System.EventHandler(this.appFontLabel1_Click);
             // 
             // UserEvenement
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.lblIconeCreateurParticipant);
-            this.Controls.Add(this.appFontLabel1);
+            this.Controls.Add(this.lblTxtParticipant);
             this.Name = "UserEvenement";
-            this.Size = new System.Drawing.Size(348, 75);
+            this.Size = new System.Drawing.Size(330, 68);
             this.Load += new System.EventHandler(this.UserEvenement_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -73,7 +73,7 @@
 
         #endregion
 
-        private UI.AppFontLabel appFontLabel1;
+        private UI.AppFontLabel lblTxtParticipant;
         private UI.AppFontLabel lblIconeCreateurParticipant;
     }
 }

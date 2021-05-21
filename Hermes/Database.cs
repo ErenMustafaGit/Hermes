@@ -14,7 +14,7 @@ namespace Hermes
 {
     class Database
     {
-        static string chcon = "Provider=Microsoft.Jet.OLEDB.4.0;Data Source='../../../bdEvents.mdb'";
+        static string chcon = "Provider=Microsoft.Jet.OLEDB.4.0;Data Source='../../../../bdEvents.mdb'";
         static OleDbConnection connection = new OleDbConnection();
         DataSet dataset = new DataSet();
 

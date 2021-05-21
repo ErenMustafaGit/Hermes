@@ -29,15 +29,15 @@
         private void InitializeComponent()
         {
             this.pnlEvenementInfo = new System.Windows.Forms.Panel();
+            this.lblDescEvenement = new Hermes.UI.AppFontLabel();
+            this.lblNomEvenement = new Hermes.UI.AppFontLabel();
             this.lblTrueFalse = new Hermes.UI.AppFontLabel();
             this.lblSoldé = new Hermes.UI.AppFontLabel();
             this.lblDateEnd = new Hermes.UI.AppFontLabel();
             this.lblDateEvenementAu = new Hermes.UI.AppFontLabel();
             this.lblDateStart = new Hermes.UI.AppFontLabel();
             this.lblIconeDate = new Hermes.UI.AppFontLabel();
-            this.lblDescEvenement = new Hermes.UI.AppFontLabel();
-            this.lblNomEvenement = new Hermes.UI.AppFontLabel();
-            this.userEvenement1 = new Hermes.UserEvenement();
+            this.pnlParticipant = new System.Windows.Forms.Panel();
             this.pnlEvenementInfo.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -50,6 +50,31 @@
             this.pnlEvenementInfo.Name = "pnlEvenementInfo";
             this.pnlEvenementInfo.Size = new System.Drawing.Size(1064, 270);
             this.pnlEvenementInfo.TabIndex = 3;
+            // 
+            // lblDescEvenement
+            // 
+            this.lblDescEvenement.AppFont = Hermes.AppFont.HelveticaNeue;
+            this.lblDescEvenement.AppFontHeight = 13F;
+            this.lblDescEvenement.AutoEllipsis = true;
+            this.lblDescEvenement.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(249)))), ((int)(((byte)(249)))));
+            this.lblDescEvenement.Location = new System.Drawing.Point(101, 184);
+            this.lblDescEvenement.Name = "lblDescEvenement";
+            this.lblDescEvenement.Size = new System.Drawing.Size(609, 86);
+            this.lblDescEvenement.TabIndex = 4;
+            this.lblDescEvenement.Text = "Nom";
+            this.lblDescEvenement.Click += new System.EventHandler(this.appFontLabel1_Click);
+            // 
+            // lblNomEvenement
+            // 
+            this.lblNomEvenement.AppFont = Hermes.AppFont.HelveticaNeue_Bold;
+            this.lblNomEvenement.AppFontHeight = 37F;
+            this.lblNomEvenement.AutoSize = true;
+            this.lblNomEvenement.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(249)))), ((int)(((byte)(249)))));
+            this.lblNomEvenement.Location = new System.Drawing.Point(94, 97);
+            this.lblNomEvenement.Name = "lblNomEvenement";
+            this.lblNomEvenement.Size = new System.Drawing.Size(136, 62);
+            this.lblNomEvenement.TabIndex = 2;
+            this.lblNomEvenement.Text = "Nom";
             // 
             // lblTrueFalse
             // 
@@ -131,43 +156,18 @@
             this.lblIconeDate.Text = "O";
             this.lblIconeDate.Click += new System.EventHandler(this.LblIconeDate_Click);
             // 
-            // lblDescEvenement
+            // pnlParticipant
             // 
-            this.lblDescEvenement.AppFont = Hermes.AppFont.HelveticaNeue;
-            this.lblDescEvenement.AppFontHeight = 13F;
-            this.lblDescEvenement.AutoEllipsis = true;
-            this.lblDescEvenement.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(249)))), ((int)(((byte)(249)))));
-            this.lblDescEvenement.Location = new System.Drawing.Point(101, 184);
-            this.lblDescEvenement.Name = "lblDescEvenement";
-            this.lblDescEvenement.Size = new System.Drawing.Size(609, 86);
-            this.lblDescEvenement.TabIndex = 4;
-            this.lblDescEvenement.Text = "Nom";
-            this.lblDescEvenement.Click += new System.EventHandler(this.appFontLabel1_Click);
-            // 
-            // lblNomEvenement
-            // 
-            this.lblNomEvenement.AppFont = Hermes.AppFont.HelveticaNeue_Bold;
-            this.lblNomEvenement.AppFontHeight = 37F;
-            this.lblNomEvenement.AutoSize = true;
-            this.lblNomEvenement.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(249)))), ((int)(((byte)(249)))));
-            this.lblNomEvenement.Location = new System.Drawing.Point(94, 97);
-            this.lblNomEvenement.Name = "lblNomEvenement";
-            this.lblNomEvenement.Size = new System.Drawing.Size(136, 62);
-            this.lblNomEvenement.TabIndex = 2;
-            this.lblNomEvenement.Text = "Nom";
-            // 
-            // userEvenement1
-            // 
-            this.userEvenement1.Location = new System.Drawing.Point(614, 363);
-            this.userEvenement1.Name = "userEvenement1";
-            this.userEvenement1.Size = new System.Drawing.Size(372, 92);
-            this.userEvenement1.TabIndex = 12;
+            this.pnlParticipant.Location = new System.Drawing.Point(586, 276);
+            this.pnlParticipant.Name = "pnlParticipant";
+            this.pnlParticipant.Size = new System.Drawing.Size(369, 364);
+            this.pnlParticipant.TabIndex = 12;
             // 
             // CompleteInfoEvenement
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.userEvenement1);
+            this.Controls.Add(this.pnlParticipant);
             this.Controls.Add(this.lblTrueFalse);
             this.Controls.Add(this.lblSoldé);
             this.Controls.Add(this.lblDateEnd);
@@ -196,6 +196,6 @@
         private UI.AppFontLabel lblDateEvenementAu;
         private UI.AppFontLabel lblSoldé;
         private UI.AppFontLabel lblTrueFalse;
-        private UserEvenement userEvenement1;
+        private System.Windows.Forms.Panel pnlParticipant;
     }
 }
