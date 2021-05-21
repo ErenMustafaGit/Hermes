@@ -12,7 +12,7 @@ using System.Windows.Forms;
 
 namespace Hermes
 {
-    class Database
+    public class Database
     {
         static string chcon = "Provider=Microsoft.Jet.OLEDB.4.0;Data Source='../../../bdEvents.mdb'";
         static OleDbConnection connection = new OleDbConnection();
@@ -112,24 +112,32 @@ namespace Hermes
             return participants;
         }
 
-        public static void InsertExpenditure(Expenditure expenditure, List<Participant> beneficiaire)
+        public static bool InsertExpenditure(Expenditure expenditure, List<Participant> beneficiaire)
         {
             bool added = false;
             try
             {
+
+                
                 connection.ConnectionString = chcon;
                 connection.Open();
-                string sqlInsert = String.Format("INSERT INTO Depenses VALUES ({0},{1},{2},{3},{4},{5})", expenditure.NumExpenditure, expenditure.Description, expenditure.DateExpenditure, expenditure.Comment, expenditure.CodeEvent, expenditure.CodeParticipant);
+                DateTime datetime = expenditure.DateExpenditure;
+                string date = "#" + datetime.Month + "/" + datetime.Day + "/" + datetime.Year + "#";
+                int code = Expenditure.GetMaxCode() +1;
+                string sqlInsert = String.Format("INSERT INTO Depenses VALUES ({0},'{1}',{2},{3},'{4}',{5},{6})", code, expenditure.Description,expenditure.Amount ,date, expenditure.Comment, expenditure.CodeEvent, expenditure.CodeParticipant);
                 OleDbCommand command = new OleDbCommand(sqlInsert, connection );
+                MessageBox.Show(sqlInsert);
                 int nb = command.ExecuteNonQuery();
                 MessageBox.Show(nb.ToString());
                 if (nb > 0)
                     added = true;
-
+                    
                 for(int i = 0; i<beneficiaire.Count; i++)
                 {
-                    string sqlBeneficiaire = String.Format("INSERT INTO Depenses Beneficiaires ({0},{1})", expenditure.NumExpenditure, beneficiaire[i].CodeParticipant);
+                    MessageBox.Show(beneficiaire[i].FirstName);
+                    string sqlBeneficiaire = String.Format("INSERT INTO Beneficiaires ({0},{1})",code, beneficiaire[i].CodeParticipant);
                     command.CommandText = sqlBeneficiaire;
+                    MessageBox.Show(sqlBeneficiaire);
                     nb = command.ExecuteNonQuery();
                     if (nb == 0)
                     {
@@ -151,7 +159,9 @@ namespace Hermes
             {
                 connection.Close();
             }
+            return added;
         }
+
 
         public List<Expenditure> FetchExpenditure()
         {

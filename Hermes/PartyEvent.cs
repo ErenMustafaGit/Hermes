@@ -11,7 +11,7 @@ using System.Data.OleDb;
 
 namespace Hermes
 {
-    class PartyEvent
+    public class PartyEvent
     {
         static string chcon = "Provider=Microsoft.Jet.OLEDB.4.0;Data Source='../../../bdEvents.mdb'";
         OleDbConnection connection = new OleDbConnection();

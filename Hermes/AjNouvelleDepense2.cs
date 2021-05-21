@@ -41,6 +41,7 @@ namespace Hermes
             {
                 CheckBox chkGuest = new CheckBox();
                 chkGuest.Text = guests[i].FirstName + " " + guests[i].LastName;
+                chkGuest.Tag = guests[i].CodeParticipant;
                 chkGuest.Left = chkEveryOne.Left;
                 chkGuest.Top = 50 + 30 * i;
                 pnlBeneficiaire.Controls.Add(chkGuest);
@@ -81,7 +82,42 @@ namespace Hermes
                 CodeEvent = this.CodeEvenement,
                 CodeParticipant = this.CodePayeur,
             };
-            //Database.InsertExpenditure(newExpenditure);
+
+            List<Participant> beneficiary = new List<Participant>();
+            if (chkEveryOne.Checked)
+            {
+                beneficiary = PartyEvent.GetPartyEvent(this.CodeEvenement).GetGuests();
+            }
+            else
+            {
+                foreach(CheckBox chk in pnlBeneficiaire.Controls)
+                {
+                    if(chk.Checked && chk != chkEveryOne)
+                    {
+                        beneficiary.Add(Participant.GetParticipant((int)chk.Tag));
+                    }
+                }
+            }
+            Database.InsertExpenditure(newExpenditure, beneficiary);
+        }
+
+        private void BtnCancel_Click(object sender, EventArgs e)
+        {
+            MessageBoxButtons buttons = MessageBoxButtons.YesNo;
+            DialogResult result;
+            string message = "Voulez vous vraiment annuler l'ajout ?";
+            string caption = "";
+            result = result = MessageBox.Show(this, message, caption, buttons,
+            MessageBoxIcon.Question, MessageBoxDefaultButton.Button1,
+            MessageBoxOptions.RightAlign);
+
+            if (result == DialogResult.Yes)
+            {
+                this.ecran.Controls.Clear();
+                Accueil a = new Accueil();
+                a.setPanel = this.ecran;
+                this.ecran.Controls.Add(a);
+            }
         }
     }
 }

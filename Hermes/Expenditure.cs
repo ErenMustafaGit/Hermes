@@ -13,10 +13,10 @@ using System.Windows.Forms;
 namespace Hermes
 {
     //Dépense
-    class Expenditure
+    public class Expenditure
     {
         static string chcon = "Provider=Microsoft.Jet.OLEDB.4.0;Data Source='../../../bdEvents.mdb'";
-        OleDbConnection connection = new OleDbConnection();
+        static OleDbConnection connection = new OleDbConnection();
 
         public int NumExpenditure;
         public string Description;
@@ -162,9 +162,9 @@ namespace Hermes
             Expenditure theExpenditure = new Expenditure();
             try
             {
-                OleDbConnection connection = new OleDbConnection();
                 connection.ConnectionString = chcon;
-                OleDbCommand command = new OleDbCommand("select * from Expenditure where numDepense='" + numExpenditure + "'");
+                connection.Open();
+                OleDbCommand command = new OleDbCommand("select * from Depenses where numDepense='" + numExpenditure + "'");
                 command.Connection = connection;
                 OleDbDataReader dataReader = command.ExecuteReader();
 
@@ -182,7 +182,31 @@ namespace Hermes
             {
                 Console.WriteLine(er.ToString());
             }
+            finally
+            {
+                connection.Close();
+            }
             return theExpenditure;
+        }
+        public static int GetMaxCode()
+        {
+            int max = -1;
+            try
+            {
+                connection.ConnectionString = chcon;
+                connection.Open();
+                OleDbCommand command = new OleDbCommand("select MAX(numDepense) from Depenses", connection);
+                max = (int)command.ExecuteScalar();
+            }
+            catch (Exception er)
+            {
+                Console.WriteLine(er.ToString());
+            }
+            finally
+            {
+                connection.Close();
+            }
+            return max;
         }
     }
 
