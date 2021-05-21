@@ -16,12 +16,6 @@ namespace Hermes
         public Evenements()
         {
             InitializeComponent();
-            
-            ScrollBar scrollbar = new VScrollBar();
-            scrollbar.Dock = DockStyle.Right;
-            pnlScroll.Controls.Add(scrollbar);
-            //scrollbar.Scroll += (sender, e)
-
             pnlScroll.AutoScroll = false;
             pnlScroll.HorizontalScroll.Enabled = false;
             pnlScroll.HorizontalScroll.Visible = false;
@@ -40,11 +34,13 @@ namespace Hermes
             List<PartyEvent> events = database.FetchEvents();
 
             pnlAddEvent.Visible = false;
+            
             AjoutEvenement ajoutEvent = new AjoutEvenement();
             ajoutEvent.setPanel = this.pnlAddEvent;
             ajoutEvent.Top = 20;
             ajoutEvent.Left = 100;
             pnlScroll.Controls.Add(ajoutEvent);
+            
 
             int modulo = 2;
             for(int i = 0; i<events.Count; i++)

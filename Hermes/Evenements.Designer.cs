@@ -48,6 +48,7 @@
             this.pnlAddEvent.Name = "pnlAddEvent";
             this.pnlAddEvent.Size = new System.Drawing.Size(705, 405);
             this.pnlAddEvent.TabIndex = 0;
+            this.pnlAddEvent.Visible = false;
             // 
             // Evenements
             // 
