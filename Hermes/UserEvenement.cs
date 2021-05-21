@@ -12,6 +12,7 @@ namespace Hermes
 {
     public partial class UserEvenement : UserControl
     {
+        public Participant participant;
         public int index;
         public UserEvenement()
         {
@@ -19,14 +20,19 @@ namespace Hermes
             lblIconeCreateurParticipant.Text = Hermes.UI.Icons.USER;
         }
 
-        public int setIndex
+ 
+
+        public Participant recupParticipant
         {
-            set { this.index = value; }
+            set { this.participant = value; }
         }
+
+        
 
         private void UserEvenement_Load(object sender, EventArgs e)
         {
-            Database dataBase = new Database();
+            lblTxtParticipant.Text = participant.LastName + " " + participant.FirstName;
+
         }
 
         private void lblIconeCreateurParticipant_Click(object sender, EventArgs e)

@@ -81,7 +81,7 @@ namespace Hermes
                 CodeEvent = this.CodeEvenement,
                 CodeParticipant = this.CodePayeur,
             };
-            Database.InsertExpenditure(newExpenditure);
+         //  Database.InsertExpenditure(newExpenditure);
         }
     }
 }

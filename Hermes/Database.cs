@@ -14,7 +14,7 @@ namespace Hermes
 {
     class Database
     {
-        static string chcon = "Provider=Microsoft.Jet.OLEDB.4.0;Data Source='../../../bdEvents.mdb'";
+        static string chcon = "Provider=Microsoft.Jet.OLEDB.4.0;Data Source='../../../../bdEvents.mdb'";
         static OleDbConnection connection = new OleDbConnection();
 
         public List<PartyEvent> FetchEvents()
@@ -134,7 +134,7 @@ namespace Hermes
                     if (nb == 0)
                     {
                         added = false;
-                        throw new OleDbException("Erreur dans l'insert");
+                        //throw new OleDbException("Erreur dans l'insert");
                     }
                 }
             }
