@@ -29,16 +29,16 @@
         private void InitializeComponent()
         {
             this.txtNomEvenement = new System.Windows.Forms.TextBox();
-            this.lblNomEvenement = new Hermes.UI.AppFontLabel();
-            this.lblDebutEvenement = new Hermes.UI.AppFontLabel();
             this.dtpDateDebut = new System.Windows.Forms.DateTimePicker();
-            this.lblFinEvenement = new Hermes.UI.AppFontLabel();
             this.dtpDateFin = new System.Windows.Forms.DateTimePicker();
-            this.cboCreateur = new Hermes.UI.AppFontLabel();
             this.cboEvenements = new System.Windows.Forms.ComboBox();
-            this.appFontLabel2 = new Hermes.UI.AppFontLabel();
             this.button1 = new System.Windows.Forms.Button();
             this.btnValider = new System.Windows.Forms.Button();
+            this.appFontLabel2 = new Hermes.UI.AppFontLabel();
+            this.cboCreateur = new Hermes.UI.AppFontLabel();
+            this.lblFinEvenement = new Hermes.UI.AppFontLabel();
+            this.lblDebutEvenement = new Hermes.UI.AppFontLabel();
+            this.lblNomEvenement = new Hermes.UI.AppFontLabel();
             this.SuspendLayout();
             // 
             // txtNomEvenement
@@ -49,28 +49,6 @@
             this.txtNomEvenement.Name = "txtNomEvenement";
             this.txtNomEvenement.Size = new System.Drawing.Size(201, 27);
             this.txtNomEvenement.TabIndex = 11;
-            // 
-            // lblNomEvenement
-            // 
-            this.lblNomEvenement.AppFont = Hermes.AppFont.HelveticaNeue;
-            this.lblNomEvenement.AppFontHeight = 10F;
-            this.lblNomEvenement.AutoSize = true;
-            this.lblNomEvenement.Location = new System.Drawing.Point(124, 138);
-            this.lblNomEvenement.Name = "lblNomEvenement";
-            this.lblNomEvenement.Size = new System.Drawing.Size(161, 16);
-            this.lblNomEvenement.TabIndex = 10;
-            this.lblNomEvenement.Text = "Nom de l\'évènement ? *";
-            // 
-            // lblDebutEvenement
-            // 
-            this.lblDebutEvenement.AppFont = Hermes.AppFont.HelveticaNeue;
-            this.lblDebutEvenement.AppFontHeight = 10F;
-            this.lblDebutEvenement.AutoSize = true;
-            this.lblDebutEvenement.Location = new System.Drawing.Point(360, 138);
-            this.lblDebutEvenement.Name = "lblDebutEvenement";
-            this.lblDebutEvenement.Size = new System.Drawing.Size(169, 16);
-            this.lblDebutEvenement.TabIndex = 14;
-            this.lblDebutEvenement.Text = "Début de l\'évènement ? *";
             // 
             // dtpDateDebut
             // 
@@ -83,17 +61,6 @@
             this.dtpDateDebut.Value = new System.DateTime(2021, 5, 18, 18, 23, 0, 0);
             this.dtpDateDebut.ValueChanged += new System.EventHandler(this.DtpDateDebut_ValueChanged);
             // 
-            // lblFinEvenement
-            // 
-            this.lblFinEvenement.AppFont = Hermes.AppFont.HelveticaNeue;
-            this.lblFinEvenement.AppFontHeight = 10F;
-            this.lblFinEvenement.AutoSize = true;
-            this.lblFinEvenement.Location = new System.Drawing.Point(360, 221);
-            this.lblFinEvenement.Name = "lblFinEvenement";
-            this.lblFinEvenement.Size = new System.Drawing.Size(169, 16);
-            this.lblFinEvenement.TabIndex = 16;
-            this.lblFinEvenement.Text = "Début de l\'évènement ? *";
-            // 
             // dtpDateFin
             // 
             this.dtpDateFin.CalendarFont = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -105,37 +72,15 @@
             this.dtpDateFin.Value = new System.DateTime(2021, 5, 18, 18, 23, 0, 0);
             this.dtpDateFin.ValueChanged += new System.EventHandler(this.DtpDateFin_ValueChanged);
             // 
-            // cboCreateur
-            // 
-            this.cboCreateur.AppFont = Hermes.AppFont.HelveticaNeue;
-            this.cboCreateur.AppFontHeight = 10F;
-            this.cboCreateur.AutoSize = true;
-            this.cboCreateur.Location = new System.Drawing.Point(124, 222);
-            this.cboCreateur.Name = "cboCreateur";
-            this.cboCreateur.Size = new System.Drawing.Size(137, 16);
-            this.cboCreateur.TabIndex = 18;
-            this.cboCreateur.Text = "Nom du createur ? *";
-            // 
             // cboEvenements
             // 
             this.cboEvenements.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboEvenements.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F);
+            this.cboEvenements.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboEvenements.FormattingEnabled = true;
             this.cboEvenements.Location = new System.Drawing.Point(127, 250);
             this.cboEvenements.Name = "cboEvenements";
-            this.cboEvenements.Size = new System.Drawing.Size(201, 28);
+            this.cboEvenements.Size = new System.Drawing.Size(201, 26);
             this.cboEvenements.TabIndex = 17;
-            // 
-            // appFontLabel2
-            // 
-            this.appFontLabel2.AppFont = Hermes.AppFont.HelveticaNeue_Bold;
-            this.appFontLabel2.AppFontHeight = 24F;
-            this.appFontLabel2.AutoSize = true;
-            this.appFontLabel2.Location = new System.Drawing.Point(105, 68);
-            this.appFontLabel2.Name = "appFontLabel2";
-            this.appFontLabel2.Size = new System.Drawing.Size(478, 40);
-            this.appFontLabel2.TabIndex = 19;
-            this.appFontLabel2.Text = "Ajout d\'un nouvelle évènement\r\n";
             // 
             // button1
             // 
@@ -161,6 +106,61 @@
             this.btnValider.Text = "Valider";
             this.btnValider.UseVisualStyleBackColor = false;
             // 
+            // appFontLabel2
+            // 
+            this.appFontLabel2.AppFont = Hermes.AppFont.HelveticaNeue_Bold;
+            this.appFontLabel2.AppFontHeight = 24F;
+            this.appFontLabel2.AutoSize = true;
+            this.appFontLabel2.Location = new System.Drawing.Point(105, 68);
+            this.appFontLabel2.Name = "appFontLabel2";
+            this.appFontLabel2.Size = new System.Drawing.Size(478, 40);
+            this.appFontLabel2.TabIndex = 19;
+            this.appFontLabel2.Text = "Ajout d\'un nouvelle évènement\r\n";
+            // 
+            // cboCreateur
+            // 
+            this.cboCreateur.AppFont = Hermes.AppFont.HelveticaNeue;
+            this.cboCreateur.AppFontHeight = 10F;
+            this.cboCreateur.AutoSize = true;
+            this.cboCreateur.Location = new System.Drawing.Point(124, 222);
+            this.cboCreateur.Name = "cboCreateur";
+            this.cboCreateur.Size = new System.Drawing.Size(137, 16);
+            this.cboCreateur.TabIndex = 18;
+            this.cboCreateur.Text = "Nom du createur ? *";
+            // 
+            // lblFinEvenement
+            // 
+            this.lblFinEvenement.AppFont = Hermes.AppFont.HelveticaNeue;
+            this.lblFinEvenement.AppFontHeight = 10F;
+            this.lblFinEvenement.AutoSize = true;
+            this.lblFinEvenement.Location = new System.Drawing.Point(360, 221);
+            this.lblFinEvenement.Name = "lblFinEvenement";
+            this.lblFinEvenement.Size = new System.Drawing.Size(150, 16);
+            this.lblFinEvenement.TabIndex = 16;
+            this.lblFinEvenement.Text = "Fin de l\'évènement ? *";
+            // 
+            // lblDebutEvenement
+            // 
+            this.lblDebutEvenement.AppFont = Hermes.AppFont.HelveticaNeue;
+            this.lblDebutEvenement.AppFontHeight = 10F;
+            this.lblDebutEvenement.AutoSize = true;
+            this.lblDebutEvenement.Location = new System.Drawing.Point(360, 138);
+            this.lblDebutEvenement.Name = "lblDebutEvenement";
+            this.lblDebutEvenement.Size = new System.Drawing.Size(169, 16);
+            this.lblDebutEvenement.TabIndex = 14;
+            this.lblDebutEvenement.Text = "Début de l\'évènement ? *";
+            // 
+            // lblNomEvenement
+            // 
+            this.lblNomEvenement.AppFont = Hermes.AppFont.HelveticaNeue;
+            this.lblNomEvenement.AppFontHeight = 10F;
+            this.lblNomEvenement.AutoSize = true;
+            this.lblNomEvenement.Location = new System.Drawing.Point(124, 138);
+            this.lblNomEvenement.Name = "lblNomEvenement";
+            this.lblNomEvenement.Size = new System.Drawing.Size(161, 16);
+            this.lblNomEvenement.TabIndex = 10;
+            this.lblNomEvenement.Text = "Nom de l\'évènement ? *";
+            // 
             // BulleAjEvenement
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -178,6 +178,7 @@
             this.Controls.Add(this.lblNomEvenement);
             this.Name = "BulleAjEvenement";
             this.Size = new System.Drawing.Size(705, 405);
+            this.Load += new System.EventHandler(this.BulleAjEvenement_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

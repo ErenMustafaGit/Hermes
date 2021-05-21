@@ -26,5 +26,13 @@ namespace Hermes
         {
             dtpDateFin.MinDate = dtpDateDebut.Value;
         }
+
+        private void BulleAjEvenement_Load(object sender, EventArgs e)
+        {
+            Database database = new Database();
+            cboEvenements.DataSource = Participant.toConcatenateDataTable(database.FetchParticipant());
+            cboEvenements.DisplayMember = "Name";
+            cboEvenements.ValueMember = "CodeParticipant";
+        }
     }
 }

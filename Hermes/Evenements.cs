@@ -16,11 +16,11 @@ namespace Hermes
         public Evenements()
         {
             InitializeComponent();
-            /*
+            
             ScrollBar scrollbar = new VScrollBar();
             scrollbar.Dock = DockStyle.Right;
             pnlScroll.Controls.Add(scrollbar);
-            //scrollbar.Scroll += (sender, e)*/
+            //scrollbar.Scroll += (sender, e)
 
             pnlScroll.AutoScroll = false;
             pnlScroll.HorizontalScroll.Enabled = false;
@@ -39,30 +39,28 @@ namespace Hermes
             Database database = new Database();
             List<PartyEvent> events = database.FetchEvents();
 
-            /*
-            int modulo = 3;
-            for (int i = 0; i<events.Count; i++)
+            pnlAddEvent.Visible = false;
+            AjoutEvenement ajoutEvent = new AjoutEvenement();
+            ajoutEvent.setPanel = this.pnlAddEvent;
+            ajoutEvent.Top = 20;
+            ajoutEvent.Left = 100;
+            pnlScroll.Controls.Add(ajoutEvent);
+
+            int modulo = 2;
+            for(int i = 0; i<events.Count; i++)
             {
                 ResumePartyEvent resumeEvent = new ResumePartyEvent(events[i].Title, events[i].Description, events[i].GetNbPart(), events[i].BeginDate, events[i].EndDate, events[i].CodeCreator);
                 resumeEvent.setPanel = this.ecran;
                 resumeEvent.setIndex = i;
-                resumeEvent.Top = 20 + 250* (i%modulo);
-                resumeEvent.Left = 100 + 350 * (i/modulo);
+                resumeEvent.Top = 20 + 250 * ((i + 1) / modulo);
+                resumeEvent.Left = 100 + 350 * ((i + 1) % modulo);
                 pnlScroll.Controls.Add(resumeEvent);
-            }
-            */
-            pnlAddEvent.Visible = false;
-            ajoutEvenement1.setPanel = this.pnlAddEvent;
-           
 
+            }
+            
         }
 
         private void PnlAddEvent_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void AjoutEvenement1_Load(object sender, EventArgs e)
         {
 
         }

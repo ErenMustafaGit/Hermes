@@ -30,13 +30,11 @@
         {
             this.pnlScroll = new System.Windows.Forms.Panel();
             this.pnlAddEvent = new System.Windows.Forms.Panel();
-            this.ajoutEvenement1 = new Hermes.AjoutEvenement();
             this.pnlScroll.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnlScroll
             // 
-            this.pnlScroll.Controls.Add(this.ajoutEvenement1);
             this.pnlScroll.Controls.Add(this.pnlAddEvent);
             this.pnlScroll.Location = new System.Drawing.Point(39, 76);
             this.pnlScroll.Name = "pnlScroll";
@@ -45,19 +43,11 @@
             // 
             // pnlAddEvent
             // 
-            this.pnlAddEvent.Location = new System.Drawing.Point(162, 22);
+            this.pnlAddEvent.BackColor = System.Drawing.Color.Transparent;
+            this.pnlAddEvent.Location = new System.Drawing.Point(72, 66);
             this.pnlAddEvent.Name = "pnlAddEvent";
             this.pnlAddEvent.Size = new System.Drawing.Size(705, 405);
             this.pnlAddEvent.TabIndex = 0;
-            // 
-            // ajoutEvenement1
-            // 
-            this.ajoutEvenement1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(249)))), ((int)(((byte)(249)))));
-            this.ajoutEvenement1.Location = new System.Drawing.Point(21, 90);
-            this.ajoutEvenement1.Name = "ajoutEvenement1";
-            this.ajoutEvenement1.Size = new System.Drawing.Size(334, 233);
-            this.ajoutEvenement1.TabIndex = 1;
-            this.ajoutEvenement1.Load += new System.EventHandler(this.AjoutEvenement1_Load);
             // 
             // Evenements
             // 
@@ -75,6 +65,5 @@
         #endregion
         private System.Windows.Forms.Panel pnlScroll;
         private System.Windows.Forms.Panel pnlAddEvent;
-        private AjoutEvenement ajoutEvenement1;
     }
 }
