@@ -47,17 +47,17 @@ namespace Hermes
             // pnlEcran
             // 
             this.pnlEcran.Controls.Add(this.label1);
-            this.pnlEcran.Location = new System.Drawing.Point(113, 0);
+            this.pnlEcran.Location = new System.Drawing.Point(115, 0);
             this.pnlEcran.Name = "pnlEcran";
-            this.pnlEcran.Size = new System.Drawing.Size(967, 640);
+            this.pnlEcran.Size = new System.Drawing.Size(965, 640);
             this.pnlEcran.TabIndex = 3;
-            this.pnlEcran.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlEcran_Paint);
+            this.pnlEcran.Paint += new System.Windows.Forms.PaintEventHandler(this.PnlEcran_Paint_1);
             // 
             // sideBarUserControls1
             // 
             this.sideBarUserControls1.BackColor = System.Drawing.Color.White;
             this.sideBarUserControls1.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.sideBarUserControls1.Location = new System.Drawing.Point(-1, 0);
+            this.sideBarUserControls1.Location = new System.Drawing.Point(0, 0);
             this.sideBarUserControls1.Name = "sideBarUserControls1";
             this.sideBarUserControls1.Size = new System.Drawing.Size(116, 640);
             this.sideBarUserControls1.TabIndex = 4;

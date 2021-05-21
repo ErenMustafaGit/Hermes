@@ -64,7 +64,7 @@
             this.lblDescEvenement.AppFontHeight = 13F;
             this.lblDescEvenement.AutoEllipsis = true;
             this.lblDescEvenement.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(249)))), ((int)(((byte)(249)))));
-            this.lblDescEvenement.Location = new System.Drawing.Point(76, 183);
+            this.lblDescEvenement.Location = new System.Drawing.Point(77, 184);
             this.lblDescEvenement.Name = "lblDescEvenement";
             this.lblDescEvenement.Size = new System.Drawing.Size(609, 86);
             this.lblDescEvenement.TabIndex = 4;
@@ -77,7 +77,7 @@
             this.lblNomEvenement.AppFontHeight = 40F;
             this.lblNomEvenement.AutoSize = true;
             this.lblNomEvenement.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(249)))), ((int)(((byte)(249)))));
-            this.lblNomEvenement.Location = new System.Drawing.Point(69, 96);
+            this.lblNomEvenement.Location = new System.Drawing.Point(70, 97);
             this.lblNomEvenement.Name = "lblNomEvenement";
             this.lblNomEvenement.Size = new System.Drawing.Size(146, 67);
             this.lblNomEvenement.TabIndex = 2;
@@ -102,6 +102,8 @@
             this.lblGauche.Text = "x";
             this.lblGauche.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.lblGauche.Click += new System.EventHandler(this.LblGauche_Click);
+            this.lblGauche.MouseLeave += new System.EventHandler(this.LblGauche_MouseLeave);
+            this.lblGauche.MouseHover += new System.EventHandler(this.LblGauche_MouseHover);
             // 
             // lblGaucheGauche
             // 
@@ -115,6 +117,8 @@
             this.lblGaucheGauche.Text = "x";
             this.lblGaucheGauche.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.lblGaucheGauche.Click += new System.EventHandler(this.LblGaucheGauche_Click);
+            this.lblGaucheGauche.MouseLeave += new System.EventHandler(this.LblGaucheGauche_MouseLeave);
+            this.lblGaucheGauche.MouseHover += new System.EventHandler(this.LblGaucheGauche_MouseHover);
             // 
             // lblIconeDroiteDroite
             // 
@@ -128,6 +132,8 @@
             this.lblIconeDroiteDroite.Text = "x";
             this.lblIconeDroiteDroite.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.lblIconeDroiteDroite.Click += new System.EventHandler(this.LblIconeDroiteDroite_Click);
+            this.lblIconeDroiteDroite.MouseLeave += new System.EventHandler(this.LblIconeDroiteDroite_MouseLeave);
+            this.lblIconeDroiteDroite.MouseHover += new System.EventHandler(this.LblIconeDroiteDroite_MouseHover);
             // 
             // appFontLabel1
             // 
@@ -175,6 +181,8 @@
             this.lblIconeDroite.Text = "x";
             this.lblIconeDroite.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.lblIconeDroite.Click += new System.EventHandler(this.LblIconeDroite_Click);
+            this.lblIconeDroite.MouseLeave += new System.EventHandler(this.LblIconeDroite_MouseLeave);
+            this.lblIconeDroite.MouseHover += new System.EventHandler(this.LblIconeDroite_MouseHover);
             // 
             // lblTrueFalse
             // 

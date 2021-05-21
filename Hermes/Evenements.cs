@@ -40,7 +40,7 @@ namespace Hermes
             List<PartyEvent> events = database.FetchEvents();
 
             int modulo = 3;
-            for(int i = 0; i<events.Count; i++)
+            for (int i = 0; i<events.Count; i++)
             {
                 ResumePartyEvent resumeEvent = new ResumePartyEvent(events[i].TitleEvent, events[i].Description, events[i].GetNbPart(), events[i].BeginDate, events[i].EndDate, events[i].CodeCreator);
                 resumeEvent.setPanel = this.ecran;
@@ -49,7 +49,8 @@ namespace Hermes
                 resumeEvent.Left = 100 + 350 * (i/modulo);
                 pnlScroll.Controls.Add(resumeEvent);
             }
-            
+           
+
         }
 
 
