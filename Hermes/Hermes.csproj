@@ -126,6 +126,12 @@
     <Compile Include="SideBarUserControls.Designer.cs">
       <DependentUpon>SideBarUserControls.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserEvenement.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserEvenement.Designer.cs">
+      <DependentUpon>UserEvenement.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Accueil.resx">
       <DependentUpon>Accueil.cs</DependentUpon>
     </EmbeddedResource>
@@ -162,6 +168,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="SideBarUserControls.resx">
       <DependentUpon>SideBarUserControls.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserEvenement.resx">
+      <DependentUpon>UserEvenement.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

@@ -37,7 +37,6 @@ namespace Hermes
             string chcon = "Provider=Microsoft.Jet.OLEDB.4.0;Data Source='../../../bdEvents.mdb'";
             OleDbConnection connection = new OleDbConnection(chcon);
             connection.Open();
-            //A FAIRE EN BINDING SOURCE
             try
             {
                 DataSet setBase = new DataSet();
@@ -76,6 +75,8 @@ namespace Hermes
 
             List<PartyEvent> evenement = base_de_donnee.FetchEvents();
             PartyEvent evenement_concerné = evenement[index];
+
+            //for(int i = 0; )
 
             lblNomEvenement.Text = evenement_concerné.TitleEvent;
             lblDescEvenement.Text = evenement_concerné.Description;
