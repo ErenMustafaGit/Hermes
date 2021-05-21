@@ -31,8 +31,8 @@ namespace Hermes
 
             DataTable events = PartyEvent.toDataTable(database.FetchEvents());
             cboEvenements.DataSource = events;
-            cboEvenements.DisplayMember = "TitleEvent";
-            cboEvenements.ValueMember = "CodeEvent";
+            cboEvenements.DisplayMember = "Title";
+            cboEvenements.ValueMember = "Code";
             cboEvenements.SelectedIndex = indice - 1;
 
             PartyEvent selectedEvent = PartyEvent.GetPartyEvent(int.Parse(cboEvenements.SelectedValue.ToString()));
