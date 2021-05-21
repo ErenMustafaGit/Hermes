@@ -16,6 +16,7 @@ namespace Hermes
     {
         static string chcon = "Provider=Microsoft.Jet.OLEDB.4.0;Data Source='../../../bdEvents.mdb'";
         static OleDbConnection connection = new OleDbConnection();
+        DataSet dataset = new DataSet();
 
         public List<PartyEvent> FetchEvents()
         {
@@ -110,6 +111,59 @@ namespace Hermes
                 connection.Close();
             }
             return participants;
+        }
+
+        public void FillDataSet()
+        {
+            try
+            {
+                connection.ConnectionString = chcon;
+                connection.Open();
+                DataTable schemaTable = connection.GetOleDbSchemaTable(OleDbSchemaGuid.Tables,
+                                new object[] { null, null, null, "TABLE" });
+                for(int i = 0; i < schemaTable.Rows.Count; i++)
+                {
+                    string tableName = schemaTable.Rows[i][2].ToString();
+                    OleDbCommand command = new OleDbCommand("select * from " + tableName, connection);
+                    OleDbDataAdapter dataAdapter = new OleDbDataAdapter(command);
+                    dataAdapter.Fill(dataset, tableName);
+                }
+
+            }
+            catch (OleDbException er)
+            {
+                MessageBox.Show("Erreur de requête SQL \n\n\n\n" + er);
+            }
+            catch (InvalidOperationException er)
+            {
+                MessageBox.Show("Problème d'accès à la base \n\n\n\n" + er);
+            }
+
+            finally
+            {
+                connection.Close();
+            }
+        }
+
+        public BindingSource GetBindingSource(string tableName)
+        {
+            BindingSource bindingSource = new BindingSource();
+            try
+            {
+                this.FillDataSet();
+                DataTable table = dataset.Tables[tableName];
+                bindingSource.DataSource = table;
+
+            }
+            catch (Exception er)
+            {
+                Console.WriteLine(er.ToString());
+            }
+            finally
+            {
+                connection.Close();
+            }
+            return bindingSource;
         }
 
         public static void InsertExpenditure(Expenditure expenditure, List<Participant> beneficiaire)
