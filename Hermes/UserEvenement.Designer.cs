@@ -39,7 +39,7 @@
             this.lblIconeCreateurParticipant.AutoSize = true;
             this.lblIconeCreateurParticipant.Location = new System.Drawing.Point(11, 13);
             this.lblIconeCreateurParticipant.Name = "lblIconeCreateurParticipant";
-            this.lblIconeCreateurParticipant.Size = new System.Drawing.Size(52, 48);
+            this.lblIconeCreateurParticipant.Size = new System.Drawing.Size(42, 38);
             this.lblIconeCreateurParticipant.TabIndex = 4;
             this.lblIconeCreateurParticipant.Text = "O";
             this.lblIconeCreateurParticipant.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -52,7 +52,7 @@
             this.appFontLabel1.AutoSize = true;
             this.appFontLabel1.Location = new System.Drawing.Point(83, 23);
             this.appFontLabel1.Name = "appFontLabel1";
-            this.appFontLabel1.Size = new System.Drawing.Size(220, 26);
+            this.appFontLabel1.Size = new System.Drawing.Size(182, 21);
             this.appFontLabel1.TabIndex = 1;
             this.appFontLabel1.Text = "Alexander Yanovskyy";
             this.appFontLabel1.Click += new System.EventHandler(this.appFontLabel1_Click);
@@ -64,7 +64,7 @@
             this.Controls.Add(this.lblIconeCreateurParticipant);
             this.Controls.Add(this.appFontLabel1);
             this.Name = "UserEvenement";
-            this.Size = new System.Drawing.Size(348, 75);
+            this.Size = new System.Drawing.Size(330, 68);
             this.Load += new System.EventHandler(this.UserEvenement_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

@@ -26,7 +26,7 @@ namespace Hermes
 
         private void UserEvenement_Load(object sender, EventArgs e)
         {
-
+            Database dataBase = new Database();
         }
 
         private void lblIconeCreateurParticipant_Click(object sender, EventArgs e)
