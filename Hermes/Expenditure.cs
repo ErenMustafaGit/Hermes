@@ -34,7 +34,7 @@ namespace Hermes
             table.Columns.Add("Amount", typeof(Decimal));
             table.Columns.Add("DateExpenditure", typeof(DateTime));
             table.Columns.Add("Comment", typeof(string));
-            table.Columns.Add("CodeEvent", typeof(int));
+            table.Columns.Add("Code", typeof(int));
             table.Columns.Add("CodeParticipant", typeof(int));
 
             for (int i = 0; i < expenditures.Count; i++)
@@ -94,8 +94,8 @@ namespace Hermes
                 OleDbDataReader dataReader = command.ExecuteReader();
 
                 dataReader.Read();
-                theEvent.CodeEvent = dataReader.GetInt32(0);
-                theEvent.TitleEvent = dataReader.GetString(1);
+                theEvent.Code = dataReader.GetInt32(0);
+                theEvent.Title = dataReader.GetString(1);
                 theEvent.BeginDate = dataReader.GetDateTime(2);
                 theEvent.EndDate = dataReader.GetDateTime(3);
                 theEvent.Description = dataReader.GetString(4);
