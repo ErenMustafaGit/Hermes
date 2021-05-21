@@ -37,9 +37,11 @@ namespace Hermes
 
             PartyEvent selectedEvent = PartyEvent.GetPartyEvent(int.Parse(cboEvenements.SelectedValue.ToString()));
 
+            dtp.MinDate = selectedEvent.BeginDate;
+            dtp.MaxDate = selectedEvent.EndDate;
             updateGuests();
 
-            dtpDebut.Value = selectedEvent.BeginDate;
+            dtp.Value = selectedEvent.BeginDate;
 
            
         }
@@ -109,19 +111,49 @@ namespace Hermes
         private void cboEvenements_SelectionChangeCommitted(object sender, EventArgs e)
         {
             PartyEvent selectedEvent = PartyEvent.GetPartyEvent(int.Parse(cboEvenements.SelectedValue.ToString()));
-            dtpDebut.Value = selectedEvent.BeginDate;
+            dtp.MinDate = DateTime.Parse("01/01/1753");
+            dtp.MaxDate = DateTime.Parse("01/01/8888");
+            dtp.Value = selectedEvent.BeginDate;
+            dtp.MinDate = selectedEvent.BeginDate;
+            dtp.MaxDate = selectedEvent.EndDate;
             updateGuests();
         }
 
         //Continuer
         private void AppFontLabel8_Click(object sender, EventArgs e)
         {
-            ;
-            this.ecran.Controls.Clear();
-            AjNouvelleDepense2 suite = new AjNouvelleDepense2(int.Parse(cboEvenements.SelectedValue.ToString()), dtpDebut.Value, txtWhere.Text, int.Parse(cboPayePar.SelectedValue.ToString()), numAmount.Value);
-            suite.setPanel = this.ecran;
-            this.ecran.Controls.Add(suite);
+            bool done = true;
+            PartyEvent currentEvent = PartyEvent.GetPartyEvent(int.Parse(cboEvenements.SelectedValue.ToString()));
+
+            //Les animations d'erreur sont juste de test ! Il faudra changer ABSOLUMENT !
+            txtWhere.BackColor = Color.White;
+            numAmount.BackColor = Color.White;
+
+            if(txtWhere.Text == "")
+            {
+                done = false;
+                txtWhere.Focus();
+                txtWhere.BackColor = Color.LightPink;
+            }
+            if(numAmount.Value == 0)
+            {
+                done = false;
+                numAmount.Focus();
+                numAmount.BackColor = Color.LightPink;
+            }
+
+            if (done)
+            {
+                string description = txtWhere.Text.Replace('\'', ' ');
+
+                this.ecran.Controls.Clear();
+                AjNouvelleDepense2 suite = new AjNouvelleDepense2(int.Parse(cboEvenements.SelectedValue.ToString()), dtp.Value,description, int.Parse(cboPayePar.SelectedValue.ToString()), numAmount.Value);
+                suite.setPanel = this.ecran;
+                this.ecran.Controls.Add(suite);
+            }
+            
         }
+
 
         private void AppFontLabel8_MouseHover(object sender, EventArgs e)
         {

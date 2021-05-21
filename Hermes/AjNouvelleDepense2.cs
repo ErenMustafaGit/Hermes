@@ -17,15 +17,15 @@ namespace Hermes
         DateTime Date;
         string Description;
         int CodePayeur;
-        Decimal Montant;
-        public AjNouvelleDepense2(int codeEvenement, DateTime date, string description, int codePayeur, Decimal montant)
+        Decimal Amount;
+        public AjNouvelleDepense2(int codeEvenement, DateTime date, string description, int codePayeur, Decimal amount)
         {
             InitializeComponent();
             this.CodeEvenement = codeEvenement;
             this.Date = date;
             this.Description = description;
             this.CodePayeur = codePayeur;
-            this.Montant = montant;
+            this.Amount = amount;
         }
 
         public Panel setPanel
@@ -76,40 +76,61 @@ namespace Hermes
 
         private void BtnValider_Click(object sender, EventArgs e)
         {
-            
-            Expenditure newExpenditure = new Expenditure()
-            {
-                NumExpenditure = 100,
-                Description = this.Description,
-                Comment = rtxtCommentaire.Text,
-                DateExpenditure = this.Date,
-                CodeEvent = this.CodeEvenement,
-                CodeParticipant = this.CodePayeur,
-            };
+            bool done = false;
 
-            List<Participant> beneficiary = new List<Participant>();
-            if (chkEveryOne.Checked)
+            foreach (CheckBox chk in pnlBeneficiaire.Controls)
             {
-                beneficiary = PartyEvent.GetPartyEvent(this.CodeEvenement).GetGuests();
+                if (chk.Checked)
+                    done = true;
             }
-            else
+            if (rtxtCommentaire.Text == "")
             {
-                foreach(CheckBox chk in pnlBeneficiaire.Controls)
+                rtxtCommentaire.BackColor = Color.LightPink;
+                done = false;
+            }
+
+            if (done)
+            {
+                string comment = rtxtCommentaire.Text.Replace('\'', ' ');
+                Expenditure newExpenditure = new Expenditure()
                 {
-                    if(chk.Checked && chk != chkEveryOne)
+                    NumExpenditure = 100,
+                    Amount = this.Amount,
+                    Description = this.Description,
+                    Comment = comment,
+                    DateExpenditure = this.Date,
+                    CodeEvent = this.CodeEvenement,
+                    CodeParticipant = this.CodePayeur,
+                };
+
+                List<Participant> beneficiary = new List<Participant>();
+                if (chkEveryOne.Checked)
+                {
+                    beneficiary = PartyEvent.GetPartyEvent(this.CodeEvenement).GetGuests();
+                }
+                else
+                {
+                    foreach (CheckBox chk in pnlBeneficiaire.Controls)
                     {
-                        beneficiary.Add(Participant.GetParticipant((int)chk.Tag));
+                        if (chk.Checked && chk != chkEveryOne)
+                        {
+                            beneficiary.Add(Participant.GetParticipant((int)chk.Tag));
+                        }
                     }
                 }
+                bool added = Database.InsertExpenditure(newExpenditure, beneficiary);
+                if (added)
+                {
+                    //UNE POPUP A AJOUTER
+                    MessageBox.Show("AJOUTE POPUP");
+
+                    this.ecran.Controls.Clear();
+                    Accueil a = new Accueil();
+                    a.setPanel = this.ecran;
+                    this.ecran.Controls.Add(a);
+                }
             }
-            bool added = Database.InsertExpenditure(newExpenditure, beneficiary);
-            if (added)
-            {
-                this.ecran.Controls.Clear();
-                Accueil a = new Accueil();
-                a.setPanel = this.ecran;
-                this.ecran.Controls.Add(a);
-            }
+            
         }
 
         private void BtnCancel_Click(object sender, EventArgs e)

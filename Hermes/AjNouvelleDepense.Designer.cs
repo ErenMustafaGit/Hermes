@@ -31,7 +31,7 @@
             this.cboEvenements = new System.Windows.Forms.ComboBox();
             this.txtWhere = new System.Windows.Forms.TextBox();
             this.numAmount = new System.Windows.Forms.NumericUpDown();
-            this.dtpDebut = new System.Windows.Forms.DateTimePicker();
+            this.dtp = new System.Windows.Forms.DateTimePicker();
             this.cboPayePar = new System.Windows.Forms.ComboBox();
             this.appFontLabel8 = new Hermes.UI.AppFontLabel();
             this.lblAnnuler = new Hermes.UI.AppFontLabel();
@@ -74,16 +74,16 @@
             this.numAmount.Size = new System.Drawing.Size(246, 27);
             this.numAmount.TabIndex = 10;
             // 
-            // dtpDebut
+            // dtp
             // 
-            this.dtpDebut.CalendarFont = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtpDebut.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F);
-            this.dtpDebut.Location = new System.Drawing.Point(479, 261);
-            this.dtpDebut.Name = "dtpDebut";
-            this.dtpDebut.Size = new System.Drawing.Size(263, 27);
-            this.dtpDebut.TabIndex = 11;
-            this.dtpDebut.Value = new System.DateTime(2021, 5, 18, 18, 23, 0, 0);
-            this.dtpDebut.ValueChanged += new System.EventHandler(this.dtpDebut_ValueChanged);
+            this.dtp.CalendarFont = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtp.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F);
+            this.dtp.Location = new System.Drawing.Point(479, 261);
+            this.dtp.Name = "dtp";
+            this.dtp.Size = new System.Drawing.Size(263, 27);
+            this.dtp.TabIndex = 11;
+            this.dtp.Value = new System.DateTime(2021, 5, 18, 18, 23, 0, 0);
+            this.dtp.ValueChanged += new System.EventHandler(this.dtpDebut_ValueChanged);
             // 
             // cboPayePar
             // 
@@ -203,7 +203,7 @@
             this.Controls.Add(this.appFontLabel6);
             this.Controls.Add(this.cboPayePar);
             this.Controls.Add(this.lblDate);
-            this.Controls.Add(this.dtpDebut);
+            this.Controls.Add(this.dtp);
             this.Controls.Add(this.numAmount);
             this.Controls.Add(this.txtWhere);
             this.Controls.Add(this.lblAmount);
@@ -229,7 +229,7 @@
         private UI.AppFontLabel lblAmount;
         private System.Windows.Forms.TextBox txtWhere;
         private System.Windows.Forms.NumericUpDown numAmount;
-        private System.Windows.Forms.DateTimePicker dtpDebut;
+        private System.Windows.Forms.DateTimePicker dtp;
         private UI.AppFontLabel lblDate;
         private UI.AppFontLabel appFontLabel6;
         private System.Windows.Forms.ComboBox cboPayePar;
