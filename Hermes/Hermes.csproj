@@ -68,6 +68,12 @@
     <Compile Include="AjNouvelleDepense.Designer.cs">
       <DependentUpon>AjNouvelleDepense.cs</DependentUpon>
     </Compile>
+    <Compile Include="AjNouvelleDepense2.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="AjNouvelleDepense2.Designer.cs">
+      <DependentUpon>AjNouvelleDepense2.cs</DependentUpon>
+    </Compile>
     <Compile Include="AjoutRapideBouton.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -125,6 +131,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="AjNouvelleDepense.resx">
       <DependentUpon>AjNouvelleDepense.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AjNouvelleDepense2.resx">
+      <DependentUpon>AjNouvelleDepense2.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="AjoutRapideBouton.resx">
       <DependentUpon>AjoutRapideBouton.cs</DependentUpon>

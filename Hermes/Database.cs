@@ -14,8 +14,8 @@ namespace Hermes
 {
     class Database
     {
-        string chcon = "Provider=Microsoft.Jet.OLEDB.4.0;Data Source='../../../bdEvents.mdb'";
-        OleDbConnection connection = new OleDbConnection();
+        static string chcon = "Provider=Microsoft.Jet.OLEDB.4.0;Data Source='../../../bdEvents.mdb'";
+        static OleDbConnection connection = new OleDbConnection();
 
         public List<PartyEvent> FetchEvents()
         {
@@ -112,6 +112,47 @@ namespace Hermes
             return participants;
         }
 
+        public static void InsertExpenditure(Expenditure expenditure, List<Participant> beneficiaire)
+        {
+            bool added = false;
+            try
+            {
+                connection.ConnectionString = chcon;
+                connection.Open();
+                string sqlInsert = String.Format("INSERT INTO Depenses VALUES ({0},{1},{2},{3},{4},{5})", expenditure.NumExpenditure, expenditure.Description, expenditure.DateExpenditure, expenditure.Comment, expenditure.CodeEvent, expenditure.CodeParticipant);
+                OleDbCommand command = new OleDbCommand(sqlInsert, connection );
+                int nb = command.ExecuteNonQuery();
+                MessageBox.Show(nb.ToString());
+                if (nb > 0)
+                    added = true;
+
+                for(int i = 0; i<beneficiaire.Count; i++)
+                {
+                    string sqlBeneficiaire = String.Format("INSERT INTO Depenses Beneficiaires ({0},{1})", expenditure.NumExpenditure, beneficiaire[i].CodeParticipant);
+                    command.CommandText = sqlBeneficiaire;
+                    nb = command.ExecuteNonQuery();
+                    if (nb == 0)
+                    {
+                        added = false;
+                        throw new OleDbException("Erreur dans l'insert");
+                    }
+                }
+            }
+            catch (OleDbException er)
+            {
+                MessageBox.Show("Erreur de requête SQL \n\n\n\n" + er);
+            }
+            catch (InvalidOperationException er)
+            {
+                MessageBox.Show("Problème d'accès à la base \n\n\n\n" + er);
+            }
+
+            finally
+            {
+                connection.Close();
+            }
+        }
+
         public List<Expenditure> FetchExpenditure()
         {
             List<Expenditure> expenditures = new List<Expenditure>();
@@ -136,16 +177,7 @@ namespace Hermes
                     }
                     theExpenditure.CodeEvent = dataReader.GetInt32(5);
                     theExpenditure.CodeParticipant = dataReader.GetInt32(6);
-                    /*
-                    {
-                        NumExpenditure = dataReader.GetInt32(0),
-                        Description = dataReader.GetString(1),
-                        Amount = dataReader.GetInt32(2),
-                        DateExpenditure = dataReader.GetDateTime(3),
-                        Comment = dataReader.GetString(4),
-                        CodeEvent = dataReader.GetInt32(5),
-                        CodeParticipant = dataReader.GetInt32(6)
-                    };*/
+
                     expenditures.Add(theExpenditure);
                 }
             }
