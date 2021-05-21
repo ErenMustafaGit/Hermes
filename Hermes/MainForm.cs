@@ -69,18 +69,35 @@ namespace Hermes
           
         }
 
-        /*
+        private void pnlEcran_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+
         private void sideBarUserControls1_MouseEnter(object sender, EventArgs e)
         {
-            sideBarUserControls1.Size = new Size(424, this.sideBarUserControls1.Size.Height);
+            //sideBarUserControls1.Size = new Size(424, this.sideBarUserControls1.Size.Height);
+           
+        }
+
+        private void sideBarUserControls1_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void sideBarUserControls1_MouseEnter_1(object sender, EventArgs e)
+        {
             MessageBox.Show("ok");
         }
 
+        /*
         private void sideBarUserControls1_MouseLeave(object sender, EventArgs e)
         {
             sideBarUserControls1.Size = new Size(116, this.sideBarUserControls1.Size.Height);
             MessageBox.Show("ko");
         }
         */
+
     }
 }

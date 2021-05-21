@@ -12,6 +12,7 @@ namespace Hermes
 {
     public partial class Evenements : UserControl
     {
+        public Panel ecran;
         public Evenements()
         {
             InitializeComponent();
@@ -28,6 +29,11 @@ namespace Hermes
             pnlScroll.AutoScroll = true;
         }
 
+        public Panel setPanel
+        {
+            set { this.ecran = value; }
+        }
+
         private void Evenements_Load(object sender, EventArgs e)
         {
             Database database = new Database();
@@ -37,7 +43,9 @@ namespace Hermes
             for(int i = 0; i<events.Count; i++)
             {
                 ResumePartyEvent resumeEvent = new ResumePartyEvent(events[i].TitleEvent, events[i].Description, events[i].GetNbPart(), events[i].BeginDate, events[i].EndDate, events[i].CodeCreator);
-                resumeEvent.Top = 20 + 232* (i%modulo);
+                resumeEvent.setPanel = this.ecran;
+                resumeEvent.setIndex = i;
+                resumeEvent.Top = 20 + 250* (i%modulo);
                 resumeEvent.Left = 100 + 350 * (i/modulo);
                 pnlScroll.Controls.Add(resumeEvent);
             }
