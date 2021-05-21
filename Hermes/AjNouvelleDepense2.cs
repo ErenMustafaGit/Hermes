@@ -42,8 +42,12 @@ namespace Hermes
                 CheckBox chkGuest = new CheckBox();
                 chkGuest.Text = guests[i].FirstName + " " + guests[i].LastName;
                 chkGuest.Tag = guests[i].CodeParticipant;
+
                 chkGuest.Left = chkEveryOne.Left;
                 chkGuest.Top = 50 + 30 * i;
+                chkGuest.AutoSize = false;
+                chkGuest.Width = 300;
+                chkGuest.Height = 22;
                 pnlBeneficiaire.Controls.Add(chkGuest);
             }
         }
@@ -98,7 +102,14 @@ namespace Hermes
                     }
                 }
             }
-            Database.InsertExpenditure(newExpenditure, beneficiary);
+            bool added = Database.InsertExpenditure(newExpenditure, beneficiary);
+            if (added)
+            {
+                this.ecran.Controls.Clear();
+                Accueil a = new Accueil();
+                a.setPanel = this.ecran;
+                this.ecran.Controls.Add(a);
+            }
         }
 
         private void BtnCancel_Click(object sender, EventArgs e)

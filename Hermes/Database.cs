@@ -126,19 +126,15 @@ namespace Hermes
                 int code = Expenditure.GetMaxCode() +1;
                 string sqlInsert = String.Format("INSERT INTO Depenses VALUES ({0},'{1}',{2},{3},'{4}',{5},{6})", code, expenditure.Description,expenditure.Amount ,date, expenditure.Comment, expenditure.CodeEvent, expenditure.CodeParticipant);
                 OleDbCommand command = new OleDbCommand(sqlInsert, connection );
-                MessageBox.Show(sqlInsert);
                 int nb = command.ExecuteNonQuery();
-                MessageBox.Show(nb.ToString());
                 if (nb > 0)
                     added = true;
                     
                 for(int i = 0; i<beneficiaire.Count; i++)
                 {
-                    MessageBox.Show(beneficiaire[i].FirstName);
-                    string sqlBeneficiaire = String.Format("INSERT INTO Beneficiaires ({0},{1})",code, beneficiaire[i].CodeParticipant);
-                    command.CommandText = sqlBeneficiaire;
-                    MessageBox.Show(sqlBeneficiaire);
-                    nb = command.ExecuteNonQuery();
+                    string sqlBeneficiaire = String.Format("INSERT INTO Beneficiaires VALUES ({0},{1})", code, beneficiaire[i].CodeParticipant);
+                    OleDbCommand cmd = new OleDbCommand(sqlBeneficiaire, connection);
+                    nb = cmd.ExecuteNonQuery();
                     if (nb == 0)
                     {
                         added = false;
