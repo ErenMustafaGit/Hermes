@@ -34,7 +34,7 @@ namespace Hermes
             cboEvenements.SelectedIndex = indice - 1;
 
 
-            PartyEvent selectedEvent = PartyEvent.GetPartyEvent(int.Parse(cboEvenements.SelectedValue.ToString()));
+            PartyEvent selectedEvent = PartyEvent.GetFromId(int.Parse(cboEvenements.SelectedValue.ToString()));
             /*DataTable guests = Participant.toDataTable(selectedEvent.GetGuests)
             cboPayePar.DataSource = guests;
             cboPayePar.DisplayMember = ""*/
