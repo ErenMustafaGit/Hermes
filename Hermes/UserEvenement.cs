@@ -14,12 +14,18 @@ namespace Hermes
     {
         public Participant participant;
         public int index;
+        public int codeCreateur;
         public UserEvenement()
         {
             InitializeComponent();
             lblIconeCreateurParticipant.Text = Hermes.UI.Icons.USER;
+            
         }
 
+        public int setCodeCreateur
+        {
+            set { this.codeCreateur = value; }
+        }
  
 
         public Participant recupParticipant
@@ -32,6 +38,10 @@ namespace Hermes
         private void UserEvenement_Load(object sender, EventArgs e)
         {
             lblTxtParticipant.Text = participant.LastName + " " + participant.FirstName;
+            if (participant.CodeParticipant == codeCreateur)
+            {
+                lblIconeCreateurParticipant.Text = Hermes.UI.Icons.CROWN;
+            }
 
         }
 
