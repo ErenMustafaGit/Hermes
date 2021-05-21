@@ -86,6 +86,12 @@
     <Compile Include="AjoutRapideBouton.Designer.cs">
       <DependentUpon>AjoutRapideBouton.cs</DependentUpon>
     </Compile>
+    <Compile Include="BulleAjEvenement.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="BulleAjEvenement.Designer.cs">
+      <DependentUpon>BulleAjEvenement.cs</DependentUpon>
+    </Compile>
     <Compile Include="CompleteInfoEvenement.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -158,6 +164,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="AjoutRapideBouton.resx">
       <DependentUpon>AjoutRapideBouton.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BulleAjEvenement.resx">
+      <DependentUpon>BulleAjEvenement.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CompleteInfoEvenement.resx">
       <DependentUpon>CompleteInfoEvenement.cs</DependentUpon>

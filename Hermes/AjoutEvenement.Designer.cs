@@ -36,12 +36,15 @@
             this.lblAdd.AppFont = Hermes.AppFont.Icons;
             this.lblAdd.AppFontHeight = 40F;
             this.lblAdd.AutoSize = true;
-            this.lblAdd.Location = new System.Drawing.Point(129, 87);
+            this.lblAdd.Location = new System.Drawing.Point(135, 84);
             this.lblAdd.Name = "lblAdd";
             this.lblAdd.Size = new System.Drawing.Size(58, 55);
             this.lblAdd.TabIndex = 0;
             this.lblAdd.Text = "O";
             this.lblAdd.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblAdd.MouseClick += new System.Windows.Forms.MouseEventHandler(this.LblAdd_MouseClick);
+            this.lblAdd.MouseLeave += new System.EventHandler(this.LblAdd_MouseLeave);
+            this.lblAdd.MouseHover += new System.EventHandler(this.LblAdd_MouseHover);
             // 
             // AjoutEvenement
             // 
