@@ -134,7 +134,7 @@ namespace Hermes
                     if (nb == 0)
                     {
                         added = false;
-                        throw new OleDbException("Erreur dans l'insert");
+                        //throw new OleDbException("Erreur dans l'insert");
                     }
                 }
             }
