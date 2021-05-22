@@ -13,12 +13,26 @@ namespace Hermes
     public partial class BulleAjEvenement2 : UserControl
     {
         private PartyEvent newEvent;
-        private Panel ecran; 
+        private Panel ecran;
+        private Delegate annuler;
+        private static Panel pnlPrincipal;
         /*
         public BulleAjEvenement2()
         {
             InitializeComponent();
         }*/
+
+        public Panel setPanelPrincipal
+        {
+            set { pnlPrincipal = value; }
+        }
+
+        public Delegate Annuler
+        {
+            set { this.annuler = value; }
+        }
+
+
         public BulleAjEvenement2(PartyEvent newEvent)
         {
             InitializeComponent();
@@ -43,6 +57,10 @@ namespace Hermes
                 MessageBox.Show("Added");
                 this.ecran.Controls.Clear();
                 this.ecran.Visible = false;
+                pnlPrincipal.Controls.Clear();
+                Evenements evenements = new Evenements();
+                evenements.setPanel = pnlPrincipal;
+                pnlPrincipal.Controls.Add(evenements);
             }
         }
         public List<Participant> getInvitedParticipant()
@@ -96,6 +114,20 @@ namespace Hermes
             {
                 changeAllChk(false);
             }
+        }
+
+        private void BtnAnnuler_Click(object sender, EventArgs e)
+        {
+            string message = "Etes vous sur de vouloir annuler l'ajout ?";
+            MessageBoxButtons buttons = MessageBoxButtons.YesNo;
+            DialogResult result;
+
+            result = MessageBox.Show(message, "",buttons);
+            if (result == System.Windows.Forms.DialogResult.Yes)
+            {
+                annuler.DynamicInvoke();
+            }
+           
         }
     }
 }

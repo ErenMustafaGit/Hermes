@@ -13,10 +13,17 @@ namespace Hermes
     public partial class AjoutEvenement : UserControl
     {
         private static Panel pnlBulleEmplacement;
+        private static Panel pnlPrincipal;
         public Panel setPanel
         {
             set { pnlBulleEmplacement = value; }
         }
+
+        public Panel setPanelPrincipal
+        {
+            set { pnlPrincipal = value; }
+        }
+
         public AjoutEvenement()
         {
             InitializeComponent();
@@ -38,6 +45,7 @@ namespace Hermes
             Stop annuler = DelegateMethodAnnuler;
             bulleAjEvenement.Annuler = annuler;
             bulleAjEvenement.setPanel = pnlBulleEmplacement;
+            bulleAjEvenement.setPanelPrincipal = pnlPrincipal;
             pnlBulleEmplacement.Controls.Add(bulleAjEvenement);
 
         }

@@ -14,10 +14,17 @@ namespace Hermes
     {
         private Panel ecran;
         private Delegate annuler;
+        private static Panel pnlPrincipal;
         public BulleAjEvenement()
         {
             InitializeComponent();
         }
+
+        public Panel setPanelPrincipal
+        {
+            set { pnlPrincipal = value; }
+        }
+
 
         public Delegate Annuler
         {
@@ -53,7 +60,12 @@ namespace Hermes
 
         private void BtnValider_Click(object sender, EventArgs e)
         {
-            
+            if(txtNomEvenement.Text.Length == 0)
+            {
+                MessageBox.Show("Veuillez saisir le nom de l'évènement !");
+                txtNomEvenement.Focus();
+                return;
+            }
             PartyEvent newEvent = new PartyEvent()
             {
                 Code = PartyEvent.GetMaxCode() + 1,
@@ -67,6 +79,8 @@ namespace Hermes
             BulleAjEvenement2 suite = new BulleAjEvenement2(newEvent);
             this.ecran.Controls.Clear();
             suite.setPanel = this.ecran;
+            suite.setPanelPrincipal = pnlPrincipal;
+            suite.Annuler = annuler;
             this.ecran.Controls.Add(suite);
         }
     }

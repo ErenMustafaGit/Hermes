@@ -42,6 +42,7 @@ namespace Hermes
 
             AjoutEvenement ajoutEvent = new AjoutEvenement();
             ajoutEvent.setPanel = pnlBulleEmplacement;
+            ajoutEvent.setPanelPrincipal = this.ecran;
             ajoutEvent.Top = 20;
             ajoutEvent.Left = 100;
             pnlScroll.Controls.Add(ajoutEvent);
