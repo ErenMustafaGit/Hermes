@@ -44,7 +44,10 @@ namespace Hermes
             cboEvenements.DataSource = evenementTable;
             cboEvenements.DisplayMember = "Title";
             cboEvenements.ValueMember = "CodeCreator";
-            
+
+
+            BulleAjout();
+
 
             int modulo = 2;
             for (int i = 0; i < participantsListe.Count; i++)
@@ -55,8 +58,8 @@ namespace Hermes
                 userParticipants.SetPrenomNom = p.LastName + " " + p.FirstName;
                 userParticipants.SetNumero = p.PhoneNumber;
 
-                userParticipants.Top = 30 + 200 * (i / modulo);
-                userParticipants.Left = 118 + 400 * (i % modulo);
+                userParticipants.Top = 30 + 200 * ((i+1) / modulo);
+                userParticipants.Left = 118 + 400 * ((i+1) % modulo);
                 pnlParticipants.Controls.Add(userParticipants);
 
             }
@@ -76,6 +79,10 @@ namespace Hermes
             if (value == "Tous")
             {
                 pnlParticipants.Controls.Clear();
+
+
+                BulleAjout();
+
                 int modulo = 2;
                 for (int i = 0; i < participantsListe.Count; i++)
                 {
@@ -85,8 +92,8 @@ namespace Hermes
                     userParticipants.SetPrenomNom = p.LastName + " " + p.FirstName;
                     userParticipants.SetNumero = p.PhoneNumber;
 
-                    userParticipants.Top = 30 + 200 * (i / modulo);
-                    userParticipants.Left = 118 + 400 * (i % modulo);
+                    userParticipants.Top = 30 + 200 * ((i+1) / modulo);
+                    userParticipants.Left = 118 + 400 * ((i+1) % modulo);
                     pnlParticipants.Controls.Add(userParticipants);
 
                 }
@@ -98,6 +105,9 @@ namespace Hermes
                 List<Participant> participantsConcerné = partyEvent.GetGuests();
 
                 pnlParticipants.Controls.Clear();
+
+                BulleAjout();
+
                 int modulo = 2;
                 for (int i = 0; i < participantsConcerné.Count; i++)
                 {
@@ -107,13 +117,33 @@ namespace Hermes
                     userParticipants.SetPrenomNom = p.LastName + " " + p.FirstName;
                     userParticipants.SetNumero = p.PhoneNumber;
 
-                    userParticipants.Top = 30 + 200 * (i / modulo);
-                    userParticipants.Left = 118 + 400 * (i % modulo);
+                    userParticipants.Top = 30 + 200 * ((i+1) / modulo);
+                    userParticipants.Left = 118 + 400 * ((i+1) % modulo);
                     pnlParticipants.Controls.Add(userParticipants);
 
                 }
+
+
             }
 
         }
+
+        public void BulleAjout()
+        {
+            Panel pnlAddParticipantBulle = new Panel();
+            pnlAddParticipantBulle.Size = new Size(705, 405);
+            Point coordonneePanel = new Point(127, 115);
+            pnlAddParticipantBulle.Location = coordonneePanel;
+            this.Controls.Add(pnlAddParticipantBulle);
+            pnlAddParticipantBulle.Visible = false;
+
+            AjoutParticipant ajoutParticipant = new AjoutParticipant();
+            ajoutParticipant.setPanelPrincipal = this.ecran;
+            ajoutParticipant.setPanelBulle = pnlAddParticipantBulle;
+            ajoutParticipant.Top = 30;
+            ajoutParticipant.Left = 118;
+            pnlParticipants.Controls.Add(ajoutParticipant);
+        }
+
     }
 }

@@ -59,5 +59,10 @@ namespace Hermes
         {
             this.Cursor = Cursors.Default;
         }
+
+        private void AjoutEvenement_MouseHover(object sender, EventArgs e)
+        {
+
+        }
     }
 }

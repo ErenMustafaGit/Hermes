@@ -55,6 +55,7 @@
             this.Name = "AjoutEvenement";
             this.Size = new System.Drawing.Size(334, 233);
             this.Load += new System.EventHandler(this.AjoutEvenement_Load);
+            this.MouseHover += new System.EventHandler(this.AjoutEvenement_MouseHover);
             this.ResumeLayout(false);
             this.PerformLayout();
 
