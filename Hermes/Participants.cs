@@ -60,8 +60,9 @@ namespace Hermes
                 pnlParticipants.Controls.Add(userParticipants);
 
             }
-            cboEvenements.SelectedIndex = 0;
+
             cboEvenements.SelectedIndexChanged += new EventHandler(CboEvenements_SelectedIndexChanged);
+            cboEvenements.SelectedIndex = evenementTable.Rows.Count- 1;
         }
         public void CboEvenements_SelectedIndexChanged(object sender, EventArgs e)
         {
