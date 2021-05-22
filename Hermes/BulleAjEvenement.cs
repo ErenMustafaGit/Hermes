@@ -12,9 +12,15 @@ namespace Hermes
 {
     public partial class BulleAjEvenement : UserControl
     {
+        private Delegate annuler;
         public BulleAjEvenement()
         {
             InitializeComponent();
+        }
+
+        public Delegate Annuler
+        {
+            set { this.annuler = value; }
         }
 
         private void DtpDateDebut_ValueChanged(object sender, EventArgs e)
@@ -33,6 +39,11 @@ namespace Hermes
             cboEvenements.DataSource = Participant.toConcatenateDataTable(database.FetchParticipant());
             cboEvenements.DisplayMember = "Name";
             cboEvenements.ValueMember = "CodeParticipant";
+        }
+
+        private void Button1_Click(object sender, EventArgs e)
+        {
+            annuler.DynamicInvoke();
         }
     }
 }

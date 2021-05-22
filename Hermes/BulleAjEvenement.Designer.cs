@@ -93,6 +93,7 @@
             this.button1.TabIndex = 20;
             this.button1.Text = "Annuler";
             this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.Button1_Click);
             // 
             // btnValider
             // 
@@ -165,6 +166,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.Control;
             this.Controls.Add(this.button1);
             this.Controls.Add(this.btnValider);
             this.Controls.Add(this.appFontLabel2);
