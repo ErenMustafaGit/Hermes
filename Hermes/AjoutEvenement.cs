@@ -32,11 +32,12 @@ namespace Hermes
         {
             pnlBulleEmplacement.Visible = true;
             pnlBulleEmplacement.BringToFront();
-            BulleAjEvenement bulleAjEvenement = new BulleAjEvenement();
 
+            BulleAjEvenement bulleAjEvenement = new BulleAjEvenement();
             //Donne l'action au bouton annuler
             Stop annuler = DelegateMethodAnnuler;
             bulleAjEvenement.Annuler = annuler;
+            bulleAjEvenement.setPanel = pnlBulleEmplacement;
             pnlBulleEmplacement.Controls.Add(bulleAjEvenement);
 
         }

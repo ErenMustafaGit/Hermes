@@ -18,7 +18,7 @@ namespace Hermes
         static OleDbConnection connection = new OleDbConnection();
         DataSet dataset = new DataSet();
 
-        public List<PartyEvent> FetchEvents()
+        public static List<PartyEvent> FetchEvents()
         {
             List<PartyEvent> partyEvents = new List<PartyEvent>();
 
@@ -59,7 +59,7 @@ namespace Hermes
             return partyEvents;
         }
 
-        public List<Participant> FetchParticipant()
+        public static List<Participant> FetchParticipant()
         {
             List<Participant> participants = new List<Participant>();
 
@@ -215,27 +215,42 @@ namespace Hermes
                 connection.ConnectionString = chcon;
                 connection.Open();
 
-                int code = PartyEvent.GetMaxCode()+1;
+
                 DateTime beginDateTime = partyEvent.BeginDate;
                 DateTime endDateTime = partyEvent.EndDate;
                 string beginDate = "#" + beginDateTime.Month + "/" + beginDateTime.Day + "/" + beginDateTime.Year + "#";
                 string endDate = "#" + endDateTime.Month + "/" + endDateTime.Day + "/" + endDateTime.Year + "#";
 
                 string sqlInsert = String.Format("INSERT INTO Evenements " +
-                    "VALUES ({0},'{1}',{2},{3},'{4}',{5},{6})", code, partyEvent.Title, beginDate, endDate, partyEvent.Description, partyEvent.BalanceYN, partyEvent.CodeCreator);
+                    "VALUES ({0},'{1}',{2},{3},'{4}',{5},{6})", partyEvent.Code, partyEvent.Title, beginDate, endDate, partyEvent.Description, partyEvent.BalanceYN, partyEvent.CodeCreator);
 
                 OleDbCommand command = new OleDbCommand(sqlInsert, connection);
                 int nb = command.ExecuteNonQuery();
                 if (nb > 0)
                     added = true;
-
                 for (int i = 0; i < guests.Count; i++)
                 {
-                    string login = guests[i].FirstName[0] + guests[i].LastName.Substring(0, guests[i].LastName.Length-1);
-                    string mdp = "**"+ guests[i].FirstName[0] + guests[i].LastName.Substring(0, guests[i].LastName.Length - 1) + "!";
-                    string sqlGuest = String.Format("INSERT INTO Invites VALUES ({0},{1})",code,guests[i].CodeParticipant, login,mdp );
+                    string login = guests[i].FirstName[0].ToString();
+                    string mdp = "*" + guests[i].FirstName[0];
+                    if(guests[i].LastName.Length < 5)
+                    {
+                        login += guests[i].LastName.Substring(0, guests[i].LastName.Length);
+                        mdp += guests[i].LastName.Substring(0, guests[i].LastName.Length) + "!";
+                    }
+                    else
+                    {
+                        login += guests[i].LastName.Substring(0, 5);
+                        mdp += guests[i].LastName.Substring(0,5) + "!";
+                    }
+
+                    MessageBox.Show(guests[i].FirstName + "  " + guests[i].LastName + "  " + login + "  " + mdp);
+
+                    string sqlGuest = String.Format("INSERT INTO Invites VALUES ({0},{1},'{2}','{3}')",partyEvent.Code,guests[i].CodeParticipant, login,mdp );
                     command.CommandText = sqlGuest;
+                    MessageBox.Show(sqlGuest);
+
                     nb = command.ExecuteNonQuery();
+                    
                     if (nb == 0)
                     {
                         added = false;

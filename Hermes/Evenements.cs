@@ -30,8 +30,7 @@ namespace Hermes
 
         private void Evenements_Load(object sender, EventArgs e)
         {
-            Database database = new Database();
-            List<PartyEvent> events = database.FetchEvents();
+            List<PartyEvent> events = Database.FetchEvents();
 
             Panel pnlBulleEmplacement = new Panel();
             pnlBulleEmplacement.Size = new Size(705, 405);

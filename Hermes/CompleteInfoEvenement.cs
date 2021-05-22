@@ -71,7 +71,7 @@ namespace Hermes
             lblDescEvenement.Text = dataRowView[4].ToString();
 
             //Participant à l'évènement
-            List<PartyEvent> evenement = base_de_donnee.FetchEvents();
+            List<PartyEvent> evenement = Database.FetchEvents();
             PartyEvent evenement_concerné = evenement[index];
 
 
@@ -204,7 +204,7 @@ namespace Hermes
                 int codeCreateur = (int)dataRowView[6];
 
                 //Pour remplir le panel contenant les participants à l'évènement
-                List<PartyEvent> evenement = base_de_donnee.FetchEvents();
+                List<PartyEvent> evenement = Database.FetchEvents();
                 PartyEvent evenement_concerné = evenement[index];
                 List<Participant> participant = evenement_concerné.GetGuests();
                 pnlParticipant.Controls.Clear();
