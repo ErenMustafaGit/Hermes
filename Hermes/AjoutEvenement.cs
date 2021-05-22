@@ -53,11 +53,13 @@ namespace Hermes
         private void LblAdd_MouseHover(object sender, EventArgs e)
         {
             this.Cursor = Cursors.Hand;
+            lblAdd.ForeColor = ColorTranslator.FromHtml("#2693f8");
         }
 
         private void LblAdd_MouseLeave(object sender, EventArgs e)
         {
             this.Cursor = Cursors.Default;
+            lblAdd.ForeColor = Color.FromArgb(0, 0, 0);
         }
 
         private void AjoutEvenement_MouseHover(object sender, EventArgs e)

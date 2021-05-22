@@ -36,7 +36,7 @@
             this.lblAdd.AppFont = Hermes.AppFont.Icons;
             this.lblAdd.AppFontHeight = 40F;
             this.lblAdd.AutoSize = true;
-            this.lblAdd.Location = new System.Drawing.Point(135, 84);
+            this.lblAdd.Location = new System.Drawing.Point(137, 84);
             this.lblAdd.Name = "lblAdd";
             this.lblAdd.Size = new System.Drawing.Size(58, 55);
             this.lblAdd.TabIndex = 0;

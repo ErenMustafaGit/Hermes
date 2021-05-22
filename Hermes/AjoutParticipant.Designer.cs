@@ -53,6 +53,7 @@
             this.Name = "AjoutParticipant";
             this.Size = new System.Drawing.Size(378, 177);
             this.Load += new System.EventHandler(this.AjoutParticipant_Load);
+            this.MouseHover += new System.EventHandler(this.AjoutParticipant_MouseHover);
             this.ResumeLayout(false);
             this.PerformLayout();
 
