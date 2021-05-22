@@ -12,10 +12,10 @@ namespace Hermes
 {
     public partial class AjoutEvenement : UserControl
     {
-        private static Panel bulle;
+        private static Panel pnlBulleEmplacement;
         public Panel setPanel
         {
-            set { bulle = value; }
+            set { pnlBulleEmplacement = value; }
         }
         public AjoutEvenement()
         {
@@ -30,14 +30,14 @@ namespace Hermes
 
         private void LblAdd_MouseClick(object sender, MouseEventArgs e)
         {
-            bulle.Visible = true;
-            bulle.BringToFront();
+            pnlBulleEmplacement.Visible = true;
+            pnlBulleEmplacement.BringToFront();
             BulleAjEvenement bulleAjEvenement = new BulleAjEvenement();
 
             //Donne l'action au bouton annuler
             Stop annuler = DelegateMethodAnnuler;
             bulleAjEvenement.Annuler = annuler;
-            bulle.Controls.Add(bulleAjEvenement);
+            pnlBulleEmplacement.Controls.Add(bulleAjEvenement);
 
         }
 
@@ -45,8 +45,8 @@ namespace Hermes
 
         public static void DelegateMethodAnnuler()
         {
-            bulle.Controls.Clear();
-            bulle.Visible = false;
+            pnlBulleEmplacement.Controls.Clear();
+            pnlBulleEmplacement.Visible = false;
         }
 
 

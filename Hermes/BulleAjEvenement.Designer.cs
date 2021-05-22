@@ -32,7 +32,7 @@
             this.dtpDateDebut = new System.Windows.Forms.DateTimePicker();
             this.dtpDateFin = new System.Windows.Forms.DateTimePicker();
             this.cboEvenements = new System.Windows.Forms.ComboBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnAnnuler = new System.Windows.Forms.Button();
             this.btnValider = new System.Windows.Forms.Button();
             this.appFontLabel2 = new Hermes.UI.AppFontLabel();
             this.cboCreateur = new Hermes.UI.AppFontLabel();
@@ -82,18 +82,18 @@
             this.cboEvenements.Size = new System.Drawing.Size(201, 26);
             this.cboEvenements.TabIndex = 17;
             // 
-            // button1
+            // btnAnnuler
             // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(49)))), ((int)(((byte)(49)))));
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.ForeColor = System.Drawing.SystemColors.Control;
-            this.button1.Location = new System.Drawing.Point(376, 323);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(96, 30);
-            this.button1.TabIndex = 20;
-            this.button1.Text = "Annuler";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.Button1_Click);
+            this.btnAnnuler.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(49)))), ((int)(((byte)(49)))));
+            this.btnAnnuler.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAnnuler.ForeColor = System.Drawing.SystemColors.Control;
+            this.btnAnnuler.Location = new System.Drawing.Point(376, 323);
+            this.btnAnnuler.Name = "btnAnnuler";
+            this.btnAnnuler.Size = new System.Drawing.Size(96, 30);
+            this.btnAnnuler.TabIndex = 20;
+            this.btnAnnuler.Text = "Annuler";
+            this.btnAnnuler.UseVisualStyleBackColor = false;
+            this.btnAnnuler.Click += new System.EventHandler(this.Button1_Click);
             // 
             // btnValider
             // 
@@ -167,7 +167,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnAnnuler);
             this.Controls.Add(this.btnValider);
             this.Controls.Add(this.appFontLabel2);
             this.Controls.Add(this.cboCreateur);
@@ -196,7 +196,7 @@
         private UI.AppFontLabel cboCreateur;
         private System.Windows.Forms.ComboBox cboEvenements;
         private UI.AppFontLabel appFontLabel2;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnAnnuler;
         private System.Windows.Forms.Button btnValider;
     }
 }

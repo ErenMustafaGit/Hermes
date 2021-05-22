@@ -33,16 +33,16 @@ namespace Hermes
             Database database = new Database();
             List<PartyEvent> events = database.FetchEvents();
 
-            Panel pnlAddEventBulle = new Panel();
-            pnlAddEventBulle.Size = new Size(705, 405);
+            Panel pnlBulleEmplacement = new Panel();
+            pnlBulleEmplacement.Size = new Size(705, 405);
             Point coordonneePanel = new Point(127, 115);
-            pnlAddEventBulle.Location = coordonneePanel;
-            this.Controls.Add(pnlAddEventBulle);
+            pnlBulleEmplacement.Location = coordonneePanel;
+            this.Controls.Add(pnlBulleEmplacement);
 
-            pnlAddEventBulle.Visible = false;
+            pnlBulleEmplacement.Visible = false;
 
             AjoutEvenement ajoutEvent = new AjoutEvenement();
-            ajoutEvent.setPanel = pnlAddEventBulle;
+            ajoutEvent.setPanel = pnlBulleEmplacement;
             ajoutEvent.Top = 20;
             ajoutEvent.Left = 100;
             pnlScroll.Controls.Add(ajoutEvent);

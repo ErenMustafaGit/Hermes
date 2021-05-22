@@ -41,6 +41,7 @@ namespace Hermes
             cboEvenements.ValueMember = "CodeParticipant";
         }
 
+        //btnAnnuler_Click
         private void Button1_Click(object sender, EventArgs e)
         {
             annuler.DynamicInvoke();
