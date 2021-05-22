@@ -17,7 +17,7 @@ namespace Hermes
         static string chcon = "Provider=Microsoft.Jet.OLEDB.4.0;Data Source='../../../bdEvents.mdb'";
         static OleDbConnection connection = new OleDbConnection();
 
-        public List<PartyEvent> FetchEvents()
+        public static List<PartyEvent> FetchEvents()
         {
             List<PartyEvent> partyEvents = new List<PartyEvent>();
 
@@ -58,7 +58,7 @@ namespace Hermes
             return partyEvents;
         }
 
-        public List<Participant> FetchParticipant()
+        public static List<Participant> FetchParticipant()
         {
             List<Participant> participants = new List<Participant>();
 
@@ -159,7 +159,7 @@ namespace Hermes
         }
 
 
-        public List<Expenditure> FetchExpenditure()
+        public static List<Expenditure> FetchExpenditure()
         {
             List<Expenditure> expenditures = new List<Expenditure>();
 

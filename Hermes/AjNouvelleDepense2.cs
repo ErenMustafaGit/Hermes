@@ -103,23 +103,9 @@ namespace Hermes
                     CodeParticipant = this.CodePayeur,
                 };
 
-                List<Participant> beneficiary = new List<Participant>();
-                if (chkEveryOne.Checked)
-                {
-                    beneficiary = PartyEvent.GetPartyEvent(this.CodeEvenement).GetGuests();
-                }
-                else
-                {
-                    foreach (CheckBox chk in pnlBeneficiaire.Controls)
-                    {
-                        if (chk.Checked && chk != chkEveryOne)
-                        {
-                            beneficiary.Add(Participant.GetParticipant((int)chk.Tag));
-                        }
-                    }
-                }
-                bool added = Database.InsertExpenditure(newExpenditure, beneficiary);
-                if (added)
+                
+                
+                if (Database.InsertExpenditure(newExpenditure, getBeneficiary()))
                 {
                     //UNE POPUP A AJOUTER
                     MessageBox.Show("AJOUTE POPUP");
@@ -131,6 +117,19 @@ namespace Hermes
                 }
             }
             
+        }
+        public List<Participant> getBeneficiary()
+        {
+            List<Participant> beneficiary = new List<Participant>();
+            foreach (CheckBox chk in pnlBeneficiaire.Controls)
+            {
+                if (chk.Checked && chk != chkEveryOne)
+                {
+                    beneficiary.Add(Participant.GetParticipant((int)chk.Tag));
+                }
+            }
+
+            return beneficiary;
         }
 
         private void BtnCancel_Click(object sender, EventArgs e)

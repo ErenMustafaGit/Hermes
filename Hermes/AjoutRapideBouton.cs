@@ -29,9 +29,8 @@ namespace Hermes
 
         private void AjoutRapideBouton_Load(object sender, EventArgs e)
         {
-            Database database = new Database();
             
-            DataTable events = PartyEvent.toDataTable(database.FetchEvents());
+            DataTable events = PartyEvent.toDataTable(Database.FetchEvents());
             cboEvenements.DataSource = events;
             cboEvenements.DisplayMember = "TitleEvent";
             cboEvenements.ValueMember = "CodeEvent";
