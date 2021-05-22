@@ -35,7 +35,7 @@ namespace Hermes
 
         private void DtpDateFin_ValueChanged(object sender, EventArgs e)
         {
-            
+            dtpDateFin.MinDate = dtpDateDebut.Value;
         }
 
         private void BulleAjEvenement_Load(object sender, EventArgs e)

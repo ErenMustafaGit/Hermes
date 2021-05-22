@@ -61,9 +61,9 @@
             // rtxtDescription
             // 
             this.rtxtDescription.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.rtxtDescription.Location = new System.Drawing.Point(377, 92);
+            this.rtxtDescription.Location = new System.Drawing.Point(364, 92);
             this.rtxtDescription.Name = "rtxtDescription";
-            this.rtxtDescription.Size = new System.Drawing.Size(245, 183);
+            this.rtxtDescription.Size = new System.Drawing.Size(258, 226);
             this.rtxtDescription.TabIndex = 2;
             this.rtxtDescription.Text = "";
             // 
@@ -72,9 +72,9 @@
             this.btnAnnuler.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(49)))), ((int)(((byte)(49)))));
             this.btnAnnuler.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAnnuler.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnAnnuler.Location = new System.Drawing.Point(385, 323);
+            this.btnAnnuler.Location = new System.Drawing.Point(364, 334);
             this.btnAnnuler.Name = "btnAnnuler";
-            this.btnAnnuler.Size = new System.Drawing.Size(96, 30);
+            this.btnAnnuler.Size = new System.Drawing.Size(123, 30);
             this.btnAnnuler.TabIndex = 4;
             this.btnAnnuler.Text = "Annuler";
             this.btnAnnuler.UseVisualStyleBackColor = false;
@@ -84,9 +84,9 @@
             this.btnValider.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(147)))), ((int)(((byte)(248)))));
             this.btnValider.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnValider.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnValider.Location = new System.Drawing.Point(487, 323);
+            this.btnValider.Location = new System.Drawing.Point(493, 334);
             this.btnValider.Name = "btnValider";
-            this.btnValider.Size = new System.Drawing.Size(96, 30);
+            this.btnValider.Size = new System.Drawing.Size(129, 30);
             this.btnValider.TabIndex = 4;
             this.btnValider.Text = "Valider";
             this.btnValider.UseVisualStyleBackColor = false;
@@ -97,7 +97,7 @@
             this.lblDescription.AppFont = Hermes.AppFont.HelveticaNeue;
             this.lblDescription.AppFontHeight = 11F;
             this.lblDescription.AutoSize = true;
-            this.lblDescription.Location = new System.Drawing.Point(361, 70);
+            this.lblDescription.Location = new System.Drawing.Point(361, 60);
             this.lblDescription.Name = "lblDescription";
             this.lblDescription.Size = new System.Drawing.Size(85, 17);
             this.lblDescription.TabIndex = 3;
