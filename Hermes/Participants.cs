@@ -37,6 +37,10 @@ namespace Hermes
             this.participantsListe = database.FetchParticipant();
             this.evenementsListe = database.FetchEvents();
             DataTable evenementTable = PartyEvent.toDataTable(evenementsListe);
+            DataRow rowTous;
+            rowTous = evenementTable.NewRow();
+            rowTous["Title"] = "Tous";
+            evenementTable.Rows.Add(rowTous);
             cboEvenements.DataSource = evenementTable;
             cboEvenements.DisplayMember = "Title";
             cboEvenements.ValueMember = "CodeCreator";
@@ -56,7 +60,7 @@ namespace Hermes
                 pnlParticipants.Controls.Add(userParticipants);
 
             }
-            cboEvenements.SelectedIndex = -1;
+            cboEvenements.SelectedIndex = 0;
             cboEvenements.SelectedIndexChanged += new EventHandler(CboEvenements_SelectedIndexChanged);
         }
         public void CboEvenements_SelectedIndexChanged(object sender, EventArgs e)
@@ -67,7 +71,27 @@ namespace Hermes
 
         public void Remplissage(int index)
         {
-            if (index != -1)
+            string value = cboEvenements.Text;
+            if (value == "Tous")
+            {
+                pnlParticipants.Controls.Clear();
+                int modulo = 2;
+                for (int i = 0; i < participantsListe.Count; i++)
+                {
+                    Participant p = participantsListe[i];
+                    UserParticipants userParticipants = new UserParticipants();
+                    userParticipants.SetEmail = p.Mail;
+                    userParticipants.SetPrenomNom = p.LastName + " " + p.FirstName;
+                    userParticipants.SetNumero = p.PhoneNumber;
+
+                    userParticipants.Top = 30 + 200 * (i / modulo);
+                    userParticipants.Left = 118 + 400 * (i % modulo);
+                    pnlParticipants.Controls.Add(userParticipants);
+
+                }
+            }
+
+            else if (index != -1)
             {
                 PartyEvent partyEvent = evenementsListe[cboEvenements.SelectedIndex];
                 List<Participant> participantsConcerné = partyEvent.GetGuests();
