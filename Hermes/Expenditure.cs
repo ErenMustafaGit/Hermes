@@ -16,7 +16,7 @@ namespace Hermes
     public class Expenditure
     {
         static string chcon = "Provider=Microsoft.Jet.OLEDB.4.0;Data Source='../../../../bdEvents.mdb'";
-        OleDbConnection connection = new OleDbConnection();
+        static OleDbConnection connection = new OleDbConnection();
 
         public int NumExpenditure;
         public string Description;
@@ -51,19 +51,34 @@ namespace Hermes
             }
             return table;
         }
-        /*
-        public static Decimal getAmount()
+        
+        public List<Participant> GetBeneficiaries()
         {
-            string chcon = "Provider=Microsoft.Jet.OLEDB.4.0;Data Source='X:\\a21 sterne pie\\Base de données\\bdEvents.mdb'";
-            OleDbConnection connection = new OleDbConnection();
-            Decimal res = 0;
+            List<Participant> beneficiaries = new List<Participant>();
             try
             {
                 connection.ConnectionString = chcon;
                 connection.Open();
-                string sql = "select montant from Depenses where numDepense = '1'";
+                string sql = "select * from Beneficiaires where numDepense =" +this.NumExpenditure  ;
                 OleDbCommand command = new OleDbCommand(sql, connection);
-                res = command.ExecuteScalar();
+                OleDbDataReader dataReader = command.ExecuteReader();
+                while (dataReader.Read())
+                {
+                    Participant beneficiary = new Participant()
+                    {
+                        CodeParticipant = dataReader.GetInt32(0),
+                        LastName = dataReader.GetString(1),
+                        FirstName = dataReader.GetString(2),
+                        PhoneNumber = dataReader.GetString(3),
+                        NbParts = dataReader.GetInt32(4),
+                        Mail = dataReader.GetString(6),
+                    };
+                    if (!dataReader.IsDBNull(5))
+                    {
+                    beneficiary.Balance = dataReader.GetDouble(5);
+                    }
+                    beneficiaries.Add(beneficiary);
+                }
                 
             }
             catch (OleDbException er)
@@ -79,8 +94,8 @@ namespace Hermes
             {
                 connection.Close();
             }
-            return res;
-        }*/
+            return beneficiaries;
+        }
 
         public PartyEvent GetEvent()
         {

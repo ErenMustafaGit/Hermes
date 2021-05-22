@@ -156,6 +156,12 @@
     <Compile Include="UserEvenement.Designer.cs">
       <DependentUpon>UserEvenement.cs</DependentUpon>
     </Compile>
+    <Compile Include="ViewExpenditures.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ViewExpenditures.Designer.cs">
+      <DependentUpon>ViewExpenditures.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Accueil.resx">
       <DependentUpon>Accueil.cs</DependentUpon>
     </EmbeddedResource>
@@ -207,6 +213,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UserEvenement.resx">
       <DependentUpon>UserEvenement.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ViewExpenditures.resx">
+      <DependentUpon>ViewExpenditures.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

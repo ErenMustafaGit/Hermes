@@ -130,6 +130,51 @@ namespace Hermes
             }
             return guests;
         }
+        public List<Expenditure> GetExpenditures()
+        {
+            List<Expenditure> expenditures = new List<Expenditure>();
+            try
+            {
+                connection.ConnectionString = chcon;
+                connection.Open();
+                string sqlCodePart = "select * from Depenses where codeEvent = " + this.Code;
+                OleDbCommand command = new OleDbCommand(sqlCodePart, connection);
+                OleDbDataReader dataReader = command.ExecuteReader();
+                while (dataReader.Read())
+                {
+
+                    Expenditure expenditure = new Expenditure();
+                    expenditure.NumExpenditure = dataReader.GetInt32(0);
+                    expenditure.Description = dataReader.GetString(1);
+                    //Si le montant est null
+                    if (!dataReader.IsDBNull(2))
+                    {
+                        expenditure.Amount = dataReader.GetDecimal(2);
+                    }
+                    expenditure.DateExpenditure = dataReader.GetDateTime(3);
+
+                    //Si le commentaire est null
+                    if (!dataReader.IsDBNull(4))
+                    {
+                        expenditure.Comment = dataReader.GetString(4);
+                    }
+                    expenditure.CodeEvent = dataReader.GetInt32(5);
+                    expenditure.CodeParticipant = dataReader.GetInt32(6);
+
+                    
+                    expenditures.Add(expenditure);
+                }
+            }
+            catch (OleDbException er)
+            {
+                MessageBox.Show(er.ToString());
+            }
+            finally
+            {
+                connection.Close();
+            }
+            return expenditures;
+        }
         public int GetNbPart()
         {
             int nbPart = -1;

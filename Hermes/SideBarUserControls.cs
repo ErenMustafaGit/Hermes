@@ -105,5 +105,26 @@ namespace Hermes
         {
             MessageBox.Show("ok");
         }
+
+        private void LblIconeDepense_Click(object sender, EventArgs e)
+        {
+            this.ecrans.Controls.Clear();
+            //Partie concerné par le changement de couleur en bleu
+            lblIconeDepense.ForeColor = ColorTranslator.FromHtml("#2693f8");
+            lblDepenses.ForeColor = ColorTranslator.FromHtml("#2693f8");
+
+            //Le reste en blanc
+            lblIconeAccueil.ForeColor = Color.FromArgb(249, 249, 249);
+            lblAccueil.ForeColor = Color.FromArgb(249, 249, 249);
+            lblEvenements.ForeColor = Color.FromArgb(249, 249, 249);
+            lblIconeEvenement.ForeColor = Color.FromArgb(249, 249, 249);
+            lblIconeParticipant.ForeColor = Color.FromArgb(249, 249, 249);
+            lblParticipants.ForeColor = Color.FromArgb(249, 249, 249);
+
+            //Aparaition du US concerné
+            ViewExpenditures expendituresView = new ViewExpenditures();
+            expendituresView.setPanel = this.ecrans;
+            this.ecrans.Controls.Add(expendituresView);
+        }
     }
 }
