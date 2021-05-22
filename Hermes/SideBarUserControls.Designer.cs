@@ -60,6 +60,7 @@
             this.sideBar.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.sideBar.Size = new System.Drawing.Size(424, 640);
             this.sideBar.TabIndex = 0;
+            this.sideBar.Paint += new System.Windows.Forms.PaintEventHandler(this.SideBar_Paint);
             // 
             // lblIconeBilan
             // 
@@ -96,6 +97,7 @@
             this.lblIconeParticipant.Size = new System.Drawing.Size(29, 27);
             this.lblIconeParticipant.TabIndex = 13;
             this.lblIconeParticipant.Text = "O";
+            this.lblIconeParticipant.Click += new System.EventHandler(this.LblIconeParticipant_Click);
             // 
             // lblIconeEvenement
             // 

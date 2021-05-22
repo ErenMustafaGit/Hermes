@@ -98,6 +98,12 @@
     <Compile Include="CompleteInfoEvenement.Designer.cs">
       <DependentUpon>CompleteInfoEvenement.cs</DependentUpon>
     </Compile>
+    <Compile Include="Participants.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Participants.Designer.cs">
+      <DependentUpon>Participants.cs</DependentUpon>
+    </Compile>
     <Compile Include="ResumePartyEvent.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -150,6 +156,12 @@
     <Compile Include="UserEvenement.Designer.cs">
       <DependentUpon>UserEvenement.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserParticipants.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserParticipants.Designer.cs">
+      <DependentUpon>UserParticipants.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Accueil.resx">
       <DependentUpon>Accueil.cs</DependentUpon>
     </EmbeddedResource>
@@ -177,6 +189,9 @@
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Participants.resx">
+      <DependentUpon>Participants.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -198,6 +213,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UserEvenement.resx">
       <DependentUpon>UserEvenement.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserParticipants.resx">
+      <DependentUpon>UserParticipants.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
