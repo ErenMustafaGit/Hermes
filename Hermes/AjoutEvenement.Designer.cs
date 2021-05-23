@@ -29,25 +29,10 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AjoutEvenement));
-            this.lblAdd = new Hermes.UI.AppFontLabel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.lblAdd = new Hermes.UI.AppFontLabel();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
-            // 
-            // lblAdd
-            // 
-            this.lblAdd.AppFont = Hermes.AppFont.Icons;
-            this.lblAdd.AppFontHeight = 40F;
-            this.lblAdd.AutoSize = true;
-            this.lblAdd.Location = new System.Drawing.Point(135, 84);
-            this.lblAdd.Name = "lblAdd";
-            this.lblAdd.Size = new System.Drawing.Size(58, 55);
-            this.lblAdd.TabIndex = 0;
-            this.lblAdd.Text = "O";
-            this.lblAdd.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.lblAdd.MouseClick += new System.Windows.Forms.MouseEventHandler(this.LblAdd_MouseClick);
-            this.lblAdd.MouseLeave += new System.EventHandler(this.LblAdd_MouseLeave);
-            this.lblAdd.MouseHover += new System.EventHandler(this.LblAdd_MouseHover);
             // 
             // pictureBox1
             // 
@@ -60,6 +45,21 @@
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
+            // lblAdd
+            // 
+            this.lblAdd.AppFont = Hermes.AppFont.Icons;
+            this.lblAdd.AppFontHeight = 40F;
+            this.lblAdd.AutoSize = true;
+            this.lblAdd.Location = new System.Drawing.Point(139, 90);
+            this.lblAdd.Name = "lblAdd";
+            this.lblAdd.Size = new System.Drawing.Size(58, 55);
+            this.lblAdd.TabIndex = 0;
+            this.lblAdd.Text = "O";
+            this.lblAdd.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblAdd.MouseClick += new System.Windows.Forms.MouseEventHandler(this.LblAdd_MouseClick);
+            this.lblAdd.MouseLeave += new System.EventHandler(this.LblAdd_MouseLeave);
+            this.lblAdd.MouseHover += new System.EventHandler(this.LblAdd_MouseHover);
+            // 
             // AjoutEvenement
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -71,6 +71,7 @@
             this.Size = new System.Drawing.Size(334, 233);
             this.Load += new System.EventHandler(this.AjoutEvenement_Load);
             this.MouseHover += new System.EventHandler(this.AjoutEvenement_MouseHover);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
