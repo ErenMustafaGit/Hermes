@@ -32,7 +32,7 @@ namespace Hermes
 
         private void AjoutEvenement_Load(object sender, EventArgs e)
         {
-
+            pictureBox1.SendToBack();
         }
 
         private void LblAdd_MouseClick(object sender, MouseEventArgs e)
@@ -67,6 +67,22 @@ namespace Hermes
         private void LblAdd_MouseLeave(object sender, EventArgs e)
         {
             this.Cursor = Cursors.Default;
+            lblAdd.ForeColor = Color.FromArgb(12, 12, 12);
+        }
+
+        private void AjoutEvenement_MouseHover(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void appFontLabel1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
