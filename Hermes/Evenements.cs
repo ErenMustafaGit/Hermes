@@ -16,12 +16,6 @@ namespace Hermes
         public Evenements()
         {
             InitializeComponent();
-            /*
-            ScrollBar scrollbar = new VScrollBar();
-            scrollbar.Dock = DockStyle.Right;
-            pnlScroll.Controls.Add(scrollbar);
-            //scrollbar.Scroll += (sender, e)*/
-
             pnlScroll.AutoScroll = false;
             pnlScroll.HorizontalScroll.Enabled = false;
             pnlScroll.HorizontalScroll.Visible = false;
@@ -36,24 +30,41 @@ namespace Hermes
 
         private void Evenements_Load(object sender, EventArgs e)
         {
-            Database database = new Database();
-            List<PartyEvent> events = database.FetchEvents();
+            List<PartyEvent> events = Database.FetchEvents();
 
-            int modulo = 3;
+            Panel pnlBulleEmplacement = new Panel();
+            pnlBulleEmplacement.Size = new Size(705, 405);
+            Point coordonneePanel = new Point(127, 115);
+            pnlBulleEmplacement.Location = coordonneePanel;
+            this.Controls.Add(pnlBulleEmplacement);
+
+            pnlBulleEmplacement.Visible = false;
+
+            AjoutEvenement ajoutEvent = new AjoutEvenement();
+            ajoutEvent.setPanel = pnlBulleEmplacement;
+            ajoutEvent.setPanelPrincipal = this.ecran;
+            ajoutEvent.Top = 20;
+            ajoutEvent.Left = 100;
+            pnlScroll.Controls.Add(ajoutEvent);
+            
+
+            int modulo = 2;
             for(int i = 0; i<events.Count; i++)
             {
-                ResumePartyEvent resumeEvent = new ResumePartyEvent(events[i].TitleEvent, events[i].Description, events[i].GetNbPart(), events[i].BeginDate, events[i].EndDate, events[i].CodeCreator);
+                ResumePartyEvent resumeEvent = new ResumePartyEvent(events[i].Title, events[i].Description, events[i].GetNbPart(), events[i].BeginDate, events[i].EndDate, events[i].CodeCreator);
                 resumeEvent.setPanel = this.ecran;
                 resumeEvent.setIndex = i;
-                resumeEvent.Top = 20 + 250* (i%modulo);
-                resumeEvent.Left = 100 + 350 * (i/modulo);
+                resumeEvent.Top = 20 + 250 * ((i + 1) / modulo);
+                resumeEvent.Left = 100 + 350 * ((i + 1) % modulo);
                 pnlScroll.Controls.Add(resumeEvent);
+
             }
             
         }
 
+        private void PnlAddEvent_Click(object sender, EventArgs e)
+        {
 
-
-        
+        }
     }
 }

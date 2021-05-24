@@ -100,9 +100,10 @@ namespace Hermes
 
         }
 
-        private void sideBar_Paint(object sender, PaintEventArgs e)
-        {
 
+        private void SideBarUserControls_MouseHover(object sender, EventArgs e)
+        {
+            MessageBox.Show("ok");
         }
     }
 }

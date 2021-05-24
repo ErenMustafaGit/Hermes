@@ -11,13 +11,13 @@ using System.Data.OleDb;
 
 namespace Hermes
 {
-    class PartyEvent
+    public class PartyEvent
     {
         static string chcon = "Provider=Microsoft.Jet.OLEDB.4.0;Data Source='../../../../bdEvents.mdb'";
-        OleDbConnection connection = new OleDbConnection();
+        static OleDbConnection connection = new OleDbConnection();
         
-        public int CodeEvent;
-        public string TitleEvent;
+        public int Code;
+        public string Title;
         public DateTime BeginDate;
         public DateTime EndDate;
         public string Description;
@@ -27,8 +27,8 @@ namespace Hermes
         public static DataTable toDataTable(List<PartyEvent> partyEvents)
         {
             DataTable table = new DataTable();
-            table.Columns.Add("CodeEvent", typeof(int));
-            table.Columns.Add("TitleEvent", typeof(string));
+            table.Columns.Add("Code", typeof(int));
+            table.Columns.Add("Title", typeof(string));
             table.Columns.Add("BeginDate", typeof(DateTime));
             table.Columns.Add("EndDate", typeof(DateTime));
             table.Columns.Add("Description", typeof(string));
@@ -37,8 +37,8 @@ namespace Hermes
 
             for (int i = 0; i < partyEvents.Count; i++)
             {
-                int codeEvent = partyEvents[i].CodeEvent;
-                string titleEvent = partyEvents[i].TitleEvent;
+                int codeEvent = partyEvents[i].Code;
+                string titleEvent = partyEvents[i].Title;
                 DateTime beginDate = partyEvents[i].BeginDate;
                 DateTime endDate = partyEvents[i].EndDate;
                 string description = partyEvents[i].Description;
@@ -62,8 +62,8 @@ namespace Hermes
                 OleDbDataReader dataReader = command.ExecuteReader();
 
                 dataReader.Read();
-                theEvent.CodeEvent = dataReader.GetInt32(0);
-                theEvent.TitleEvent = dataReader.GetString(1);
+                theEvent.Code = dataReader.GetInt32(0);
+                theEvent.Title = dataReader.GetString(1);
                 theEvent.BeginDate = dataReader.GetDateTime(2);
                 theEvent.EndDate = dataReader.GetDateTime(3);
                 theEvent.Description = dataReader.GetString(4);
@@ -94,7 +94,7 @@ namespace Hermes
             {
                 connection.ConnectionString = chcon;
                 connection.Open();
-                string sqlCodePart = "select codePart from Invites where codeEvent = " + this.CodeEvent;
+                string sqlCodePart = "select codePart from Invites where codeEvent = " + this.Code;
                 OleDbCommand command = new OleDbCommand(sqlCodePart, connection);
                 OleDbDataReader dataReader = command.ExecuteReader();
                 while (dataReader.Read())
@@ -139,7 +139,7 @@ namespace Hermes
                 connection.ConnectionString = chcon;
                 connection.Open();
 
-                string sql = "SELECT count(*) FROM Invites WHERE codeEvent = " + this.CodeEvent;
+                string sql = "SELECT count(*) FROM Invites WHERE codeEvent = " + this.Code;
                 OleDbCommand command = new OleDbCommand(sql, connection);
 
                 nbPart = (int)command.ExecuteScalar();
@@ -153,6 +153,31 @@ namespace Hermes
                 connection.Close();
             }
             return nbPart;
+        }
+
+        public static int GetMaxCode()
+        {
+            int codeMax = -1;
+
+            try
+            {
+                connection.ConnectionString = chcon;
+                connection.Open();
+
+                string sql = "SELECT MAX(codeEvent) FROM Evenements";
+                OleDbCommand command = new OleDbCommand(sql, connection);
+
+                codeMax = (int)command.ExecuteScalar();
+            }
+            catch (OleDbException er)
+            {
+                MessageBox.Show(er.ToString());
+            }
+            finally
+            {
+                connection.Close();
+            }
+            return codeMax;
         }
 
     }

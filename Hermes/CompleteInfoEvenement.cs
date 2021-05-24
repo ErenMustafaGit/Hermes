@@ -15,10 +15,16 @@ namespace Hermes
     {
         public int index;
         public Panel ecran;
+        public Database base_de_donnee = new Database();
+        public BindingSource bindingSource;
         public CompleteInfoEvenement()
         {
             InitializeComponent();
             lblIconeDate.Text = Hermes.UI.Icons.CALENDAR_1;
+            lblIconeDroite.Text = Hermes.UI.Icons.RIGHT;
+            lblGaucheGauche.Text = Hermes.UI.Icons.DOUBLE_LEFT;
+            lblGauche.Text = Hermes.UI.Icons.LEFT;
+            lblIconeDroiteDroite.Text = Hermes.UI.Icons.DOUBLE_RIGHT;
         }
 
         public int setIndex
@@ -33,69 +39,62 @@ namespace Hermes
 
         private void CompleteInfoEvenement_Load(object sender, EventArgs e)
         {
+            //Scrollbar sur le pnlParticipant
             pnlParticipant.AutoScroll = false;
             pnlParticipant.HorizontalScroll.Enabled = false;
             pnlParticipant.HorizontalScroll.Visible = false;
             pnlParticipant.HorizontalScroll.Maximum = 0;
             pnlParticipant.AutoScroll = true;
-            /*
-            string chcon = "Provider=Microsoft.Jet.OLEDB.4.0;Data Source='../../../bdEvents.mdb'";
-            OleDbConnection connection = new OleDbConnection(chcon);
-            connection.Open();
-            try
-            {
-                DataSet setBase = new DataSet();
-                DataTable tout = connection.GetOleDbSchemaTable(OleDbSchemaGuid.Tables,
-                                new object[] { null, null, null, "TABLE" });
 
-                for (int i = 0; i < tout.Rows.Count; i++)
-                {
-                    string sql = "SELECT * FROM " + tout.Rows[i][2].ToString();
-                    //MessageBox.Show(sql);
-                    OleDbCommand cd = new OleDbCommand(sql, connection);
-                    OleDbDataAdapter ca = new OleDbDataAdapter(cd);
-                    ca.Fill(setBase, tout.Rows[i][2].ToString());
-                }
-                BindingSource testB = new BindingSource();
-                DataTable tB = setBase.Tables["Evenements"];
-                testB.DataSource = tB;
-                DataRowView dr = (DataRowView)testB.Current;
-                MessageBox.Show(dr.Row[1].ToString());
-                testB.MoveLast();
-                dr = (DataRowView)testB.Current;
-                MessageBox.Show(dr.Row[1].ToString());
-                MessageBox.Show(testB.Position.ToString());
-                testB.Position = this.index;
-                dr = (DataRowView)testB.Current;
-                MessageBox.Show(dr.Row[1].ToString());
-
-            }
-            finally
-            {
-                connection.Close();
-            }
-            */
+            //BindingSource
+            this.bindingSource = this.base_de_donnee.GetBindingSource("Evenements");
+           
 
             Database base_de_donnee = new Database();
+            BindingSource bindingSource = base_de_donnee.GetBindingSource("Evenements");
+            //Met place les évènements max au label lblMax
+            lblMax.Text = bindingSource.Count.ToString();
+            bindingSource.Position = this.index;
+            lblCurrentPosition.Text = (bindingSource.Position + 1).ToString();
 
-            List<PartyEvent> evenement = base_de_donnee.FetchEvents();
+            //Mise en place pour récuperer les informations
+            DataRowView dataRowView = (DataRowView)bindingSource.Current;
+            //Nom de l'évènement
+            lblNomEvenement.Text = dataRowView[1].ToString();
+            //Date début
+            DateTime dateDebut = (DateTime)dataRowView[2];
+            lblDateStart.Text = dateDebut.ToLongDateString();
+            //Date fin
+            DateTime dateFin = (DateTime)dataRowView[3];
+            lblDateEnd.Text = dateFin.ToLongDateString();
+            //Description
+            lblDescEvenement.Text = dataRowView[4].ToString();
+
+            //Participant à l'évènement
+            List<PartyEvent> evenement = Database.FetchEvents();
             PartyEvent evenement_concerné = evenement[index];
 
-            lblNomEvenement.Text = evenement_concerné.TitleEvent;
-            lblDescEvenement.Text = evenement_concerné.Description;
-            lblDateStart.Text = evenement_concerné.BeginDate.ToLongDateString();
-            lblDateEnd.Text = evenement_concerné.EndDate.ToLongDateString();
-            bool solde_y_n = evenement_concerné.BalanceYN;
+
+            //Soldé ou non
+            bool solde_y_n = (bool)dataRowView[5];
             if (solde_y_n)
-                lblTrueFalse.Text = Hermes.UI.Icons.EMOTE_THUMBS_UP;
+                lblTrueFalse.Text = Hermes.UI.Icons.TICK_OPEN_CIRCLE;
             else
-                lblTrueFalse.Text = Hermes.UI.Icons.GEAR;
+                lblTrueFalse.Text = Hermes.UI.Icons.CLOCK;
 
+            
             List<Participant> participant = evenement_concerné.GetGuests();
-
+            /*
+            foreach(Participant p in participant)
+            {
+                MessageBox.Show(p.FirstName);
+            }
+            */
+            int codeCreateur = (int)dataRowView[6];
             for (int i = 0; i < participant.Count; i++)
             {
                 UserEvenement user = new UserEvenement();
+                user.setCodeCreateur = codeCreateur;
                 user.recupParticipant = participant[i];
                 user.Top = 20 + 80 * i;
                 pnlParticipant.Controls.Add(user);
@@ -137,6 +136,132 @@ namespace Hermes
         private void LblIconeDate_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void LblIconeDroite_Click(object sender, EventArgs e)
+        {
+            Pagination("Droite");
+            lblCurrentPosition.Text = (bindingSource.Position + 1).ToString();
+        }
+
+        private void LblGauche_Click(object sender, EventArgs e)
+        {
+            Pagination("Gauche");
+            lblCurrentPosition.Text = (bindingSource.Position + 1).ToString();
+        }
+
+        private void LblIconeDroiteDroite_Click(object sender, EventArgs e)
+        {
+            Pagination("DroiteDroite");
+            lblCurrentPosition.Text = (bindingSource.Position + 1).ToString();
+        }
+
+        private void LblGaucheGauche_Click(object sender, EventArgs e)
+        {
+            Pagination("GaucheGauche");
+            lblCurrentPosition.Text = (bindingSource.Position + 1).ToString();
+        }
+
+        public void Pagination(string indication)
+        {
+            this.bindingSource.Position = this.index;
+            if (indication == "Droite")
+                this.bindingSource.MoveNext();
+
+            else if (indication == "DroiteDroite")
+                this.bindingSource.MoveLast();
+
+            else if (indication == "Gauche")
+                this.bindingSource.MovePrevious();
+
+            else if (indication == "GaucheGauche")
+                this.bindingSource.MoveFirst();
+
+            this.index = bindingSource.Position;
+
+            //condition pour eviter de recharger le pnlParticipant après être arrivé au bout, mais marche pas :(
+             if(this.index != bindingSource.Count  || this.index != 1)
+            {
+                //Mise en place pour récuperer les informations nécessaire
+                DataRowView dataRowView = (DataRowView)bindingSource.Current;
+                //Nom de l'évènement
+                lblNomEvenement.Text = dataRowView[1].ToString();
+                //Date début
+                DateTime dateDebut = (DateTime)dataRowView[2];
+                lblDateStart.Text = dateDebut.ToLongDateString();
+                //Date fin
+                DateTime dateFin = (DateTime)dataRowView[3];
+                lblDateEnd.Text = dateFin.ToLongDateString();
+                //Description de l'évènement
+                lblDescEvenement.Text = dataRowView[4].ToString();
+                //Soldé ou non
+                bool solde_y_n = (bool)dataRowView[5];
+                if (solde_y_n)
+                    lblTrueFalse.Text = Hermes.UI.Icons.TICK_OPEN_CIRCLE;
+                else
+                    lblTrueFalse.Text = Hermes.UI.Icons.CLOCK;
+                //Code créateur
+                int codeCreateur = (int)dataRowView[6];
+
+                //Pour remplir le panel contenant les participants à l'évènement
+                List<PartyEvent> evenement = Database.FetchEvents();
+                PartyEvent evenement_concerné = evenement[index];
+                List<Participant> participant = evenement_concerné.GetGuests();
+                pnlParticipant.Controls.Clear();
+                //Ajout des partcipants à l'évènements.
+                for (int i = 0; i < participant.Count; i++)
+                {
+                    UserEvenement user = new UserEvenement();
+                    user.setCodeCreateur = codeCreateur;
+                    user.recupParticipant = participant[i];
+                    user.Top = 20 + 80 * i;
+                    pnlParticipant.Controls.Add(user);
+
+                }
+            }
+
+            //Mise à jour de la position actuel au niveau des évènements
+            lblCurrentPosition.Text = (bindingSource.Position + 1).ToString();
+        }
+
+        private void LblIconeDroite_MouseHover(object sender, EventArgs e)
+        {
+            this.Cursor = Cursors.Hand;
+        }
+
+        private void LblIconeDroite_MouseLeave(object sender, EventArgs e)
+        {
+            this.Cursor = Cursors.Default;
+        }
+
+        private void LblIconeDroiteDroite_MouseHover(object sender, EventArgs e)
+        {
+            this.Cursor = Cursors.Hand;
+        }
+
+        private void LblIconeDroiteDroite_MouseLeave(object sender, EventArgs e)
+        {
+            this.Cursor = Cursors.Default;
+        }
+
+        private void LblGauche_MouseHover(object sender, EventArgs e)
+        {
+            this.Cursor = Cursors.Hand;
+        }
+
+        private void LblGauche_MouseLeave(object sender, EventArgs e)
+        {
+            this.Cursor = Cursors.Default;
+        }
+
+        private void LblGaucheGauche_MouseHover(object sender, EventArgs e)
+        {
+            this.Cursor = Cursors.Hand;
+        }
+
+        private void LblGaucheGauche_MouseLeave(object sender, EventArgs e)
+        {
+            this.Cursor = Cursors.Default;
         }
     }
 }

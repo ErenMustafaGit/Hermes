@@ -94,6 +94,14 @@ namespace Hermes
             return table;
         }
 
+
+        /*Permet d'avoir une DataTable des participants que vous donnez en paramètre
+         * 
+         * Cette Datatable contient une colonne avec le nom et le prénom concatener
+         * Cela permet de le donner en DisplayMember
+         * 
+         * Nom de la colonne concatener = "Name"
+         */
         public static DataTable toConcatenateDataTable(List<Participant> participants)
         {
             DataTable table = new DataTable();

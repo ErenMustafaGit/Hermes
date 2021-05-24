@@ -27,12 +27,11 @@ namespace Hermes
 
         private void AjNouvelleDepense_Load(object sender, EventArgs e)
         {
-            Database database = new Database();
 
-            DataTable events = PartyEvent.toDataTable(database.FetchEvents());
+            DataTable events = PartyEvent.toDataTable(Database.FetchEvents());
             cboEvenements.DataSource = events;
-            cboEvenements.DisplayMember = "TitleEvent";
-            cboEvenements.ValueMember = "CodeEvent";
+            cboEvenements.DisplayMember = "Title";
+            cboEvenements.ValueMember = "Code";
             cboEvenements.SelectedIndex = indice - 1;
 
             PartyEvent selectedEvent = PartyEvent.GetPartyEvent(int.Parse(cboEvenements.SelectedValue.ToString()));
@@ -116,7 +115,7 @@ namespace Hermes
         //Continuer
         private void AppFontLabel8_Click(object sender, EventArgs e)
         {
-            ;
+            
             this.ecran.Controls.Clear();
             AjNouvelleDepense2 suite = new AjNouvelleDepense2(int.Parse(cboEvenements.SelectedValue.ToString()), dtpDebut.Value, txtWhere.Text, int.Parse(cboPayePar.SelectedValue.ToString()), numAmount.Value);
             suite.setPanel = this.ecran;

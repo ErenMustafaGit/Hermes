@@ -12,13 +12,13 @@ using System.Windows.Forms;
 
 namespace Hermes
 {
-    class Database
+    public class Database
     {
         static string chcon = "Provider=Microsoft.Jet.OLEDB.4.0;Data Source='../../../../bdEvents.mdb'";
         static OleDbConnection connection = new OleDbConnection();
         DataSet dataset = new DataSet();
 
-        public List<PartyEvent> FetchEvents()
+        public static List<PartyEvent> FetchEvents()
         {
             List<PartyEvent> partyEvents = new List<PartyEvent>();
 
@@ -32,8 +32,8 @@ namespace Hermes
                 {
                     PartyEvent oneEvent = new PartyEvent()
                     {
-                        CodeEvent = dataReader.GetInt32(0),
-                        TitleEvent = dataReader.GetString(1),
+                        Code = dataReader.GetInt32(0),
+                        Title = dataReader.GetString(1),
                         BeginDate = dataReader.GetDateTime(2),
                         EndDate = dataReader.GetDateTime(3),
                         Description = dataReader.GetString(4),
@@ -59,7 +59,7 @@ namespace Hermes
             return partyEvents;
         }
 
-        public List<Participant> FetchParticipant()
+        public static List<Participant> FetchParticipant()
         {
             List<Participant> participants = new List<Participant>();
 
@@ -205,6 +205,73 @@ namespace Hermes
             {
                 connection.Close();
             }
+        }
+
+        public static bool InsertEvent(PartyEvent partyEvent, List<Participant> guests)
+        {
+            bool added = false;
+            try
+            {
+                connection.ConnectionString = chcon;
+                connection.Open();
+
+
+                DateTime beginDateTime = partyEvent.BeginDate;
+                DateTime endDateTime = partyEvent.EndDate;
+                string beginDate = "#" + beginDateTime.Month + "/" + beginDateTime.Day + "/" + beginDateTime.Year + "#";
+                string endDate = "#" + endDateTime.Month + "/" + endDateTime.Day + "/" + endDateTime.Year + "#";
+
+                string sqlInsert = String.Format("INSERT INTO Evenements " +
+                    "VALUES ({0},'{1}',{2},{3},'{4}',{5},{6})", partyEvent.Code, partyEvent.Title, beginDate, endDate, partyEvent.Description, partyEvent.BalanceYN, partyEvent.CodeCreator);
+
+                OleDbCommand command = new OleDbCommand(sqlInsert, connection);
+                int nb = command.ExecuteNonQuery();
+                if (nb > 0)
+                    added = true;
+                for (int i = 0; i < guests.Count; i++)
+                {
+                    string login = guests[i].FirstName[0].ToString();
+                    string mdp = "*" + guests[i].FirstName[0];
+                    if(guests[i].LastName.Length < 5)
+                    {
+                        login += guests[i].LastName.Substring(0, guests[i].LastName.Length);
+                        mdp += guests[i].LastName.Substring(0, guests[i].LastName.Length) + "!";
+                    }
+                    else
+                    {
+                        login += guests[i].LastName.Substring(0, 5);
+                        mdp += guests[i].LastName.Substring(0,5) + "!";
+                    }
+
+                    MessageBox.Show(guests[i].FirstName + "  " + guests[i].LastName + "  " + login + "  " + mdp);
+
+                    string sqlGuest = String.Format("INSERT INTO Invites VALUES ({0},{1},'{2}','{3}')",partyEvent.Code,guests[i].CodeParticipant, login,mdp );
+                    command.CommandText = sqlGuest;
+                    MessageBox.Show(sqlGuest);
+
+                    nb = command.ExecuteNonQuery();
+                    
+                    if (nb == 0)
+                    {
+                        added = false;
+                        //throw new OleDbException("Erreur dans l'insert");
+                    }
+                }
+            }
+            catch (OleDbException er)
+            {
+                MessageBox.Show("Erreur de requête SQL \n\n\n\n" + er);
+            }
+            catch (InvalidOperationException er)
+            {
+                MessageBox.Show("Problème d'accès à la base \n\n\n\n" + er);
+            }
+
+            finally
+            {
+                connection.Close();
+            }
+            return added;
         }
 
         public List<Expenditure> FetchExpenditure()

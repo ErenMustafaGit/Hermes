@@ -72,7 +72,7 @@
             this.btnValider.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(147)))), ((int)(((byte)(248)))));
             this.btnValider.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnValider.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnValider.Location = new System.Drawing.Point(781, 586);
+            this.btnValider.Location = new System.Drawing.Point(781, 556);
             this.btnValider.Name = "btnValider";
             this.btnValider.Size = new System.Drawing.Size(105, 30);
             this.btnValider.TabIndex = 4;
@@ -85,7 +85,7 @@
             this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(49)))), ((int)(((byte)(49)))));
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.ForeColor = System.Drawing.SystemColors.Control;
-            this.button1.Location = new System.Drawing.Point(658, 586);
+            this.button1.Location = new System.Drawing.Point(658, 556);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(105, 30);
             this.button1.TabIndex = 4;
