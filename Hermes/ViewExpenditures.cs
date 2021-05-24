@@ -53,30 +53,34 @@ namespace Hermes
             pnlListExpenditure.Controls.Clear();
             PartyEvent currentEvent = PartyEvent.GetPartyEvent((int)cboEvenement.SelectedValue);
             List<Expenditure> expenditures = currentEvent.GetExpenditures();
-            foreach(Expenditure e in expenditures)
-            {
-                MessageBox.Show(e.Description.ToString());
-            }
             for(int i = 0; i<expenditures.Count; i++)
             {
-                Hermes.UI.AppFontLabel lbl = new Hermes.UI.AppFontLabel();
-                lbl.AppFont = AppFont.HelveticaNeue_Bold;
-                lbl.Text = expenditures[i].Description;
-                lbl.Text = lbl.Text.Substring(0, 1).ToUpper() + lbl.Text.Substring(1) ;
-                lbl.Tag = expenditures[i].NumExpenditure;
-                lbl.Left = 20;
-                lbl.Top = 20 + 50 * i;
-                lbl.AutoSize = false;
-                lbl.Width = 300;
-                lbl.Height = 30;
-                lbl.AppFontHeight = 16F;
+                Hermes.UI.AppFontLabel lblDepense = new Hermes.UI.AppFontLabel();
+                lblDepense.AppFont = AppFont.HelveticaNeue_Bold;
+                lblDepense.Text = expenditures[i].Description;
+                lblDepense.Text = lblDepense.Text.Substring(0, 1).ToUpper() + lblDepense.Text.Substring(1) ;
+                lblDepense.Tag = expenditures[i].NumExpenditure;
+                lblDepense.Left = 20;
+                lblDepense.Top = 20 + 50 * i;
+                lblDepense.AutoSize = false;
+                lblDepense.Width = 300;
+                lblDepense.Height = 30;
+                lblDepense.AppFontHeight = 16F;
+                lblDepense.Tag = i;
+                lblDepense.MouseClick += new MouseEventHandler(lblDepense_MouseClick);
+                lblDepense.MouseHover += new EventHandler(lblDepense_MouseHover);
+                lblDepense.MouseLeave += new EventHandler(lblDepense_MouseLeave);
                 if(i == 0)
                 {
                     //Sale fou
                     //lbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(141)))), ((int)(((byte)(255)))));
-                    lbl.ForeColor = Color.FromArgb(72, 141, 255);
+                    lblDepense.ForeColor = Color.FromArgb(72, 141, 255);
                 }
-                pnlListExpenditure.Controls.Add(lbl);
+                else
+                {
+                    lblDepense.ForeColor = Color.FromArgb(12, 12, 12);
+                }
+                pnlListExpenditure.Controls.Add(lblDepense);
             }
             if(expenditures.Count != 0)
             {
@@ -90,7 +94,7 @@ namespace Hermes
                 MessageBox.Show("Pas de dépense dans cet évènement");
                 return;
             }
-            //List<Participant> beneficiaries = expenditures[0].GetParticipant();
+            //List<Participant> beneficiaries = expenditures[0].GetBeneficiaries();
         }
 
 
@@ -98,6 +102,31 @@ namespace Hermes
         private void cboEvenement_SelectedIndexChanged(object sender, EventArgs e)
         {
             RefreshExpenditures();
+        }
+
+        private void lblDepense_MouseClick(object sender ,EventArgs e)
+        {
+            Label depense = (Label)sender;
+            PartyEvent currentEvent = PartyEvent.GetPartyEvent((int)cboEvenement.SelectedValue);
+            List<Expenditure> expenditures = currentEvent.GetExpenditures();
+            if (expenditures.Count != 0)
+            {
+                lblExpenditureTitle.Text = expenditures[(int)depense.Tag].Description;
+                lblExpenditureTitle.Text = lblExpenditureTitle.Text.Substring(0, 1).ToUpper() + lblExpenditureTitle.Text.Substring(1);
+                lblMoney.Text = expenditures[(int)depense.Tag].Amount.ToString() + "€";
+                lblCreator.Text = Participant.GetParticipant(expenditures[(int)depense.Tag].CodeParticipant).FirstName + " " + Participant.GetParticipant(expenditures[(int)depense.Tag].CodeParticipant).LastName;
+            }
+
+        }
+
+        private void lblDepense_MouseHover(object sender, EventArgs e)
+        {
+            this.Cursor = Cursors.Hand;
+        }
+
+        private void lblDepense_MouseLeave(object sender, EventArgs e)
+        {
+            this.Cursor = Cursors.Default;
         }
     }
 }
