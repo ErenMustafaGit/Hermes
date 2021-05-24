@@ -51,7 +51,13 @@ namespace Hermes
             }
             return table;
         }
-        
+
+
+        /* GetBenefiaciries()
+         * @return List<Participant> : La liste des bénéficiaires de cette dépense
+         * 
+         * Permet d'avoir la liste des bénéficiaires de la dépense courante (de l'instance)
+         */
         public List<Participant> GetBeneficiaries()
         {
             List<Participant> beneficiaries = new List<Participant>();
@@ -59,24 +65,28 @@ namespace Hermes
             {
                 connection.ConnectionString = chcon;
                 connection.Open();
-                string sql = "select * from Beneficiaires where numDepense =" +this.NumExpenditure  ;
+                string sql = "select * from Beneficiaires where numDepense = " +this.NumExpenditure  ;
                 OleDbCommand command = new OleDbCommand(sql, connection);
                 OleDbDataReader dataReader = command.ExecuteReader();
                 while (dataReader.Read())
                 {
-                    Participant beneficiary = new Participant()
+                    string sql2 = "select * from Participants where codeParticipant = " + dataReader.GetInt32(1);
+                    OleDbCommand command2 = new OleDbCommand(sql2, connection);
+                    OleDbDataReader dataReaderBeneficiary = command2.ExecuteReader();
+                    dataReaderBeneficiary.Read();
+
+                    Participant beneficiary = new Participant();
+                    beneficiary.CodeParticipant = dataReaderBeneficiary.GetInt32(0);
+                    beneficiary.LastName = dataReaderBeneficiary.GetString(1);
+                    beneficiary.FirstName = dataReaderBeneficiary.GetString(2);
+                    beneficiary.PhoneNumber = dataReaderBeneficiary.GetString(3);
+                    beneficiary.NbParts = dataReaderBeneficiary.GetInt32(4);
+                    if (!dataReaderBeneficiary.IsDBNull(5))
                     {
-                        CodeParticipant = dataReader.GetInt32(0),
-                        LastName = dataReader.GetString(1),
-                        FirstName = dataReader.GetString(2),
-                        PhoneNumber = dataReader.GetString(3),
-                        NbParts = dataReader.GetInt32(4),
-                        Mail = dataReader.GetString(6),
-                    };
-                    if (!dataReader.IsDBNull(5))
-                    {
-                    beneficiary.Balance = dataReader.GetDouble(5);
+                        beneficiary.Balance = dataReaderBeneficiary.GetDouble(5);
                     }
+                    beneficiary.Mail = dataReaderBeneficiary.GetString(6);
+
                     beneficiaries.Add(beneficiary);
                 }
                 
@@ -85,10 +95,10 @@ namespace Hermes
             {
                 MessageBox.Show("Erreur de requête SQL \n\n\n\n" + er);
             }
-            catch (InvalidOperationException er)
-            {
-                MessageBox.Show("Problème d'accès à la base \n\n\n\n" + er);
-            }
+            //catch (InvalidOperationException er)
+            //{
+            //    MessageBox.Show("Problème d'accès à la base \n\n\n\n" + er);
+            //}
 
             finally
             {
