@@ -9,7 +9,7 @@ using System.Drawing;
 using System.Windows.Forms;
 using System.Data.OleDb;
 
-namespace Hermes
+namespace Hermes.DataModel
 {
     public class PartyEvent
     {
