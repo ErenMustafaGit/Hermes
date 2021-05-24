@@ -104,6 +104,12 @@
     <Compile Include="BulleAjParticipant.Designer.cs">
       <DependentUpon>BulleAjParticipant.cs</DependentUpon>
     </Compile>
+    <Compile Include="BulleInvitations.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="BulleInvitations.Designer.cs">
+      <DependentUpon>BulleInvitations.cs</DependentUpon>
+    </Compile>
     <Compile Include="CompleteInfoEvenement.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -197,6 +203,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="BulleAjParticipant.resx">
       <DependentUpon>BulleAjParticipant.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BulleInvitations.resx">
+      <DependentUpon>BulleInvitations.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CompleteInfoEvenement.resx">
       <DependentUpon>CompleteInfoEvenement.cs</DependentUpon>

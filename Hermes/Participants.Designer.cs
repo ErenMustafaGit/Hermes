@@ -62,6 +62,7 @@
             this.btnInviter.TabIndex = 8;
             this.btnInviter.Text = "Inviter";
             this.btnInviter.UseVisualStyleBackColor = false;
+            this.btnInviter.Click += new System.EventHandler(this.btnInviter_Click);
             // 
             // appFontLabel1
             // 

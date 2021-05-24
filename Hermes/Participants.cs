@@ -145,5 +145,21 @@ namespace Hermes
             pnlParticipants.Controls.Add(ajoutParticipant);
         }
 
+        private void btnInviter_Click(object sender, EventArgs e)
+        {
+            Panel pnlInvitationsBulle = new Panel();
+            pnlInvitationsBulle.Size = new Size(705, 405);
+            Point coordonneePanel = new Point(127, 115);
+            pnlInvitationsBulle.Location = coordonneePanel;
+            this.Controls.Add(pnlInvitationsBulle);
+            pnlInvitationsBulle.BringToFront();
+            pnlInvitationsBulle.Visible = true;
+
+            BulleInvitations bulleInvitations = new BulleInvitations();
+            bulleInvitations.setPanelPrincipal = this.ecran;
+            bulleInvitations.setPanelBulle = pnlInvitationsBulle;
+            pnlInvitationsBulle.Controls.Add(bulleInvitations);
+
+        }
     }
 }
