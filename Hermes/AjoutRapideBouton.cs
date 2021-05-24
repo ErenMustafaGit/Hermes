@@ -28,11 +28,11 @@ namespace Hermes
         //public string setEvenement
 
         private void AjoutRapideBouton_Load(object sender, EventArgs e)
-        {            
+        {
             DataTable events = PartyEvent.toDataTable(Database.FetchEvents());
             cboEvenements.DataSource = events;
-            cboEvenements.DisplayMember = "TitleEvent";
-            cboEvenements.ValueMember = "CodeEvent";
+            cboEvenements.DisplayMember = "Title";
+            cboEvenements.ValueMember = "Code";
         }
 
         private void btnAjouter_Click(object sender, EventArgs e)

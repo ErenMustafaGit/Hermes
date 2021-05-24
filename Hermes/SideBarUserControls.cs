@@ -75,6 +75,7 @@ namespace Hermes
 
             //Aparaition du US concerné
             Evenements ee = new Evenements();
+            ee.setPanel = this.ecrans;
             this.ecrans.Controls.Add(ee);
         }
 
@@ -99,9 +100,10 @@ namespace Hermes
 
         }
 
-        private void sideBar_Paint(object sender, PaintEventArgs e)
-        {
 
+        private void SideBarUserControls_MouseHover(object sender, EventArgs e)
+        {
+            MessageBox.Show("ok");
         }
     }
 }

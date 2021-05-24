@@ -71,6 +71,36 @@ namespace Hermes
             return table;
         }
 
+        /*Permet d'avoir une DataTable des participants que vous donnez en paramètre
+         * 
+         * Cette Datatable contient une colonne avec le nom et le prénom concatener
+         * Cela permet de le donner en DisplayMember
+         * 
+         * Nom de la colonne concatener = "Name"
+         */
+        public static DataTable toConcatenateDataTable(List<Participant> participants)
+        {
+            DataTable table = new DataTable();
+            table.Columns.Add("CodeParticipant", typeof(int));
+            table.Columns.Add("Name", typeof(string));
+            table.Columns.Add("PhoneNumber", typeof(string));
+            table.Columns.Add("NbParts", typeof(int));
+            table.Columns.Add("Balance", typeof(Double));
+            table.Columns.Add("Mail", typeof(string));
+
+            for (int i = 0; i < participants.Count; i++)
+            {
+                int codeParticipant = participants[i].CodeParticipant;
+                string name = participants[i].LastName + " " + participants[i].FirstName;
+                string phoneNumber = participants[i].PhoneNumber;
+                int nbParts = participants[i].NbParts;
+                Double balance = participants[i].Balance;
+                string mail = participants[i].Mail;
+                table.Rows.Add(codeParticipant, name, phoneNumber, nbParts, balance, mail);
+            }
+            return table;
+        }
+
         // FIXME: cache this stuff, remove function call, only use properties
         public List<Expenditure> GetAllExpenditure()
         {

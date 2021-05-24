@@ -68,11 +68,41 @@
     <Compile Include="AjNouvelleDepense.Designer.cs">
       <DependentUpon>AjNouvelleDepense.cs</DependentUpon>
     </Compile>
+    <Compile Include="AjNouvelleDepense2.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="AjNouvelleDepense2.Designer.cs">
+      <DependentUpon>AjNouvelleDepense2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AjoutEvenement.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="AjoutEvenement.Designer.cs">
+      <DependentUpon>AjoutEvenement.cs</DependentUpon>
+    </Compile>
     <Compile Include="AjoutRapideBouton.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="AjoutRapideBouton.Designer.cs">
       <DependentUpon>AjoutRapideBouton.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BulleAjEvenement.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="BulleAjEvenement.Designer.cs">
+      <DependentUpon>BulleAjEvenement.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BulleAjEvenement2.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="BulleAjEvenement2.Designer.cs">
+      <DependentUpon>BulleAjEvenement2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CompleteInfoEvenement.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CompleteInfoEvenement.Designer.cs">
+      <DependentUpon>CompleteInfoEvenement.cs</DependentUpon>
     </Compile>
     <Compile Include="ResumePartyEvent.cs">
       <SubType>UserControl</SubType>
@@ -120,14 +150,35 @@
     <Compile Include="SideBarUserControls.Designer.cs">
       <DependentUpon>SideBarUserControls.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserEvenement.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserEvenement.Designer.cs">
+      <DependentUpon>UserEvenement.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Accueil.resx">
       <DependentUpon>Accueil.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="AjNouvelleDepense.resx">
       <DependentUpon>AjNouvelleDepense.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="AjNouvelleDepense2.resx">
+      <DependentUpon>AjNouvelleDepense2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AjoutEvenement.resx">
+      <DependentUpon>AjoutEvenement.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="AjoutRapideBouton.resx">
       <DependentUpon>AjoutRapideBouton.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BulleAjEvenement.resx">
+      <DependentUpon>BulleAjEvenement.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BulleAjEvenement2.resx">
+      <DependentUpon>BulleAjEvenement2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CompleteInfoEvenement.resx">
+      <DependentUpon>CompleteInfoEvenement.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Evenements.resx">
       <DependentUpon>Evenements.cs</DependentUpon>
@@ -153,6 +204,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="SideBarUserControls.resx">
       <DependentUpon>SideBarUserControls.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserEvenement.resx">
+      <DependentUpon>UserEvenement.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

@@ -30,7 +30,7 @@ namespace Hermes
             table.Columns.Add("Amount", typeof(decimal));
             table.Columns.Add("DateExpenditure", typeof(DateTime));
             table.Columns.Add("Comment", typeof(string));
-            table.Columns.Add("CodeEvent", typeof(int));
+            table.Columns.Add("Code", typeof(int));
             table.Columns.Add("CodeParticipant", typeof(int));
 
             for (int i = 0; i < expenditures.Count; i++)
@@ -59,8 +59,8 @@ namespace Hermes
             OleDbDataReader dataReader = command.ExecuteReader();
 
             dataReader.Read();
-            ev.CodeEvent = dataReader.GetInt32(0);
-            ev.TitleEvent = dataReader.GetString(1);
+            ev.Code = dataReader.GetInt32(0);
+            ev.Title = dataReader.GetString(1);
             ev.BeginDate = dataReader.GetDateTime(2);
             ev.EndDate = dataReader.GetDateTime(3);
             ev.Description = dataReader.GetString(4);
@@ -69,6 +69,7 @@ namespace Hermes
 
             return ev;
         }
+
         public Participant GetParticipant()
         {
             Participant participant = new Participant();
@@ -93,6 +94,7 @@ namespace Hermes
 
             return participant;
         }
+
         public static Expenditure GetExpenditure(int numExpenditure)
         {
             Expenditure expenditure = new Expenditure();

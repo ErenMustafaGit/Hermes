@@ -58,9 +58,8 @@
             this.sideBar.Location = new System.Drawing.Point(0, 0);
             this.sideBar.Name = "sideBar";
             this.sideBar.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.sideBar.Size = new System.Drawing.Size(421, 640);
+            this.sideBar.Size = new System.Drawing.Size(424, 640);
             this.sideBar.TabIndex = 0;
-            this.sideBar.Paint += new System.Windows.Forms.PaintEventHandler(this.sideBar_Paint);
             // 
             // lblIconeBilan
             // 

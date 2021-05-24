@@ -13,8 +13,8 @@ namespace Hermes
 {
     public class PartyEvent
     {
-        public int CodeEvent;
-        public string TitleEvent;
+        public int Code;
+        public string Title;
         public DateTime BeginDate;
         public DateTime EndDate;
         public string Description;
@@ -24,8 +24,8 @@ namespace Hermes
         public static DataTable toDataTable(List<PartyEvent> partyEvents)
         {
             DataTable table = new DataTable();
-            table.Columns.Add("CodeEvent", typeof(int));
-            table.Columns.Add("TitleEvent", typeof(string));
+            table.Columns.Add("Code", typeof(int));
+            table.Columns.Add("Title", typeof(string));
             table.Columns.Add("BeginDate", typeof(DateTime));
             table.Columns.Add("EndDate", typeof(DateTime));
             table.Columns.Add("Description", typeof(string));
@@ -34,8 +34,8 @@ namespace Hermes
 
             for (int i = 0; i < partyEvents.Count; i++)
             {
-                int codeEvent = partyEvents[i].CodeEvent;
-                string titleEvent = partyEvents[i].TitleEvent;
+                int codeEvent = partyEvents[i].Code;
+                string titleEvent = partyEvents[i].Title;
                 DateTime beginDate = partyEvents[i].BeginDate;
                 DateTime endDate = partyEvents[i].EndDate;
                 string description = partyEvents[i].Description;
@@ -56,8 +56,8 @@ namespace Hermes
             OleDbDataReader dataReader = command.ExecuteReader();
 
             dataReader.Read();
-            e.CodeEvent = dataReader.GetInt32(0);
-            e.TitleEvent = dataReader.GetString(1);
+            e.Code = dataReader.GetInt32(0);
+            e.Title = dataReader.GetString(1);
             e.BeginDate = dataReader.GetDateTime(2);
             e.EndDate = dataReader.GetDateTime(3);
             e.Description = dataReader.GetString(4);
@@ -73,7 +73,7 @@ namespace Hermes
 
             OleDbConnection db = Database.Connect();
             // FIXME: use command parameters
-            string sqlCodePart = "select codePart from Invites where codeEvent = " + this.CodeEvent;
+            string sqlCodePart = "select codePart from Invites where codeEvent = " + this.Code;
             OleDbCommand command = new OleDbCommand(sqlCodePart, db);
             OleDbDataReader dataReader = command.ExecuteReader();
             while (dataReader.Read())
@@ -107,12 +107,26 @@ namespace Hermes
 
             OleDbConnection db = Database.Connect();
             // FIXME: use command parameters
-            string sql = "SELECT count(*) FROM Invites WHERE codeEvent = " + this.CodeEvent;
+            string sql = "SELECT count(*) FROM Invites WHERE codeEvent = " + this.Code;
             OleDbCommand command = new OleDbCommand(sql, db);
 
             nbPart = (int)command.ExecuteScalar();
 
             return nbPart;
+        }
+
+        public static int GetMaxCode()
+        {
+            int codeMax = -1;
+
+            OleDbConnection db = Database.Connect();
+
+            string sql = "SELECT MAX(codeEvent) FROM Evenements";
+            OleDbCommand command = new OleDbCommand(sql, db);
+
+            codeMax = (int)command.ExecuteScalar();
+
+            return codeMax;
         }
 
     }

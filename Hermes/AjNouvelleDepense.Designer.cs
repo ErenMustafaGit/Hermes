@@ -30,20 +30,18 @@
         {
             this.cboEvenements = new System.Windows.Forms.ComboBox();
             this.txtWhere = new System.Windows.Forms.TextBox();
-            this.nupPersonne = new System.Windows.Forms.NumericUpDown();
+            this.numAmount = new System.Windows.Forms.NumericUpDown();
             this.dtpDebut = new System.Windows.Forms.DateTimePicker();
-            this.dtpFin = new System.Windows.Forms.DateTimePicker();
             this.cboPayePar = new System.Windows.Forms.ComboBox();
             this.appFontLabel8 = new Hermes.UI.AppFontLabel();
             this.lblAnnuler = new Hermes.UI.AppFontLabel();
             this.appFontLabel6 = new Hermes.UI.AppFontLabel();
-            this.appFontLabel5 = new Hermes.UI.AppFontLabel();
-            this.appFontLabel4 = new Hermes.UI.AppFontLabel();
-            this.appFontLabel3 = new Hermes.UI.AppFontLabel();
+            this.lblDate = new Hermes.UI.AppFontLabel();
+            this.lblAmount = new Hermes.UI.AppFontLabel();
             this.appFontLabel2 = new Hermes.UI.AppFontLabel();
             this.appFontLabel1 = new Hermes.UI.AppFontLabel();
             this.lblNouvelleDepense = new Hermes.UI.AppFontLabel();
-            ((System.ComponentModel.ISupportInitialize)(this.nupPersonne)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numAmount)).BeginInit();
             this.SuspendLayout();
             // 
             // cboEvenements
@@ -56,6 +54,7 @@
             this.cboEvenements.Size = new System.Drawing.Size(249, 28);
             this.cboEvenements.TabIndex = 3;
             this.cboEvenements.SelectedIndexChanged += new System.EventHandler(this.cbbEvenement_SelectedIndexChanged);
+            this.cboEvenements.SelectionChangeCommitted += new System.EventHandler(this.cboEvenements_SelectionChangeCommitted);
             // 
             // txtWhere
             // 
@@ -66,14 +65,14 @@
             this.txtWhere.Size = new System.Drawing.Size(249, 27);
             this.txtWhere.TabIndex = 9;
             // 
-            // nupPersonne
+            // numAmount
             // 
-            this.nupPersonne.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.nupPersonne.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F);
-            this.nupPersonne.Location = new System.Drawing.Point(174, 415);
-            this.nupPersonne.Name = "nupPersonne";
-            this.nupPersonne.Size = new System.Drawing.Size(246, 27);
-            this.nupPersonne.TabIndex = 10;
+            this.numAmount.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.numAmount.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F);
+            this.numAmount.Location = new System.Drawing.Point(174, 415);
+            this.numAmount.Name = "numAmount";
+            this.numAmount.Size = new System.Drawing.Size(246, 27);
+            this.numAmount.TabIndex = 10;
             // 
             // dtpDebut
             // 
@@ -86,26 +85,16 @@
             this.dtpDebut.Value = new System.DateTime(2021, 5, 18, 18, 23, 0, 0);
             this.dtpDebut.ValueChanged += new System.EventHandler(this.dtpDebut_ValueChanged);
             // 
-            // dtpFin
-            // 
-            this.dtpFin.CalendarFont = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtpFin.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F);
-            this.dtpFin.Location = new System.Drawing.Point(479, 342);
-            this.dtpFin.Name = "dtpFin";
-            this.dtpFin.Size = new System.Drawing.Size(263, 27);
-            this.dtpFin.TabIndex = 14;
-            this.dtpFin.Value = new System.DateTime(2021, 5, 18, 18, 23, 0, 0);
-            this.dtpFin.ValueChanged += new System.EventHandler(this.dtpFin_ValueChanged);
-            // 
             // cboPayePar
             // 
             this.cboPayePar.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboPayePar.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F);
             this.cboPayePar.FormattingEnabled = true;
-            this.cboPayePar.Location = new System.Drawing.Point(479, 415);
+            this.cboPayePar.Location = new System.Drawing.Point(479, 340);
             this.cboPayePar.Name = "cboPayePar";
             this.cboPayePar.Size = new System.Drawing.Size(263, 28);
             this.cboPayePar.TabIndex = 15;
+            this.cboPayePar.SelectionChangeCommitted += new System.EventHandler(this.cboPayePar_SelectionChangeCommitted);
             this.cboPayePar.SelectedValueChanged += new System.EventHandler(this.CboPayePar_SelectedValueChanged);
             // 
             // appFontLabel8
@@ -119,6 +108,9 @@
             this.appFontLabel8.Size = new System.Drawing.Size(61, 14);
             this.appFontLabel8.TabIndex = 19;
             this.appFontLabel8.Text = "Continuer";
+            this.appFontLabel8.Click += new System.EventHandler(this.AppFontLabel8_Click);
+            this.appFontLabel8.MouseLeave += new System.EventHandler(this.AppFontLabel8_MouseLeave);
+            this.appFontLabel8.MouseHover += new System.EventHandler(this.AppFontLabel8_MouseHover);
             // 
             // lblAnnuler
             // 
@@ -140,44 +132,33 @@
             this.appFontLabel6.AppFont = Hermes.AppFont.HelveticaNeue;
             this.appFontLabel6.AppFontHeight = 10F;
             this.appFontLabel6.AutoSize = true;
-            this.appFontLabel6.Location = new System.Drawing.Point(476, 387);
+            this.appFontLabel6.Location = new System.Drawing.Point(476, 312);
             this.appFontLabel6.Name = "appFontLabel6";
-            this.appFontLabel6.Size = new System.Drawing.Size(65, 16);
+            this.appFontLabel6.Size = new System.Drawing.Size(86, 16);
             this.appFontLabel6.TabIndex = 16;
-            this.appFontLabel6.Text = "Payé par";
+            this.appFontLabel6.Text = "Payé par ? *";
             // 
-            // appFontLabel5
+            // lblDate
             // 
-            this.appFontLabel5.AppFont = Hermes.AppFont.HelveticaNeue;
-            this.appFontLabel5.AppFontHeight = 10F;
-            this.appFontLabel5.AutoSize = true;
-            this.appFontLabel5.Location = new System.Drawing.Point(476, 313);
-            this.appFontLabel5.Name = "appFontLabel5";
-            this.appFontLabel5.Size = new System.Drawing.Size(98, 16);
-            this.appFontLabel5.TabIndex = 13;
-            this.appFontLabel5.Text = "Date de fin ? *";
+            this.lblDate.AppFont = Hermes.AppFont.HelveticaNeue;
+            this.lblDate.AppFontHeight = 10F;
+            this.lblDate.AutoSize = true;
+            this.lblDate.Location = new System.Drawing.Point(476, 236);
+            this.lblDate.Name = "lblDate";
+            this.lblDate.Size = new System.Drawing.Size(59, 16);
+            this.lblDate.TabIndex = 12;
+            this.lblDate.Text = "Date ? *";
             // 
-            // appFontLabel4
+            // lblAmount
             // 
-            this.appFontLabel4.AppFont = Hermes.AppFont.HelveticaNeue;
-            this.appFontLabel4.AppFontHeight = 10F;
-            this.appFontLabel4.AutoSize = true;
-            this.appFontLabel4.Location = new System.Drawing.Point(476, 236);
-            this.appFontLabel4.Name = "appFontLabel4";
-            this.appFontLabel4.Size = new System.Drawing.Size(119, 16);
-            this.appFontLabel4.TabIndex = 12;
-            this.appFontLabel4.Text = "Date de début ? *";
-            // 
-            // appFontLabel3
-            // 
-            this.appFontLabel3.AppFont = Hermes.AppFont.HelveticaNeue;
-            this.appFontLabel3.AppFontHeight = 10F;
-            this.appFontLabel3.AutoSize = true;
-            this.appFontLabel3.Location = new System.Drawing.Point(168, 385);
-            this.appFontLabel3.Name = "appFontLabel3";
-            this.appFontLabel3.Size = new System.Drawing.Size(170, 16);
-            this.appFontLabel3.TabIndex = 8;
-            this.appFontLabel3.Text = "Combien de personne ? *";
+            this.lblAmount.AppFont = Hermes.AppFont.HelveticaNeue;
+            this.lblAmount.AppFontHeight = 10F;
+            this.lblAmount.AutoSize = true;
+            this.lblAmount.Location = new System.Drawing.Point(168, 385);
+            this.lblAmount.Name = "lblAmount";
+            this.lblAmount.Size = new System.Drawing.Size(86, 16);
+            this.lblAmount.TabIndex = 8;
+            this.lblAmount.Text = "Combien ? *";
             // 
             // appFontLabel2
             // 
@@ -186,9 +167,9 @@
             this.appFontLabel2.AutoSize = true;
             this.appFontLabel2.Location = new System.Drawing.Point(168, 312);
             this.appFontLabel2.Name = "appFontLabel2";
-            this.appFontLabel2.Size = new System.Drawing.Size(68, 16);
+            this.appFontLabel2.Size = new System.Drawing.Size(106, 16);
             this.appFontLabel2.TabIndex = 6;
-            this.appFontLabel2.Text = "Où ça ? *";
+            this.appFontLabel2.Text = "A propos de ? *";
             // 
             // appFontLabel1
             // 
@@ -221,13 +202,11 @@
             this.Controls.Add(this.lblAnnuler);
             this.Controls.Add(this.appFontLabel6);
             this.Controls.Add(this.cboPayePar);
-            this.Controls.Add(this.dtpFin);
-            this.Controls.Add(this.appFontLabel5);
-            this.Controls.Add(this.appFontLabel4);
+            this.Controls.Add(this.lblDate);
             this.Controls.Add(this.dtpDebut);
-            this.Controls.Add(this.nupPersonne);
+            this.Controls.Add(this.numAmount);
             this.Controls.Add(this.txtWhere);
-            this.Controls.Add(this.appFontLabel3);
+            this.Controls.Add(this.lblAmount);
             this.Controls.Add(this.appFontLabel2);
             this.Controls.Add(this.appFontLabel1);
             this.Controls.Add(this.cboEvenements);
@@ -235,7 +214,7 @@
             this.Name = "AjNouvelleDepense";
             this.Size = new System.Drawing.Size(1064, 640);
             this.Load += new System.EventHandler(this.AjNouvelleDepense_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.nupPersonne)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numAmount)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -247,13 +226,11 @@
         private System.Windows.Forms.ComboBox cboEvenements;
         private UI.AppFontLabel appFontLabel1;
         private UI.AppFontLabel appFontLabel2;
-        private UI.AppFontLabel appFontLabel3;
+        private UI.AppFontLabel lblAmount;
         private System.Windows.Forms.TextBox txtWhere;
-        private System.Windows.Forms.NumericUpDown nupPersonne;
+        private System.Windows.Forms.NumericUpDown numAmount;
         private System.Windows.Forms.DateTimePicker dtpDebut;
-        private UI.AppFontLabel appFontLabel4;
-        private UI.AppFontLabel appFontLabel5;
-        private System.Windows.Forms.DateTimePicker dtpFin;
+        private UI.AppFontLabel lblDate;
         private UI.AppFontLabel appFontLabel6;
         private System.Windows.Forms.ComboBox cboPayePar;
         private UI.AppFontLabel lblAnnuler;
