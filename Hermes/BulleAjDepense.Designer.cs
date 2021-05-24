@@ -33,12 +33,12 @@
             this.cboEventCreator = new System.Windows.Forms.ComboBox();
             this.txtNomEvenement = new System.Windows.Forms.TextBox();
             this.numAmount = new System.Windows.Forms.NumericUpDown();
+            this.cboEvenement = new System.Windows.Forms.ComboBox();
+            this.appFontLabel1 = new Hermes.UI.AppFontLabel();
             this.appFontLabel2 = new Hermes.UI.AppFontLabel();
             this.cboCreateur = new Hermes.UI.AppFontLabel();
             this.lblDebutEvenement = new Hermes.UI.AppFontLabel();
             this.lblNomEvenement = new Hermes.UI.AppFontLabel();
-            this.appFontLabel1 = new Hermes.UI.AppFontLabel();
-            this.cboEvenement = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.numAmount)).BeginInit();
             this.SuspendLayout();
             // 
@@ -96,6 +96,27 @@
             this.numAmount.Size = new System.Drawing.Size(195, 27);
             this.numAmount.TabIndex = 33;
             // 
+            // cboEvenement
+            // 
+            this.cboEvenement.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboEvenement.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F);
+            this.cboEvenement.FormattingEnabled = true;
+            this.cboEvenement.Location = new System.Drawing.Point(384, 242);
+            this.cboEvenement.Name = "cboEvenement";
+            this.cboEvenement.Size = new System.Drawing.Size(195, 28);
+            this.cboEvenement.TabIndex = 34;
+            // 
+            // appFontLabel1
+            // 
+            this.appFontLabel1.AppFont = Hermes.AppFont.HelveticaNeue;
+            this.appFontLabel1.AppFontHeight = 10F;
+            this.appFontLabel1.AutoSize = true;
+            this.appFontLabel1.Location = new System.Drawing.Point(381, 214);
+            this.appFontLabel1.Name = "appFontLabel1";
+            this.appFontLabel1.Size = new System.Drawing.Size(168, 16);
+            this.appFontLabel1.TabIndex = 35;
+            this.appFontLabel1.Text = "Dans quel évènement ? *";
+            // 
             // appFontLabel2
             // 
             this.appFontLabel2.AppFont = Hermes.AppFont.HelveticaNeue_Bold;
@@ -139,27 +160,6 @@
             this.lblNomEvenement.Size = new System.Drawing.Size(153, 16);
             this.lblNomEvenement.TabIndex = 22;
             this.lblNomEvenement.Text = "Nom de la dépense ? *";
-            // 
-            // appFontLabel1
-            // 
-            this.appFontLabel1.AppFont = Hermes.AppFont.HelveticaNeue;
-            this.appFontLabel1.AppFontHeight = 10F;
-            this.appFontLabel1.AutoSize = true;
-            this.appFontLabel1.Location = new System.Drawing.Point(381, 214);
-            this.appFontLabel1.Name = "appFontLabel1";
-            this.appFontLabel1.Size = new System.Drawing.Size(168, 16);
-            this.appFontLabel1.TabIndex = 35;
-            this.appFontLabel1.Text = "Dans quel évènement ? *";
-            // 
-            // cboEvenement
-            // 
-            this.cboEvenement.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboEvenement.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F);
-            this.cboEvenement.FormattingEnabled = true;
-            this.cboEvenement.Location = new System.Drawing.Point(384, 242);
-            this.cboEvenement.Name = "cboEvenement";
-            this.cboEvenement.Size = new System.Drawing.Size(195, 28);
-            this.cboEvenement.TabIndex = 34;
             // 
             // BulleAjDepense
             // 
