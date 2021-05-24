@@ -107,6 +107,7 @@ namespace Hermes
         private void lblDepense_MouseClick(object sender ,EventArgs e)
         {
             Label depense = (Label)sender;
+            depense.ForeColor = Color.FromArgb(72, 141, 255);
             PartyEvent currentEvent = PartyEvent.GetPartyEvent((int)cboEvenement.SelectedValue);
             List<Expenditure> expenditures = currentEvent.GetExpenditures();
             if (expenditures.Count != 0)
@@ -117,6 +118,13 @@ namespace Hermes
                 lblCreator.Text = Participant.GetParticipant(expenditures[(int)depense.Tag].CodeParticipant).FirstName + " " + Participant.GetParticipant(expenditures[(int)depense.Tag].CodeParticipant).LastName;
             }
 
+            //Merci vero
+            foreach(var o in pnlListExpenditure.Controls.OfType<Label>())
+            {
+                Label l = (Label)o;
+                if(l.Tag != depense.Tag)
+                    l.ForeColor = Color.FromArgb(12, 12, 12);
+            }
         }
 
         private void lblDepense_MouseHover(object sender, EventArgs e)
