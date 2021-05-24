@@ -12,15 +12,11 @@ using System.Windows.Forms;
 
 namespace Hermes
 {
-    //Dépense
     public class Expenditure
     {
-        string chcon = "Provider=Microsoft.Jet.OLEDB.4.0;Data Source='../../../bdEvents.mdb'";
-        OleDbConnection connection = new OleDbConnection();
-
         public int NumExpenditure;
         public string Description;
-        public Decimal Amount;
+        public decimal Amount;
         public DateTime DateExpenditure;
         public string Comment;
         public int CodeEvent;
@@ -31,7 +27,7 @@ namespace Hermes
             DataTable table = new DataTable();
             table.Columns.Add("NumExpenditure", typeof(int));
             table.Columns.Add("Description", typeof(string));
-            table.Columns.Add("Amount", typeof(Decimal));
+            table.Columns.Add("Amount", typeof(decimal));
             table.Columns.Add("DateExpenditure", typeof(DateTime));
             table.Columns.Add("Comment", typeof(string));
             table.Columns.Add("CodeEvent", typeof(int));
@@ -41,7 +37,7 @@ namespace Hermes
             {
                 int numExpenditure = expenditures[i].NumExpenditure;
                 string description = expenditures[i].Description;
-                Decimal amount = expenditures[i].Amount;
+                decimal amount = expenditures[i].Amount;
                 DateTime dateExpenditure = expenditures[i].DateExpenditure;
                 string comment = expenditures[i].Comment;
                 int codeEvent = expenditures[i].CodeEvent;
@@ -51,139 +47,71 @@ namespace Hermes
             }
             return table;
         }
-        /*
-        public static Decimal getAmount()
-        {
-            string chcon = "Provider=Microsoft.Jet.OLEDB.4.0;Data Source='X:\\a21 sterne pie\\Base de données\\bdEvents.mdb'";
-            OleDbConnection connection = new OleDbConnection();
-            Decimal res = 0;
-            try
-            {
-                connection.ConnectionString = chcon;
-                connection.Open();
-                string sql = "select montant from Depenses where numDepense = '1'";
-                OleDbCommand command = new OleDbCommand(sql, connection);
-                res = command.ExecuteScalar();
-                
-            }
-            catch (OleDbException er)
-            {
-                MessageBox.Show("Erreur de requête SQL \n\n\n\n" + er);
-            }
-            catch (InvalidOperationException er)
-            {
-                MessageBox.Show("Problème d'accès à la base \n\n\n\n" + er);
-            }
-
-            finally
-            {
-                connection.Close();
-            }
-            return res;
-        }*/
 
         public PartyEvent GetEvent()
         {
-            PartyEvent theEvent = new PartyEvent();
-            try
-            {
-                connection.ConnectionString = chcon;
-                connection.Open();
-                string sql = "select * from Evenements where codeEvent = '" + this.CodeEvent.ToString() + "'";
-                OleDbCommand command = new OleDbCommand(sql, connection);
-                OleDbDataReader dataReader = command.ExecuteReader();
+            PartyEvent ev = new PartyEvent();
 
-                dataReader.Read();
-                theEvent.CodeEvent = dataReader.GetInt32(0);
-                theEvent.TitleEvent = dataReader.GetString(1);
-                theEvent.BeginDate = dataReader.GetDateTime(2);
-                theEvent.EndDate = dataReader.GetDateTime(3);
-                theEvent.Description = dataReader.GetString(4);
-                theEvent.BalanceYN = dataReader.GetBoolean(5);
-                theEvent.CodeCreator = dataReader.GetInt32(6);
+            OleDbConnection db = Database.Connect();
+            // FIXME: use command parameters
+            string sql = "select * from Evenements where codeEvent = '" + this.CodeEvent.ToString() + "'";
+            OleDbCommand command = new OleDbCommand(sql, db);
+            OleDbDataReader dataReader = command.ExecuteReader();
 
-            }
-            catch (OleDbException er)
-            {
-                MessageBox.Show("Erreur de requête SQL \n\n\n\n" + er);
-            }
-            catch (InvalidOperationException er)
-            {
-                MessageBox.Show("Problème d'accès à la base \n\n\n\n" + er);
-            }
+            dataReader.Read();
+            ev.CodeEvent = dataReader.GetInt32(0);
+            ev.TitleEvent = dataReader.GetString(1);
+            ev.BeginDate = dataReader.GetDateTime(2);
+            ev.EndDate = dataReader.GetDateTime(3);
+            ev.Description = dataReader.GetString(4);
+            ev.BalanceYN = dataReader.GetBoolean(5);
+            ev.CodeCreator = dataReader.GetInt32(6);
 
-            finally
-            {
-                connection.Close();
-            }
-            return theEvent;
+            return ev;
         }
         public Participant GetParticipant()
         {
-            Participant theParticipant = new Participant();
-            try
-            {
-                connection.ConnectionString = chcon;
-                connection.Open();
-                string sql = "select * from Evenements where codeParticipant = '" + this.CodeParticipant.ToString() + "'";
-                OleDbCommand command = new OleDbCommand(sql, connection);
-                OleDbDataReader dataReader = command.ExecuteReader();
+            Participant participant = new Participant();
 
-                dataReader.Read();
-                theParticipant.CodeParticipant = dataReader.GetInt32(0);
-                theParticipant.LastName = dataReader.GetString(1);
-                theParticipant.FirstName = dataReader.GetString(2);
-                theParticipant.PhoneNumber = dataReader.GetString(3);
-                theParticipant.NbParts = dataReader.GetInt32(4);
-                if (!dataReader.IsDBNull(5))
-                {
-                    theParticipant.Balance = dataReader.GetDouble(5);
-                }
-                theParticipant.Mail = dataReader.GetString(6);
+            OleDbConnection db = Database.Connect();
+            // FIXME: use command parameters
+            string sql = "select * from Evenements where codeParticipant = '" + this.CodeParticipant.ToString() + "'";
+            OleDbCommand command = new OleDbCommand(sql, db);
+            OleDbDataReader dataReader = command.ExecuteReader();
 
-            }
-            catch (OleDbException er)
+            dataReader.Read();
+            participant.CodeParticipant = dataReader.GetInt32(0);
+            participant.LastName = dataReader.GetString(1);
+            participant.FirstName = dataReader.GetString(2);
+            participant.PhoneNumber = dataReader.GetString(3);
+            participant.NbParts = dataReader.GetInt32(4);
+            if (!dataReader.IsDBNull(5))
             {
-                MessageBox.Show("Erreur de requête SQL \n\n\n\n" + er);
+                participant.Balance = dataReader.GetDouble(5);
             }
-            catch (InvalidOperationException er)
-            {
-                MessageBox.Show("Problème d'accès à la base \n\n\n\n" + er);
-            }
+            participant.Mail = dataReader.GetString(6);
 
-            finally
-            {
-                connection.Close();
-            }
-            return theParticipant;
+            return participant;
         }
         public static Expenditure GetExpenditure(int numExpenditure)
         {
-            Expenditure theExpenditure = new Expenditure();
-            try
-            {
-                string chcon = "Provider=Microsoft.Jet.OLEDB.4.0;Data Source='X:\\a21 sterne pie\\Base de données\\bdEvents.mdb'";
-                OleDbConnection connection = new OleDbConnection();
-                connection.ConnectionString = chcon;
-                OleDbCommand command = new OleDbCommand("select * from Expenditure where numDepense='" + numExpenditure + "'");
-                command.Connection = connection;
-                OleDbDataReader dataReader = command.ExecuteReader();
+            Expenditure expenditure = new Expenditure();
 
-                dataReader.Read();
-                theExpenditure.NumExpenditure = dataReader.GetInt32(0);
-                theExpenditure.Description = dataReader.GetString(1);
-                theExpenditure.Amount = dataReader.GetInt32(2);
-                theExpenditure.DateExpenditure = dataReader.GetDateTime(3);
-                theExpenditure.Comment = dataReader.GetString(4);
-                theExpenditure.CodeEvent = dataReader.GetInt32(5);
-                theExpenditure.CodeParticipant = dataReader.GetInt32(6);
+            OleDbConnection db = Database.Connect();
+            // FIXME: use command parameters
+            OleDbCommand command = new OleDbCommand("select * from Expenditure where numDepense='" + numExpenditure + "'", db);
+            OleDbDataReader dataReader = command.ExecuteReader();
 
-            }
-            catch (Exception er)
-            {
-                Console.WriteLine(er.ToString());
-            }
-            return theExpenditure;
+            dataReader.Read();
+            expenditure.NumExpenditure = dataReader.GetInt32(0);
+            expenditure.Description = dataReader.GetString(1);
+            expenditure.Amount = dataReader.GetInt32(2);
+            expenditure.DateExpenditure = dataReader.GetDateTime(3);
+            expenditure.Comment = dataReader.GetString(4);
+            expenditure.CodeEvent = dataReader.GetInt32(5);
+            expenditure.CodeParticipant = dataReader.GetInt32(6);
+
+            return expenditure;
         }
     }
 
