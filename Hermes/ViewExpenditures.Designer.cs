@@ -92,6 +92,7 @@
             this.btnAddExpenditure.TabIndex = 3;
             this.btnAddExpenditure.Text = "Ajouter une dépenses à cet évènement";
             this.btnAddExpenditure.UseVisualStyleBackColor = false;
+            this.btnAddExpenditure.Click += new System.EventHandler(this.btnAddExpenditure_Click);
             // 
             // btnAddBeneficiary
             // 
@@ -104,6 +105,7 @@
             this.btnAddBeneficiary.TabIndex = 3;
             this.btnAddBeneficiary.Text = "Ajout d\'un bénéficiaire";
             this.btnAddBeneficiary.UseVisualStyleBackColor = false;
+            this.btnAddBeneficiary.Click += new System.EventHandler(this.btnAddBeneficiary_Click);
             // 
             // lblExpenditureTitle
             // 

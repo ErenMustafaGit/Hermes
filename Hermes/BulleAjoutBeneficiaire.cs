@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace Hermes
 {
-    public partial class BulleAjDepense : UserControl
+    public partial class BulleAjoutBeneficiaire : UserControl
     {
         private static Panel pnlBulleEmplacement;
         private static Panel pnlPrincipal;
@@ -24,12 +24,17 @@ namespace Hermes
             set { pnlPrincipal = value; }
         }
 
-        public BulleAjDepense()
+        public BulleAjoutBeneficiaire()
         {
             InitializeComponent();
         }
 
-        private void BulleAjDepense_Load(object sender, EventArgs e)
+        private void BulleAjoutBeneficiaire_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblBeneficiaire_Click(object sender, EventArgs e)
         {
 
         }
@@ -38,13 +43,6 @@ namespace Hermes
         {
             pnlBulleEmplacement.Controls.Clear();
             pnlBulleEmplacement.Visible = false;
-        }
-
-        private void btnContinuer_Click(object sender, EventArgs e)
-        {
-            pnlBulleEmplacement.Controls.Clear();
-            BulleAjDepense2 bulleAjDepense2 = new BulleAjDepense2();
-            pnlBulleEmplacement.Controls.Add(bulleAjDepense2);
         }
     }
 }

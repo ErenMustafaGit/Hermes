@@ -92,6 +92,12 @@
     <Compile Include="BulleAjDepense.Designer.cs">
       <DependentUpon>BulleAjDepense.cs</DependentUpon>
     </Compile>
+    <Compile Include="BulleAjDepense2.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="BulleAjDepense2.Designer.cs">
+      <DependentUpon>BulleAjDepense2.cs</DependentUpon>
+    </Compile>
     <Compile Include="BulleAjEvenement.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -103,6 +109,12 @@
     </Compile>
     <Compile Include="BulleAjEvenement2.Designer.cs">
       <DependentUpon>BulleAjEvenement2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BulleAjoutBeneficiaire.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="BulleAjoutBeneficiaire.Designer.cs">
+      <DependentUpon>BulleAjoutBeneficiaire.cs</DependentUpon>
     </Compile>
     <Compile Include="CompleteInfoEvenement.cs">
       <SubType>UserControl</SubType>
@@ -186,11 +198,17 @@
     <EmbeddedResource Include="BulleAjDepense.resx">
       <DependentUpon>BulleAjDepense.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="BulleAjDepense2.resx">
+      <DependentUpon>BulleAjDepense2.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="BulleAjEvenement.resx">
       <DependentUpon>BulleAjEvenement.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="BulleAjEvenement2.resx">
       <DependentUpon>BulleAjEvenement2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BulleAjoutBeneficiaire.resx">
+      <DependentUpon>BulleAjoutBeneficiaire.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CompleteInfoEvenement.resx">
       <DependentUpon>CompleteInfoEvenement.cs</DependentUpon>

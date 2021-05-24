@@ -161,5 +161,40 @@ namespace Hermes
         {
             this.Cursor = Cursors.Default;
         }
+
+      
+        private void btnAddExpenditure_Click(object sender, EventArgs e)
+        {
+            Panel pnlBulleEmplacement = new Panel();
+            pnlBulleEmplacement.Size = new Size(705, 405);
+            Point coordonneePanel = new Point(127, 115);
+            pnlBulleEmplacement.Location = coordonneePanel;
+            this.Controls.Add(pnlBulleEmplacement);
+            pnlBulleEmplacement.BringToFront();
+
+            BulleAjDepense bulleAjDepense = new BulleAjDepense();
+            bulleAjDepense.setPanel = pnlBulleEmplacement;
+            bulleAjDepense.setPanelPrincipal = ecran;
+            pnlBulleEmplacement.Controls.Add(bulleAjDepense);
+            pnlBulleEmplacement.Visible = true;
+
+        }
+
+        private void btnAddBeneficiary_Click(object sender, EventArgs e)
+        {
+            Panel pnlBulleEmplacement = new Panel();
+            pnlBulleEmplacement.Size = new Size(705, 405);
+            Point coordonneePanel = new Point(127, 115);
+            pnlBulleEmplacement.Location = coordonneePanel;
+            this.Controls.Add(pnlBulleEmplacement);
+            pnlBulleEmplacement.BringToFront();
+
+            BulleAjoutBeneficiaire bulleAjoutBeneficiaire = new BulleAjoutBeneficiaire();
+            bulleAjoutBeneficiaire.setPanel = pnlBulleEmplacement;
+            bulleAjoutBeneficiaire.setPanelPrincipal = ecran;
+            pnlBulleEmplacement.Controls.Add(bulleAjoutBeneficiaire);
+            pnlBulleEmplacement.Visible = true;
+
+        }
     }
 }
