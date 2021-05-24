@@ -72,15 +72,14 @@ namespace Hermes
 
         private void BtnValider_Click(object sender, EventArgs e)
         {
-            
-            Expenditure newExpenditure = new Expenditure()
+            Expense newExpenditure = new Expense()
             {
-                NumExpenditure = 100,
+                Id = 100,
                 Description = this.Description,
                 Comment = rtxtCommentaire.Text,
-                DateExpenditure = this.Date,
-                CodeEvent = this.CodeEvenement,
-                CodeParticipant = this.CodePayeur,
+                Date = this.Date,
+                EventId = this.CodeEvenement,
+                AuthorId = this.CodePayeur,
             };
             //Database.InsertExpenditure(newExpenditure);
         }

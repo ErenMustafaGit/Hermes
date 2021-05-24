@@ -102,9 +102,9 @@ namespace Hermes.DataModel
         }
 
         // FIXME: cache this stuff, remove function call, only use properties
-        public List<Expenditure> GetAllExpenditure()
+        public List<Expense> GetAllExpenditure()
         {
-            List<Expenditure> allExpenditure = new List<Expenditure>();
+            List<Expense> allExpenditure = new List<Expense>();
 
             OleDbConnection db = Database.Connect();
             // FIXME: use command parameters
@@ -116,7 +116,7 @@ namespace Hermes.DataModel
             while (dataReader.Read())
             {
                 //Ajoute à notre liste : Les dépenses(Expenditure) de notre Participant
-                allExpenditure.Add(Expenditure.GetExpenditure(dataReader.GetInt32(0)));
+                allExpenditure.Add(Expense.GetFromId(dataReader.GetInt32(0)));
             }
 
             return allExpenditure;

@@ -12,6 +12,13 @@ using System.Windows.Forms;
 
 namespace Hermes.DataModel
 {
+    public class DatabaseInsertException : Exception
+    {
+        public DatabaseInsertException(string message) : base(message)
+        {
+        }
+    }
+
     public static class Database
     {
         const string ConnectionString = "Provider=Microsoft.Jet.OLEDB.4.0;Data Source='../../../bdEvents.mdb'";
@@ -124,28 +131,42 @@ namespace Hermes.DataModel
             return bindingSource;
         }
 
-        public static void InsertExpenditure(Expenditure expenditure, List<Participant> beneficiaire)
+        public static void InsertExpense(Expense expense, List<Participant> recipients)
         {
-            bool added = false;
-
             OleDbConnection db = Database.Connect();
 
-            string sqlInsert = String.Format("INSERT INTO Depenses VALUES ({0},{1},{2},{3},{4},{5})", expenditure.NumExpenditure, expenditure.Description, expenditure.DateExpenditure, expenditure.Comment, expenditure.CodeEvent, expenditure.CodeParticipant);
-            OleDbCommand command = new OleDbCommand(sqlInsert, connection );
-            int nb = command.ExecuteNonQuery();
-            if (nb > 0)
-                added = true;
+            OleDbCommand command = new OleDbCommand(
+                "insert into Depenses values (@Id,@Description,@Date,@Comment,@EventId,@AuthorId)",
+                db);
+            command.Parameters.AddWithValue("@Id", expense.Id);
+            command.Parameters.AddWithValue("@Description", expense.Description);
+            command.Parameters.AddWithValue("@Date", expense.Date);
+            command.Parameters.AddWithValue("@Comment", expense.Comment);
+            command.Parameters.AddWithValue("@EventId", expense.EventId);
+            command.Parameters.AddWithValue("@AuthorId", expense.AuthorId);
 
-            for(int i = 0; i<beneficiaire.Count; i++)
+            int nb = command.ExecuteNonQuery();
+            if (nb <= 0)
+                throw new DatabaseInsertException("Failed to insert expense");
+
+
+            // FIXME: Isn't there a better way to do this..?
+            // Forgive me, for I have sinned...
+
+            List<string> pairs = new List<string>();
+            foreach (Participant recipient in recipients)
+                pairs.Add(String.Format("({0},{1})", expense.Id, recipient.CodeParticipant));
+            
+            if (pairs.Count > 0)
             {
-                string sqlBeneficiaire = String.Format("INSERT INTO Depenses Beneficiaires ({0},{1})", expenditure.NumExpenditure, beneficiaire[i].CodeParticipant);
-                command.CommandText = sqlBeneficiaire;
+                command = new OleDbCommand(
+                    "insert into Beneficiaires (numDepense, codePart) values "
+                        + String.Join(",", pairs),
+                    db);
+
                 nb = command.ExecuteNonQuery();
-                if (nb == 0)
-                {
-                    added = false;
-                    //throw new OleDbException("Erreur dans l'insert");
-                }
+                if (nb <= 0)
+                    throw new DatabaseInsertException("Failed to insert recipients for new expense");
             }
         }
 
@@ -198,31 +219,18 @@ namespace Hermes.DataModel
             return added;
         }
 
-        public static List<Expenditure> FetchExpenditure()
+        public static List<Expense> FetchExpenses()
         {
-            List<Expenditure> expenditures = new List<Expenditure>();
-
             OleDbConnection db = Database.Connect();
             OleDbCommand command = new OleDbCommand("select * from Depenses", db);
+
+            List<Expense> expenses = new List<Expense>();
+
             OleDbDataReader dataReader = command.ExecuteReader();
             while (dataReader.Read())
-            {
-                Expenditure expenditure = new Expenditure();
-                expenditure.NumExpenditure = dataReader.GetInt32(0);
-                expenditure.Description = dataReader.GetString(1);
-                expenditure.Amount = dataReader.GetDecimal(2);
-                expenditure.DateExpenditure = dataReader.GetDateTime(3);
-                if (!dataReader.IsDBNull(4))
-                {
-                    expenditure.Comment = dataReader.GetString(4);
-                }
-                expenditure.CodeEvent = dataReader.GetInt32(5);
-                expenditure.CodeParticipant = dataReader.GetInt32(6);
-
-                expenditures.Add(expenditure);
-            }
+                expenses.Add(new Expense(dataReader));
             
-            return expenditures;
+            return expenses;
         }
     }
 }
