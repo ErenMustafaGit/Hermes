@@ -13,7 +13,7 @@ namespace Hermes.DataModel
         /// </summary>
         /// <param name="expenses">The list of expenses to convert.</param>
         /// <returns>The converted list as a DataTable.</returns>
-        public static DataTable AsDataTable(this List<Expense> expenses)
+        public static DataTable ToDataTable(this List<Expense> expenses)
         {
             DataTable table = new DataTable();
 
