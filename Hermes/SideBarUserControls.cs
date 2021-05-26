@@ -1,4 +1,4 @@
-﻿using System;
+﻿﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
@@ -34,14 +34,14 @@ namespace Hermes
             get => this.sideBar;
         }
 
-     
+
 
         private void LblIconeAccueil_Click(object sender, EventArgs e)
         {
             this.ecrans.Controls.Clear();
             //Partie concerné par le changement de couleur en bleue
             lblIconeAccueil.ForeColor = ColorTranslator.FromHtml("#2693f8");
-            lblAccueil.ForeColor = ColorTranslator.FromHtml("#2693f8"); 
+            lblAccueil.ForeColor = ColorTranslator.FromHtml("#2693f8");
 
             //Le reste en blanc
             lblIconeDepense.ForeColor = Color.FromArgb(249, 249, 249);

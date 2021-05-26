@@ -55,7 +55,7 @@ namespace Hermes
             movementPoint = new Point(e.X, e.Y);
         }
 
-  
+
         private void SideBarUserControls1_Load(object sender, EventArgs e)
         {
             this.sideBarUserControls1.MouseHover += new System.EventHandler(sideBarUserControls1_MouseHover);

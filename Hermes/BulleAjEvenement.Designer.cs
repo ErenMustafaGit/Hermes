@@ -84,7 +84,7 @@
             // 
             // btnAnnuler
             // 
-            this.btnAnnuler.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(49)))), ((int)(((byte)(49)))));
+            this.btnAnnuler.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(12)))), ((int)(((byte)(12)))));
             this.btnAnnuler.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAnnuler.ForeColor = System.Drawing.SystemColors.Control;
             this.btnAnnuler.Location = new System.Drawing.Point(376, 323);

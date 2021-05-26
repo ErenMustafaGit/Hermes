@@ -7,13 +7,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Hermes.DataModel;
 
 namespace Hermes
 {
     public partial class Accueil : UserControl
     {
-        
-
         Panel ecran;
         public Accueil()
         {
@@ -29,7 +28,6 @@ namespace Hermes
 
         private void Accueil_Load(object sender, EventArgs e)
         {
-            Database base_de_donnee = new Database();
             ajoutRapideBouton1.setPanel = this.ecran;
             List<Participant> participants = Database.FetchParticipant();
             List<PartyEvent> evenements = Database.FetchEvents();

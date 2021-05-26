@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Hermes.DataModel;
 
 namespace Hermes
 {
@@ -17,15 +18,16 @@ namespace Hermes
         DateTime Date;
         string Description;
         int CodePayeur;
-        Decimal Montant;
-        public AjNouvelleDepense2(int codeEvenement, DateTime date, string description, int codePayeur, Decimal montant)
+        Decimal Amount;
+
+        public AjNouvelleDepense2(int codeEvenement, DateTime date, string description, int codePayeur, Decimal amount)
         {
             InitializeComponent();
             this.CodeEvenement = codeEvenement;
             this.Date = date;
             this.Description = description;
             this.CodePayeur = codePayeur;
-            this.Montant = montant;
+            this.Amount = amount;
         }
 
         public Panel setPanel
@@ -35,14 +37,20 @@ namespace Hermes
 
         private void AjNouvelleDepense2_Load(object sender, EventArgs e)
         {
-            PartyEvent evenement = PartyEvent.GetPartyEvent(this.CodeEvenement);
+            PartyEvent evenement = PartyEvent.GetFromId(this.CodeEvenement);
             List<Participant> guests = evenement.GetGuests();
+
             for(int i = 0; i < guests.Count; i++)
             {
                 CheckBox chkGuest = new CheckBox();
                 chkGuest.Text = guests[i].FirstName + " " + guests[i].LastName;
+                chkGuest.Tag = guests[i].CodeParticipant;
+
                 chkGuest.Left = chkEveryOne.Left;
                 chkGuest.Top = 50 + 30 * i;
+                chkGuest.AutoSize = false;
+                chkGuest.Width = 300;
+                chkGuest.Height = 22;
                 pnlBeneficiaire.Controls.Add(chkGuest);
             }
         }
@@ -71,17 +79,76 @@ namespace Hermes
 
         private void BtnValider_Click(object sender, EventArgs e)
         {
-            
-            Expenditure newExpenditure = new Expenditure()
+            bool done = false;
+
+            foreach (CheckBox chk in pnlBeneficiaire.Controls)
             {
-                NumExpenditure = 100,
-                Description = this.Description,
-                Comment = rtxtCommentaire.Text,
-                DateExpenditure = this.Date,
-                CodeEvent = this.CodeEvenement,
-                CodeParticipant = this.CodePayeur,
-            };
-            //Database.InsertExpenditure(newExpenditure);
+                if (chk.Checked)
+                    done = true;
+            }
+            if (rtxtCommentaire.Text == "")
+            {
+                rtxtCommentaire.BackColor = Color.LightPink;
+                done = false;
+            }
+
+            if (done)
+            {
+                string comment = rtxtCommentaire.Text.Replace('\'', ' ');
+                Expense newExpense = new Expense()
+                {
+                    Id = 100,
+                    Amount = this.Amount,
+                    Description = this.Description,
+                    Comment = comment,
+                    Date = this.Date,
+                    EventId = this.CodeEvenement,
+                    AuthorId = this.CodePayeur,
+                };
+
+                Database.InsertExpense(newExpense, getBeneficiary());
+
+                //UNE POPUP A AJOUTER
+                MessageBox.Show("AJOUTE POPUP");
+
+                this.ecran.Controls.Clear();
+                Accueil a = new Accueil();
+                a.setPanel = this.ecran;
+                this.ecran.Controls.Add(a);
+            }
+            
+        }
+        public List<Participant> getBeneficiary()
+        {
+            List<Participant> beneficiary = new List<Participant>();
+            foreach (CheckBox chk in pnlBeneficiaire.Controls)
+            {
+                if (chk.Checked && chk != chkEveryOne)
+                {
+                    beneficiary.Add(Participant.GetParticipant((int)chk.Tag));
+                }
+            }
+
+            return beneficiary;
+        }
+
+        private void BtnCancel_Click(object sender, EventArgs e)
+        {
+            MessageBoxButtons buttons = MessageBoxButtons.YesNo;
+            DialogResult result;
+            string message = "Voulez vous vraiment annuler l'ajout ?";
+            string caption = "";
+            result = result = MessageBox.Show(this, message, caption, buttons,
+            MessageBoxIcon.Question, MessageBoxDefaultButton.Button1,
+            MessageBoxOptions.RightAlign);
+
+            if (result == DialogResult.Yes)
+            {
+                this.ecran.Controls.Clear();
+                Accueil a = new Accueil();
+                a.setPanel = this.ecran;
+                this.ecran.Controls.Add(a);
+            }
         }
     }
 }

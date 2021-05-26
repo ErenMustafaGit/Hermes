@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Hermes.DataModel;
 
 namespace Hermes
 {
@@ -37,9 +38,9 @@ namespace Hermes
 
         private void ViewExpenditures_Load(object sender, EventArgs e)
         {
-            cboEvenement.DataSource = PartyEvent.toDataTable(Database.FetchEvents());
-            cboEvenement.DisplayMember = "Title";
-            cboEvenement.ValueMember = "Code";
+            cboEvenement.DataSource = Database.FetchEvents().ToDataTable();
+            cboEvenement.DisplayMember = "Name";
+            cboEvenement.ValueMember = "Id";
             lblIconCreator.Text = Hermes.UI.Icons.FINANCE;
             lblIconMoney.Text = Hermes.UI.Icons.COINS;
 
@@ -52,18 +53,18 @@ namespace Hermes
         {
             pnlListExpenditure.Controls.Clear();
 
-            PartyEvent currentEvent = PartyEvent.GetPartyEvent((int)cboEvenement.SelectedValue);
-            List<Expenditure> expenditures = currentEvent.GetExpenditures();
+            PartyEvent currentEvent = PartyEvent.GetFromId((int)cboEvenement.SelectedValue);
+            List<Expense> expenses = currentEvent.GetExpenses();
             
             //Si des dépenses existe pour l'evenement sélectionner
-            if(expenditures.Count != 0)
+            if(expenses.Count != 0)
             {
-                for (int i = 0; i < expenditures.Count; i++)
+                for (int i = 0; i < expenses.Count; i++)
                 {
                     Hermes.UI.AppFontLabel lblDepense = new Hermes.UI.AppFontLabel();
                     lblDepense.AppFont = AppFont.HelveticaNeue_Bold;
-                    lblDepense.Text = expenditures[i].Description.Substring(0, 1).ToUpper() + expenditures[i].Description.Substring(1);
-                    //lblDepense.Tag = expenditures[i].NumExpenditure;
+                    lblDepense.Text = expenses[i].Description.Substring(0, 1).ToUpper() + expenses[i].Description.Substring(1);
+                    //lblDepense.Tag = expenses[i].Id;
                     lblDepense.Left = 20;
                     lblDepense.Top = 20 + 50 * i;
                     lblDepense.AutoSize = false;
@@ -87,11 +88,13 @@ namespace Hermes
                 lblExpenditureTitle.Visible = true;
                 pnlDetailExpenditure.Visible = true;
 
-                lblExpenditureTitle.Text = expenditures[0].Description;
+                lblExpenditureTitle.Text = expenses[0].Description;
                 lblExpenditureTitle.Text = lblExpenditureTitle.Text.Substring(0, 1).ToUpper() + lblExpenditureTitle.Text.Substring(1);
-                lblMoney.Text = expenditures[0].Amount.ToString() + "€";
-                lblCreator.Text = Participant.GetParticipant(expenditures[0].CodeParticipant).FirstName + " " + Participant.GetParticipant(expenditures[0].CodeParticipant).LastName;
-                RefreshBeneficiaries(expenditures, 0);
+                lblMoney.Text = expenses[0].Amount.ToString() + "€";
+
+                Participant participant = Participant.GetParticipant(expenses[0].AuthorId);
+                lblCreator.Text = participant.FirstName + " " + participant.LastName;
+                RefreshBeneficiaries(expenses, 0);
             }
             else
             {
@@ -101,10 +104,11 @@ namespace Hermes
             }
         }
 
-        private void RefreshBeneficiaries(List<Expenditure> expenditures, int index)
+        private void RefreshBeneficiaries(List<Expense> expenses, int index)
         {
             pnlBeneficiary.Controls.Clear();
-            List<Participant> beneficiaries = expenditures[index].GetBeneficiaries();
+            List<Participant> beneficiaries = expenses[index].GetBeneficiaries();
+
             for(int i = 0; i<beneficiaries.Count; i++)
             {
                 Hermes.UI.AppFontLabel lblBeneficiary = new Hermes.UI.AppFontLabel();
@@ -131,17 +135,20 @@ namespace Hermes
         {
             Label depense = (Label)sender;
             depense.ForeColor = Color.FromArgb(72, 141, 255);
-            PartyEvent currentEvent = PartyEvent.GetPartyEvent((int)cboEvenement.SelectedValue);
-            List<Expenditure> expenditures = currentEvent.GetExpenditures();
-            if (expenditures.Count != 0)
+            PartyEvent currentEvent = PartyEvent.GetFromId((int)cboEvenement.SelectedValue);
+            List<Expense> expenses = currentEvent.GetExpenses();
+
+            if (expenses.Count != 0)
             {
+                Participant participant = Participant.GetParticipant(expenses[(int)depense.Tag].AuthorId);
+
                 lblExpenditureTitle.Visible = true;
                 pnlDetailExpenditure.Visible = true;
-                lblExpenditureTitle.Text = expenditures[(int)depense.Tag].Description;
+                lblExpenditureTitle.Text = expenses[(int)depense.Tag].Description;
                 lblExpenditureTitle.Text = lblExpenditureTitle.Text.Substring(0, 1).ToUpper() + lblExpenditureTitle.Text.Substring(1);
-                lblMoney.Text = expenditures[(int)depense.Tag].Amount.ToString() + "€";
-                lblCreator.Text = Participant.GetParticipant(expenditures[(int)depense.Tag].CodeParticipant).FirstName + " " + Participant.GetParticipant(expenditures[(int)depense.Tag].CodeParticipant).LastName;
-                RefreshBeneficiaries(expenditures, (int)depense.Tag);
+                lblMoney.Text = expenses[(int)depense.Tag].Amount.ToString() + "€";
+                lblCreator.Text = participant.FirstName + " " + participant.LastName;
+                RefreshBeneficiaries(expenses, (int)depense.Tag);
             }
 
             //Merci vero

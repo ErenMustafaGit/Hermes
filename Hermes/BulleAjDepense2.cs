@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Hermes.DataModel;
 
 namespace Hermes
 {
@@ -36,7 +37,7 @@ namespace Hermes
 
         private void BulleAjDepense2_Load(object sender, EventArgs e)
         {
-            PartyEvent evenement = PartyEvent.GetPartyEvent(this.codeEvenement);
+            PartyEvent evenement = PartyEvent.GetFromId(this.codeEvenement);
             List<Participant> guests = evenement.GetGuests();
             for (int i = 0; i < guests.Count; i++)
             {
@@ -90,18 +91,18 @@ namespace Hermes
             if (done)
             {
                 string comment = rtxtCommentaire.Text.Replace('\'', ' ');
-                Expenditure newExpenditure = new Expenditure()
+                Expense newExpenditure = new Expense()
                 {
-                    NumExpenditure = 100,
+                    Id = 100,
                     Amount = this.montant,
                     Description = this.description,
                     Comment = rtxtCommentaire.Text,
-                    DateExpenditure = this.dateDepense.Date,
-                    CodeEvent = this.codeEvenement,
-                    CodeParticipant = this.codeParticipant,
+                    Date = this.dateDepense.Date,
+                    EventId = this.codeEvenement,
+                    AuthorId = this.codeParticipant,
                 };
 
-                Database.InsertExpenditure(newExpenditure, getBeneficiary());
+                Database.InsertExpense(newExpenditure, getBeneficiary());
                 //UNE POPUP A AJOUTER
                 MessageBox.Show("AJOUTE POPUP");
 
