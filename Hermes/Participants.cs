@@ -7,13 +7,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Hermes.DataModel;
 
 namespace Hermes
 {
     public partial class Participants : UserControl
     {
         public Panel ecran;
-        public Database database = new Database();
         public List<PartyEvent> evenementsListe;
         public List<Participant> participantsListe;
         public Participants()
@@ -32,19 +32,18 @@ namespace Hermes
         }
         private void Participants_Load(object sender, EventArgs e)
         {
-           
+            this.participantsListe = Database.FetchParticipant();
+            this.evenementsListe = Database.FetchEvents();
 
-            this.participantsListe = database.FetchParticipant();
-            this.evenementsListe = database.FetchEvents();
-            DataTable evenementTable = PartyEvent.toDataTable(evenementsListe);
+            DataTable evenementTable = this.evenementsListe.ToDataTable();
             DataRow rowTous;
             rowTous = evenementTable.NewRow();
-            rowTous["Title"] = "Tous";
+            rowTous["Name"] = "Tous";
             evenementTable.Rows.Add(rowTous);
-            cboEvenements.DataSource = evenementTable;
-            cboEvenements.DisplayMember = "Title";
-            cboEvenements.ValueMember = "CodeCreator";
 
+            cboEvenements.DataSource = evenementTable;
+            cboEvenements.DisplayMember = "Name";
+            cboEvenements.ValueMember = "AuthorId";
 
             BulleAjout();
 
