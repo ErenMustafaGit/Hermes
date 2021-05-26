@@ -125,10 +125,11 @@ namespace Hermes.DataModel
             OleDbConnection db = Database.Connect();
 
             OleDbCommand command = new OleDbCommand(
-                "insert into Depenses values (@Id,@Description,@Date,@Comment,@EventId,@AuthorId)",
+                "insert into Depenses values (@Id,@Description,@Amount,@Date,@Comment,@EventId,@AuthorId)",
                 db);
             command.Parameters.AddWithValue("@Id", expense.Id);
             command.Parameters.AddWithValue("@Description", expense.Description);
+            command.Parameters.AddWithValue("@Amount", expense.Amount);
             command.Parameters.AddWithValue("@Date", expense.Date);
             command.Parameters.AddWithValue("@Comment", expense.Comment);
             command.Parameters.AddWithValue("@EventId", expense.EventId);
@@ -150,7 +151,7 @@ namespace Hermes.DataModel
             {
                 command = new OleDbCommand(
                     "insert into Beneficiaires (numDepense, codePart) values "
-                        + String.Join(",", pairs),
+                        + String.Join(",", pairs) + ";",
                     db);
 
                 nb = command.ExecuteNonQuery();

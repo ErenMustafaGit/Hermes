@@ -32,7 +32,7 @@
             this.chkEveryOne = new System.Windows.Forms.CheckBox();
             this.rtxtCommentaire = new System.Windows.Forms.RichTextBox();
             this.btnValider = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnCancel = new System.Windows.Forms.Button();
             this.lblCommentaire = new Hermes.UI.AppFontLabel();
             this.lblBeneficiaire = new Hermes.UI.AppFontLabel();
             this.pnlBeneficiaire.SuspendLayout();
@@ -43,16 +43,15 @@
             this.pnlBeneficiaire.Controls.Add(this.chkEveryOne);
             this.pnlBeneficiaire.Location = new System.Drawing.Point(130, 160);
             this.pnlBeneficiaire.Name = "pnlBeneficiaire";
-            this.pnlBeneficiaire.Size = new System.Drawing.Size(357, 297);
+            this.pnlBeneficiaire.Size = new System.Drawing.Size(410, 297);
             this.pnlBeneficiaire.TabIndex = 1;
             // 
             // chkEveryOne
             // 
-            this.chkEveryOne.AutoSize = true;
             this.chkEveryOne.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.chkEveryOne.Location = new System.Drawing.Point(21, 14);
             this.chkEveryOne.Name = "chkEveryOne";
-            this.chkEveryOne.Size = new System.Drawing.Size(135, 22);
+            this.chkEveryOne.Size = new System.Drawing.Size(300, 22);
             this.chkEveryOne.TabIndex = 0;
             this.chkEveryOne.Text = "Tout le monde";
             this.chkEveryOne.UseVisualStyleBackColor = true;
@@ -80,17 +79,18 @@
             this.btnValider.UseVisualStyleBackColor = false;
             this.btnValider.Click += new System.EventHandler(this.BtnValider_Click);
             // 
-            // button1
+            // btnCancel
             // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(49)))), ((int)(((byte)(49)))));
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.ForeColor = System.Drawing.SystemColors.Control;
-            this.button1.Location = new System.Drawing.Point(658, 556);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(105, 30);
-            this.button1.TabIndex = 4;
-            this.button1.Text = "Annuler";
-            this.button1.UseVisualStyleBackColor = false;
+            this.btnCancel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(49)))), ((int)(((byte)(49)))));
+            this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCancel.ForeColor = System.Drawing.SystemColors.Control;
+            this.btnCancel.Location = new System.Drawing.Point(658, 586);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Size = new System.Drawing.Size(105, 30);
+            this.btnCancel.TabIndex = 4;
+            this.btnCancel.Text = "Annuler";
+            this.btnCancel.UseVisualStyleBackColor = false;
+            this.btnCancel.Click += new System.EventHandler(this.BtnCancel_Click);
             // 
             // lblCommentaire
             // 
@@ -118,7 +118,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnValider);
             this.Controls.Add(this.lblCommentaire);
             this.Controls.Add(this.rtxtCommentaire);
@@ -128,7 +128,6 @@
             this.Size = new System.Drawing.Size(1064, 640);
             this.Load += new System.EventHandler(this.AjNouvelleDepense2_Load);
             this.pnlBeneficiaire.ResumeLayout(false);
-            this.pnlBeneficiaire.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -142,6 +141,6 @@
         private System.Windows.Forms.RichTextBox rtxtCommentaire;
         private UI.AppFontLabel lblCommentaire;
         private System.Windows.Forms.Button btnValider;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnCancel;
     }
 }
