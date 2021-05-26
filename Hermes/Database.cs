@@ -274,7 +274,7 @@ namespace Hermes
             return added;
         }
 
-        public List<Expenditure> FetchExpenditure()
+        public static List<Expenditure> FetchExpenditure()
         {
             List<Expenditure> expenditures = new List<Expenditure>();
 

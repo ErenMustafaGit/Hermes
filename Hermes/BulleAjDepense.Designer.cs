@@ -31,9 +31,11 @@
             this.btnAnnuler = new System.Windows.Forms.Button();
             this.btnContinuer = new System.Windows.Forms.Button();
             this.cboEventCreator = new System.Windows.Forms.ComboBox();
-            this.txtNomEvenement = new System.Windows.Forms.TextBox();
+            this.txtDescription = new System.Windows.Forms.TextBox();
             this.numAmount = new System.Windows.Forms.NumericUpDown();
             this.cboEvenement = new System.Windows.Forms.ComboBox();
+            this.dtpDateDepense = new System.Windows.Forms.DateTimePicker();
+            this.lblDate = new Hermes.UI.AppFontLabel();
             this.appFontLabel1 = new Hermes.UI.AppFontLabel();
             this.appFontLabel2 = new Hermes.UI.AppFontLabel();
             this.cboCreateur = new Hermes.UI.AppFontLabel();
@@ -73,25 +75,26 @@
             this.cboEventCreator.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboEventCreator.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F);
             this.cboEventCreator.FormattingEnabled = true;
-            this.cboEventCreator.Location = new System.Drawing.Point(120, 242);
+            this.cboEventCreator.Location = new System.Drawing.Point(120, 229);
             this.cboEventCreator.Name = "cboEventCreator";
             this.cboEventCreator.Size = new System.Drawing.Size(230, 28);
             this.cboEventCreator.TabIndex = 28;
             // 
-            // txtNomEvenement
+            // txtDescription
             // 
-            this.txtNomEvenement.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtNomEvenement.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F);
-            this.txtNomEvenement.Location = new System.Drawing.Point(120, 159);
-            this.txtNomEvenement.Name = "txtNomEvenement";
-            this.txtNomEvenement.Size = new System.Drawing.Size(230, 27);
-            this.txtNomEvenement.TabIndex = 23;
+            this.txtDescription.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtDescription.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F);
+            this.txtDescription.Location = new System.Drawing.Point(120, 146);
+            this.txtDescription.Name = "txtDescription";
+            this.txtDescription.Size = new System.Drawing.Size(230, 27);
+            this.txtDescription.TabIndex = 23;
             // 
             // numAmount
             // 
             this.numAmount.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.numAmount.DecimalPlaces = 2;
             this.numAmount.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F);
-            this.numAmount.Location = new System.Drawing.Point(384, 159);
+            this.numAmount.Location = new System.Drawing.Point(384, 146);
             this.numAmount.Name = "numAmount";
             this.numAmount.Size = new System.Drawing.Size(195, 27);
             this.numAmount.TabIndex = 33;
@@ -101,17 +104,37 @@
             this.cboEvenement.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboEvenement.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F);
             this.cboEvenement.FormattingEnabled = true;
-            this.cboEvenement.Location = new System.Drawing.Point(384, 242);
+            this.cboEvenement.Location = new System.Drawing.Point(384, 229);
             this.cboEvenement.Name = "cboEvenement";
             this.cboEvenement.Size = new System.Drawing.Size(195, 28);
             this.cboEvenement.TabIndex = 34;
+            // 
+            // dtpDateDepense
+            // 
+            this.dtpDateDepense.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 13F);
+            this.dtpDateDepense.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F);
+            this.dtpDateDepense.Location = new System.Drawing.Point(120, 314);
+            this.dtpDateDepense.Name = "dtpDateDepense";
+            this.dtpDateDepense.Size = new System.Drawing.Size(230, 27);
+            this.dtpDateDepense.TabIndex = 36;
+            // 
+            // lblDate
+            // 
+            this.lblDate.AppFont = Hermes.AppFont.HelveticaNeue;
+            this.lblDate.AppFontHeight = 10F;
+            this.lblDate.AutoSize = true;
+            this.lblDate.Location = new System.Drawing.Point(117, 288);
+            this.lblDate.Name = "lblDate";
+            this.lblDate.Size = new System.Drawing.Size(144, 16);
+            this.lblDate.TabIndex = 37;
+            this.lblDate.Text = "Date de la dépense ?";
             // 
             // appFontLabel1
             // 
             this.appFontLabel1.AppFont = Hermes.AppFont.HelveticaNeue;
             this.appFontLabel1.AppFontHeight = 10F;
             this.appFontLabel1.AutoSize = true;
-            this.appFontLabel1.Location = new System.Drawing.Point(381, 214);
+            this.appFontLabel1.Location = new System.Drawing.Point(381, 201);
             this.appFontLabel1.Name = "appFontLabel1";
             this.appFontLabel1.Size = new System.Drawing.Size(168, 16);
             this.appFontLabel1.TabIndex = 35;
@@ -122,7 +145,7 @@
             this.appFontLabel2.AppFont = Hermes.AppFont.HelveticaNeue_Bold;
             this.appFontLabel2.AppFontHeight = 24F;
             this.appFontLabel2.AutoSize = true;
-            this.appFontLabel2.Location = new System.Drawing.Point(113, 60);
+            this.appFontLabel2.Location = new System.Drawing.Point(113, 57);
             this.appFontLabel2.Name = "appFontLabel2";
             this.appFontLabel2.Size = new System.Drawing.Size(458, 40);
             this.appFontLabel2.TabIndex = 30;
@@ -133,7 +156,7 @@
             this.cboCreateur.AppFont = Hermes.AppFont.HelveticaNeue;
             this.cboCreateur.AppFontHeight = 10F;
             this.cboCreateur.AutoSize = true;
-            this.cboCreateur.Location = new System.Drawing.Point(117, 214);
+            this.cboCreateur.Location = new System.Drawing.Point(117, 201);
             this.cboCreateur.Name = "cboCreateur";
             this.cboCreateur.Size = new System.Drawing.Size(231, 16);
             this.cboCreateur.TabIndex = 29;
@@ -144,7 +167,7 @@
             this.lblDebutEvenement.AppFont = Hermes.AppFont.HelveticaNeue;
             this.lblDebutEvenement.AppFontHeight = 10F;
             this.lblDebutEvenement.AutoSize = true;
-            this.lblDebutEvenement.Location = new System.Drawing.Point(381, 130);
+            this.lblDebutEvenement.Location = new System.Drawing.Point(381, 117);
             this.lblDebutEvenement.Name = "lblDebutEvenement";
             this.lblDebutEvenement.Size = new System.Drawing.Size(81, 16);
             this.lblDebutEvenement.TabIndex = 25;
@@ -155,7 +178,7 @@
             this.lblNomEvenement.AppFont = Hermes.AppFont.HelveticaNeue;
             this.lblNomEvenement.AppFontHeight = 10F;
             this.lblNomEvenement.AutoSize = true;
-            this.lblNomEvenement.Location = new System.Drawing.Point(117, 130);
+            this.lblNomEvenement.Location = new System.Drawing.Point(117, 117);
             this.lblNomEvenement.Name = "lblNomEvenement";
             this.lblNomEvenement.Size = new System.Drawing.Size(153, 16);
             this.lblNomEvenement.TabIndex = 22;
@@ -165,6 +188,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.lblDate);
+            this.Controls.Add(this.dtpDateDepense);
             this.Controls.Add(this.appFontLabel1);
             this.Controls.Add(this.cboEvenement);
             this.Controls.Add(this.numAmount);
@@ -174,7 +199,7 @@
             this.Controls.Add(this.cboCreateur);
             this.Controls.Add(this.cboEventCreator);
             this.Controls.Add(this.lblDebutEvenement);
-            this.Controls.Add(this.txtNomEvenement);
+            this.Controls.Add(this.txtDescription);
             this.Controls.Add(this.lblNomEvenement);
             this.Name = "BulleAjDepense";
             this.Size = new System.Drawing.Size(705, 405);
@@ -193,10 +218,12 @@
         private UI.AppFontLabel cboCreateur;
         private System.Windows.Forms.ComboBox cboEventCreator;
         private UI.AppFontLabel lblDebutEvenement;
-        private System.Windows.Forms.TextBox txtNomEvenement;
+        private System.Windows.Forms.TextBox txtDescription;
         private UI.AppFontLabel lblNomEvenement;
         private System.Windows.Forms.NumericUpDown numAmount;
         private UI.AppFontLabel appFontLabel1;
         private System.Windows.Forms.ComboBox cboEvenement;
+        private System.Windows.Forms.DateTimePicker dtpDateDepense;
+        private UI.AppFontLabel lblDate;
     }
 }
