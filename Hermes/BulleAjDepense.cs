@@ -45,7 +45,7 @@ namespace Hermes
             DataTable dataTableParticipant = Participant.toConcatenateDataTable(listeParticipant);
             cboEventCreator.DataSource = dataTableParticipant;
             cboEventCreator.DisplayMember = "Name";
-            cboEventCreator.ValueMember = "AuthorId";
+            cboEventCreator.ValueMember = "CodeParticipant";
 
             List<PartyEvent> listeEvenement = Database.FetchEvents();
             DataTable dataTableEvenement = listeEvenement.ToDataTable();
