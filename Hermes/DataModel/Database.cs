@@ -13,6 +13,13 @@ using System.Globalization;
 
 namespace Hermes.DataModel
 {
+    public class DatabaseFetchException : Exception
+    {
+        public DatabaseFetchException(string message) : base(message)
+        {
+        }
+    }
+
     public class DatabaseInsertException : Exception
     {
         public DatabaseInsertException(string message) : base(message)
