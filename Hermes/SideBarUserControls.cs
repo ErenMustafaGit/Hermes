@@ -106,6 +106,11 @@ namespace Hermes
             MessageBox.Show("ok");
         }
 
+        private void SideBar_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
         private void LblIconeDepense_Click(object sender, EventArgs e)
         {
             this.ecrans.Controls.Clear();
@@ -126,5 +131,27 @@ namespace Hermes
             expendituresView.setPanel = this.ecrans;
             this.ecrans.Controls.Add(expendituresView);
         }
+
+        private void LblIconeParticipant_Click(object sender, EventArgs e)
+        {
+            this.ecrans.Controls.Clear();
+            //Partie concerné par le changement de couleur en bleu
+            lblIconeParticipant.ForeColor = ColorTranslator.FromHtml("#2693f8");
+            lblParticipants.ForeColor = ColorTranslator.FromHtml("#2693f8");
+
+            //Le reste en blanc
+            lblIconeAccueil.ForeColor = Color.FromArgb(249, 249, 249);
+            lblAccueil.ForeColor = Color.FromArgb(249, 249, 249);
+            lblIconeDepense.ForeColor = Color.FromArgb(249, 249, 249);
+            lblDepenses.ForeColor = Color.FromArgb(249, 249, 249);
+            lblIconeEvenement.ForeColor = Color.FromArgb(249, 249, 249);
+            lblEvenements.ForeColor = Color.FromArgb(249, 249, 249);
+
+            //Aparaition du US concerné
+            Participants participants = new Participants();
+            participants.setPanel = this.ecrans;
+            this.ecrans.Controls.Add(participants);
+        }
+
     }
 }

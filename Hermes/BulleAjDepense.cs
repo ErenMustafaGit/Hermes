@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Hermes.DataModel;
 
 namespace Hermes
 {
@@ -44,15 +45,15 @@ namespace Hermes
             DataTable dataTableParticipant = Participant.toConcatenateDataTable(listeParticipant);
             cboEventCreator.DataSource = dataTableParticipant;
             cboEventCreator.DisplayMember = "Name";
-            cboEventCreator.ValueMember = "CodeParticipant";
+            cboEventCreator.ValueMember = "AuthorId";
 
             List<PartyEvent> listeEvenement = Database.FetchEvents();
-            DataTable dataTableEvenement = PartyEvent.toDataTable(listeEvenement);
+            DataTable dataTableEvenement = listeEvenement.ToDataTable();
             cboEvenement.DataSource = dataTableEvenement;
-            cboEvenement.DisplayMember = "Title";
-            cboEvenement.ValueMember = "Code";
+            cboEvenement.DisplayMember = "Name";
+            cboEvenement.ValueMember = "Id";
             PartyEvent partyEvent = listeEvenement[(int)cboEvenement.SelectedValue - 1];
-            dtpDateDepense.MinDate = partyEvent.BeginDate;
+            dtpDateDepense.MinDate = partyEvent.StartDate;
 
         }
 
