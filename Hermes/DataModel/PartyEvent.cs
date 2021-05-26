@@ -132,6 +132,24 @@ namespace Hermes.DataModel
             return guests;
         }
 
+        public List<Expense> GetExpenses()
+        {
+            List<Expense> expenses = new List<Expense>();
+
+            OleDbConnection db = Database.Connect();
+
+            OleDbCommand command = new OleDbCommand(
+                "select * from Depenses where codeEvent = @Id",
+                db);
+            command.Parameters.AddWithValue("@Id", this.Id);
+
+            OleDbDataReader dataReader = command.ExecuteReader();
+            while (dataReader.Read())
+                expenses.Add(new Expense(dataReader));
+
+            return expenses;
+        }
+
         public int GetNbPart()
         {
             int nbPart = -1;
