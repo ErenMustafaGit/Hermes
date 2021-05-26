@@ -63,7 +63,7 @@ namespace Hermes.DataModel
         {
             this.Id = reader.GetInt32(0);
             this.Description = reader.GetString(1);
-            this.Amount = reader.GetInt32(2);
+            this.Amount = reader.GetDecimal(2);
             this.Date = reader.GetDateTime(3);
             this.Comment = reader.GetString(4);
             this.EventId = reader.GetInt32(5);
