@@ -146,18 +146,16 @@ namespace Hermes.DataModel
 
             List<string> pairs = new List<string>();
             foreach (Participant recipient in recipients)
-                pairs.Add(String.Format("({0},{1})", expense.Id, recipient.CodeParticipant));
-            
-            if (pairs.Count > 0)
             {
                 command = new OleDbCommand(
-                    "insert into Beneficiaires (numDepense, codePart) values "
-                        + String.Join(",", pairs) + ";",
+                    "insert into Beneficiaires (numDepense, codePart) values (@Id,@RecipientId)",
                     db);
+                command.Parameters.AddWithValue("@Id", expense.Id);
+                command.Parameters.AddWithValue("@RecipientId", recipient.CodeParticipant);
 
                 nb = command.ExecuteNonQuery();
                 if (nb <= 0)
-                    throw new DatabaseInsertException("Failed to insert recipients for new expense");
+                    throw new DatabaseInsertException("Failed to insert recipient for new expense");
             }
         }
 
