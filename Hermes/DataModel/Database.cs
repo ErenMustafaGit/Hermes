@@ -159,10 +159,41 @@ namespace Hermes.DataModel
             }
         }
 
-        public static bool InsertEvent(PartyEvent partyEvent, List<Participant> guests)
+        // TODO: refactor
+        public static void InsertGuestsForEvent(PartyEvent ev, List<Participant> guests)
         {
-            bool added = false;
+            OleDbConnection db = Database.Connect();
 
+            OleDbCommand command = new OleDbCommand();
+            command.Connection = db;
+
+            // Would be better as a single insert
+            foreach (Participant guest in guests)
+            {
+                // wtf
+                string login = guest.FirstName[0].ToString();
+                string mdp = "*" + guest.FirstName[0];
+                if (guest.LastName.Length < 5)
+                {
+                    login += guest.LastName.Substring(0, guest.LastName.Length);
+                    mdp += guest.LastName.Substring(0, guest.LastName.Length) + "!";
+                }
+                else
+                {
+                    login += guest.LastName.Substring(0, 5);
+                    mdp += guest.LastName.Substring(0, 5) + "!";
+                }
+
+                string sqlGuest = String.Format("INSERT INTO Invites VALUES ({0},{1},'{2}','{3}')", ev.Id, guest.CodeParticipant, login, mdp);
+                command.CommandText = sqlGuest;
+
+                if (command.ExecuteNonQuery() <= 0)
+                    throw new DatabaseInsertException("Could not insert guest for event");
+            }
+        }
+
+        public static void InsertEvent(PartyEvent partyEvent, List<Participant> guests)
+        {
             OleDbConnection db = Database.Connect();
 
             DateTime beginDateTime = partyEvent.StartDate;
@@ -175,37 +206,10 @@ namespace Hermes.DataModel
                 "VALUES ({0},'{1}',{2},{3},'{4}',{5},{6})", partyEvent.Id, partyEvent.Name, beginDate, endDate, partyEvent.Description, partyEvent.Completed, partyEvent.AuthorId);
 
             OleDbCommand command = new OleDbCommand(sqlInsert, db);
-            int nb = command.ExecuteNonQuery();
-            if (nb > 0)
-                added = true;
-            for (int i = 0; i < guests.Count; i++)
-            {
-                string login = guests[i].FirstName[0].ToString();
-                string mdp = "*" + guests[i].FirstName[0];
-                if(guests[i].LastName.Length < 5)
-                {
-                    login += guests[i].LastName.Substring(0, guests[i].LastName.Length);
-                    mdp += guests[i].LastName.Substring(0, guests[i].LastName.Length) + "!";
-                }
-                else
-                {
-                    login += guests[i].LastName.Substring(0, 5);
-                    mdp += guests[i].LastName.Substring(0,5) + "!";
-                }
+            if (command.ExecuteNonQuery() <= 0)
+                throw new DatabaseInsertException("Could not insert event");
 
-                string sqlGuest = String.Format("INSERT INTO Invites VALUES ({0},{1},'{2}','{3}')",partyEvent.Id,guests[i].CodeParticipant, login,mdp );
-                command.CommandText = sqlGuest;
-
-                nb = command.ExecuteNonQuery();
-                    
-                if (nb == 0)
-                {
-                    added = false;
-                    //throw new OleDbException("Erreur dans l'insert");
-                }
-            }
-
-            return added;
+            InsertGuestsForEvent(partyEvent, guests);
         }
 
         public static List<Expense> FetchExpenses()

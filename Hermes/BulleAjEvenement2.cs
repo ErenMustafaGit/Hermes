@@ -51,18 +51,17 @@ namespace Hermes
 
         private void BtnValider_Click(object sender, EventArgs e)
         {
+            // FIXME URGENT: NO !!!!!!!!!!!!!!!
             newEvent.Description = rtxtDescription.Text.Replace('\'',' ');
-            if (Database.InsertEvent(newEvent, getInvitedParticipant()))
-            {
-                //A CHANGER !
-                MessageBox.Show("Added");
-                this.ecran.Controls.Clear();
-                this.ecran.Visible = false;
-                pnlPrincipal.Controls.Clear();
-                Evenements evenements = new Evenements();
-                evenements.setPanel = pnlPrincipal;
-                pnlPrincipal.Controls.Add(evenements);
-            }
+
+            Database.InsertEvent(newEvent, getInvitedParticipant());
+
+            this.ecran.Controls.Clear();
+            this.ecran.Visible = false;
+            pnlPrincipal.Controls.Clear();
+            Evenements evenements = new Evenements();
+            evenements.setPanel = pnlPrincipal;
+            pnlPrincipal.Controls.Add(evenements);
         }
         public List<Participant> getInvitedParticipant()
         {
