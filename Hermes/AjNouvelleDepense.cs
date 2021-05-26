@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Hermes.DataModel;
 
 namespace Hermes
 {
@@ -27,25 +28,20 @@ namespace Hermes
 
         private void AjNouvelleDepense_Load(object sender, EventArgs e)
         {
-            Database database = new Database();
-
-            DataTable events = PartyEvent.toDataTable(database.FetchEvents());
-            cboEvenements.DataSource = events;
-            cboEvenements.DisplayMember = "Title";
-            cboEvenements.ValueMember = "Code";
+            DataTable table = Database.FetchEvents().ToDataTable();
+            cboEvenements.DataSource = table;
+            cboEvenements.DisplayMember = "Name";
+            cboEvenements.ValueMember = "Id";
             cboEvenements.SelectedIndex = indice - 1;
 
-            PartyEvent selectedEvent = PartyEvent.GetPartyEvent(int.Parse(cboEvenements.SelectedValue.ToString()));
-
+            PartyEvent selectedEvent = PartyEvent.GetFromId(int.Parse(cboEvenements.SelectedValue.ToString()));
             updateGuests();
 
-            dtpDebut.Value = selectedEvent.BeginDate;
-
-           
+            dtpDebut.Value = selectedEvent.StartDate;
         }
         public void updateGuests()
         {
-            PartyEvent selectedEvent = PartyEvent.GetPartyEvent(int.Parse(cboEvenements.SelectedValue.ToString()));
+            PartyEvent selectedEvent = PartyEvent.GetFromId(int.Parse(cboEvenements.SelectedValue.ToString()));
             DataTable guests = Participant.toConcatenateDataTable(selectedEvent.GetGuests());
             cboPayePar.DataSource = guests;
             cboPayePar.DisplayMember = "name";
@@ -108,15 +104,15 @@ namespace Hermes
 
         private void cboEvenements_SelectionChangeCommitted(object sender, EventArgs e)
         {
-            PartyEvent selectedEvent = PartyEvent.GetPartyEvent(int.Parse(cboEvenements.SelectedValue.ToString()));
-            dtpDebut.Value = selectedEvent.BeginDate;
+            PartyEvent selectedEvent = PartyEvent.GetFromId(int.Parse(cboEvenements.SelectedValue.ToString()));
+            dtpDebut.Value = selectedEvent.StartDate;
             updateGuests();
         }
 
         //Continuer
         private void AppFontLabel8_Click(object sender, EventArgs e)
         {
-            ;
+            
             this.ecran.Controls.Clear();
             AjNouvelleDepense2 suite = new AjNouvelleDepense2(int.Parse(cboEvenements.SelectedValue.ToString()), dtpDebut.Value, txtWhere.Text, int.Parse(cboPayePar.SelectedValue.ToString()), numAmount.Value);
             suite.setPanel = this.ecran;

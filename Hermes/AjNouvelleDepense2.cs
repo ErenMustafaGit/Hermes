@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Hermes.DataModel;
 
 namespace Hermes
 {
@@ -35,7 +36,7 @@ namespace Hermes
 
         private void AjNouvelleDepense2_Load(object sender, EventArgs e)
         {
-            PartyEvent evenement = PartyEvent.GetPartyEvent(this.CodeEvenement);
+            PartyEvent evenement = PartyEvent.GetFromId(this.CodeEvenement);
             List<Participant> guests = evenement.GetGuests();
             for(int i = 0; i < guests.Count; i++)
             {
@@ -71,15 +72,14 @@ namespace Hermes
 
         private void BtnValider_Click(object sender, EventArgs e)
         {
-            
-            Expenditure newExpenditure = new Expenditure()
+            Expense newExpenditure = new Expense()
             {
-                NumExpenditure = 100,
+                Id = 100,
                 Description = this.Description,
                 Comment = rtxtCommentaire.Text,
-                DateExpenditure = this.Date,
-                CodeEvent = this.CodeEvenement,
-                CodeParticipant = this.CodePayeur,
+                Date = this.Date,
+                EventId = this.CodeEvenement,
+                AuthorId = this.CodePayeur,
             };
             //Database.InsertExpenditure(newExpenditure);
         }

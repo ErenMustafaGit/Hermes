@@ -95,7 +95,7 @@
             this.lblGauche.AppFont = Hermes.AppFont.Icons;
             this.lblGauche.AppFontHeight = 22F;
             this.lblGauche.AutoSize = true;
-            this.lblGauche.Location = new System.Drawing.Point(52, 590);
+            this.lblGauche.Location = new System.Drawing.Point(41, 590);
             this.lblGauche.Name = "lblGauche";
             this.lblGauche.Size = new System.Drawing.Size(26, 31);
             this.lblGauche.TabIndex = 19;
@@ -110,7 +110,7 @@
             this.lblGaucheGauche.AppFont = Hermes.AppFont.Icons;
             this.lblGaucheGauche.AppFontHeight = 22F;
             this.lblGaucheGauche.AutoSize = true;
-            this.lblGaucheGauche.Location = new System.Drawing.Point(26, 590);
+            this.lblGaucheGauche.Location = new System.Drawing.Point(15, 590);
             this.lblGaucheGauche.Name = "lblGaucheGauche";
             this.lblGaucheGauche.Size = new System.Drawing.Size(26, 31);
             this.lblGaucheGauche.TabIndex = 18;
@@ -125,7 +125,7 @@
             this.lblIconeDroiteDroite.AppFont = Hermes.AppFont.Icons;
             this.lblIconeDroiteDroite.AppFontHeight = 22F;
             this.lblIconeDroiteDroite.AutoSize = true;
-            this.lblIconeDroiteDroite.Location = new System.Drawing.Point(159, 590);
+            this.lblIconeDroiteDroite.Location = new System.Drawing.Point(174, 590);
             this.lblIconeDroiteDroite.Name = "lblIconeDroiteDroite";
             this.lblIconeDroiteDroite.Size = new System.Drawing.Size(26, 31);
             this.lblIconeDroiteDroite.TabIndex = 17;
@@ -151,11 +151,11 @@
             this.lblMax.AppFont = Hermes.AppFont.HelveticaNeue;
             this.lblMax.AppFontHeight = 12F;
             this.lblMax.AutoSize = true;
-            this.lblMax.Location = new System.Drawing.Point(117, 599);
+            this.lblMax.Location = new System.Drawing.Point(127, 599);
             this.lblMax.Name = "lblMax";
-            this.lblMax.Size = new System.Drawing.Size(18, 19);
+            this.lblMax.Size = new System.Drawing.Size(27, 19);
             this.lblMax.TabIndex = 15;
-            this.lblMax.Text = "9";
+            this.lblMax.Text = "10";
             // 
             // lblCurrentPosition
             // 
@@ -163,7 +163,7 @@
             this.lblCurrentPosition.AppFontHeight = 12F;
             this.lblCurrentPosition.AutoSize = true;
             this.lblCurrentPosition.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(147)))), ((int)(((byte)(248)))));
-            this.lblCurrentPosition.Location = new System.Drawing.Point(77, 599);
+            this.lblCurrentPosition.Location = new System.Drawing.Point(66, 599);
             this.lblCurrentPosition.Name = "lblCurrentPosition";
             this.lblCurrentPosition.Size = new System.Drawing.Size(18, 19);
             this.lblCurrentPosition.TabIndex = 14;
@@ -174,7 +174,7 @@
             this.lblIconeDroite.AppFont = Hermes.AppFont.Icons;
             this.lblIconeDroite.AppFontHeight = 22F;
             this.lblIconeDroite.AutoSize = true;
-            this.lblIconeDroite.Location = new System.Drawing.Point(135, 590);
+            this.lblIconeDroite.Location = new System.Drawing.Point(150, 590);
             this.lblIconeDroite.Name = "lblIconeDroite";
             this.lblIconeDroite.Size = new System.Drawing.Size(26, 31);
             this.lblIconeDroite.TabIndex = 13;

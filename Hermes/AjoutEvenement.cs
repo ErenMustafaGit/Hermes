@@ -12,11 +12,18 @@ namespace Hermes
 {
     public partial class AjoutEvenement : UserControl
     {
-        private static Panel bulle;
+        private static Panel pnlBulleEmplacement;
+        private static Panel pnlPrincipal;
         public Panel setPanel
         {
-            set { bulle = value; }
+            set { pnlBulleEmplacement = value; }
         }
+
+        public Panel setPanelPrincipal
+        {
+            set { pnlPrincipal = value; }
+        }
+
         public AjoutEvenement()
         {
             InitializeComponent();
@@ -25,19 +32,21 @@ namespace Hermes
 
         private void AjoutEvenement_Load(object sender, EventArgs e)
         {
-
+            pictureBox1.SendToBack();
         }
 
         private void LblAdd_MouseClick(object sender, MouseEventArgs e)
         {
-            bulle.Visible = true;
-            bulle.BringToFront();
-            BulleAjEvenement bulleAjEvenement = new BulleAjEvenement();
+            pnlBulleEmplacement.Visible = true;
+            pnlBulleEmplacement.BringToFront();
 
+            BulleAjEvenement bulleAjEvenement = new BulleAjEvenement();
             //Donne l'action au bouton annuler
             Stop annuler = DelegateMethodAnnuler;
             bulleAjEvenement.Annuler = annuler;
-            bulle.Controls.Add(bulleAjEvenement);
+            bulleAjEvenement.setPanel = pnlBulleEmplacement;
+            bulleAjEvenement.setPanelPrincipal = pnlPrincipal;
+            pnlBulleEmplacement.Controls.Add(bulleAjEvenement);
 
         }
 
@@ -45,8 +54,8 @@ namespace Hermes
 
         public static void DelegateMethodAnnuler()
         {
-            bulle.Controls.Clear();
-            bulle.Visible = false;
+            pnlBulleEmplacement.Controls.Clear();
+            pnlBulleEmplacement.Visible = false;
         }
 
 
@@ -59,10 +68,20 @@ namespace Hermes
         private void LblAdd_MouseLeave(object sender, EventArgs e)
         {
             this.Cursor = Cursors.Default;
-            lblAdd.ForeColor = Color.FromArgb(0, 0, 0);
+            lblAdd.ForeColor = Color.FromArgb(12, 12, 12);
         }
 
         private void AjoutEvenement_MouseHover(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void appFontLabel1_Click(object sender, EventArgs e)
         {
 
         }

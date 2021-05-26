@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.OleDb;
+using Hermes.DataModel;
 
 namespace Hermes
 {
@@ -15,7 +16,6 @@ namespace Hermes
     {
         public int index;
         public Panel ecran;
-        public Database base_de_donnee = new Database();
         public BindingSource bindingSource;
         public CompleteInfoEvenement()
         {
@@ -47,11 +47,8 @@ namespace Hermes
             pnlParticipant.AutoScroll = true;
 
             //BindingSource
-            this.bindingSource = this.base_de_donnee.GetBindingSource("Evenements");
+            this.bindingSource = Database.GetBindingSource("Evenements");
            
-
-            Database base_de_donnee = new Database();
-            BindingSource bindingSource = base_de_donnee.GetBindingSource("Evenements");
             //Met place les évènements max au label lblMax
             lblMax.Text = bindingSource.Count.ToString();
             bindingSource.Position = this.index;
@@ -59,19 +56,23 @@ namespace Hermes
 
             //Mise en place pour récuperer les informations
             DataRowView dataRowView = (DataRowView)bindingSource.Current;
+
             //Nom de l'évènement
             lblNomEvenement.Text = dataRowView[1].ToString();
+
             //Date début
             DateTime dateDebut = (DateTime)dataRowView[2];
             lblDateStart.Text = dateDebut.ToLongDateString();
+
             //Date fin
             DateTime dateFin = (DateTime)dataRowView[3];
             lblDateEnd.Text = dateFin.ToLongDateString();
+
             //Description
             lblDescEvenement.Text = dataRowView[4].ToString();
 
             //Participant à l'évènement
-            List<PartyEvent> evenement = base_de_donnee.FetchEvents();
+            List<PartyEvent> evenement = Database.FetchEvents();
             PartyEvent evenement_concerné = evenement[index];
 
 
@@ -84,12 +85,7 @@ namespace Hermes
 
             
             List<Participant> participant = evenement_concerné.GetGuests();
-            /*
-            foreach(Participant p in participant)
-            {
-                MessageBox.Show(p.FirstName);
-            }
-            */
+
             int codeCreateur = (int)dataRowView[6];
             for (int i = 0; i < participant.Count; i++)
             {
@@ -204,7 +200,7 @@ namespace Hermes
                 int codeCreateur = (int)dataRowView[6];
 
                 //Pour remplir le panel contenant les participants à l'évènement
-                List<PartyEvent> evenement = base_de_donnee.FetchEvents();
+                List<PartyEvent> evenement = Database.FetchEvents();
                 PartyEvent evenement_concerné = evenement[index];
                 List<Participant> participant = evenement_concerné.GetGuests();
                 pnlParticipant.Controls.Clear();

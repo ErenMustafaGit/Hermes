@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Hermes.DataModel;
 
 namespace Hermes
 {
@@ -30,19 +31,19 @@ namespace Hermes
 
         private void Evenements_Load(object sender, EventArgs e)
         {
-            Database database = new Database();
-            List<PartyEvent> events = database.FetchEvents();
+            List<PartyEvent> events = Database.FetchEvents();
 
-            Panel pnlAddEventBulle = new Panel();
-            pnlAddEventBulle.Size = new Size(705, 405);
+            Panel pnlBulleEmplacement = new Panel();
+            pnlBulleEmplacement.Size = new Size(705, 405);
             Point coordonneePanel = new Point(127, 115);
-            pnlAddEventBulle.Location = coordonneePanel;
-            this.Controls.Add(pnlAddEventBulle);
+            pnlBulleEmplacement.Location = coordonneePanel;
+            this.Controls.Add(pnlBulleEmplacement);
 
-            pnlAddEventBulle.Visible = false;
+            pnlBulleEmplacement.Visible = false;
 
             AjoutEvenement ajoutEvent = new AjoutEvenement();
-            ajoutEvent.setPanel = pnlAddEventBulle;
+            ajoutEvent.setPanel = pnlBulleEmplacement;
+            ajoutEvent.setPanelPrincipal = this.ecran;
             ajoutEvent.Top = 20;
             ajoutEvent.Left = 100;
             pnlScroll.Controls.Add(ajoutEvent);
@@ -51,7 +52,7 @@ namespace Hermes
             int modulo = 2;
             for(int i = 0; i<events.Count; i++)
             {
-                ResumePartyEvent resumeEvent = new ResumePartyEvent(events[i].Title, events[i].Description, events[i].GetNbPart(), events[i].BeginDate, events[i].EndDate, events[i].CodeCreator);
+                ResumePartyEvent resumeEvent = new ResumePartyEvent(events[i].Name, events[i].Description, events[i].GetNbPart(), events[i].StartDate, events[i].EndDate, events[i].AuthorId);
                 resumeEvent.setPanel = this.ecran;
                 resumeEvent.setIndex = i;
                 resumeEvent.Top = 20 + 250 * ((i + 1) / modulo);
