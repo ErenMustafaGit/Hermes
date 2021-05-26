@@ -85,33 +85,30 @@ namespace Hermes.DataModel
             return new PartyEvent(dataReader);
         }
 
-        public Participant GetParticipant()
+        public List<Participant> GetBeneficiaires()
         {
+            List<Participant> beneficiaries = new List<Participant>();
+
             OleDbConnection db = Database.Connect();
 
             OleDbCommand command = new OleDbCommand(
-                "select * from Evenements where codeParticipant = @AuthorId",
+                "select codePart from Beneficiaires where numDepense = @Id",
                 db);
-            command.Parameters.AddWithValue("@AuthorId", this.AuthorId);
+            command.Parameters.AddWithValue("@Id", this.Id);
 
             OleDbDataReader dataReader = command.ExecuteReader();
-
-            // TODO: ctor with DataReader for the Participant class
-            Participant participant = new Participant();
-
-            dataReader.Read();
-            participant.CodeParticipant = dataReader.GetInt32(0);
-            participant.LastName = dataReader.GetString(1);
-            participant.FirstName = dataReader.GetString(2);
-            participant.PhoneNumber = dataReader.GetString(3);
-            participant.NbParts = dataReader.GetInt32(4);
-            if (!dataReader.IsDBNull(5))
+            while (dataReader.Read())
             {
-                participant.Balance = dataReader.GetDouble(5);
-            }
-            participant.Mail = dataReader.GetString(6);
+                int beneficiaryId = dataReader.GetInt32(0);
 
-            return participant;
+                Participant participant = Participant.GetParticipant(beneficiaryId);
+                if (participant == null)
+                    throw new DatabaseFetchException("Beneficiary for expense does not exist");
+
+                beneficiaries.Add(participant);
+            }
+
+            return beneficiaries;
         }
 
         public static Expense GetFromId(int id)
