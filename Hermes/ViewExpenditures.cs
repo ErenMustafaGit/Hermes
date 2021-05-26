@@ -107,7 +107,7 @@ namespace Hermes
         private void RefreshBeneficiaries(List<Expense> expenses, int index)
         {
             pnlBeneficiary.Controls.Clear();
-            List<Participant> beneficiaries = expenses[index].GetBeneficiaries();
+            List<Participant> beneficiaries = expenses[index].GetBeneficiaires();
 
             for(int i = 0; i<beneficiaries.Count; i++)
             {
