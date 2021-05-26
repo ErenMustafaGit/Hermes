@@ -9,64 +9,41 @@ using System.Data;
 using System.Drawing;
 using System.Windows.Forms;
 
-namespace Hermes
+namespace Hermes.DataModel
 {
     public class Participant
     {
-        static string chcon = "Provider=Microsoft.Jet.OLEDB.4.0;Data Source='../../../../bdEvents.mdb'";
-        OleDbConnection connection = new OleDbConnection();
-
         public int CodeParticipant;
         public string LastName;
         public string FirstName;
         public string PhoneNumber;
         public int NbParts;
-        public Double Balance;
+        public double Balance;
         public string Mail;
-
-        
-
 
         public static Participant GetParticipant(int codeParticipant)
         {
-            Participant theParticipant = new Participant();
-            OleDbConnection connection = new OleDbConnection();
+            Participant participant = new Participant();
 
-            try
-            {
-                connection.ConnectionString = chcon;
-                connection.Open();
-                string sql = "select * from Participants where codeParticipant = " + codeParticipant;
-                OleDbCommand command = new OleDbCommand(sql, connection);
-                OleDbDataReader dataReader = command.ExecuteReader();
+            OleDbConnection db = Database.Connect();
+            // FIXME: use command parameters
+            string sql = "select * from Participants where codeParticipant = " + codeParticipant;
+            OleDbCommand command = new OleDbCommand(sql, db);
+            OleDbDataReader dataReader = command.ExecuteReader();
 
-                dataReader.Read();
-                theParticipant.CodeParticipant = dataReader.GetInt32(0);
-                theParticipant.LastName = dataReader.GetString(1);
-                theParticipant.FirstName = dataReader.GetString(2);
-                theParticipant.PhoneNumber = dataReader.GetString(3);
-                theParticipant.NbParts = dataReader.GetInt32(4);
-                if (!dataReader.IsDBNull(5))
-                {
-                    theParticipant.Balance = dataReader.GetDouble(5);
-                }
-                theParticipant.Mail = dataReader.GetString(6);
+            dataReader.Read();
+            participant.CodeParticipant = dataReader.GetInt32(0);
+            participant.LastName = dataReader.GetString(1);
+            participant.FirstName = dataReader.GetString(2);
+            participant.PhoneNumber = dataReader.GetString(3);
+            participant.NbParts = dataReader.GetInt32(4);
+            if (!dataReader.IsDBNull(5))
+            {
+                participant.Balance = dataReader.GetDouble(5);
+            }
+            participant.Mail = dataReader.GetString(6);
 
-            }
-            catch (OleDbException er)
-            {
-                MessageBox.Show("Erreur de requête SQL \n\n\n\n" + er);
-            }
-            catch (InvalidOperationException er)
-            {
-                MessageBox.Show("Problème d'accès à la base \n\n\n\n" + er);
-            }
-
-            finally
-            {
-                connection.Close();
-            }
-            return theParticipant;
+            return participant;
         }
 
         public static DataTable toDataTable(List<Participant> participants)
@@ -77,7 +54,7 @@ namespace Hermes
             table.Columns.Add("FirstName", typeof(string));
             table.Columns.Add("PhoneNumber", typeof(string));
             table.Columns.Add("NbParts", typeof(int));
-            table.Columns.Add("Balance", typeof(Double));
+            table.Columns.Add("Balance", typeof(double));
             table.Columns.Add("Mail", typeof(string));
 
             for (int i = 0; i < participants.Count; i++)
@@ -87,13 +64,12 @@ namespace Hermes
                 string firstName = participants[i].FirstName;
                 string phoneNumber = participants[i].PhoneNumber;
                 int nbParts = participants[i].NbParts;
-                Double balance = participants[i].Balance;
+                double balance = participants[i].Balance;
                 string mail = participants[i].Mail;
                 table.Rows.Add(codeParticipant, lastName, firstName, phoneNumber, nbParts, balance, mail);
             }
             return table;
         }
-
 
         /*Permet d'avoir une DataTable des participants que vous donnez en paramètre
          * 
@@ -125,36 +101,25 @@ namespace Hermes
             return table;
         }
 
-        /*
-        public List<Expenditure> GetAllExpenditure()
+        // FIXME: cache this stuff, remove function call, only use properties
+        public List<Expense> GetAllExpenditure()
         {
-            List<Expenditure> allExpenditure = new List<Expenditure>();
-            try
-            {
-                connection.ConnectionString = chcon;
-                string sql1 = "select numDepense from Beneficiaires where codePart = '" + this.CodeParticipant + "'";
-                OleDbCommand command = new OleDbCommand(sql1, connection);
+            List<Expense> allExpenditure = new List<Expense>();
 
-                //Contient toutes les numDepense de notre Participant
-                OleDbDataReader dataReader = command.ExecuteReader();
-                while (dataReader.Read())
-                {
-                    //Ajoute à notre liste : Les dépenses(Expenditure) de notre Participant
-                    allExpenditure.Add(Expenditure.GetExpenditure(dataReader.GetInt32(0)));
-                }
-            }
-            catch (OleDbException er)
+            OleDbConnection db = Database.Connect();
+            // FIXME: use command parameters
+            string sql1 = "select numDepense from Beneficiaires where codePart = '" + this.CodeParticipant + "'";
+            OleDbCommand command = new OleDbCommand(sql1, db);
+
+            //Contient toutes les numDepense de notre Participant
+            OleDbDataReader dataReader = command.ExecuteReader();
+            while (dataReader.Read())
             {
-                MessageBox.Show(er.ToString());
+                //Ajoute à notre liste : Les dépenses(Expenditure) de notre Participant
+                allExpenditure.Add(Expense.GetFromId(dataReader.GetInt32(0)));
             }
-            catch (Exception er)
-            {
-                MessageBox.Show(er.ToString());
-            }
+
             return allExpenditure;
         }
-
-        */
-
     }
 }

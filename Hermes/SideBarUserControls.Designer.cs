@@ -204,7 +204,6 @@
         #endregion
 
         private System.Windows.Forms.Panel sideBar;
-        private System.Windows.Forms.Label s;
         private UI.AppFontLabel lblAccueil;
         private UI.AppFontLabel lblEvenements;
         private UI.AppFontLabel lblBilan;
