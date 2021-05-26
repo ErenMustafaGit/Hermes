@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
@@ -80,6 +80,12 @@
     <Compile Include="AjoutEvenement.Designer.cs">
       <DependentUpon>AjoutEvenement.cs</DependentUpon>
     </Compile>
+    <Compile Include="AjoutParticipant.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="AjoutParticipant.Designer.cs">
+      <DependentUpon>AjoutParticipant.cs</DependentUpon>
+    </Compile>
     <Compile Include="AjoutRapideBouton.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -98,11 +104,29 @@
     <Compile Include="BulleAjEvenement2.Designer.cs">
       <DependentUpon>BulleAjEvenement2.cs</DependentUpon>
     </Compile>
+    <Compile Include="BulleAjParticipant.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="BulleAjParticipant.Designer.cs">
+      <DependentUpon>BulleAjParticipant.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BulleInvitations.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="BulleInvitations.Designer.cs">
+      <DependentUpon>BulleInvitations.cs</DependentUpon>
+    </Compile>
     <Compile Include="CompleteInfoEvenement.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="CompleteInfoEvenement.Designer.cs">
       <DependentUpon>CompleteInfoEvenement.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Participants.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Participants.Designer.cs">
+      <DependentUpon>Participants.cs</DependentUpon>
     </Compile>
     <Compile Include="ResumePartyEvent.cs">
       <SubType>UserControl</SubType>
@@ -156,6 +180,12 @@
     <Compile Include="UserEvenement.Designer.cs">
       <DependentUpon>UserEvenement.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserParticipants.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserParticipants.Designer.cs">
+      <DependentUpon>UserParticipants.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Accueil.resx">
       <DependentUpon>Accueil.cs</DependentUpon>
     </EmbeddedResource>
@@ -168,6 +198,9 @@
     <EmbeddedResource Include="AjoutEvenement.resx">
       <DependentUpon>AjoutEvenement.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="AjoutParticipant.resx">
+      <DependentUpon>AjoutParticipant.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="AjoutRapideBouton.resx">
       <DependentUpon>AjoutRapideBouton.cs</DependentUpon>
     </EmbeddedResource>
@@ -177,6 +210,12 @@
     <EmbeddedResource Include="BulleAjEvenement2.resx">
       <DependentUpon>BulleAjEvenement2.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="BulleAjParticipant.resx">
+      <DependentUpon>BulleAjParticipant.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BulleInvitations.resx">
+      <DependentUpon>BulleInvitations.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="CompleteInfoEvenement.resx">
       <DependentUpon>CompleteInfoEvenement.cs</DependentUpon>
     </EmbeddedResource>
@@ -185,6 +224,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Participants.resx">
+      <DependentUpon>Participants.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -207,6 +249,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UserEvenement.resx">
       <DependentUpon>UserEvenement.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserParticipants.resx">
+      <DependentUpon>UserParticipants.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
