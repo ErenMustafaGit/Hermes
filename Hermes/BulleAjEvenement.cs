@@ -69,13 +69,13 @@ namespace Hermes
             }
             PartyEvent newEvent = new PartyEvent()
             {
-                Code = PartyEvent.GetMaxCode() + 1,
-                Title = txtNomEvenement.Text.Replace('\'', ' '),
-                BeginDate = dtpDateDebut.Value,
+                Id = PartyEvent.GetMaxCode() + 1,
+                Name = txtNomEvenement.Text.Replace('\'', ' '),
+                StartDate = dtpDateDebut.Value,
                 EndDate = dtpDateFin.Value,
                 Description = null,
-                BalanceYN = false,
-                CodeCreator = Participant.GetParticipant((int)cboEventCreator.SelectedValue).CodeParticipant
+                Completed = false,
+                AuthorId = (int)cboEventCreator.SelectedValue
             };
             BulleAjEvenement2 suite = new BulleAjEvenement2(newEvent);
             this.ecran.Controls.Clear();

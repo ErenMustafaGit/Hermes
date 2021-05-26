@@ -52,7 +52,7 @@ namespace Hermes
             int modulo = 2;
             for(int i = 0; i<events.Count; i++)
             {
-                ResumePartyEvent resumeEvent = new ResumePartyEvent(events[i].Title, events[i].Description, events[i].GetNbPart(), events[i].BeginDate, events[i].EndDate, events[i].CodeCreator);
+                ResumePartyEvent resumeEvent = new ResumePartyEvent(events[i].Name, events[i].Description, events[i].GetNbPart(), events[i].StartDate, events[i].EndDate, events[i].AuthorId);
                 resumeEvent.setPanel = this.ecran;
                 resumeEvent.setIndex = i;
                 resumeEvent.Top = 20 + 250 * ((i + 1) / modulo);

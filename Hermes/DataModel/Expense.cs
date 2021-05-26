@@ -85,13 +85,13 @@ namespace Hermes.DataModel
             PartyEvent ev = new PartyEvent();
 
             dataReader.Read();
-            ev.Code = dataReader.GetInt32(0);
-            ev.Title = dataReader.GetString(1);
-            ev.BeginDate = dataReader.GetDateTime(2);
+            ev.Id = dataReader.GetInt32(0);
+            ev.Name = dataReader.GetString(1);
+            ev.StartDate = dataReader.GetDateTime(2);
             ev.EndDate = dataReader.GetDateTime(3);
             ev.Description = dataReader.GetString(4);
-            ev.BalanceYN = dataReader.GetBoolean(5);
-            ev.CodeCreator = dataReader.GetInt32(6);
+            ev.Completed = dataReader.GetBoolean(5);
+            ev.AuthorId = dataReader.GetInt32(6);
 
             return ev;
         }

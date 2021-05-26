@@ -59,13 +59,13 @@ namespace Hermes.DataModel
             {
                 PartyEvent ev = new PartyEvent()
                 {
-                    Code = dataReader.GetInt32(0),
-                    Title = dataReader.GetString(1),
-                    BeginDate = dataReader.GetDateTime(2),
+                    Id = dataReader.GetInt32(0),
+                    Name = dataReader.GetString(1),
+                    StartDate = dataReader.GetDateTime(2),
                     EndDate = dataReader.GetDateTime(3),
                     Description = dataReader.GetString(4),
-                    BalanceYN = dataReader.GetBoolean(5),
-                    CodeCreator = dataReader.GetInt32(6)
+                    Completed = dataReader.GetBoolean(5),
+                    AuthorId = dataReader.GetInt32(6)
                 };
                 partyEvents.Add(ev);
             }
@@ -176,14 +176,14 @@ namespace Hermes.DataModel
 
             OleDbConnection db = Database.Connect();
 
-            DateTime beginDateTime = partyEvent.BeginDate;
+            DateTime beginDateTime = partyEvent.StartDate;
             DateTime endDateTime = partyEvent.EndDate;
             string beginDate = "#" + beginDateTime.Month + "/" + beginDateTime.Day + "/" + beginDateTime.Year + "#";
             string endDate = "#" + endDateTime.Month + "/" + endDateTime.Day + "/" + endDateTime.Year + "#";
 
             // FIXME: no comment
             string sqlInsert = String.Format("INSERT INTO Evenements " +
-                "VALUES ({0},'{1}',{2},{3},'{4}',{5},{6})", partyEvent.Code, partyEvent.Title, beginDate, endDate, partyEvent.Description, partyEvent.BalanceYN, partyEvent.CodeCreator);
+                "VALUES ({0},'{1}',{2},{3},'{4}',{5},{6})", partyEvent.Id, partyEvent.Name, beginDate, endDate, partyEvent.Description, partyEvent.Completed, partyEvent.AuthorId);
 
             OleDbCommand command = new OleDbCommand(sqlInsert, db);
             int nb = command.ExecuteNonQuery();
@@ -204,7 +204,7 @@ namespace Hermes.DataModel
                     mdp += guests[i].LastName.Substring(0,5) + "!";
                 }
 
-                string sqlGuest = String.Format("INSERT INTO Invites VALUES ({0},{1},'{2}','{3}')",partyEvent.Code,guests[i].CodeParticipant, login,mdp );
+                string sqlGuest = String.Format("INSERT INTO Invites VALUES ({0},{1},'{2}','{3}')",partyEvent.Id,guests[i].CodeParticipant, login,mdp );
                 command.CommandText = sqlGuest;
 
                 nb = command.ExecuteNonQuery();

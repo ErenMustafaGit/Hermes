@@ -11,40 +11,53 @@ using System.Data.OleDb;
 
 namespace Hermes.DataModel
 {
-    public class PartyEvent
+    public static class PartyEventExtensions
     {
-        public int Code;
-        public string Title;
-        public DateTime BeginDate;
-        public DateTime EndDate;
-        public string Description;
-        public bool BalanceYN;
-        public int CodeCreator;
-
-        public static DataTable toDataTable(List<PartyEvent> partyEvents)
+        /// <summary>
+        /// Converts the list of expenses to a DataTable, with columns for each field.
+        /// </summary>
+        /// <param name="expenses">The list of expenses to convert.</param>
+        /// <returns>The converted list as a DataTable.</returns>
+        public static DataTable ToDataTable(this List<PartyEvent> events)
         {
             DataTable table = new DataTable();
-            table.Columns.Add("Code", typeof(int));
-            table.Columns.Add("Title", typeof(string));
-            table.Columns.Add("BeginDate", typeof(DateTime));
+
+            // TODO: reflection or something to automatically generate this ?
+            table.Columns.Add("Id", typeof(int));
+            table.Columns.Add("Name", typeof(string));
+            table.Columns.Add("StartDate", typeof(DateTime));
             table.Columns.Add("EndDate", typeof(DateTime));
             table.Columns.Add("Description", typeof(string));
-            table.Columns.Add("BalanceYN", typeof(bool));
-            table.Columns.Add("CodeCreator", typeof(int));
+            table.Columns.Add("Completed", typeof(bool));
+            table.Columns.Add("AuthorId", typeof(int));
 
-            for (int i = 0; i < partyEvents.Count; i++)
+            foreach (PartyEvent ev in events)
             {
-                int codeEvent = partyEvents[i].Code;
-                string titleEvent = partyEvents[i].Title;
-                DateTime beginDate = partyEvents[i].BeginDate;
-                DateTime endDate = partyEvents[i].EndDate;
-                string description = partyEvents[i].Description;
-                bool balanceYN = partyEvents[i].BalanceYN;
-                int codeCreator = partyEvents[i].CodeCreator;
-                table.Rows.Add(codeEvent, titleEvent, beginDate, endDate, description, balanceYN, codeCreator);
+                int id = ev.Id;
+                string name = ev.Name;
+                DateTime start = ev.StartDate;
+                DateTime end = ev.EndDate;
+                string description = ev.Description;
+                bool completed = ev.Completed;
+                int authorId = ev.AuthorId;
+
+                table.Rows.Add(id, name, start, end, description, completed, authorId);
             }
+
             return table;
         }
+    }
+
+    public class PartyEvent
+    {
+        public int Id;
+        public string Name;
+        public DateTime StartDate;
+        public DateTime EndDate;
+        public string Description;
+        public bool Completed;
+        public int AuthorId;
+
         public static PartyEvent GetFromId(int codeEvent)
         {
             PartyEvent e = new PartyEvent();
@@ -56,13 +69,13 @@ namespace Hermes.DataModel
             OleDbDataReader dataReader = command.ExecuteReader();
 
             dataReader.Read();
-            e.Code = dataReader.GetInt32(0);
-            e.Title = dataReader.GetString(1);
-            e.BeginDate = dataReader.GetDateTime(2);
+            e.Id = dataReader.GetInt32(0);
+            e.Name = dataReader.GetString(1);
+            e.StartDate = dataReader.GetDateTime(2);
             e.EndDate = dataReader.GetDateTime(3);
             e.Description = dataReader.GetString(4);
-            e.BalanceYN = dataReader.GetBoolean(5);
-            e.CodeCreator = dataReader.GetInt32(6);
+            e.Completed = dataReader.GetBoolean(5);
+            e.AuthorId = dataReader.GetInt32(6);
 
             return e;
         }
@@ -73,7 +86,7 @@ namespace Hermes.DataModel
 
             OleDbConnection db = Database.Connect();
             // FIXME: use command parameters
-            string sqlCodePart = "select codePart from Invites where codeEvent = " + this.Code;
+            string sqlCodePart = "select codePart from Invites where codeEvent = " + this.Id;
             OleDbCommand command = new OleDbCommand(sqlCodePart, db);
             OleDbDataReader dataReader = command.ExecuteReader();
             while (dataReader.Read())
@@ -107,7 +120,7 @@ namespace Hermes.DataModel
 
             OleDbConnection db = Database.Connect();
             // FIXME: use command parameters
-            string sql = "SELECT count(*) FROM Invites WHERE codeEvent = " + this.Code;
+            string sql = "SELECT count(*) FROM Invites WHERE codeEvent = " + this.Id;
             OleDbCommand command = new OleDbCommand(sql, db);
 
             nbPart = (int)command.ExecuteScalar();

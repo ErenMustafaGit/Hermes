@@ -28,16 +28,16 @@ namespace Hermes
 
         private void AjNouvelleDepense_Load(object sender, EventArgs e)
         {
-            DataTable events = PartyEvent.toDataTable(Database.FetchEvents());
-            cboEvenements.DataSource = events;
-            cboEvenements.DisplayMember = "Title";
-            cboEvenements.ValueMember = "Code";
+            DataTable table = Database.FetchEvents().ToDataTable();
+            cboEvenements.DataSource = table;
+            cboEvenements.DisplayMember = "Name";
+            cboEvenements.ValueMember = "Id";
             cboEvenements.SelectedIndex = indice - 1;
 
             PartyEvent selectedEvent = PartyEvent.GetFromId(int.Parse(cboEvenements.SelectedValue.ToString()));
             updateGuests();
 
-            dtpDebut.Value = selectedEvent.BeginDate;
+            dtpDebut.Value = selectedEvent.StartDate;
         }
         public void updateGuests()
         {
@@ -105,7 +105,7 @@ namespace Hermes
         private void cboEvenements_SelectionChangeCommitted(object sender, EventArgs e)
         {
             PartyEvent selectedEvent = PartyEvent.GetFromId(int.Parse(cboEvenements.SelectedValue.ToString()));
-            dtpDebut.Value = selectedEvent.BeginDate;
+            dtpDebut.Value = selectedEvent.StartDate;
             updateGuests();
         }
 
