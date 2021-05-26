@@ -58,26 +58,33 @@ namespace Hermes.DataModel
         public bool Completed;
         public int AuthorId;
 
-        public static PartyEvent GetFromId(int codeEvent)
+        public PartyEvent() : base() { }
+
+        public PartyEvent(OleDbDataReader reader)
+            : base()
         {
-            PartyEvent e = new PartyEvent();
+            this.Id = reader.GetInt32(0);
+            this.Name = reader.GetString(1);
+            this.StartDate = reader.GetDateTime(2);
+            this.EndDate = reader.GetDateTime(3);
+            this.Description = reader.GetString(4);
+            this.Completed = reader.GetBoolean(5);
+            this.AuthorId = reader.GetInt32(6);
+        }
 
+        public static PartyEvent GetFromId(int id)
+        {
             OleDbConnection db = Database.Connect();
-            // FIXME: use command parameters
-            string sql = "select * from Evenements where codeEvent = " + codeEvent;
-            OleDbCommand command = new OleDbCommand(sql, db);
+
+            OleDbCommand command = new OleDbCommand(
+                "select * from Evenements where codeEvent = @Id",
+                db);
+            command.Parameters.AddWithValue("@Id", id);
+
             OleDbDataReader dataReader = command.ExecuteReader();
-
             dataReader.Read();
-            e.Id = dataReader.GetInt32(0);
-            e.Name = dataReader.GetString(1);
-            e.StartDate = dataReader.GetDateTime(2);
-            e.EndDate = dataReader.GetDateTime(3);
-            e.Description = dataReader.GetString(4);
-            e.Completed = dataReader.GetBoolean(5);
-            e.AuthorId = dataReader.GetInt32(6);
-
-            return e;
+          
+            return new PartyEvent(dataReader);
         }
 
         public List<Participant> GetGuests()
@@ -85,17 +92,26 @@ namespace Hermes.DataModel
             List<Participant> guests = new List<Participant>();
 
             OleDbConnection db = Database.Connect();
-            // FIXME: use command parameters
-            string sqlCodePart = "select codePart from Invites where codeEvent = " + this.Id;
-            OleDbCommand command = new OleDbCommand(sqlCodePart, db);
+
+            OleDbCommand command = new OleDbCommand(
+                "select codePart from Invites where codeEvent = @Id",
+                db);
+            command.Parameters.AddWithValue("@Id", this.Id);
+
             OleDbDataReader dataReader = command.ExecuteReader();
             while (dataReader.Read())
             {
-                string sqlGuest = "select * from Participants where codeParticipant = " + dataReader.GetInt32(0);
-                OleDbCommand commandGuest = new OleDbCommand(sqlGuest, db);
+                // FIXME: Couldn't an imbricated request be used instead..?
+                OleDbCommand commandGuest = new OleDbCommand(
+                    "select * from Participants where codeParticipant = @GuestId",
+                    db);
+                commandGuest.Parameters.AddWithValue("@GuestId", dataReader.GetInt32(0) /* eww */);
+
                 OleDbDataReader dataReaderGuest = commandGuest.ExecuteReader();
 
                 dataReaderGuest.Read();
+
+                // FIXME: use a ctor that takes a DataReader
                 Participant guest = new Participant();
                 guest.CodeParticipant = dataReaderGuest.GetInt32(0);
                 guest.FirstName = dataReaderGuest.GetString(1);
@@ -109,19 +125,23 @@ namespace Hermes.DataModel
                     guest.Balance = dataReaderGuest.GetDouble(5);
                 }
                 guest.Mail = dataReaderGuest.GetString(6);
+
                 guests.Add(guest);
             }
 
             return guests;
         }
+
         public int GetNbPart()
         {
             int nbPart = -1;
 
             OleDbConnection db = Database.Connect();
-            // FIXME: use command parameters
-            string sql = "SELECT count(*) FROM Invites WHERE codeEvent = " + this.Id;
-            OleDbCommand command = new OleDbCommand(sql, db);
+
+            OleDbCommand command = new OleDbCommand(
+                "SELECT count(*) FROM Invites WHERE codeEvent = @Id",
+                db);
+            command.Parameters.AddWithValue("@Id", this.Id);
 
             nbPart = (int)command.ExecuteScalar();
 

@@ -80,20 +80,9 @@ namespace Hermes.DataModel
             command.Parameters.AddWithValue("@EventId", this.EventId);
 
             OleDbDataReader dataReader = command.ExecuteReader();
-
-            // TODO: ctor with DataReader for the PartyEvent class
-            PartyEvent ev = new PartyEvent();
-
             dataReader.Read();
-            ev.Id = dataReader.GetInt32(0);
-            ev.Name = dataReader.GetString(1);
-            ev.StartDate = dataReader.GetDateTime(2);
-            ev.EndDate = dataReader.GetDateTime(3);
-            ev.Description = dataReader.GetString(4);
-            ev.Completed = dataReader.GetBoolean(5);
-            ev.AuthorId = dataReader.GetInt32(6);
 
-            return ev;
+            return new PartyEvent(dataReader);
         }
 
         public Participant GetParticipant()

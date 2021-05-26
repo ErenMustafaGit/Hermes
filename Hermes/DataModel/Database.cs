@@ -50,25 +50,14 @@ namespace Hermes.DataModel
 
         public static List<PartyEvent> FetchEvents()
         {
-            List<PartyEvent> partyEvents = new List<PartyEvent>();
-
             OleDbConnection db = Database.Connect();
             OleDbCommand command = new OleDbCommand("select * from Evenements", db); // FIXME: request specific fields to not mess the order up
+
             OleDbDataReader dataReader = command.ExecuteReader();
+            List<PartyEvent> partyEvents = new List<PartyEvent>();
+
             while (dataReader.Read())
-            {
-                PartyEvent ev = new PartyEvent()
-                {
-                    Id = dataReader.GetInt32(0),
-                    Name = dataReader.GetString(1),
-                    StartDate = dataReader.GetDateTime(2),
-                    EndDate = dataReader.GetDateTime(3),
-                    Description = dataReader.GetString(4),
-                    Completed = dataReader.GetBoolean(5),
-                    AuthorId = dataReader.GetInt32(6)
-                };
-                partyEvents.Add(ev);
-            }
+                partyEvents.Add(new PartyEvent(dataReader));
 
             return partyEvents;
         }
