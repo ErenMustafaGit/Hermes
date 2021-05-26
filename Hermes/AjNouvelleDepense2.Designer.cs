@@ -84,7 +84,7 @@
             this.btnCancel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(49)))), ((int)(((byte)(49)))));
             this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCancel.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnCancel.Location = new System.Drawing.Point(658, 586);
+            this.btnCancel.Location = new System.Drawing.Point(670, 556);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(105, 30);
             this.btnCancel.TabIndex = 4;
