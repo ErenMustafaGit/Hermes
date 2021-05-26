@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Hermes.DataModel;
 
 namespace Hermes
 {
@@ -27,26 +28,20 @@ namespace Hermes
 
         private void AjNouvelleDepense_Load(object sender, EventArgs e)
         {
-
-            DataTable events = PartyEvent.toDataTable(Database.FetchEvents());
-            cboEvenements.DataSource = events;
-            cboEvenements.DisplayMember = "TitleEvent";
-            cboEvenements.ValueMember = "CodeEvent";
+            DataTable table = Database.FetchEvents().ToDataTable();
+            cboEvenements.DataSource = table;
+            cboEvenements.DisplayMember = "Name";
+            cboEvenements.ValueMember = "Id";
             cboEvenements.SelectedIndex = indice - 1;
 
-            PartyEvent selectedEvent = PartyEvent.GetPartyEvent(int.Parse(cboEvenements.SelectedValue.ToString()));
-
-            dtp.MinDate = selectedEvent.BeginDate;
-            dtp.MaxDate = selectedEvent.EndDate;
+            PartyEvent selectedEvent = PartyEvent.GetFromId(int.Parse(cboEvenements.SelectedValue.ToString()));
             updateGuests();
 
-            dtp.Value = selectedEvent.BeginDate;
-
-           
+            dtp.Value = selectedEvent.StartDate;
         }
         public void updateGuests()
         {
-            PartyEvent selectedEvent = PartyEvent.GetPartyEvent(int.Parse(cboEvenements.SelectedValue.ToString()));
+            PartyEvent selectedEvent = PartyEvent.GetFromId(int.Parse(cboEvenements.SelectedValue.ToString()));
             DataTable guests = Participant.toConcatenateDataTable(selectedEvent.GetGuests());
             cboPayePar.DataSource = guests;
             cboPayePar.DisplayMember = "name";
@@ -109,12 +104,14 @@ namespace Hermes
 
         private void cboEvenements_SelectionChangeCommitted(object sender, EventArgs e)
         {
-            PartyEvent selectedEvent = PartyEvent.GetPartyEvent(int.Parse(cboEvenements.SelectedValue.ToString()));
-            dtp.MinDate = DateTime.Parse("01/01/1753");
-            dtp.MaxDate = DateTime.Parse("01/01/8888");
-            dtp.Value = selectedEvent.BeginDate;
-            dtp.MinDate = selectedEvent.BeginDate;
+            PartyEvent selectedEvent = PartyEvent.GetFromId(int.Parse(cboEvenements.SelectedValue.ToString()));
+
+            dtp.MinDate = DateTime.Parse("01/01/2000");
+            dtp.MaxDate = DateTime.Parse("01/01/2200");
+            dtp.Value = selectedEvent.StartDate;
+            dtp.MinDate = selectedEvent.StartDate;
             dtp.MaxDate = selectedEvent.EndDate;
+
             updateGuests();
         }
 
@@ -122,7 +119,7 @@ namespace Hermes
         private void AppFontLabel8_Click(object sender, EventArgs e)
         {
             bool done = true;
-            PartyEvent currentEvent = PartyEvent.GetPartyEvent(int.Parse(cboEvenements.SelectedValue.ToString()));
+            PartyEvent currentEvent = PartyEvent.GetFromId(int.Parse(cboEvenements.SelectedValue.ToString()));
 
             //Les animations d'erreur sont juste de test ! Il faudra changer ABSOLUMENT !
             txtWhere.BackColor = Color.White;
@@ -150,7 +147,6 @@ namespace Hermes
                 suite.setPanel = this.ecran;
                 this.ecran.Controls.Add(suite);
             }
-            
         }
 
 

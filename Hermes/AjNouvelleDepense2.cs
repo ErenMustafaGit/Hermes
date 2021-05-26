@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Hermes.DataModel;
 
 namespace Hermes
 {
@@ -18,6 +19,7 @@ namespace Hermes
         string Description;
         int CodePayeur;
         Decimal Amount;
+
         public AjNouvelleDepense2(int codeEvenement, DateTime date, string description, int codePayeur, Decimal amount)
         {
             InitializeComponent();
@@ -35,8 +37,9 @@ namespace Hermes
 
         private void AjNouvelleDepense2_Load(object sender, EventArgs e)
         {
-            PartyEvent evenement = PartyEvent.GetPartyEvent(this.CodeEvenement);
+            PartyEvent evenement = PartyEvent.GetFromId(this.CodeEvenement);
             List<Participant> guests = evenement.GetGuests();
+
             for(int i = 0; i < guests.Count; i++)
             {
                 CheckBox chkGuest = new CheckBox();
@@ -92,29 +95,26 @@ namespace Hermes
             if (done)
             {
                 string comment = rtxtCommentaire.Text.Replace('\'', ' ');
-                Expenditure newExpenditure = new Expenditure()
+                Expense newExpense = new Expense()
                 {
-                    NumExpenditure = 100,
+                    Id = 100,
                     Amount = this.Amount,
                     Description = this.Description,
                     Comment = comment,
-                    DateExpenditure = this.Date,
-                    CodeEvent = this.CodeEvenement,
-                    CodeParticipant = this.CodePayeur,
+                    Date = this.Date,
+                    EventId = this.CodeEvenement,
+                    AuthorId = this.CodePayeur,
                 };
 
-                
-                
-                if (Database.InsertExpenditure(newExpenditure, getBeneficiary()))
-                {
-                    //UNE POPUP A AJOUTER
-                    MessageBox.Show("AJOUTE POPUP");
+                Database.InsertExpense(newExpense, getBeneficiary());
 
-                    this.ecran.Controls.Clear();
-                    Accueil a = new Accueil();
-                    a.setPanel = this.ecran;
-                    this.ecran.Controls.Add(a);
-                }
+                //UNE POPUP A AJOUTER
+                MessageBox.Show("AJOUTE POPUP");
+
+                this.ecran.Controls.Clear();
+                Accueil a = new Accueil();
+                a.setPanel = this.ecran;
+                this.ecran.Controls.Add(a);
             }
             
         }

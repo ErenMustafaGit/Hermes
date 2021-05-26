@@ -15,11 +15,27 @@ namespace Hermes.UI
 
         public const string RIGHT_ARROW = "\uE807";
 
-        public const string LEFT = "\uE80B";
-        public const string RIGHT = "\uE81D";
-        public const string DOWN = "\uE811";
+        public const string LEFT = "\uF104";
+        public const string RIGHT = "\uF105";
+        public const string DOUBLE_LEFT = "\uF100";
+        public const string DOUBLE_RIGHT = "\uF101";
+        public const string DOUBLE_UP = "\uF102";
+        public const string DOUBLE_DOWN = "\uF103";
 
         public const string EMOTE_THUMBS_UP = "\uE800";
+        public const string EMOTE_SUNGLASSES = "\uE805";
+
+        public const string CLOSE = "\uE814";
+        public const string MINIMIZE = "\uE811";
+
+        public const string SMALL_CROSS = "\uE802";
+        public const string LARGE_CROSS = "\uE803";
+
+        public const string TICK = "\uE817";
+        public const string PLUS = "\uE81E";
+        public const string TICK_OPEN_CIRCLE = "\uE804";
+        public const string CLOCK = "\uE815";
+
         public const string LOCATION = "\uE801";
         public const string MONEY_BAG = "\uE809";
         public const string MAIL = "\uE80A";
@@ -29,8 +45,6 @@ namespace Hermes.UI
         public const string FINANCE = "\uE810";
         public const string CROWN = "\uE812";
         public const string COINS = "\uE813";
-        public const string CLOSE = "\uE814";
-        public const string CLOCK = "\uE815";
         public const string CLIPBOARD = "\uE816";
         public const string USER_GROUP = "\uE81A";
         public const string USER = "\uE81C";

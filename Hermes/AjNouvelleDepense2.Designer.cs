@@ -71,7 +71,7 @@
             this.btnValider.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(147)))), ((int)(((byte)(248)))));
             this.btnValider.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnValider.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnValider.Location = new System.Drawing.Point(781, 586);
+            this.btnValider.Location = new System.Drawing.Point(781, 556);
             this.btnValider.Name = "btnValider";
             this.btnValider.Size = new System.Drawing.Size(105, 30);
             this.btnValider.TabIndex = 4;

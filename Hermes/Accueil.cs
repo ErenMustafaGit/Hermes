@@ -7,13 +7,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Hermes.DataModel;
 
 namespace Hermes
 {
     public partial class Accueil : UserControl
     {
-        Database base_de_donnee = new Database();
-
         Panel ecran;
         public Accueil()
         {
