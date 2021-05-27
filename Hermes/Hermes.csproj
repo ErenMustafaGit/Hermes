@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
@@ -92,6 +92,12 @@
     <Compile Include="AjoutRapideBouton.Designer.cs">
       <DependentUpon>AjoutRapideBouton.cs</DependentUpon>
     </Compile>
+    <Compile Include="Bilan.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Bilan.Designer.cs">
+      <DependentUpon>Bilan.cs</DependentUpon>
+    </Compile>
     <Compile Include="BulleAjEvenement.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -121,6 +127,12 @@
     </Compile>
     <Compile Include="CompleteInfoEvenement.Designer.cs">
       <DependentUpon>CompleteInfoEvenement.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DepenseUser.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="DepenseUser.Designer.cs">
+      <DependentUpon>DepenseUser.cs</DependentUpon>
     </Compile>
     <Compile Include="Participants.cs">
       <SubType>UserControl</SubType>
@@ -204,6 +216,9 @@
     <EmbeddedResource Include="AjoutRapideBouton.resx">
       <DependentUpon>AjoutRapideBouton.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Bilan.resx">
+      <DependentUpon>Bilan.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="BulleAjEvenement.resx">
       <DependentUpon>BulleAjEvenement.cs</DependentUpon>
     </EmbeddedResource>
@@ -218,6 +233,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="CompleteInfoEvenement.resx">
       <DependentUpon>CompleteInfoEvenement.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DepenseUser.resx">
+      <DependentUpon>DepenseUser.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Evenements.resx">
       <DependentUpon>Evenements.cs</DependentUpon>
