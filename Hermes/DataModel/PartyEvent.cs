@@ -132,6 +132,28 @@ namespace Hermes.DataModel
             return guests;
         }
 
+        // TODO: I think this could be better   -squid
+        public List<Participant> GetUninvitedPeople()
+        {
+            List<Participant> uninvited = new List<Participant>();
+
+            OleDbConnection db = Database.Connect();
+
+            OleDbCommand command = new OleDbCommand(
+                "select codePart from Invites where codeEvent <> @Id",
+                db);
+            command.Parameters.AddWithValue("@Id", this.Id);
+
+            OleDbDataReader dataReader = command.ExecuteReader();
+            while (dataReader.Read())
+            {
+                int id = dataReader.GetInt32(0);
+                uninvited.Add(Participant.GetParticipant(id));
+            }
+
+            return uninvited;
+        }
+
         public List<Expense> GetExpenses()
         {
             List<Expense> expenses = new List<Expense>();
