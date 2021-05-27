@@ -140,6 +140,12 @@
     <Compile Include="Participants.Designer.cs">
       <DependentUpon>Participants.cs</DependentUpon>
     </Compile>
+    <Compile Include="RemboursementUser.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="RemboursementUser.Designer.cs">
+      <DependentUpon>RemboursementUser.cs</DependentUpon>
+    </Compile>
     <Compile Include="ResumePartyEvent.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -255,6 +261,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="RemboursementUser.resx">
+      <DependentUpon>RemboursementUser.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Resources\Fonts.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Fonts.Designer.cs</LastGenOutput>
