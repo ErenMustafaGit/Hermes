@@ -7,14 +7,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Hermes.DataModel;
 
 namespace Hermes
 {
     public partial class UserParticipants : UserControl
     {
-        public string prenomNom;
-        public string numero;
-        public string email;
+        public Participant participant;
         public UserParticipants()
         {
             InitializeComponent();
@@ -22,29 +21,21 @@ namespace Hermes
             lblIconeTel.Text = Hermes.UI.Icons.PHONE;
         }
 
-        public string SetPrenomNom
+        public Participant SetParticipant
         {
-            set { this.prenomNom = value; }
+            set { this.participant = value; }
         }
 
-        public string SetNumero
-        {
-            set { this.numero = value; }
-        }
-
-        public string SetEmail
-        {
-            set { this.email = value; }
-        }
 
         private void UserParticipants_Load(object sender, EventArgs e)
         {
-            // Espacement sur le numéro de téléphone
-            string numEspace = Espacement(this.numero);
 
-            lblPrenomNom.Text = this.prenomNom;
-            lblTel.Text = numEspace;
-            lblEmail.Text = this.email;
+            lblPrenomNom.Text = this.participant.LastName + " " + this.participant.FirstName;
+
+            // Espacement sur le numéro de téléphone
+            lblTel.Text = Espacement(this.participant.PhoneNumber);
+
+            lblEmail.Text = this.participant.Mail;
         }
 
         //Permet de faire un espacement de un entre chaque dizaine
