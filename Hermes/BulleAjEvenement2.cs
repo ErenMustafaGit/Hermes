@@ -51,9 +51,6 @@ namespace Hermes
 
         private void BtnValider_Click(object sender, EventArgs e)
         {
-            // FIXME URGENT: NO !!!!!!!!!!!!!!!
-            newEvent.Description = rtxtDescription.Text.Replace('\'',' ');
-
             Database.InsertEvent(newEvent, getInvitedParticipant());
 
             this.ecran.Controls.Clear();
@@ -63,15 +60,24 @@ namespace Hermes
             evenements.setPanel = pnlPrincipal;
             pnlPrincipal.Controls.Add(evenements);
         }
+
         public List<Participant> getInvitedParticipant()
         {
             List<Participant> invitedParticipant = new List<Participant>();
             foreach(CheckBox chk in pnlParticipants.Controls)
             {
-                if(chk.Checked && chk != chkEveryOne)
+                if(chk != chkEveryOne)
                 {
-                    invitedParticipant.Add(Participant.GetParticipant((int)chk.Tag));
+
+                    //Coche automatiquement l'auteur de l'evenement
+                    if ((int)chk.Tag == newEvent.AuthorId)
+                        chk.Checked = true;
+
+                    if (chk.Checked)
+                        invitedParticipant.Add(Participant.GetParticipant((int)chk.Tag));
+
                 }
+                
             }
             return invitedParticipant;
         }
