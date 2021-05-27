@@ -30,9 +30,9 @@
         {
             this.button1 = new System.Windows.Forms.Button();
             this.btnValider = new System.Windows.Forms.Button();
-            this.lblInvitations = new Hermes.UI.AppFontLabel();
             this.cboEvenements = new System.Windows.Forms.ComboBox();
             this.pnlParticipant = new System.Windows.Forms.Panel();
+            this.lblInvitations = new Hermes.UI.AppFontLabel();
             this.SuspendLayout();
             // 
             // button1
@@ -59,17 +59,7 @@
             this.btnValider.TabIndex = 32;
             this.btnValider.Text = "Valider";
             this.btnValider.UseVisualStyleBackColor = false;
-            // 
-            // lblInvitations
-            // 
-            this.lblInvitations.AppFont = Hermes.AppFont.HelveticaNeue_Bold;
-            this.lblInvitations.AppFontHeight = 24F;
-            this.lblInvitations.AutoSize = true;
-            this.lblInvitations.Location = new System.Drawing.Point(59, 57);
-            this.lblInvitations.Name = "lblInvitations";
-            this.lblInvitations.Size = new System.Drawing.Size(327, 40);
-            this.lblInvitations.TabIndex = 30;
-            this.lblInvitations.Text = "Inviter à l\'évènement\r\n";
+            this.btnValider.Click += new System.EventHandler(this.BtnValider_Click);
             // 
             // cboEvenements
             // 
@@ -88,6 +78,17 @@
             this.pnlParticipant.Name = "pnlParticipant";
             this.pnlParticipant.Size = new System.Drawing.Size(557, 187);
             this.pnlParticipant.TabIndex = 33;
+            // 
+            // lblInvitations
+            // 
+            this.lblInvitations.AppFont = Hermes.AppFont.HelveticaNeue_Bold;
+            this.lblInvitations.AppFontHeight = 24F;
+            this.lblInvitations.AutoSize = true;
+            this.lblInvitations.Location = new System.Drawing.Point(59, 57);
+            this.lblInvitations.Name = "lblInvitations";
+            this.lblInvitations.Size = new System.Drawing.Size(327, 40);
+            this.lblInvitations.TabIndex = 30;
+            this.lblInvitations.Text = "Inviter à l\'évènement\r\n";
             // 
             // BulleInvitations
             // 
