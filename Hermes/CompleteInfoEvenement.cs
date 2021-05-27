@@ -73,7 +73,7 @@ namespace Hermes
 
             //Participant à l'évènement
             List<PartyEvent> evenement = Database.FetchEvents();
-            PartyEvent evenement_concerné = evenement[index];
+            PartyEvent currentEvent = evenement[index];
 
 
             //Soldé ou non
@@ -84,17 +84,37 @@ namespace Hermes
                 lblTrueFalse.Text = Hermes.UI.Icons.CLOCK;
 
             
-            List<Participant> participant = evenement_concerné.GetGuests();
+            List<Participant> participant = currentEvent.GetGuests();
 
             int codeCreateur = (int)dataRowView[6];
+
+
+            Participant eventCreator = Participant.GetParticipant(codeCreateur);
+            //Ajout du createur de l'evenement en 1er
+            UserEvenement creator = new UserEvenement();
+            creator.setCodeCreateur = codeCreateur;
+            creator.recupParticipant = eventCreator;
+            creator.Top = 20 + 80 * 0;
+            pnlParticipant.Controls.Add(creator);
+
+            //Suppression du créateur de la liste des invités
+            //participant.Remove(eventCreator);
+            for (int i = 0; i < participant.Count; i++)
+            {
+                if (participant[i].CodeParticipant == codeCreateur)
+                {
+                    participant.RemoveAt(i);
+                }
+            }
+
+            //Ajout des invités
             for (int i = 0; i < participant.Count; i++)
             {
                 UserEvenement user = new UserEvenement();
                 user.setCodeCreateur = codeCreateur;
                 user.recupParticipant = participant[i];
-                user.Top = 20 + 80 * i;
+                user.Top = 20 + 80 * (i + 1);
                 pnlParticipant.Controls.Add(user);
-
             }
 
         }
@@ -204,15 +224,35 @@ namespace Hermes
                 PartyEvent evenement_concerné = evenement[index];
                 List<Participant> participant = evenement_concerné.GetGuests();
                 pnlParticipant.Controls.Clear();
-                //Ajout des partcipants à l'évènements.
+
+
+
+                Participant eventCreator = Participant.GetParticipant(codeCreateur);
+                //Ajout du createur de l'evenement en 1er
+                UserEvenement creator = new UserEvenement();
+                creator.setCodeCreateur = codeCreateur;
+                creator.recupParticipant = eventCreator;
+                creator.Top = 20 + 80 * 0;
+                pnlParticipant.Controls.Add(creator);
+
+                //Suppression du créateur de la liste des invités
+                //participant.Remove(eventCreator);
+                for (int i = 0; i < participant.Count; i++)
+                {
+                    if (participant[i].CodeParticipant == codeCreateur)
+                    {
+                        participant.RemoveAt(i);
+                    }
+                }
+
+                //Ajout des invités
                 for (int i = 0; i < participant.Count; i++)
                 {
                     UserEvenement user = new UserEvenement();
                     user.setCodeCreateur = codeCreateur;
                     user.recupParticipant = participant[i];
-                    user.Top = 20 + 80 * i;
+                    user.Top = 20 + 80 * (i + 1);
                     pnlParticipant.Controls.Add(user);
-
                 }
             }
 
