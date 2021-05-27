@@ -98,6 +98,18 @@
     <Compile Include="Bilan.Designer.cs">
       <DependentUpon>Bilan.cs</DependentUpon>
     </Compile>
+    <Compile Include="ResumeEventBilan.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ResumeEventBilan.Designer.cs">
+      <DependentUpon>ResumeEventBilan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserBilan.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserBilan.Designer.cs">
+      <DependentUpon>UserBilan.cs</DependentUpon>
+    </Compile>
     <Compile Include="BulleAjEvenement.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -224,6 +236,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Bilan.resx">
       <DependentUpon>Bilan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ResumeEventBilan.resx">
+      <DependentUpon>ResumeEventBilan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserBilan.resx">
+      <DependentUpon>UserBilan.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="BulleAjEvenement.resx">
       <DependentUpon>BulleAjEvenement.cs</DependentUpon>
