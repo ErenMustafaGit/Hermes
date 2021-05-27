@@ -29,29 +29,36 @@ namespace Hermes
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
             this.pnlEcran = new System.Windows.Forms.Panel();
+            this.pnlTitleBar = new System.Windows.Forms.Panel();
             this.sideBarUserControls1 = new Hermes.SideBarUserControls();
+            this.lblMinimise = new Hermes.UI.AppFontLabel();
+            this.lblExit = new Hermes.UI.AppFontLabel();
             this.pnlEcran.SuspendLayout();
+            this.pnlTitleBar.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(928, 23);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(14, 13);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "X";
             // 
             // pnlEcran
             // 
-            this.pnlEcran.Controls.Add(this.label1);
+            this.pnlEcran.Controls.Add(this.pnlTitleBar);
             this.pnlEcran.Location = new System.Drawing.Point(115, 0);
             this.pnlEcran.Name = "pnlEcran";
             this.pnlEcran.Size = new System.Drawing.Size(965, 640);
             this.pnlEcran.TabIndex = 3;
             this.pnlEcran.Paint += new System.Windows.Forms.PaintEventHandler(this.PnlEcran_Paint_1);
+            // 
+            // pnlTitleBar
+            // 
+            this.pnlTitleBar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
+            this.pnlTitleBar.Controls.Add(this.lblMinimise);
+            this.pnlTitleBar.Controls.Add(this.lblExit);
+            this.pnlTitleBar.Location = new System.Drawing.Point(0, 0);
+            this.pnlTitleBar.Name = "pnlTitleBar";
+            this.pnlTitleBar.Size = new System.Drawing.Size(965, 34);
+            this.pnlTitleBar.TabIndex = 0;
+            this.pnlTitleBar.Paint += new System.Windows.Forms.PaintEventHandler(this.PnlTitleBar_Paint);
+            this.pnlTitleBar.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MainForm_MouseDown);
+            this.pnlTitleBar.MouseMove += new System.Windows.Forms.MouseEventHandler(this.MainForm_MouseMove);
             // 
             // sideBarUserControls1
             // 
@@ -62,6 +69,36 @@ namespace Hermes
             this.sideBarUserControls1.Size = new System.Drawing.Size(116, 640);
             this.sideBarUserControls1.TabIndex = 4;
             this.sideBarUserControls1.Load += new System.EventHandler(this.SideBarUserControls1_Load);
+            // 
+            // lblMinimise
+            // 
+            this.lblMinimise.AppFont = Hermes.AppFont.HelveticaNeue;
+            this.lblMinimise.AppFontHeight = 15F;
+            this.lblMinimise.AutoSize = true;
+            this.lblMinimise.ForeColor = System.Drawing.Color.Black;
+            this.lblMinimise.Location = new System.Drawing.Point(910, 3);
+            this.lblMinimise.Name = "lblMinimise";
+            this.lblMinimise.Size = new System.Drawing.Size(20, 23);
+            this.lblMinimise.TabIndex = 3;
+            this.lblMinimise.Text = "_";
+            this.lblMinimise.Click += new System.EventHandler(this.LblMinimise_Click);
+            this.lblMinimise.MouseLeave += new System.EventHandler(this.LblMinimise_MouseLeave);
+            this.lblMinimise.MouseHover += new System.EventHandler(this.LblMinimise_MouseHover);
+            // 
+            // lblExit
+            // 
+            this.lblExit.AppFont = Hermes.AppFont.HelveticaNeue;
+            this.lblExit.AppFontHeight = 10F;
+            this.lblExit.AutoSize = true;
+            this.lblExit.Location = new System.Drawing.Point(936, 9);
+            this.lblExit.Name = "lblExit";
+            this.lblExit.Size = new System.Drawing.Size(17, 16);
+            this.lblExit.TabIndex = 1;
+            this.lblExit.Text = "X";
+            this.lblExit.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblExit.Click += new System.EventHandler(this.LblExit_Click);
+            this.lblExit.MouseLeave += new System.EventHandler(this.LblExit_MouseLeave);
+            this.lblExit.MouseHover += new System.EventHandler(this.LblExit_MouseHover);
             // 
             // MainForm
             // 
@@ -80,15 +117,18 @@ namespace Hermes
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MainForm_MouseDown);
             this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.MainForm_MouseMove);
             this.pnlEcran.ResumeLayout(false);
-            this.pnlEcran.PerformLayout();
+            this.pnlTitleBar.ResumeLayout(false);
+            this.pnlTitleBar.PerformLayout();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel pnlEcran;
         private SideBarUserControls sideBarUserControls1;
+        private System.Windows.Forms.Panel pnlTitleBar;
+        private UI.AppFontLabel lblExit;
+        private UI.AppFontLabel lblMinimise;
     }
 }
 
