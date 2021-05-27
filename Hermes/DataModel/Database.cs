@@ -155,7 +155,7 @@ namespace Hermes.DataModel
             foreach (Participant recipient in recipients)
             {
                 command = new OleDbCommand(
-                    "insert into Beneficiaires (numDepense, codePart) values (@Id,@RecipientId)",
+                    "insert into Beneficiaires (numDepense,codePart) values (@Id,@RecipientId)",
                     db);
                 command.Parameters.AddWithValue("@Id", expense.Id);
                 command.Parameters.AddWithValue("@RecipientId", recipient.CodeParticipant);
@@ -203,16 +203,17 @@ namespace Hermes.DataModel
         {
             OleDbConnection db = Database.Connect();
 
-            DateTime beginDateTime = partyEvent.StartDate;
-            DateTime endDateTime = partyEvent.EndDate;
-            string beginDate = "#" + beginDateTime.Month + "/" + beginDateTime.Day + "/" + beginDateTime.Year + "#";
-            string endDate = "#" + endDateTime.Month + "/" + endDateTime.Day + "/" + endDateTime.Year + "#";
+            OleDbCommand command = new OleDbCommand(
+                "insert into Evenements values (@Id,@Name,@StartDate,@EndDate,@Description,@Completed,@AuthorId)",
+                db);
+            command.Parameters.AddWithValue("@Id", partyEvent.Id);
+            command.Parameters.AddWithValue("@Name", partyEvent.Name);
+            command.Parameters.AddWithValue("@StartDate", partyEvent.StartDate);
+            command.Parameters.AddWithValue("@EndDate", partyEvent.EndDate);
+            command.Parameters.AddWithValue("@Description", partyEvent.Description);
+            command.Parameters.AddWithValue("@Completed", partyEvent.Completed);
+            command.Parameters.AddWithValue("@AuthorId", partyEvent.AuthorId);
 
-            // FIXME: no comment
-            string sqlInsert = String.Format("INSERT INTO Evenements " +
-                "VALUES ({0},'{1}',{2},{3},'{4}',{5},{6})", partyEvent.Id, partyEvent.Name, beginDate, endDate, partyEvent.Description, partyEvent.Completed, partyEvent.AuthorId);
-
-            OleDbCommand command = new OleDbCommand(sqlInsert, db);
             if (command.ExecuteNonQuery() <= 0)
                 throw new DatabaseInsertException("Could not insert event");
 
