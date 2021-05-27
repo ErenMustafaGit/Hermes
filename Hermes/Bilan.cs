@@ -8,7 +8,6 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Hermes.DataModel;
-
 namespace Hermes
 {
     public partial class Bilan : UserControl
@@ -21,25 +20,28 @@ namespace Hermes
         public Bilan()
         {
             InitializeComponent();
+            pnlEvenement.AutoScroll = false;
+            pnlEvenement.HorizontalScroll.Enabled = false;
+            pnlEvenement.HorizontalScroll.Visible = false;
+            pnlEvenement.HorizontalScroll.Maximum = 0;
+            pnlEvenement.AutoScroll = true;
         }
 
         private void Bilan_Load(object sender, EventArgs e)
         {
-            List<Participant> listeParticipants = Database.FetchParticipant();
-            DataTable dataTableParticipants = Participant.toConcatenateDataTable(listeParticipants);
-            cboParticipant.DataSource = dataTableParticipants;
-            cboParticipant.DisplayMember = "Name";
-            cboParticipant.ValueMember = "CodeParticipant";
+            List<PartyEvent> events = Database.FetchEvents();
 
-            DataTable dataTableEvent = Database.FetchEvents().ToDataTable();
-            cboEvent.DataSource = dataTableEvent;
-            cboEvent.DisplayMember = "Name";
-            cboEvent.ValueMember = "Id";
-        }
+            int modulo = 2;
+            for (int i = 0; i < events.Count; i++)
+            {
+                ResumeEventBilan resumeEventBilan = new ResumeEventBilan(events[i].Name, events[i].Description, events[i].GetNbPart(), events[i].StartDate, events[i].EndDate, events[i].AuthorId);
+                resumeEventBilan.setPanel = this.ecran;
+                resumeEventBilan.setEvent = events[i];
+                resumeEventBilan.Top = 20 + 250 * (i  / modulo);
+                resumeEventBilan.Left = 100 + 350 * (i % modulo);
+                pnlEvenement.Controls.Add(resumeEventBilan);
 
-        private void depenseUser1_Load(object sender, EventArgs e)
-        {
-
+            }
         }
     }
 }
