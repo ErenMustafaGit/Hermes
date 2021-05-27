@@ -68,10 +68,18 @@ namespace Hermes
             List<Participant> invitedParticipant = new List<Participant>();
             foreach(CheckBox chk in pnlParticipants.Controls)
             {
-                if(chk.Checked && chk != chkEveryOne)
+                if(chk != chkEveryOne)
                 {
-                    invitedParticipant.Add(Participant.GetParticipant((int)chk.Tag));
+
+                    //Coche automatiquement l'auteur de l'evenement
+                    if ((int)chk.Tag == newEvent.AuthorId)
+                        chk.Checked = true;
+
+                    if (chk.Checked)
+                        invitedParticipant.Add(Participant.GetParticipant((int)chk.Tag));
+
                 }
+                
             }
             return invitedParticipant;
         }

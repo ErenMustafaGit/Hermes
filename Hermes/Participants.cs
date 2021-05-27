@@ -48,14 +48,13 @@ namespace Hermes
             BulleAjout();
 
 
+
             int modulo = 2;
             for (int i = 0; i < participantsListe.Count; i++)
             {
-                Participant p = participantsListe[i];
+                Participant participant = participantsListe[i];
                 UserParticipants userParticipants = new UserParticipants();
-                userParticipants.SetEmail = p.Mail;
-                userParticipants.SetPrenomNom = p.LastName + " " + p.FirstName;
-                userParticipants.SetNumero = p.PhoneNumber;
+                userParticipants.SetParticipant = participant;
 
                 userParticipants.Top = 30 + 200 * ((i+1) / modulo);
                 userParticipants.Left = 118 + 400 * ((i+1) % modulo);
@@ -85,11 +84,9 @@ namespace Hermes
                 int modulo = 2;
                 for (int i = 0; i < participantsListe.Count; i++)
                 {
-                    Participant p = participantsListe[i];
+                    Participant participant = participantsListe[i];
                     UserParticipants userParticipants = new UserParticipants();
-                    userParticipants.SetEmail = p.Mail;
-                    userParticipants.SetPrenomNom = p.LastName + " " + p.FirstName;
-                    userParticipants.SetNumero = p.PhoneNumber;
+                    userParticipants.SetParticipant = participant;
 
                     userParticipants.Top = 30 + 200 * ((i+1) / modulo);
                     userParticipants.Left = 118 + 400 * ((i+1) % modulo);
@@ -108,16 +105,15 @@ namespace Hermes
                 BulleAjout();
 
                 int modulo = 2;
+
                 for (int i = 0; i < participantsConcerné.Count; i++)
                 {
-                    Participant p = participantsConcerné[i];
+                    Participant participant = participantsConcerné[i];
                     UserParticipants userParticipants = new UserParticipants();
-                    userParticipants.SetEmail = p.Mail;
-                    userParticipants.SetPrenomNom = p.LastName + " " + p.FirstName;
-                    userParticipants.SetNumero = p.PhoneNumber;
-
+                    userParticipants.SetParticipant = participant;
                     userParticipants.Top = 30 + 200 * ((i+1) / modulo);
                     userParticipants.Left = 118 + 400 * ((i+1) % modulo);
+
                     pnlParticipants.Controls.Add(userParticipants);
 
                 }
