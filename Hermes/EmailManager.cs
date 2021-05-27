@@ -33,10 +33,10 @@ namespace Hermes
             //Initialisation des address
             MailAddress from = new MailAddress("HermesRobertSchuman@gmail.com");
             //MailAddress to = new MailAddress(participant.Mail);
-            MailAddress to = new MailAddress("mustafa68eren@gmail.com");
+            MailAddress to = new MailAddress("eren-mustafa.ceylan@etu.unistra.fr");
 
 
-            string subject = "Tu es invité à mon évenement sur Hermès !";
+            string subject = participant.FirstName + " " + participant.LastName + " : Tu es invité à mon évenement sur Hermès !";
             string body = " <!DOCTYPE html>" +
                 "<html>" +
                 "<head>" +
