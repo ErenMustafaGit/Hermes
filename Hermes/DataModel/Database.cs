@@ -148,8 +148,7 @@ namespace Hermes.DataModel
                 throw new DatabaseInsertException("Failed to insert expense");
 
 
-            // FIXME: Isn't there a better way to do this..?
-            // Forgive me, for I have sinned...
+            // FIXME: Isn't there a better way to do this, in an atomic way..?
 
             List<string> pairs = new List<string>();
             foreach (Participant recipient in recipients)
@@ -166,33 +165,18 @@ namespace Hermes.DataModel
             }
         }
 
-        // TODO: refactor
         public static void InsertGuestsForEvent(PartyEvent ev, List<Participant> guests)
         {
             OleDbConnection db = Database.Connect();
 
-            OleDbCommand command = new OleDbCommand();
-            command.Connection = db;
-
-            // Would be better as a single insert
+            // FIXME: Would be better as a single insert
             foreach (Participant guest in guests)
             {
-                // wtf
-                string login = guest.FirstName[0].ToString();
-                string mdp = "*" + guest.FirstName[0];
-                if (guest.LastName.Length < 5)
-                {
-                    login += guest.LastName.Substring(0, guest.LastName.Length);
-                    mdp += guest.LastName.Substring(0, guest.LastName.Length) + "!";
-                }
-                else
-                {
-                    login += guest.LastName.Substring(0, 5);
-                    mdp += guest.LastName.Substring(0, 5) + "!";
-                }
-
-                string sqlGuest = String.Format("INSERT INTO Invites VALUES ({0},{1},'{2}','{3}')", ev.Id, guest.CodeParticipant, login, mdp);
-                command.CommandText = sqlGuest;
+                OleDbCommand command = new OleDbCommand(
+                    "insert into Invites values (@EventId,@GuestId,'','')",
+                    db);
+                command.Parameters.AddWithValue("@EventId", ev.Id);
+                command.Parameters.AddWithValue("@GuestId", guest.CodeParticipant);
 
                 if (command.ExecuteNonQuery() <= 0)
                     throw new DatabaseInsertException("Could not insert guest for event");
