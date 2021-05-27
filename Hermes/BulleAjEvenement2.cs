@@ -51,9 +51,6 @@ namespace Hermes
 
         private void BtnValider_Click(object sender, EventArgs e)
         {
-            // FIXME URGENT: NO !!!!!!!!!!!!!!!
-            newEvent.Description = rtxtDescription.Text.Replace('\'',' ');
-
             Database.InsertEvent(newEvent, getInvitedParticipant());
 
             this.ecran.Controls.Clear();
@@ -63,6 +60,7 @@ namespace Hermes
             evenements.setPanel = pnlPrincipal;
             pnlPrincipal.Controls.Add(evenements);
         }
+
         public List<Participant> getInvitedParticipant()
         {
             List<Participant> invitedParticipant = new List<Participant>();
