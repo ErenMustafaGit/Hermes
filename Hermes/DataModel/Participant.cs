@@ -21,10 +21,23 @@ namespace Hermes.DataModel
         public double Balance;
         public string Mail;
 
+        public Participant() : base() { }
+        
+        public Participant(OleDbDataReader reader)
+            : base()
+        {
+            this.CodeParticipant = reader.GetInt32(0);
+            this.LastName = reader.GetString(1);
+            this.FirstName = reader.GetString(2);
+            this.PhoneNumber = reader.GetString(3);
+            this.NbParts = reader.GetInt32(4);
+            if (!reader.IsDBNull(5))
+                this.Balance = reader.GetDouble(5);
+            this.Mail = reader.GetString(6);
+        }
+
         public static Participant GetParticipant(int codeParticipant)
         {
-            Participant participant = new Participant();
-
             OleDbConnection db = Database.Connect();
             // FIXME: use command parameters
             string sql = "select * from Participants where codeParticipant = " + codeParticipant;
@@ -32,18 +45,7 @@ namespace Hermes.DataModel
             OleDbDataReader dataReader = command.ExecuteReader();
 
             dataReader.Read();
-            participant.CodeParticipant = dataReader.GetInt32(0);
-            participant.LastName = dataReader.GetString(1);
-            participant.FirstName = dataReader.GetString(2);
-            participant.PhoneNumber = dataReader.GetString(3);
-            participant.NbParts = dataReader.GetInt32(4);
-            if (!dataReader.IsDBNull(5))
-            {
-                participant.Balance = dataReader.GetDouble(5);
-            }
-            participant.Mail = dataReader.GetString(6);
-
-            return participant;
+            return new Participant(dataReader);
         }
 
         public static DataTable toDataTable(List<Participant> participants)
