@@ -187,7 +187,7 @@ namespace Hermes.DataModel
             foreach (Participant guest in guests)
             {
                 OleDbCommand command = new OleDbCommand(
-                    "insert into Invites values (@EventId,@GuestId,'','')",
+                    "insert into Invites values (@EventId,@GuestId,'N/A','N/A')",
                     db);
                 command.Parameters.AddWithValue("@EventId", ev.Id);
                 command.Parameters.AddWithValue("@GuestId", guest.CodeParticipant);
@@ -201,7 +201,13 @@ namespace Hermes.DataModel
         {
             OleDbConnection db = Database.Connect();
 
+            // An AUTONUMBER field would be highly preferable...
             OleDbCommand command = new OleDbCommand(
+                "select max(codeEvent) from Evenements",
+                db);
+            partyEvent.Id = (int)command.ExecuteScalar() + 1;
+
+            command = new OleDbCommand(
                 "insert into Evenements values (@Id,@Name,@StartDate,@EndDate,@Description,@Completed,@AuthorId)",
                 db);
             command.Parameters.AddWithValue("@Id", partyEvent.Id);
