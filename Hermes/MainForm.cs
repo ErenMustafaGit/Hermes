@@ -89,12 +89,15 @@ namespace Hermes
 
         private void LblExit_Click(object sender, EventArgs e)
         {
+            /*
             DialogResult dialogResult = MessageBox.Show("Voulez vous vraiment\nquittez l'application ?", "Hermès", MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.Yes)
             {
                 Application.Exit();
             }
-            
+            */
+            Application.Exit();
+
         }
 
         private void LblExit_MouseHover(object sender, EventArgs e)

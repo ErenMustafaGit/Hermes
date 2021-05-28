@@ -47,12 +47,12 @@ namespace Hermes
             // 
             // pnlTitleBar
             // 
-            this.pnlTitleBar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
+            this.pnlTitleBar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(147)))), ((int)(((byte)(248)))));
             this.pnlTitleBar.Controls.Add(this.lblMinimise);
             this.pnlTitleBar.Controls.Add(this.lblExit);
-            this.pnlTitleBar.Location = new System.Drawing.Point(115, 0);
+            this.pnlTitleBar.Location = new System.Drawing.Point(0, 0);
             this.pnlTitleBar.Name = "pnlTitleBar";
-            this.pnlTitleBar.Size = new System.Drawing.Size(965, 34);
+            this.pnlTitleBar.Size = new System.Drawing.Size(1080, 34);
             this.pnlTitleBar.TabIndex = 0;
             this.pnlTitleBar.Paint += new System.Windows.Forms.PaintEventHandler(this.PnlTitleBar_Paint);
             this.pnlTitleBar.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MainForm_MouseDown);
@@ -63,8 +63,8 @@ namespace Hermes
             this.lblMinimise.AppFont = Hermes.AppFont.HelveticaNeue;
             this.lblMinimise.AppFontHeight = 15F;
             this.lblMinimise.AutoSize = true;
-            this.lblMinimise.ForeColor = System.Drawing.Color.Black;
-            this.lblMinimise.Location = new System.Drawing.Point(910, 3);
+            this.lblMinimise.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(249)))), ((int)(((byte)(249)))));
+            this.lblMinimise.Location = new System.Drawing.Point(1025, 3);
             this.lblMinimise.Name = "lblMinimise";
             this.lblMinimise.Size = new System.Drawing.Size(20, 23);
             this.lblMinimise.TabIndex = 3;
@@ -78,7 +78,8 @@ namespace Hermes
             this.lblExit.AppFont = Hermes.AppFont.HelveticaNeue;
             this.lblExit.AppFontHeight = 10F;
             this.lblExit.AutoSize = true;
-            this.lblExit.Location = new System.Drawing.Point(936, 9);
+            this.lblExit.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(249)))), ((int)(((byte)(249)))));
+            this.lblExit.Location = new System.Drawing.Point(1051, 9);
             this.lblExit.Name = "lblExit";
             this.lblExit.Size = new System.Drawing.Size(17, 16);
             this.lblExit.TabIndex = 1;
