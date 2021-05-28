@@ -51,6 +51,7 @@ namespace Hermes
 
         private void BtnValider_Click(object sender, EventArgs e)
         {
+            newEvent.Description = this.rtxtDescription.Text;
             Database.InsertEvent(newEvent, getInvitedParticipant());
 
             this.ecran.Controls.Clear();
