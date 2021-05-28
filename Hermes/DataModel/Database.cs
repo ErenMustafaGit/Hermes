@@ -367,7 +367,7 @@ namespace Hermes.DataModel
             return QuerySpendings(partyEvent.Id, participant.CodeParticipant);
         }
 
-        public static List<UserParticipationRecord> QueryParticipation(int eventId, int participantId)
+        public static List<UserParticipationRecord> QueryParticipation(PartyEvent partyEvent, Participant participant)
         {
             return QueryParticipation(partyEvent.Id, participant.CodeParticipant);
         }
