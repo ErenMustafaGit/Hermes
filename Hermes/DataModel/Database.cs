@@ -70,6 +70,20 @@ namespace Hermes.DataModel
             return partyEvents;
         }
 
+        public static List<PartyEvent> FetchUncompletedEvents()
+        {
+            OleDbConnection db = Database.Connect();
+            OleDbCommand command = new OleDbCommand("select * from Evenements where soldeON = false", db); // FIXME: request specific fields to not mess the order up
+
+            OleDbDataReader dataReader = command.ExecuteReader();
+            List<PartyEvent> partyEvents = new List<PartyEvent>();
+
+            while (dataReader.Read())
+                partyEvents.Add(new PartyEvent(dataReader));
+
+            return partyEvents;
+        }
+
         public static List<Participant> FetchParticipant()
         {
             List<Participant> participants = new List<Participant>();
