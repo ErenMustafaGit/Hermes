@@ -132,15 +132,14 @@ namespace Hermes.DataModel
             return guests;
         }
 
-        // TODO: I think this could be better   -squid
         public List<Participant> GetUninvitedPeople()
         {
-            List<Participant> uninvited = new List<Participant>();
+            List<Participant> uninvited = Database.FetchParticipant();
 
             OleDbConnection db = Database.Connect();
 
             OleDbCommand command = new OleDbCommand(
-                "select codePart from Invites where codeEvent <> @Id",
+                "select codePart from Invites where codeEvent = @Id",
                 db);
             command.Parameters.AddWithValue("@Id", this.Id);
 
@@ -148,7 +147,7 @@ namespace Hermes.DataModel
             while (dataReader.Read())
             {
                 int id = dataReader.GetInt32(0);
-                uninvited.Add(Participant.GetParticipant(id));
+                uninvited.RemoveAt(uninvited.FindIndex(x => x.CodeParticipant == id));
             }
 
             return uninvited;
