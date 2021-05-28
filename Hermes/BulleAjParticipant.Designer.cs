@@ -96,6 +96,7 @@
             this.txtPhoneNumber.Name = "txtPhoneNumber";
             this.txtPhoneNumber.Size = new System.Drawing.Size(201, 27);
             this.txtPhoneNumber.TabIndex = 36;
+            this.txtPhoneNumber.TextChanged += new System.EventHandler(this.TxtPhoneNumber_TextChanged);
             this.txtPhoneNumber.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPhoneNumber_KeyPress);
             // 
             // txtMail

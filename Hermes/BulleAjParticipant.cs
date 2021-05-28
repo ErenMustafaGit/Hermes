@@ -100,10 +100,15 @@ namespace Hermes
         private void txtPhoneNumber_KeyPress(object sender, KeyPressEventArgs e)
         {
             e.Handled = true;
-            if (char.IsDigit(e.KeyChar))
+            if (char.IsDigit(e.KeyChar) || e.KeyChar == (char)Keys.Back)
             {
                 e.Handled = false;
             }
+        }
+
+        private void TxtPhoneNumber_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
