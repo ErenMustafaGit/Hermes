@@ -110,23 +110,7 @@ namespace Hermes.DataModel
                 OleDbDataReader dataReaderGuest = commandGuest.ExecuteReader();
 
                 dataReaderGuest.Read();
-
-                // FIXME: use a ctor that takes a DataReader
-                Participant guest = new Participant();
-                guest.CodeParticipant = dataReaderGuest.GetInt32(0);
-                guest.FirstName = dataReaderGuest.GetString(1);
-                guest.LastName = dataReaderGuest.GetString(2);
-                guest.PhoneNumber = dataReaderGuest.GetString(3);
-                guest.NbParts = dataReaderGuest.GetInt32(4);
-
-                //Si le solde est null
-                if (!dataReaderGuest.IsDBNull(5))
-                {
-                    guest.Balance = dataReaderGuest.GetDouble(5);
-                }
-                guest.Mail = dataReaderGuest.GetString(6);
-
-                guests.Add(guest);
+                guests.Add(new Participant(dataReaderGuest));
             }
 
             return guests;

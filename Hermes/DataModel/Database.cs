@@ -89,26 +89,12 @@ namespace Hermes.DataModel
             List<Participant> participants = new List<Participant>();
 
             OleDbConnection db = Database.Connect();
+
             OleDbCommand command = new OleDbCommand("select * from Participants", db);
+
             OleDbDataReader dataReader = command.ExecuteReader();
             while (dataReader.Read())
-            {
-                Participant participant = new Participant();
-                participant.CodeParticipant = dataReader.GetInt32(0);
-                participant.FirstName = dataReader.GetString(1);
-                participant.LastName = dataReader.GetString(2);
-                participant.PhoneNumber = dataReader.GetString(3);
-                participant.NbParts = dataReader.GetInt32(4);
-
-                // Si le solde est null
-                if (!dataReader.IsDBNull(5))
-                {
-                    participant.Balance = dataReader.GetDouble(5);
-                }
-                participant.Mail = dataReader.GetString(6);
-
-                participants.Add(participant);
-            }
+                participants.Add(new Participant(dataReader));
             
             return participants;
         }
