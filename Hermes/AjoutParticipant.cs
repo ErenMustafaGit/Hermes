@@ -54,8 +54,15 @@ namespace Hermes
             //Donne l'action au bouton annuler
             Stop annuler = DelegateMethodAnnuler;
             bulleAjParticipant.Annuler = annuler;
+
+            //Donne le panel qui contiendra la bulle d'ajout rapide
+            bulleAjParticipant.SetPanel = bulle;
+
             bulle.Controls.Add(bulleAjParticipant);
             bulle.Visible = true;
+            
+
+
         }
 
         private void LblIconeAjoutParticipant_MouseHover(object sender, EventArgs e)

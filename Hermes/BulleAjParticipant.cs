@@ -14,6 +14,13 @@ namespace Hermes
     public partial class BulleAjParticipant : UserControl
     {
         public Delegate annuler;
+        public Panel pnlMain;
+
+        public Panel SetPanel
+        {
+            set { this.pnlMain = value; }
+        }
+
         public Delegate Annuler
         {
             set { this.annuler = value; }
@@ -66,7 +73,7 @@ namespace Hermes
                 //Creation du nouveau participant
                 Participant newParticipant = new Participant()
                 {
-                    CodeParticipant = 0,
+                    CodeParticipant = 10,
                     LastName = txtLastName.Text,
                     FirstName = txtFirstName.Text,
                     PhoneNumber = txtPhoneNumber.Text,
@@ -74,8 +81,9 @@ namespace Hermes
                     //Balance = null,
                     Mail = txtMail.Text,
                 };
-
-                //Database.InsertParticipant(newParticipant)
+                Database.InsertParticipant(newParticipant);
+                pnlMain.Controls.Clear();
+                pnlMain.Visible = false;
             }
         }
 
