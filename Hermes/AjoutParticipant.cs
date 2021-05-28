@@ -57,6 +57,7 @@ namespace Hermes
 
             //Donne le panel qui contiendra la bulle d'ajout rapide
             bulleAjParticipant.SetPanel = bulle;
+            bulleAjParticipant.SetEcran = pnlPrincipal;
 
             bulle.Controls.Add(bulleAjParticipant);
             bulle.Visible = true;

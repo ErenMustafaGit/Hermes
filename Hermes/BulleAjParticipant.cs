@@ -15,10 +15,16 @@ namespace Hermes
     {
         public Delegate annuler;
         public Panel pnlMain;
+        private Panel ecran;
 
         public Panel SetPanel
         {
             set { this.pnlMain = value; }
+        }
+
+        public Panel SetEcran
+        {
+            set { this.ecran = value; }
         }
 
         public Delegate Annuler
@@ -73,7 +79,7 @@ namespace Hermes
                 //Creation du nouveau participant
                 Participant newParticipant = new Participant()
                 {
-                    CodeParticipant = 10,
+                    CodeParticipant = 14,
                     LastName = txtLastName.Text,
                     FirstName = txtFirstName.Text,
                     PhoneNumber = txtPhoneNumber.Text,
@@ -84,6 +90,10 @@ namespace Hermes
                 Database.InsertParticipant(newParticipant);
                 pnlMain.Controls.Clear();
                 pnlMain.Visible = false;
+                ecran.Controls.Clear();
+
+                Participants participants = new Participants();
+                ecran.Controls.Add(participants);
             }
         }
 
