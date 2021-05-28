@@ -146,7 +146,13 @@ namespace Hermes.DataModel
         {
             OleDbConnection db = Database.Connect();
 
+            // An AUTONUMBER field would be highly preferable...
             OleDbCommand command = new OleDbCommand(
+                "select max(numDepense) from Depenses",
+                db);
+            expense.Id = (int)command.ExecuteScalar() + 1;
+
+            command = new OleDbCommand(
                 "insert into Depenses values (@Id,@Description,@Amount,@Date,@Comment,@EventId,@AuthorId)",
                 db);
             command.Parameters.AddWithValue("@Id", expense.Id);
@@ -228,7 +234,13 @@ namespace Hermes.DataModel
         {
             OleDbConnection db = Database.Connect();
 
+            // An AUTONUMBER field would be highly preferable...
             OleDbCommand command = new OleDbCommand(
+                "select max(codeParticipant) from Participants",
+                db);
+            participant.CodeParticipant = (int)command.ExecuteScalar() + 1;
+
+            command = new OleDbCommand(
                 "insert into Participants values (@Id,@LastName,@FirstName,@PhoneNumber,@Shares,@Balance,@Email)",
                 db);
             command.Parameters.AddWithValue("@Id", participant.CodeParticipant);
