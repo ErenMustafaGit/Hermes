@@ -31,16 +31,14 @@ namespace Hermes
         {
             this.pnlEcran = new System.Windows.Forms.Panel();
             this.pnlTitleBar = new System.Windows.Forms.Panel();
-            this.sideBarUserControls1 = new Hermes.SideBarUserControls();
             this.lblMinimise = new Hermes.UI.AppFontLabel();
             this.lblExit = new Hermes.UI.AppFontLabel();
-            this.pnlEcran.SuspendLayout();
+            this.sideBarUserControls1 = new Hermes.SideBarUserControls();
             this.pnlTitleBar.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnlEcran
             // 
-            this.pnlEcran.Controls.Add(this.pnlTitleBar);
             this.pnlEcran.Location = new System.Drawing.Point(115, 0);
             this.pnlEcran.Name = "pnlEcran";
             this.pnlEcran.Size = new System.Drawing.Size(965, 640);
@@ -52,23 +50,13 @@ namespace Hermes
             this.pnlTitleBar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
             this.pnlTitleBar.Controls.Add(this.lblMinimise);
             this.pnlTitleBar.Controls.Add(this.lblExit);
-            this.pnlTitleBar.Location = new System.Drawing.Point(0, 0);
+            this.pnlTitleBar.Location = new System.Drawing.Point(115, 0);
             this.pnlTitleBar.Name = "pnlTitleBar";
             this.pnlTitleBar.Size = new System.Drawing.Size(965, 34);
             this.pnlTitleBar.TabIndex = 0;
             this.pnlTitleBar.Paint += new System.Windows.Forms.PaintEventHandler(this.PnlTitleBar_Paint);
             this.pnlTitleBar.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MainForm_MouseDown);
             this.pnlTitleBar.MouseMove += new System.Windows.Forms.MouseEventHandler(this.MainForm_MouseMove);
-            // 
-            // sideBarUserControls1
-            // 
-            this.sideBarUserControls1.BackColor = System.Drawing.Color.White;
-            this.sideBarUserControls1.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.sideBarUserControls1.Location = new System.Drawing.Point(0, 0);
-            this.sideBarUserControls1.Name = "sideBarUserControls1";
-            this.sideBarUserControls1.Size = new System.Drawing.Size(116, 640);
-            this.sideBarUserControls1.TabIndex = 4;
-            this.sideBarUserControls1.Load += new System.EventHandler(this.SideBarUserControls1_Load);
             // 
             // lblMinimise
             // 
@@ -100,6 +88,16 @@ namespace Hermes
             this.lblExit.MouseLeave += new System.EventHandler(this.LblExit_MouseLeave);
             this.lblExit.MouseHover += new System.EventHandler(this.LblExit_MouseHover);
             // 
+            // sideBarUserControls1
+            // 
+            this.sideBarUserControls1.BackColor = System.Drawing.Color.White;
+            this.sideBarUserControls1.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.sideBarUserControls1.Location = new System.Drawing.Point(0, 0);
+            this.sideBarUserControls1.Name = "sideBarUserControls1";
+            this.sideBarUserControls1.Size = new System.Drawing.Size(116, 640);
+            this.sideBarUserControls1.TabIndex = 4;
+            this.sideBarUserControls1.Load += new System.EventHandler(this.SideBarUserControls1_Load);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -107,6 +105,7 @@ namespace Hermes
             this.AutoValidate = System.Windows.Forms.AutoValidate.EnableAllowFocusChange;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(249)))), ((int)(((byte)(249)))));
             this.ClientSize = new System.Drawing.Size(1080, 640);
+            this.Controls.Add(this.pnlTitleBar);
             this.Controls.Add(this.sideBarUserControls1);
             this.Controls.Add(this.pnlEcran);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -116,7 +115,6 @@ namespace Hermes
             this.Load += new System.EventHandler(this.MainForm_Load);
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MainForm_MouseDown);
             this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.MainForm_MouseMove);
-            this.pnlEcran.ResumeLayout(false);
             this.pnlTitleBar.ResumeLayout(false);
             this.pnlTitleBar.PerformLayout();
             this.ResumeLayout(false);
