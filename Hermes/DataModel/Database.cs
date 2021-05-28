@@ -204,6 +204,25 @@ namespace Hermes.DataModel
             InsertGuestsForEvent(partyEvent, guests);
         }
 
+        public static void InsertParticipant(Participant participant)
+        {
+            OleDbConnection db = Database.Connect();
+
+            OleDbCommand command = new OleDbCommand(
+                "insert into Participants values (@Id,@LastName,@FirstName,@PhoneNumber,@Shares,@Balance,@Email)",
+                db);
+            command.Parameters.AddWithValue("@Id", participant.CodeParticipant);
+            command.Parameters.AddWithValue("@LastName", participant.LastName);
+            command.Parameters.AddWithValue("@FirstName", participant.FirstName);
+            command.Parameters.AddWithValue("@PhoneNumber", participant.PhoneNumber);
+            command.Parameters.AddWithValue("@Shares", participant.NbParts);
+            command.Parameters.AddWithValue("@Balance", participant.Balance);
+            command.Parameters.AddWithValue("@Email", participant.Mail);
+
+            if (command.ExecuteNonQuery() <= 0)
+                throw new DatabaseInsertException("Could not insert participant");
+        }
+
         public static List<Expense> FetchExpenses()
         {
             OleDbConnection db = Database.Connect();
