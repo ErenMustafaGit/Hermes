@@ -27,6 +27,58 @@ namespace Hermes.DataModel
         }
     }
 
+    public class UserSpendingRecord
+    {
+        public int ExpenseId { get; private set; }
+        public DateTime Date { get; private set; }
+        public string Description { get; private set; }
+        public decimal Amount { get; private set; }
+
+        private Expense m_Expense = null;
+        public Expense Expense
+        {
+            get
+            {
+                if (m_Expense == null)
+                    m_Expense = Expense.GetFromId(ExpenseId);
+                return m_Expense;
+            }
+        }
+
+        public UserSpendingRecord(int expenseId, DateTime date, string desc, decimal amount)
+        {
+            this.ExpenseId = expenseId;
+            this.Date = date;
+            this.Description = desc;
+            this.Amount = amount;
+        }
+    }
+
+    public class UserParticipationRecord
+    {
+        public int ExpenseId { get; private set; }
+        public decimal Amount { get; private set; }
+        public int ExpenseTotalShares { get; private set; }
+
+        private Expense m_Expense = null;
+        public Expense Expense
+        {
+            get
+            {
+                if (m_Expense == null)
+                    m_Expense = Expense.GetFromId(ExpenseId);
+                return m_Expense;
+            }
+        }
+
+        public UserParticipationRecord(int expenseId, decimal amount, int totalShares)
+        {
+            this.ExpenseId = expenseId;
+            this.Amount = amount;
+            this.ExpenseTotalShares = totalShares;
+        }
+    }
+
     public static class Database
     {
         const string ConnectionString = "Provider=Microsoft.Jet.OLEDB.4.0;Data Source='../../../bdEvents.mdb'";
@@ -253,6 +305,71 @@ namespace Hermes.DataModel
                 expenses.Add(new Expense(dataReader));
             
             return expenses;
+        }
+
+        public static List<UserSpendingRecord> QuerySpendings(int eventId, int participantId)
+        {
+            OleDbConnection db = Database.Connect();
+
+            OleDbCommand command = new OleDbCommand
+            {
+                Connection = db,
+                CommandType = CommandType.StoredProcedure,
+                CommandText = "MesDepenses"
+            };
+
+            List<UserSpendingRecord> records = new List<UserSpendingRecord>();
+
+            OleDbDataReader reader = command.ExecuteReader();
+            while (reader.Read())
+            {
+                int expenseId = reader.GetInt32(0);
+                DateTime date = reader.GetDateTime(1);
+                string description = "";
+                if (!reader.IsDBNull(2))
+                    description = reader.GetString(2);
+                decimal amount = reader.GetDecimal(3);
+
+                records.Add(new UserSpendingRecord(expenseId, date, description, amount));
+            }
+
+            return records;
+        }
+
+        public static List<UserParticipationRecord> QueryParticipation(int eventId, int participantId)
+        {
+            OleDbConnection db = Database.Connect();
+
+            OleDbCommand command = new OleDbCommand
+            {
+                Connection = db,
+                CommandType = CommandType.StoredProcedure,
+                CommandText = "DepensesQuiMeConcernent"
+            };
+
+            List<UserParticipationRecord> records = new List<UserParticipationRecord>();
+
+            OleDbDataReader reader = command.ExecuteReader();
+            while (reader.Read())
+            {
+                int expenseId = reader.GetInt32(0);
+                decimal amount = reader.GetDecimal(2);
+                int totalShares = reader.GetInt32(3);
+
+                records.Add(new UserParticipationRecord(expenseId, amount, totalShares));
+            }
+
+            return records;
+        }
+
+        public static List<UserSpendingRecord> QuerySpendings(PartyEvent partyEvent, Participant participant)
+        {
+            return QuerySpendings(partyEvent.Id, participant.CodeParticipant);
+        }
+
+        public static List<UserParticipationRecord> QueryParticipation(int eventId, int participantId)
+        {
+            return QueryParticipation(partyEvent.Id, participant.CodeParticipant);
         }
     }
 }
