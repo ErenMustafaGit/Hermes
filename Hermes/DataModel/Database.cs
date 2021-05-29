@@ -58,7 +58,7 @@ namespace Hermes.DataModel
     {
         public int ExpenseId { get; private set; }
         public decimal Amount { get; private set; }
-        public int ExpenseTotalShares { get; private set; }
+        public double ExpenseTotalShares { get; private set; }
 
         private Expense m_Expense = null;
         public Expense Expense
@@ -71,7 +71,7 @@ namespace Hermes.DataModel
             }
         }
 
-        public UserParticipationRecord(int expenseId, decimal amount, int totalShares)
+        public UserParticipationRecord(int expenseId, decimal amount, double totalShares)
         {
             this.ExpenseId = expenseId;
             this.Amount = amount;
@@ -360,7 +360,7 @@ namespace Hermes.DataModel
             {
                 int expenseId = reader.GetInt32(0);
                 decimal amount = reader.GetDecimal(1);
-                int totalShares = reader.GetInt32(2);
+                double totalShares = reader.GetDouble(2);
 
                 records.Add(new UserParticipationRecord(expenseId, amount, totalShares));
             }

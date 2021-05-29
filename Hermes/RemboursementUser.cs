@@ -13,13 +13,13 @@ namespace Hermes
     public partial class RemboursementUser : UserControl
     {
         private Decimal amount;
-        private int nombreDePart;
+        private double nombreDePart;
         public RemboursementUser()
         {
             InitializeComponent();
         }
 
-        public RemboursementUser(int nombreDePart, Decimal amount)
+        public RemboursementUser(double nombreDePart, Decimal amount)
         {
             this.nombreDePart = nombreDePart;
             this.amount = amount;
