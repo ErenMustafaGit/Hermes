@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.lblAmountDepense = new Hermes.UI.AppFontLabel();
-            this.lblNomDepense = new Hermes.UI.AppFontLabel();
+            this.lblNbrPart = new Hermes.UI.AppFontLabel();
             this.SuspendLayout();
             // 
             // lblAmountDepense
@@ -44,25 +44,25 @@
             this.lblAmountDepense.TabIndex = 6;
             this.lblAmountDepense.Text = "120,00€";
             // 
-            // lblNomDepense
+            // lblNbrPart
             // 
-            this.lblNomDepense.AppFont = Hermes.AppFont.HelveticaNeue_Bold;
-            this.lblNomDepense.AppFontHeight = 17F;
-            this.lblNomDepense.AutoSize = true;
-            this.lblNomDepense.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(249)))), ((int)(((byte)(249)))));
-            this.lblNomDepense.Location = new System.Drawing.Point(24, 23);
-            this.lblNomDepense.Name = "lblNomDepense";
-            this.lblNomDepense.Size = new System.Drawing.Size(218, 29);
-            this.lblNomDepense.TabIndex = 4;
-            this.lblNomDepense.Text = "Nombre de part : 9";
+            this.lblNbrPart.AppFont = Hermes.AppFont.HelveticaNeue_Bold;
+            this.lblNbrPart.AppFontHeight = 17F;
+            this.lblNbrPart.AutoSize = true;
+            this.lblNbrPart.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(249)))), ((int)(((byte)(249)))));
+            this.lblNbrPart.Location = new System.Drawing.Point(24, 23);
+            this.lblNbrPart.Name = "lblNbrPart";
+            this.lblNbrPart.Size = new System.Drawing.Size(218, 29);
+            this.lblNbrPart.TabIndex = 4;
+            this.lblNbrPart.Text = "Nombre de part : 9";
             // 
             // RemboursementUser
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.MenuHighlight;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(147)))), ((int)(((byte)(248)))));
             this.Controls.Add(this.lblAmountDepense);
-            this.Controls.Add(this.lblNomDepense);
+            this.Controls.Add(this.lblNbrPart);
             this.Name = "RemboursementUser";
             this.Size = new System.Drawing.Size(386, 120);
             this.Load += new System.EventHandler(this.RemboursementUser_Load);
@@ -74,6 +74,6 @@
         #endregion
 
         private UI.AppFontLabel lblAmountDepense;
-        private UI.AppFontLabel lblNomDepense;
+        private UI.AppFontLabel lblNbrPart;
     }
 }

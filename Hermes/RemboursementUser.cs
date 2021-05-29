@@ -12,14 +12,24 @@ namespace Hermes
 {
     public partial class RemboursementUser : UserControl
     {
+        private Decimal amount;
+        private int nombreDePart;
         public RemboursementUser()
         {
             InitializeComponent();
         }
 
+        public RemboursementUser(int nombreDePart, Decimal amount)
+        {
+            this.nombreDePart = nombreDePart;
+            this.amount = amount;
+            InitializeComponent();
+        }
+
         private void RemboursementUser_Load(object sender, EventArgs e)
         {
-
+            lblNbrPart.Text = "Nombre de part : " + this.nombreDePart;
+            lblAmountDepense.Text = this.amount + "€";
         }
     }
 }

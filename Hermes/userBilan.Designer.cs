@@ -30,17 +30,13 @@
         {
             this.cboParticipant = new System.Windows.Forms.ComboBox();
             this.pnlDepense = new System.Windows.Forms.Panel();
-            this.depenseUser1 = new Hermes.DepenseUser();
             this.pnlRemboursement = new System.Windows.Forms.Panel();
             this.lblEvent = new Hermes.UI.AppFontLabel();
-            this.appFontLabel2 = new Hermes.UI.AppFontLabel();
+            this.lblTotalRemboursement = new Hermes.UI.AppFontLabel();
             this.lblTextRemboursement = new Hermes.UI.AppFontLabel();
-            this.appFontLabel4 = new Hermes.UI.AppFontLabel();
+            this.lblTotalDepnse = new Hermes.UI.AppFontLabel();
             this.appFontLabel3 = new Hermes.UI.AppFontLabel();
             this.appFontLabel1 = new Hermes.UI.AppFontLabel();
-            this.remboursementUser1 = new Hermes.RemboursementUser();
-            this.pnlDepense.SuspendLayout();
-            this.pnlRemboursement.SuspendLayout();
             this.SuspendLayout();
             // 
             // cboParticipant
@@ -56,24 +52,14 @@
             // 
             // pnlDepense
             // 
-            this.pnlDepense.Controls.Add(this.depenseUser1);
             this.pnlDepense.Location = new System.Drawing.Point(72, 391);
             this.pnlDepense.Name = "pnlDepense";
             this.pnlDepense.Size = new System.Drawing.Size(388, 264);
             this.pnlDepense.TabIndex = 33;
-            // 
-            // depenseUser1
-            // 
-            this.depenseUser1.BackColor = System.Drawing.SystemColors.MenuHighlight;
-            this.depenseUser1.Location = new System.Drawing.Point(0, 0);
-            this.depenseUser1.Name = "depenseUser1";
-            this.depenseUser1.Size = new System.Drawing.Size(386, 120);
-            this.depenseUser1.TabIndex = 0;
-            this.depenseUser1.Load += new System.EventHandler(this.depenseUser1_Load);
+            this.pnlDepense.Paint += new System.Windows.Forms.PaintEventHandler(this.PnlDepense_Paint);
             // 
             // pnlRemboursement
             // 
-            this.pnlRemboursement.Controls.Add(this.remboursementUser1);
             this.pnlRemboursement.Location = new System.Drawing.Point(519, 391);
             this.pnlRemboursement.Name = "pnlRemboursement";
             this.pnlRemboursement.Size = new System.Drawing.Size(387, 264);
@@ -90,16 +76,16 @@
             this.lblEvent.TabIndex = 38;
             this.lblEvent.Text = "Week-end dans le Jura";
             // 
-            // appFontLabel2
+            // lblTotalRemboursement
             // 
-            this.appFontLabel2.AppFont = Hermes.AppFont.HelveticaNeue_Bold;
-            this.appFontLabel2.AppFontHeight = 60F;
-            this.appFontLabel2.AutoSize = true;
-            this.appFontLabel2.Location = new System.Drawing.Point(532, 269);
-            this.appFontLabel2.Name = "appFontLabel2";
-            this.appFontLabel2.Size = new System.Drawing.Size(345, 100);
-            this.appFontLabel2.TabIndex = 32;
-            this.appFontLabel2.Text = "147,20€";
+            this.lblTotalRemboursement.AppFont = Hermes.AppFont.HelveticaNeue_Bold;
+            this.lblTotalRemboursement.AppFontHeight = 60F;
+            this.lblTotalRemboursement.AutoSize = true;
+            this.lblTotalRemboursement.Location = new System.Drawing.Point(532, 269);
+            this.lblTotalRemboursement.Name = "lblTotalRemboursement";
+            this.lblTotalRemboursement.Size = new System.Drawing.Size(345, 100);
+            this.lblTotalRemboursement.TabIndex = 32;
+            this.lblTotalRemboursement.Text = "147,20€";
             // 
             // lblTextRemboursement
             // 
@@ -112,16 +98,16 @@
             this.lblTextRemboursement.TabIndex = 31;
             this.lblTextRemboursement.Text = "Total remboursement :";
             // 
-            // appFontLabel4
+            // lblTotalDepnse
             // 
-            this.appFontLabel4.AppFont = Hermes.AppFont.HelveticaNeue_Bold;
-            this.appFontLabel4.AppFontHeight = 60F;
-            this.appFontLabel4.AutoSize = true;
-            this.appFontLabel4.Location = new System.Drawing.Point(99, 269);
-            this.appFontLabel4.Name = "appFontLabel4";
-            this.appFontLabel4.Size = new System.Drawing.Size(345, 100);
-            this.appFontLabel4.TabIndex = 30;
-            this.appFontLabel4.Text = "278,00€";
+            this.lblTotalDepnse.AppFont = Hermes.AppFont.HelveticaNeue_Bold;
+            this.lblTotalDepnse.AppFontHeight = 60F;
+            this.lblTotalDepnse.AutoSize = true;
+            this.lblTotalDepnse.Location = new System.Drawing.Point(99, 269);
+            this.lblTotalDepnse.Name = "lblTotalDepnse";
+            this.lblTotalDepnse.Size = new System.Drawing.Size(345, 100);
+            this.lblTotalDepnse.TabIndex = 30;
+            this.lblTotalDepnse.Text = "278,00€";
             // 
             // appFontLabel3
             // 
@@ -145,14 +131,6 @@
             this.appFontLabel1.TabIndex = 22;
             this.appFontLabel1.Text = "Quel participant ?";
             // 
-            // remboursementUser1
-            // 
-            this.remboursementUser1.BackColor = System.Drawing.SystemColors.MenuHighlight;
-            this.remboursementUser1.Location = new System.Drawing.Point(0, 0);
-            this.remboursementUser1.Name = "remboursementUser1";
-            this.remboursementUser1.Size = new System.Drawing.Size(386, 120);
-            this.remboursementUser1.TabIndex = 0;
-            // 
             // UserBilan
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -160,17 +138,15 @@
             this.Controls.Add(this.lblEvent);
             this.Controls.Add(this.pnlRemboursement);
             this.Controls.Add(this.pnlDepense);
-            this.Controls.Add(this.appFontLabel2);
+            this.Controls.Add(this.lblTotalRemboursement);
             this.Controls.Add(this.lblTextRemboursement);
-            this.Controls.Add(this.appFontLabel4);
+            this.Controls.Add(this.lblTotalDepnse);
             this.Controls.Add(this.appFontLabel3);
             this.Controls.Add(this.appFontLabel1);
             this.Controls.Add(this.cboParticipant);
             this.Name = "UserBilan";
             this.Size = new System.Drawing.Size(1064, 640);
             this.Load += new System.EventHandler(this.Bilan_Load);
-            this.pnlDepense.ResumeLayout(false);
-            this.pnlRemboursement.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -180,13 +156,11 @@
         private UI.AppFontLabel appFontLabel1;
         private System.Windows.Forms.ComboBox cboParticipant;
         private UI.AppFontLabel appFontLabel3;
-        private UI.AppFontLabel appFontLabel4;
-        private UI.AppFontLabel appFontLabel2;
+        private UI.AppFontLabel lblTotalDepnse;
+        private UI.AppFontLabel lblTotalRemboursement;
         private UI.AppFontLabel lblTextRemboursement;
         private System.Windows.Forms.Panel pnlDepense;
         private System.Windows.Forms.Panel pnlRemboursement;
-        private DepenseUser depenseUser1;
         private UI.AppFontLabel lblEvent;
-        private RemboursementUser remboursementUser1;
     }
 }

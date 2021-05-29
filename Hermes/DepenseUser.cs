@@ -15,16 +15,18 @@ namespace Hermes
         private DateTime dateDepense;
         private string description;
         private Decimal montant;
+        /*
         public DepenseUser()
         {
             InitializeComponent();
         }
-
+        */
         public DepenseUser(DateTime dateDepense, string description, Decimal montant)
         {
             this.dateDepense = dateDepense;
             this.description = description;
             this.montant = montant;
+            InitializeComponent();
         }
 
 

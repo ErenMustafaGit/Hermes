@@ -41,7 +41,7 @@
             this.lblAmountDepense.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(249)))), ((int)(((byte)(249)))));
             this.lblAmountDepense.Location = new System.Drawing.Point(250, 70);
             this.lblAmountDepense.Name = "lblAmountDepense";
-            this.lblAmountDepense.Size = new System.Drawing.Size(96, 27);
+            this.lblAmountDepense.Size = new System.Drawing.Size(113, 32);
             this.lblAmountDepense.TabIndex = 3;
             this.lblAmountDepense.Text = "120,00€";
             // 
@@ -65,7 +65,7 @@
             this.lblNomDepense.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(249)))), ((int)(((byte)(249)))));
             this.lblNomDepense.Location = new System.Drawing.Point(25, 27);
             this.lblNomDepense.Name = "lblNomDepense";
-            this.lblNomDepense.Size = new System.Drawing.Size(216, 27);
+            this.lblNomDepense.Size = new System.Drawing.Size(229, 29);
             this.lblNomDepense.TabIndex = 1;
             this.lblNomDepense.Text = "Courses alimentaire";
             // 
@@ -73,7 +73,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.MenuHighlight;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(147)))), ((int)(((byte)(248)))));
             this.Controls.Add(this.lblAmountDepense);
             this.Controls.Add(this.lblDateDepense);
             this.Controls.Add(this.lblNomDepense);

@@ -156,5 +156,10 @@ namespace Hermes
             pnlInvitationsBulle.Controls.Add(bulleInvitations);
 
         }
+
+        private void CboEvenements_SelectedIndexChanged_1(object sender, EventArgs e)
+        {
+
+        }
     }
 }
