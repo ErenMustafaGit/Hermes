@@ -33,7 +33,7 @@ namespace Hermes
 
         private void AjoutParticipant_Load(object sender, EventArgs e)
         {
-            
+            pictureBox1.SendToBack();
         }
 
 
@@ -80,6 +80,11 @@ namespace Hermes
 
         private void AjoutParticipant_MouseHover(object sender, EventArgs e)
         {
+        }
+
+        private void PictureBox1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
