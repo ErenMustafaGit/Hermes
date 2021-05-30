@@ -52,17 +52,17 @@
             // 
             // pnlDepense
             // 
-            this.pnlDepense.Location = new System.Drawing.Point(72, 391);
+            this.pnlDepense.Location = new System.Drawing.Point(72, 372);
             this.pnlDepense.Name = "pnlDepense";
-            this.pnlDepense.Size = new System.Drawing.Size(388, 264);
+            this.pnlDepense.Size = new System.Drawing.Size(388, 283);
             this.pnlDepense.TabIndex = 33;
             this.pnlDepense.Paint += new System.Windows.Forms.PaintEventHandler(this.PnlDepense_Paint);
             // 
             // pnlRemboursement
             // 
-            this.pnlRemboursement.Location = new System.Drawing.Point(519, 391);
+            this.pnlRemboursement.Location = new System.Drawing.Point(519, 372);
             this.pnlRemboursement.Name = "pnlRemboursement";
-            this.pnlRemboursement.Size = new System.Drawing.Size(387, 264);
+            this.pnlRemboursement.Size = new System.Drawing.Size(387, 283);
             this.pnlRemboursement.TabIndex = 34;
             // 
             // lblEvent

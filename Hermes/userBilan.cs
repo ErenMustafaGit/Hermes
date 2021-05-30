@@ -15,6 +15,7 @@ namespace Hermes
     {
         private PartyEvent currentEvent;
         public Panel ecran;
+      
         public Panel setPanel
         {
             set { this.ecran = value; }
@@ -66,7 +67,7 @@ namespace Hermes
             foreach (UserSpendingRecord userSpending in listeDepense)
                 totalAmount += userSpending.Amount;
 
-            lblTotalDepnse.Text = totalAmount.ToString() + "€";
+            lblTotalDepnse.Text = totalAmount.ToString("0.00") + "€";
             for (int i = 0; i < listeDepense.Count; i++)
             {
                 DepenseUser depenseUser = new DepenseUser(listeDepense[i].Date, listeDepense[i].Description, listeDepense[i].Amount);
@@ -83,10 +84,8 @@ namespace Hermes
             Participant participant = listeParticipants[cboParticipant.SelectedIndex];
             List<UserParticipationRecord> listeRemboursement = Database.QueryParticipation(currentEvent.Id, participant.CodeParticipant);
             Decimal totalAmount = 0;
-            foreach (UserParticipationRecord userParticipationRecord in listeRemboursement)
-                totalAmount += userParticipationRecord.Amount;
-
-            lblTotalRemboursement.Text = totalAmount.ToString() + "€";
+            totalAmount = CalculeRemboursement(listeRemboursement, participant);
+            lblTotalRemboursement.Text = totalAmount.ToString("0.00") + "€";
             for (int i = 0; i < listeRemboursement.Count; i++)
             {
                 RemboursementUser remboursementUser = new RemboursementUser(listeRemboursement[i].ExpenseTotalShares, listeRemboursement[i].Amount);
@@ -94,6 +93,15 @@ namespace Hermes
                 remboursementUser.Location = position;
                 pnlRemboursement.Controls.Add(remboursementUser);
             }
+        }
+
+        private Decimal CalculeRemboursement(List<UserParticipationRecord> listeRemboursement, Participant participant)
+        {
+            double total = 0;
+            foreach (UserParticipationRecord userParticipationRecord in listeRemboursement)
+                total += Convert.ToDouble(userParticipationRecord.Amount)/ userParticipationRecord.ExpenseTotalShares * participant.NbParts;
+
+            return (Decimal)total;
         }
 
         private void PnlDepense_Paint(object sender, PaintEventArgs e)
