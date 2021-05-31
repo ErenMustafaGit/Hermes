@@ -70,7 +70,22 @@ namespace Hermes
 
         private void btnContinuer_Click(object sender, EventArgs e)
         {
-            if(txtDescription.Text.Length > 0 && numAmount.Value >= 0)
+            bool done = true;
+            txtDescription.BackColor = Color.White;
+            numAmount.BackColor = Color.White;
+            if(txtDescription.Text.Length == 0)
+            {
+                done = false;
+                txtDescription.Focus();
+                txtDescription.BackColor = Color.LightPink;
+            }
+            if(numAmount.Value <= 0)
+            {
+                done = false;
+                numAmount.Focus();
+                numAmount.BackColor = Color.LightPink;
+            }
+            if (done)
             {
                 decimal montant = numAmount.Value;
                 string description = txtDescription.Text;
@@ -82,11 +97,7 @@ namespace Hermes
                 BulleAjDepense2 bulleAjDepense2 = new BulleAjDepense2(montant, description, codeParticipant, codeEvenement, dateDepense, pnlPrincipal, pnlBulleEmplacement);
                 pnlBulleEmplacement.Controls.Add(bulleAjDepense2);
             }
-            else
-            {
-                MessageBox.Show("Veuillez saisir un nom de dépense ! ");
-            }
-            
+
         }
 
         private void cboEventCreator_SelectedIndexChanged(object sender, EventArgs e)

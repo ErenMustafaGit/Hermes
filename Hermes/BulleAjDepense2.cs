@@ -129,5 +129,21 @@ namespace Hermes
             return beneficiary;
         }
 
+        private void btnAnnuler_Click(object sender, EventArgs e)
+        {
+            MessageBoxButtons buttons = MessageBoxButtons.YesNo;
+            DialogResult result;
+            string message = "Voulez vous vraiment annuler l'ajout ?";
+            string caption = "";
+            result = MessageBox.Show(this, message, caption, buttons,
+            MessageBoxIcon.Question, MessageBoxDefaultButton.Button1,
+            MessageBoxOptions.RightAlign);
+            if (result == DialogResult.Yes)
+            {
+                this.pnlBulleEmplacement.Controls.Clear();
+                this.pnlBulleEmplacement.Visible = false;
+            }
+            
+        }
     }
 }
