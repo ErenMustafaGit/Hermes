@@ -70,7 +70,7 @@ namespace Hermes
 
         private void btnContinuer_Click(object sender, EventArgs e)
         {
-            if(txtDescription.Text.Length > 0)
+            if(txtDescription.Text.Length > 0 && numAmount.Value >= 0)
             {
                 decimal montant = numAmount.Value;
                 string description = txtDescription.Text;
