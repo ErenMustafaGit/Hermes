@@ -123,9 +123,16 @@ namespace Hermes
             List<Participant> beneficiary = new List<Participant>();
             foreach (CheckBox chk in pnlBeneficiaire.Controls)
             {
-                if (chk.Checked && chk != chkEveryOne)
+                if (chk != chkEveryOne)
                 {
-                    beneficiary.Add(Participant.GetParticipant((int)chk.Tag));
+
+                    //Coche automatique de celui qui crée la dépense
+                    if ((int)chk.Tag == CodePayeur)
+                        chk.Checked = true;
+
+                    if(chk.Checked)
+                        beneficiary.Add(Participant.GetParticipant((int)chk.Tag));
+
                 }
             }
 

@@ -70,6 +70,20 @@ namespace Hermes.DataModel
             return partyEvents;
         }
 
+        public static List<PartyEvent> FetchUncompletedEvents()
+        {
+            OleDbConnection db = Database.Connect();
+            OleDbCommand command = new OleDbCommand("select * from Evenements where soldeON = false", db); // FIXME: request specific fields to not mess the order up
+
+            OleDbDataReader dataReader = command.ExecuteReader();
+            List<PartyEvent> partyEvents = new List<PartyEvent>();
+
+            while (dataReader.Read())
+                partyEvents.Add(new PartyEvent(dataReader));
+
+            return partyEvents;
+        }
+
         public static List<Participant> FetchParticipant()
         {
             List<Participant> participants = new List<Participant>();
@@ -132,7 +146,13 @@ namespace Hermes.DataModel
         {
             OleDbConnection db = Database.Connect();
 
+            // An AUTONUMBER field would be highly preferable...
             OleDbCommand command = new OleDbCommand(
+                "select max(numDepense) from Depenses",
+                db);
+            expense.Id = (int)command.ExecuteScalar() + 1;
+
+            command = new OleDbCommand(
                 "insert into Depenses values (@Id,@Description,@Amount,@Date,@Comment,@EventId,@AuthorId)",
                 db);
             command.Parameters.AddWithValue("@Id", expense.Id);
@@ -148,14 +168,13 @@ namespace Hermes.DataModel
                 throw new DatabaseInsertException("Failed to insert expense");
 
 
-            // FIXME: Isn't there a better way to do this..?
-            // Forgive me, for I have sinned...
+            // FIXME: Isn't there a better way to do this, in an atomic way..?
 
             List<string> pairs = new List<string>();
             foreach (Participant recipient in recipients)
             {
                 command = new OleDbCommand(
-                    "insert into Beneficiaires (numDepense, codePart) values (@Id,@RecipientId)",
+                    "insert into Beneficiaires (numDepense,codePart) values (@Id,@RecipientId)",
                     db);
                 command.Parameters.AddWithValue("@Id", expense.Id);
                 command.Parameters.AddWithValue("@RecipientId", recipient.CodeParticipant);
@@ -166,33 +185,18 @@ namespace Hermes.DataModel
             }
         }
 
-        // TODO: refactor
         public static void InsertGuestsForEvent(PartyEvent ev, List<Participant> guests)
         {
             OleDbConnection db = Database.Connect();
 
-            OleDbCommand command = new OleDbCommand();
-            command.Connection = db;
-
-            // Would be better as a single insert
+            // FIXME: Would be better as a single insert
             foreach (Participant guest in guests)
             {
-                // wtf
-                string login = guest.FirstName[0].ToString();
-                string mdp = "*" + guest.FirstName[0];
-                if (guest.LastName.Length < 5)
-                {
-                    login += guest.LastName.Substring(0, guest.LastName.Length);
-                    mdp += guest.LastName.Substring(0, guest.LastName.Length) + "!";
-                }
-                else
-                {
-                    login += guest.LastName.Substring(0, 5);
-                    mdp += guest.LastName.Substring(0, 5) + "!";
-                }
-
-                string sqlGuest = String.Format("INSERT INTO Invites VALUES ({0},{1},'{2}','{3}')", ev.Id, guest.CodeParticipant, login, mdp);
-                command.CommandText = sqlGuest;
+                OleDbCommand command = new OleDbCommand(
+                    "insert into Invites values (@EventId,@GuestId,'N/A','N/A')",
+                    db);
+                command.Parameters.AddWithValue("@EventId", ev.Id);
+                command.Parameters.AddWithValue("@GuestId", guest.CodeParticipant);
 
                 if (command.ExecuteNonQuery() <= 0)
                     throw new DatabaseInsertException("Could not insert guest for event");
@@ -203,20 +207,52 @@ namespace Hermes.DataModel
         {
             OleDbConnection db = Database.Connect();
 
-            DateTime beginDateTime = partyEvent.StartDate;
-            DateTime endDateTime = partyEvent.EndDate;
-            string beginDate = "#" + beginDateTime.Month + "/" + beginDateTime.Day + "/" + beginDateTime.Year + "#";
-            string endDate = "#" + endDateTime.Month + "/" + endDateTime.Day + "/" + endDateTime.Year + "#";
+            // An AUTONUMBER field would be highly preferable...
+            OleDbCommand command = new OleDbCommand(
+                "select max(codeEvent) from Evenements",
+                db);
+            partyEvent.Id = (int)command.ExecuteScalar() + 1;
 
-            // FIXME: no comment
-            string sqlInsert = String.Format("INSERT INTO Evenements " +
-                "VALUES ({0},'{1}',{2},{3},'{4}',{5},{6})", partyEvent.Id, partyEvent.Name, beginDate, endDate, partyEvent.Description, partyEvent.Completed, partyEvent.AuthorId);
+            command = new OleDbCommand(
+                "insert into Evenements values (@Id,@Name,@StartDate,@EndDate,@Description,@Completed,@AuthorId)",
+                db);
+            command.Parameters.AddWithValue("@Id", partyEvent.Id);
+            command.Parameters.AddWithValue("@Name", partyEvent.Name);
+            command.Parameters.AddWithValue("@StartDate", partyEvent.StartDate);
+            command.Parameters.AddWithValue("@EndDate", partyEvent.EndDate);
+            command.Parameters.AddWithValue("@Description", partyEvent.Description);
+            command.Parameters.AddWithValue("@Completed", partyEvent.Completed);
+            command.Parameters.AddWithValue("@AuthorId", partyEvent.AuthorId);
 
-            OleDbCommand command = new OleDbCommand(sqlInsert, db);
             if (command.ExecuteNonQuery() <= 0)
                 throw new DatabaseInsertException("Could not insert event");
 
             InsertGuestsForEvent(partyEvent, guests);
+        }
+
+        public static void InsertParticipant(Participant participant)
+        {
+            OleDbConnection db = Database.Connect();
+
+            // An AUTONUMBER field would be highly preferable...
+            OleDbCommand command = new OleDbCommand(
+                "select max(codeParticipant) from Participants",
+                db);
+            participant.CodeParticipant = (int)command.ExecuteScalar() + 1;
+
+            command = new OleDbCommand(
+                "insert into Participants values (@Id,@LastName,@FirstName,@PhoneNumber,@Shares,@Balance,@Email)",
+                db);
+            command.Parameters.AddWithValue("@Id", participant.CodeParticipant);
+            command.Parameters.AddWithValue("@LastName", participant.LastName);
+            command.Parameters.AddWithValue("@FirstName", participant.FirstName);
+            command.Parameters.AddWithValue("@PhoneNumber", participant.PhoneNumber);
+            command.Parameters.AddWithValue("@Shares", participant.NbParts);
+            command.Parameters.AddWithValue("@Balance", participant.Balance);
+            command.Parameters.AddWithValue("@Email", participant.Mail);
+
+            if (command.ExecuteNonQuery() <= 0)
+                throw new DatabaseInsertException("Could not insert participant");
         }
 
         public static List<Expense> FetchExpenses()
