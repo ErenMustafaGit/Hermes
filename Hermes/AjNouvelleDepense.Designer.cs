@@ -156,9 +156,9 @@
             this.lblAmount.AutoSize = true;
             this.lblAmount.Location = new System.Drawing.Point(168, 385);
             this.lblAmount.Name = "lblAmount";
-            this.lblAmount.Size = new System.Drawing.Size(86, 16);
+            this.lblAmount.Size = new System.Drawing.Size(130, 16);
             this.lblAmount.TabIndex = 8;
-            this.lblAmount.Text = "Combien ? *";
+            this.lblAmount.Text = "Somme à payer ? *";
             // 
             // appFontLabel2
             // 
@@ -167,9 +167,9 @@
             this.appFontLabel2.AutoSize = true;
             this.appFontLabel2.Location = new System.Drawing.Point(168, 312);
             this.appFontLabel2.Name = "appFontLabel2";
-            this.appFontLabel2.Size = new System.Drawing.Size(106, 16);
+            this.appFontLabel2.Size = new System.Drawing.Size(183, 16);
             this.appFontLabel2.TabIndex = 6;
-            this.appFontLabel2.Text = "A propos de ? *";
+            this.appFontLabel2.Text = "Description de la dépense *";
             // 
             // appFontLabel1
             // 
@@ -188,7 +188,7 @@
             this.lblNouvelleDepense.AppFontHeight = 35F;
             this.lblNouvelleDepense.AutoSize = true;
             this.lblNouvelleDepense.IsBold = true;
-            this.lblNouvelleDepense.Location = new System.Drawing.Point(161, 151);
+            this.lblNouvelleDepense.Location = new System.Drawing.Point(161, 133);
             this.lblNouvelleDepense.Name = "lblNouvelleDepense";
             this.lblNouvelleDepense.Size = new System.Drawing.Size(411, 59);
             this.lblNouvelleDepense.TabIndex = 2;

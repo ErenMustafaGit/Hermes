@@ -47,10 +47,11 @@
             // cboEvenements
             // 
             this.cboEvenements.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboEvenements.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.cboEvenements.FormattingEnabled = true;
             this.cboEvenements.Location = new System.Drawing.Point(80, 239);
             this.cboEvenements.Name = "cboEvenements";
-            this.cboEvenements.Size = new System.Drawing.Size(245, 21);
+            this.cboEvenements.Size = new System.Drawing.Size(245, 24);
             this.cboEvenements.TabIndex = 2;
             // 
             // btnAjouter
@@ -60,7 +61,7 @@
             this.btnAjouter.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAjouter.Font = new System.Drawing.Font("Arial", 9F);
             this.btnAjouter.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(249)))), ((int)(((byte)(249)))));
-            this.btnAjouter.Location = new System.Drawing.Point(155, 290);
+            this.btnAjouter.Location = new System.Drawing.Point(155, 294);
             this.btnAjouter.Name = "btnAjouter";
             this.btnAjouter.Size = new System.Drawing.Size(105, 30);
             this.btnAjouter.TabIndex = 3;
@@ -83,12 +84,12 @@
             // lblQuelEvenement
             // 
             this.lblQuelEvenement.AppFont = Hermes.AppFont.HelveticaNeue;
-            this.lblQuelEvenement.AppFontHeight = 9F;
+            this.lblQuelEvenement.AppFontHeight = 11F;
             this.lblQuelEvenement.AutoSize = true;
             this.lblQuelEvenement.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(49)))), ((int)(((byte)(49)))));
             this.lblQuelEvenement.Location = new System.Drawing.Point(77, 214);
             this.lblQuelEvenement.Name = "lblQuelEvenement";
-            this.lblQuelEvenement.Size = new System.Drawing.Size(137, 14);
+            this.lblQuelEvenement.Size = new System.Drawing.Size(173, 17);
             this.lblQuelEvenement.TabIndex = 4;
             this.lblQuelEvenement.Text = "Dans quel évènements ?";
             // 
