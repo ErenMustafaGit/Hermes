@@ -79,6 +79,7 @@
             this.cboEventCreator.Name = "cboEventCreator";
             this.cboEventCreator.Size = new System.Drawing.Size(230, 28);
             this.cboEventCreator.TabIndex = 28;
+            this.cboEventCreator.SelectedIndexChanged += new System.EventHandler(this.cboEventCreator_SelectedIndexChanged);
             // 
             // txtDescription
             // 

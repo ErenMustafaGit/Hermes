@@ -41,12 +41,6 @@ namespace Hermes
 
         private void BulleAjDepense_Load(object sender, EventArgs e)
         {
-            List<Participant> listeParticipant = Database.FetchParticipant();
-            DataTable dataTableParticipant = Participant.toConcatenateDataTable(listeParticipant);
-            cboEventCreator.DataSource = dataTableParticipant;
-            cboEventCreator.DisplayMember = "Name";
-            cboEventCreator.ValueMember = "CodeParticipant";
-
             List<PartyEvent> listeEvenement = Database.FetchEvents();
             DataTable dataTableEvenement = listeEvenement.ToDataTable();
             cboEvenement.DataSource = dataTableEvenement;
@@ -55,6 +49,12 @@ namespace Hermes
             PartyEvent partyEvent = listeEvenement[(int)cboEvenement.SelectedValue - 1];
             dtpDateDepense.MinDate = partyEvent.StartDate;
 
+            List<Participant> listeParticipant = listeEvenement[(int)cboEvenement.SelectedValue - 1].GetGuests();
+            DataTable dataTableParticipant = Participant.toConcatenateDataTable(listeParticipant);
+            cboEventCreator.DataSource = dataTableParticipant;
+            cboEventCreator.DisplayMember = "Name";
+            cboEventCreator.ValueMember = "CodeParticipant";
+            cboEvenement.SelectedIndexChanged += new System.EventHandler(cboEventCreator_SelectedIndexChanged);
         }
 
 
@@ -87,6 +87,19 @@ namespace Hermes
                 MessageBox.Show("Veuillez saisir un nom de dépense ! ");
             }
             
+        }
+
+        private void cboEventCreator_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            List<PartyEvent> listeEvenement = Database.FetchEvents();
+            DataTable dataTableEvenement = listeEvenement.ToDataTable();
+
+            List<Participant> listeParticipant = listeEvenement[(int)cboEvenement.SelectedValue - 1].GetGuests();
+            DataTable dataTableParticipant = Participant.toConcatenateDataTable(listeParticipant);
+            cboEventCreator.DataSource = dataTableParticipant;
+            cboEventCreator.DisplayMember = "Name";
+            cboEventCreator.ValueMember = "CodeParticipant";
+
         }
     }
 }
