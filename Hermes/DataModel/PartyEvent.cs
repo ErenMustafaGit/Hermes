@@ -110,37 +110,20 @@ namespace Hermes.DataModel
                 OleDbDataReader dataReaderGuest = commandGuest.ExecuteReader();
 
                 dataReaderGuest.Read();
-
-                // FIXME: use a ctor that takes a DataReader
-                Participant guest = new Participant();
-                guest.CodeParticipant = dataReaderGuest.GetInt32(0);
-                guest.FirstName = dataReaderGuest.GetString(1);
-                guest.LastName = dataReaderGuest.GetString(2);
-                guest.PhoneNumber = dataReaderGuest.GetString(3);
-                guest.NbParts = dataReaderGuest.GetInt32(4);
-
-                //Si le solde est null
-                if (!dataReaderGuest.IsDBNull(5))
-                {
-                    guest.Balance = dataReaderGuest.GetDouble(5);
-                }
-                guest.Mail = dataReaderGuest.GetString(6);
-
-                guests.Add(guest);
+                guests.Add(new Participant(dataReaderGuest));
             }
 
             return guests;
         }
 
-        // TODO: I think this could be better   -squid
         public List<Participant> GetUninvitedPeople()
         {
-            List<Participant> uninvited = new List<Participant>();
+            List<Participant> uninvited = Database.FetchParticipant();
 
             OleDbConnection db = Database.Connect();
 
             OleDbCommand command = new OleDbCommand(
-                "select codePart from Invites where codeEvent <> @Id",
+                "select codePart from Invites where codeEvent = @Id",
                 db);
             command.Parameters.AddWithValue("@Id", this.Id);
 
@@ -148,7 +131,7 @@ namespace Hermes.DataModel
             while (dataReader.Read())
             {
                 int id = dataReader.GetInt32(0);
-                uninvited.Add(Participant.GetParticipant(id));
+                uninvited.RemoveAt(uninvited.FindIndex(x => x.CodeParticipant == id));
             }
 
             return uninvited;
