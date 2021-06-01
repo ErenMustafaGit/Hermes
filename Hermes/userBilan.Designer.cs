@@ -52,17 +52,17 @@
             // 
             // pnlDepense
             // 
-            this.pnlDepense.Location = new System.Drawing.Point(72, 372);
+            this.pnlDepense.Location = new System.Drawing.Point(70, 350);
             this.pnlDepense.Name = "pnlDepense";
-            this.pnlDepense.Size = new System.Drawing.Size(388, 283);
+            this.pnlDepense.Size = new System.Drawing.Size(388, 257);
             this.pnlDepense.TabIndex = 33;
             this.pnlDepense.Paint += new System.Windows.Forms.PaintEventHandler(this.PnlDepense_Paint);
             // 
             // pnlRemboursement
             // 
-            this.pnlRemboursement.Location = new System.Drawing.Point(519, 372);
+            this.pnlRemboursement.Location = new System.Drawing.Point(517, 350);
             this.pnlRemboursement.Name = "pnlRemboursement";
-            this.pnlRemboursement.Size = new System.Drawing.Size(387, 283);
+            this.pnlRemboursement.Size = new System.Drawing.Size(387, 257);
             this.pnlRemboursement.TabIndex = 34;
             // 
             // lblEvent
@@ -81,7 +81,7 @@
             this.lblTotalRemboursement.AppFont = Hermes.AppFont.HelveticaNeue_Bold;
             this.lblTotalRemboursement.AppFontHeight = 60F;
             this.lblTotalRemboursement.AutoSize = true;
-            this.lblTotalRemboursement.Location = new System.Drawing.Point(532, 269);
+            this.lblTotalRemboursement.Location = new System.Drawing.Point(531, 247);
             this.lblTotalRemboursement.Name = "lblTotalRemboursement";
             this.lblTotalRemboursement.Size = new System.Drawing.Size(345, 100);
             this.lblTotalRemboursement.TabIndex = 32;
@@ -92,7 +92,7 @@
             this.lblTextRemboursement.AppFont = Hermes.AppFont.HelveticaNeue;
             this.lblTextRemboursement.AppFontHeight = 18F;
             this.lblTextRemboursement.AutoSize = true;
-            this.lblTextRemboursement.Location = new System.Drawing.Point(544, 241);
+            this.lblTextRemboursement.Location = new System.Drawing.Point(543, 219);
             this.lblTextRemboursement.Name = "lblTextRemboursement";
             this.lblTextRemboursement.Size = new System.Drawing.Size(253, 28);
             this.lblTextRemboursement.TabIndex = 31;
@@ -103,7 +103,7 @@
             this.lblTotalDepnse.AppFont = Hermes.AppFont.HelveticaNeue_Bold;
             this.lblTotalDepnse.AppFontHeight = 60F;
             this.lblTotalDepnse.AutoSize = true;
-            this.lblTotalDepnse.Location = new System.Drawing.Point(99, 269);
+            this.lblTotalDepnse.Location = new System.Drawing.Point(98, 247);
             this.lblTotalDepnse.Name = "lblTotalDepnse";
             this.lblTotalDepnse.Size = new System.Drawing.Size(345, 100);
             this.lblTotalDepnse.TabIndex = 30;
@@ -114,7 +114,7 @@
             this.appFontLabel3.AppFont = Hermes.AppFont.HelveticaNeue;
             this.appFontLabel3.AppFontHeight = 18F;
             this.appFontLabel3.AutoSize = true;
-            this.appFontLabel3.Location = new System.Drawing.Point(111, 241);
+            this.appFontLabel3.Location = new System.Drawing.Point(110, 219);
             this.appFontLabel3.Name = "appFontLabel3";
             this.appFontLabel3.Size = new System.Drawing.Size(176, 28);
             this.appFontLabel3.TabIndex = 25;
