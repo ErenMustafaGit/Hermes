@@ -46,9 +46,9 @@
             // 
             // pnlListExpenditure
             // 
-            this.pnlListExpenditure.Location = new System.Drawing.Point(91, 167);
+            this.pnlListExpenditure.Location = new System.Drawing.Point(91, 124);
             this.pnlListExpenditure.Name = "pnlListExpenditure";
-            this.pnlListExpenditure.Size = new System.Drawing.Size(374, 359);
+            this.pnlListExpenditure.Size = new System.Drawing.Size(374, 402);
             this.pnlListExpenditure.TabIndex = 0;
             // 
             // cboEvenement
@@ -56,7 +56,7 @@
             this.cboEvenement.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboEvenement.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
             this.cboEvenement.FormattingEnabled = true;
-            this.cboEvenement.Location = new System.Drawing.Point(91, 110);
+            this.cboEvenement.Location = new System.Drawing.Point(91, 72);
             this.cboEvenement.Name = "cboEvenement";
             this.cboEvenement.Size = new System.Drawing.Size(374, 33);
             this.cboEvenement.TabIndex = 2;
@@ -69,9 +69,9 @@
             this.pnlDetailExpenditure.Controls.Add(this.lblBeneficiary);
             this.pnlDetailExpenditure.Controls.Add(this.lblIconCreator);
             this.pnlDetailExpenditure.Controls.Add(this.lblIconMoney);
-            this.pnlDetailExpenditure.Location = new System.Drawing.Point(522, 196);
+            this.pnlDetailExpenditure.Location = new System.Drawing.Point(522, 191);
             this.pnlDetailExpenditure.Name = "pnlDetailExpenditure";
-            this.pnlDetailExpenditure.Size = new System.Drawing.Size(374, 330);
+            this.pnlDetailExpenditure.Size = new System.Drawing.Size(374, 335);
             this.pnlDetailExpenditure.TabIndex = 0;
             // 
             // pnlBeneficiary
@@ -86,7 +86,7 @@
             this.lblCreator.AppFont = Hermes.AppFont.HelveticaNeue;
             this.lblCreator.AppFontHeight = 12F;
             this.lblCreator.AutoSize = true;
-            this.lblCreator.Location = new System.Drawing.Point(105, 102);
+            this.lblCreator.Location = new System.Drawing.Point(107, 108);
             this.lblCreator.Name = "lblCreator";
             this.lblCreator.Size = new System.Drawing.Size(107, 19);
             this.lblCreator.TabIndex = 1;
@@ -97,7 +97,7 @@
             this.lblMoney.AppFont = Hermes.AppFont.HelveticaNeue;
             this.lblMoney.AppFontHeight = 12F;
             this.lblMoney.AutoSize = true;
-            this.lblMoney.Location = new System.Drawing.Point(105, 30);
+            this.lblMoney.Location = new System.Drawing.Point(107, 38);
             this.lblMoney.Name = "lblMoney";
             this.lblMoney.Size = new System.Drawing.Size(74, 19);
             this.lblMoney.TabIndex = 1;
@@ -119,7 +119,7 @@
             this.lblIconCreator.AppFont = Hermes.AppFont.Icons;
             this.lblIconCreator.AppFontHeight = 30F;
             this.lblIconCreator.AutoSize = true;
-            this.lblIconCreator.Location = new System.Drawing.Point(30, 86);
+            this.lblIconCreator.Location = new System.Drawing.Point(32, 92);
             this.lblIconCreator.Name = "lblIconCreator";
             this.lblIconCreator.Size = new System.Drawing.Size(45, 41);
             this.lblIconCreator.TabIndex = 0;
@@ -131,7 +131,7 @@
             this.lblIconMoney.AppFont = Hermes.AppFont.Icons;
             this.lblIconMoney.AppFontHeight = 25F;
             this.lblIconMoney.AutoSize = true;
-            this.lblIconMoney.Location = new System.Drawing.Point(31, 21);
+            this.lblIconMoney.Location = new System.Drawing.Point(33, 29);
             this.lblIconMoney.Name = "lblIconMoney";
             this.lblIconMoney.Size = new System.Drawing.Size(38, 35);
             this.lblIconMoney.TabIndex = 0;
@@ -171,7 +171,7 @@
             this.lblExpenditureTitle.AppFont = Hermes.AppFont.HelveticaNeue_Bold;
             this.lblExpenditureTitle.AppFontHeight = 20F;
             this.lblExpenditureTitle.AutoSize = true;
-            this.lblExpenditureTitle.Location = new System.Drawing.Point(516, 159);
+            this.lblExpenditureTitle.Location = new System.Drawing.Point(516, 139);
             this.lblExpenditureTitle.Name = "lblExpenditureTitle";
             this.lblExpenditureTitle.Size = new System.Drawing.Size(203, 34);
             this.lblExpenditureTitle.TabIndex = 3;
@@ -182,7 +182,7 @@
             this.lblDepense.AppFont = Hermes.AppFont.HelveticaNeue;
             this.lblDepense.AppFontHeight = 12F;
             this.lblDepense.AutoSize = true;
-            this.lblDepense.Location = new System.Drawing.Point(87, 79);
+            this.lblDepense.Location = new System.Drawing.Point(87, 41);
             this.lblDepense.Name = "lblDepense";
             this.lblDepense.Size = new System.Drawing.Size(128, 19);
             this.lblDepense.TabIndex = 1;
