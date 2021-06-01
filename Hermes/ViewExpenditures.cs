@@ -44,6 +44,8 @@ namespace Hermes
             lblIconCreator.Text = Hermes.UI.Icons.FINANCE;
             lblIconMoney.Text = Hermes.UI.Icons.COINS;
 
+            PartyEvent currentEvent = PartyEvent.GetFromId((int)cboEvenement.SelectedValue);
+            btnAddExpenditure.Visible = !currentEvent.Completed;
 
             RefreshExpenditures();
             cboEvenement.SelectedIndexChanged += new EventHandler(cboEvenement_SelectedIndexChanged);
@@ -128,6 +130,10 @@ namespace Hermes
 
         private void cboEvenement_SelectedIndexChanged(object sender, EventArgs e)
         {
+            PartyEvent currentEvent = PartyEvent.GetFromId((int)cboEvenement.SelectedValue);
+            btnAddExpenditure.Visible = !currentEvent.Completed;
+
+
             RefreshExpenditures();
         }
 
