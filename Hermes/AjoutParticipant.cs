@@ -34,6 +34,9 @@ namespace Hermes
         private void AjoutParticipant_Load(object sender, EventArgs e)
         {
             pictureBox1.SendToBack();
+            pictureBox1.MouseHover += new System.EventHandler(LblIconeAjoutParticipant_MouseHover);
+            pictureBox1.MouseClick += new MouseEventHandler(LblIconeAjoutParticipant_MouseClick);
+            pictureBox1.MouseLeave += new System.EventHandler(LblIconeAjoutParticipant_MouseLeave);
         }
 
 
@@ -61,7 +64,6 @@ namespace Hermes
 
             bulle.Controls.Add(bulleAjParticipant);
             bulle.Visible = true;
-            
 
 
         }
