@@ -20,6 +20,9 @@ namespace Hermes
         //Panel où le form de fond va rester visible
         private static Panel pnlPrincipal;
 
+        //Evenement selectionné avant d'appuyer sur l'ajout de dépense
+        private PartyEvent selectedEvent;
+
 
         public Panel setPanel
         {
@@ -33,19 +36,23 @@ namespace Hermes
         }
 
 
-        public BulleAjDepense()
+        public BulleAjDepense(PartyEvent selectedEvent)
         {
             InitializeComponent();
+            this.selectedEvent = selectedEvent;
         }
 
 
         private void BulleAjDepense_Load(object sender, EventArgs e)
         {
             List<PartyEvent> listeEvenement = Database.FetchUncompletedEvents();
+
             DataTable dataTableEvenement = listeEvenement.ToDataTable();
             cboEvenement.DataSource = dataTableEvenement;
             cboEvenement.DisplayMember = "Name";
             cboEvenement.ValueMember = "Id";
+
+               
             PartyEvent partyEvent = listeEvenement[(int)cboEvenement.SelectedValue - 1];
             dtpDateDepense.MinDate = partyEvent.StartDate;
 
@@ -60,7 +67,6 @@ namespace Hermes
 
         private void btnAnnuler_Click(object sender, EventArgs e)
         {
-
             //Suppression de la bulle
             pnlBulleEmplacement.Controls.Clear();
             pnlBulleEmplacement.Visible = false;

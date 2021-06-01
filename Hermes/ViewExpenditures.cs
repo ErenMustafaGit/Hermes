@@ -141,6 +141,7 @@ namespace Hermes
         {
             Label depense = (Label)sender;
             depense.ForeColor = Color.FromArgb(72, 141, 255);
+
             PartyEvent currentEvent = PartyEvent.GetFromId((int)cboEvenement.SelectedValue);
             List<Expense> expenses = currentEvent.GetExpenses();
 
@@ -178,6 +179,7 @@ namespace Hermes
       
         private void btnAddExpenditure_Click(object sender, EventArgs e)
         {
+            //Ajout du panel bulle pour l'ajout
             Panel pnlBulleEmplacement = new Panel();
             pnlBulleEmplacement.Size = new Size(705, 405);
             Point coordonneePanel = new Point(127, 115);
@@ -185,7 +187,9 @@ namespace Hermes
             this.Controls.Add(pnlBulleEmplacement);
             pnlBulleEmplacement.BringToFront();
 
-            BulleAjDepense bulleAjDepense = new BulleAjDepense();
+            PartyEvent currentEvent = PartyEvent.GetFromId((int)cboEvenement.SelectedValue);
+
+            BulleAjDepense bulleAjDepense = new BulleAjDepense(currentEvent);
             bulleAjDepense.setPanel = pnlBulleEmplacement;
             bulleAjDepense.setPanelPrincipal = ecran;
             pnlBulleEmplacement.Controls.Add(bulleAjDepense);
