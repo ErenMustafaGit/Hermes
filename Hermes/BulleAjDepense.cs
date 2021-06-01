@@ -41,7 +41,7 @@ namespace Hermes
 
         private void BulleAjDepense_Load(object sender, EventArgs e)
         {
-            List<PartyEvent> listeEvenement = Database.FetchEvents();
+            List<PartyEvent> listeEvenement = Database.FetchUncompletedEvents();
             DataTable dataTableEvenement = listeEvenement.ToDataTable();
             cboEvenement.DataSource = dataTableEvenement;
             cboEvenement.DisplayMember = "Name";

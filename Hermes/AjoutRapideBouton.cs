@@ -30,7 +30,7 @@ namespace Hermes
 
         private void AjoutRapideBouton_Load(object sender, EventArgs e)
         {
-            DataTable table = Database.FetchEvents().ToDataTable();
+            DataTable table = Database.FetchUncompletedEvents().ToDataTable();
             cboEvenements.DataSource = table;
             cboEvenements.DisplayMember = "Name";
             cboEvenements.ValueMember = "Id";
