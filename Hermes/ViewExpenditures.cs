@@ -192,6 +192,7 @@ namespace Hermes
             BulleAjDepense bulleAjDepense = new BulleAjDepense(currentEvent);
             bulleAjDepense.setPanel = pnlBulleEmplacement;
             bulleAjDepense.setPanelPrincipal = ecran;
+            bulleAjDepense.setIndex = cboEvenement.SelectedIndex;
             pnlBulleEmplacement.Controls.Add(bulleAjDepense);
             pnlBulleEmplacement.Visible = true;
 
