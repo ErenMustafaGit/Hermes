@@ -20,6 +20,8 @@ namespace Hermes
         //Panel où le form de fond va rester visible
         private static Panel pnlPrincipal;
 
+        private static int index;
+
 
         public Panel setPanel
         {
@@ -30,6 +32,11 @@ namespace Hermes
         public Panel setPanelPrincipal
         {
             set { pnlPrincipal = value; }
+        }
+
+        public int setIndex
+        {
+            set { index = value; }
         }
 
 
@@ -55,6 +62,7 @@ namespace Hermes
             cboEventCreator.DisplayMember = "Name";
             cboEventCreator.ValueMember = "CodeParticipant";
             cboEvenement.SelectedIndexChanged += new System.EventHandler(cboEventCreator_SelectedIndexChanged);
+            cboEvenement.SelectedIndex = index - 1;
         }
 
 
