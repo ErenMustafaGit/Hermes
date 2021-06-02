@@ -46,7 +46,7 @@ namespace Hermes
                 chkGuest.Text = guests[i].LastName + " " + guests[i].FirstName;
                 chkGuest.Left = chkEveryOne.Left;
                 chkGuest.Top = 50 + 30 * i;
-                chkGuest.Tag = i;
+                chkGuest.Tag = guests[i].CodeParticipant;
                 pnlBeneficiaire.Controls.Add(chkGuest);
             }
         }
