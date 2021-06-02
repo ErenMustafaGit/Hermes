@@ -70,8 +70,7 @@ namespace Hermes
 
         private void LblIconeAjoutParticipant_MouseHover(object sender, EventArgs e)
         {
-            this.Cursor = Cursors.Hand;
-            lblIconeAjoutParticipant.ForeColor = ColorTranslator.FromHtml("#2693f8");
+            
         }
 
         private void LblIconeAjoutParticipant_MouseLeave(object sender, EventArgs e)
@@ -87,6 +86,12 @@ namespace Hermes
         private void PictureBox1_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void lblIconeAjoutParticipant_MouseEnter(object sender, EventArgs e)
+        {
+            this.Cursor = Cursors.Hand;
+            lblIconeAjoutParticipant.ForeColor = ColorTranslator.FromHtml("#2693f8");
         }
     }
 }

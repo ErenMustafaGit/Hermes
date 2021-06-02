@@ -57,6 +57,7 @@
             this.lblAdd.Text = "O";
             this.lblAdd.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.lblAdd.MouseClick += new System.Windows.Forms.MouseEventHandler(this.LblAdd_MouseClick);
+            this.lblAdd.MouseEnter += new System.EventHandler(this.lblAdd_MouseEnter);
             this.lblAdd.MouseLeave += new System.EventHandler(this.LblAdd_MouseLeave);
             this.lblAdd.MouseHover += new System.EventHandler(this.LblAdd_MouseHover);
             // 
