@@ -111,8 +111,12 @@ namespace Hermes
             {
                 e.Handled = false;
                 txtPhoneNumber.BackColor = Color.White;
-            } else if (e.KeyChar == (char)Keys.Enter || e.KeyChar == (char)Keys.Tab)
+            }
+            else if (e.KeyChar == (char)Keys.Enter || e.KeyChar == (char)Keys.Tab)
+            {
                 txtMail.Focus();
+                txtPhoneNumber.BackColor = Color.White;
+            }
         }
 
         private void TxtPhoneNumber_TextChanged(object sender, EventArgs e)
@@ -131,7 +135,7 @@ namespace Hermes
         {
             txtLastName.BackColor = Color.White;
             if (e.KeyChar == (char)Keys.Enter || e.KeyChar == (char)Keys.Tab)
-                txtPhoneNumber.Focus();
+                nudNbPart.Focus();
         }
 
         private void txtMail_KeyPress(object sender, KeyPressEventArgs e)
@@ -139,6 +143,13 @@ namespace Hermes
             txtMail.BackColor = Color.White;
             if (e.KeyChar == (char)Keys.Enter || e.KeyChar == (char)Keys.Tab)
                 nudNbPart.Focus();
+        }
+
+        private void nudNbPart_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            nudNbPart.BackColor = Color.White;
+            if (e.KeyChar == (char)Keys.Enter || e.KeyChar == (char)Keys.Tab)
+                txtPhoneNumber.Focus();
         }
     }
 }

@@ -34,13 +34,13 @@
             this.txtLastName = new System.Windows.Forms.TextBox();
             this.txtPhoneNumber = new System.Windows.Forms.TextBox();
             this.txtMail = new System.Windows.Forms.TextBox();
+            this.nudNbPart = new System.Windows.Forms.NumericUpDown();
             this.lblEmail = new Hermes.UI.AppFontLabel();
             this.lblNumero = new Hermes.UI.AppFontLabel();
+            this.lblNbPart = new Hermes.UI.AppFontLabel();
             this.lblPrenom = new Hermes.UI.AppFontLabel();
             this.lblAjoutDunParticipant = new Hermes.UI.AppFontLabel();
             this.lblNom = new Hermes.UI.AppFontLabel();
-            this.nudNbPart = new System.Windows.Forms.NumericUpDown();
-            this.lblNbPart = new Hermes.UI.AppFontLabel();
             ((System.ComponentModel.ISupportInitialize)(this.nudNbPart)).BeginInit();
             this.SuspendLayout();
             // 
@@ -111,6 +111,25 @@
             this.txtMail.TabIndex = 38;
             this.txtMail.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtMail_KeyPress);
             // 
+            // nudNbPart
+            // 
+            this.nudNbPart.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F);
+            this.nudNbPart.Location = new System.Drawing.Point(132, 313);
+            this.nudNbPart.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.nudNbPart.Name = "nudNbPart";
+            this.nudNbPart.Size = new System.Drawing.Size(201, 27);
+            this.nudNbPart.TabIndex = 39;
+            this.nudNbPart.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.nudNbPart.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.nudNbPart_KeyPress);
+            // 
             // lblEmail
             // 
             this.lblEmail.AppFont = Hermes.AppFont.HelveticaNeue;
@@ -132,6 +151,17 @@
             this.lblNumero.Size = new System.Drawing.Size(167, 16);
             this.lblNumero.TabIndex = 35;
             this.lblNumero.Text = "Numéro de téléphone ? *";
+            // 
+            // lblNbPart
+            // 
+            this.lblNbPart.AppFont = Hermes.AppFont.HelveticaNeue;
+            this.lblNbPart.AppFontHeight = 10F;
+            this.lblNbPart.AutoSize = true;
+            this.lblNbPart.Location = new System.Drawing.Point(129, 284);
+            this.lblNbPart.Name = "lblNbPart";
+            this.lblNbPart.Size = new System.Drawing.Size(129, 16);
+            this.lblNbPart.TabIndex = 33;
+            this.lblNbPart.Text = "Nombre de part ? *";
             // 
             // lblPrenom
             // 
@@ -165,35 +195,6 @@
             this.lblNom.Size = new System.Drawing.Size(150, 16);
             this.lblNom.TabIndex = 22;
             this.lblNom.Text = "Nom du participant ? *";
-            // 
-            // nudNbPart
-            // 
-            this.nudNbPart.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F);
-            this.nudNbPart.Location = new System.Drawing.Point(132, 313);
-            this.nudNbPart.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.nudNbPart.Name = "nudNbPart";
-            this.nudNbPart.Size = new System.Drawing.Size(201, 27);
-            this.nudNbPart.TabIndex = 39;
-            this.nudNbPart.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            // 
-            // lblNbPart
-            // 
-            this.lblNbPart.AppFont = Hermes.AppFont.HelveticaNeue;
-            this.lblNbPart.AppFontHeight = 10F;
-            this.lblNbPart.AutoSize = true;
-            this.lblNbPart.Location = new System.Drawing.Point(129, 284);
-            this.lblNbPart.Name = "lblNbPart";
-            this.lblNbPart.Size = new System.Drawing.Size(129, 16);
-            this.lblNbPart.TabIndex = 33;
-            this.lblNbPart.Text = "Nombre de part ? *";
             // 
             // BulleAjParticipant
             // 
