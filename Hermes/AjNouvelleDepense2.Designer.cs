@@ -61,10 +61,12 @@
             // 
             this.rtxtCommentaire.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.rtxtCommentaire.Location = new System.Drawing.Point(550, 174);
+            this.rtxtCommentaire.MaxLength = 200;
             this.rtxtCommentaire.Name = "rtxtCommentaire";
             this.rtxtCommentaire.Size = new System.Drawing.Size(336, 283);
             this.rtxtCommentaire.TabIndex = 2;
             this.rtxtCommentaire.Text = "";
+            this.rtxtCommentaire.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.rtxtCommentaire_KeyPress);
             // 
             // btnValider
             // 

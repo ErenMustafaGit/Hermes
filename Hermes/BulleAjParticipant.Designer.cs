@@ -75,6 +75,7 @@
             this.txtLastName.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtLastName.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F);
             this.txtLastName.Location = new System.Drawing.Point(132, 147);
+            this.txtLastName.MaxLength = 20;
             this.txtLastName.Name = "txtLastName";
             this.txtLastName.Size = new System.Drawing.Size(201, 27);
             this.txtLastName.TabIndex = 23;
@@ -85,6 +86,7 @@
             this.txtFirstName.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtFirstName.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F);
             this.txtFirstName.Location = new System.Drawing.Point(132, 230);
+            this.txtFirstName.MaxLength = 20;
             this.txtFirstName.Name = "txtFirstName";
             this.txtFirstName.Size = new System.Drawing.Size(201, 27);
             this.txtFirstName.TabIndex = 31;
@@ -95,6 +97,7 @@
             this.txtPhoneNumber.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtPhoneNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F);
             this.txtPhoneNumber.Location = new System.Drawing.Point(381, 147);
+            this.txtPhoneNumber.MaxLength = 30;
             this.txtPhoneNumber.Name = "txtPhoneNumber";
             this.txtPhoneNumber.Size = new System.Drawing.Size(201, 27);
             this.txtPhoneNumber.TabIndex = 36;
@@ -106,6 +109,7 @@
             this.txtMail.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtMail.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F);
             this.txtMail.Location = new System.Drawing.Point(381, 230);
+            this.txtMail.MaxLength = 30;
             this.txtMail.Name = "txtMail";
             this.txtMail.Size = new System.Drawing.Size(201, 27);
             this.txtMail.TabIndex = 38;
