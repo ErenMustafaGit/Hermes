@@ -45,6 +45,7 @@
             this.lblIconeAjoutParticipant.TabIndex = 1;
             this.lblIconeAjoutParticipant.Text = "O";
             this.lblIconeAjoutParticipant.MouseClick += new System.Windows.Forms.MouseEventHandler(this.LblIconeAjoutParticipant_MouseClick);
+            this.lblIconeAjoutParticipant.MouseEnter += new System.EventHandler(this.lblIconeAjoutParticipant_MouseEnter);
             this.lblIconeAjoutParticipant.MouseLeave += new System.EventHandler(this.LblIconeAjoutParticipant_MouseLeave);
             this.lblIconeAjoutParticipant.MouseHover += new System.EventHandler(this.LblIconeAjoutParticipant_MouseHover);
             // 

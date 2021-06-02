@@ -72,7 +72,26 @@ namespace Hermes
         }
         private void ResumePartyEvent_Load(object sender, EventArgs e)
         {
+            //Ajout des evenements à l'UserControl
+            this.MouseEnter += new System.EventHandler(UserControl_MouseEnter);
+            this.MouseLeave += new System.EventHandler(UserControl_MouseLeave);
+            this.Click += new System.EventHandler(BtnMoreInfo_Click);
 
+            //Ajout des mêmes evenements aux composants dedans
+            foreach (Control control in this.Controls)
+            {
+                control.MouseEnter += new System.EventHandler(UserControl_MouseEnter);
+                control.MouseLeave += new System.EventHandler(UserControl_MouseLeave);
+                control.Click += new System.EventHandler(BtnMoreInfo_Click);
+            }
+        }
+        public void UserControl_MouseEnter(object sender, EventArgs e)
+        {
+            this.BackColor = Color.FromArgb(40, 128, 237);
+        }
+        public void UserControl_MouseLeave(object sender, EventArgs e)
+        {
+            this.BackColor = Color.FromArgb(38, 147, 248);
         }
 
         private void BtnMoreInfo_Click(object sender, EventArgs e)
