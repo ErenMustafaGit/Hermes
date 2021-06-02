@@ -56,19 +56,25 @@ namespace Hermes
             {
                 //AVEC DES ALERTES SUR LES CHAMPS NON REMPLIS
                 valide = false;
+                txtFirstName.BackColor = Color.LightPink;
+
             }
             if (txtLastName.Text.Length < 2)
             {
                 valide = false;
-            }
-            if (txtMail.Text.Length < 8 && !txtMail.Text.Contains("@"))
-            {
-                valide = false;
+                txtLastName.BackColor = Color.LightPink;
             }
 
-            if (txtPhoneNumber.Text.Length < 8)
+            if (txtMail.Text.Length < 5 && !txtMail.Text.Contains("@"))
             {
                 valide = false;
+                txtMail.BackColor = Color.LightPink;
+            }
+
+            if (txtPhoneNumber.Text.Length < 6)
+            {
+                valide = false;
+                txtPhoneNumber.BackColor = Color.LightPink;
             }
 
 
@@ -79,11 +85,11 @@ namespace Hermes
                 //Creation du nouveau participant
                 Participant newParticipant = new Participant()
                 {
-                    CodeParticipant = 14,
+                    CodeParticipant = 15,
                     LastName = txtLastName.Text,
                     FirstName = txtFirstName.Text,
                     PhoneNumber = txtPhoneNumber.Text,
-                    NbParts = int.Parse(txtPhoneNumber.Text),
+                    NbParts = (int)nudNbPart.Value,
                     //Balance = null,
                     Mail = txtMail.Text,
                 };
