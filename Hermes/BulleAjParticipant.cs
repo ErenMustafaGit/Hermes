@@ -52,17 +52,17 @@ namespace Hermes
         private void btnValider_Click(object sender, EventArgs e)
         {
             bool valide = true;
-            if (txtFirstName.Text.Length < 2)
+            if (txtLastName.Text.Length < 2)
             {
                 //AVEC DES ALERTES SUR LES CHAMPS NON REMPLIS
                 valide = false;
-                txtFirstName.BackColor = Color.LightPink;
+                txtLastName.BackColor = Color.LightPink;
 
             }
-            if (txtLastName.Text.Length < 2)
+            if (txtFirstName.Text.Length < 2)
             {
                 valide = false;
-                txtLastName.BackColor = Color.LightPink;
+                txtFirstName.BackColor = Color.LightPink;
             }
 
             if (txtMail.Text.Length < 5 && !txtMail.Text.Contains("@"))
@@ -112,7 +112,7 @@ namespace Hermes
                 e.Handled = false;
                 txtPhoneNumber.BackColor = Color.White;
             }
-            else if (e.KeyChar == (char)Keys.Enter || e.KeyChar == (char)Keys.Tab)
+            else if (e.KeyChar == (char)Keys.Enter)
             {
                 txtMail.Focus();
                 txtPhoneNumber.BackColor = Color.White;
@@ -124,32 +124,55 @@ namespace Hermes
 
         }
 
+        //txtLastName_KeyPress !!!! (nom)
         private void txtFirstName_KeyPress(object sender, KeyPressEventArgs e)
         {
-            txtFirstName.BackColor = Color.White;
-            if (e.KeyChar == (char)Keys.Enter || e.KeyChar == (char)Keys.Tab)
-                txtLastName.Focus();
+            txtLastName.BackColor = Color.White;
+
+            //Interdiction de mettre un chiffre
+            if (char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+                txtLastName.BackColor = Color.LightPink;
+            }
+            else if (e.KeyChar == (char)Keys.Enter)
+            {
+                txtFirstName.Focus();
+            }
         }
 
+        //txtFirstName !!!! (prenom)
         private void txtLastName_KeyPress(object sender, KeyPressEventArgs e)
         {
-            txtLastName.BackColor = Color.White;
-            if (e.KeyChar == (char)Keys.Enter || e.KeyChar == (char)Keys.Tab)
+            txtFirstName.BackColor = Color.White;
+            //Interdiction de mettre un chiffre
+            if (char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+                txtFirstName.BackColor = Color.LightPink;
+            }
+            else if (e.KeyChar == (char)Keys.Enter )
+            {
                 nudNbPart.Focus();
+            }
         }
 
         private void txtMail_KeyPress(object sender, KeyPressEventArgs e)
         {
             txtMail.BackColor = Color.White;
-            if (e.KeyChar == (char)Keys.Enter || e.KeyChar == (char)Keys.Tab)
+            if (e.KeyChar == (char)Keys.Enter)
+            {
                 nudNbPart.Focus();
+            }
         }
 
         private void nudNbPart_KeyPress(object sender, KeyPressEventArgs e)
         {
             nudNbPart.BackColor = Color.White;
-            if (e.KeyChar == (char)Keys.Enter || e.KeyChar == (char)Keys.Tab)
+            if (e.KeyChar == (char)Keys.Enter)
+            {
                 txtPhoneNumber.Focus();
+            }
         }
     }
 }
