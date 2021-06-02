@@ -63,26 +63,35 @@ namespace Hermes
         {
             if(txtNomEvenement.Text.Length == 0)
             {
-                MessageBox.Show("Veuillez saisir le nom de l'évènement !");
+                txtNomEvenement.BackColor = Color.LightPink;
                 txtNomEvenement.Focus();
-                return;
             }
-            PartyEvent newEvent = new PartyEvent()
+            else
             {
-                Id = PartyEvent.GetMaxCode() + 1,
-                Name = txtNomEvenement.Text.Replace('\'', ' '),
-                StartDate = dtpDateDebut.Value,
-                EndDate = dtpDateFin.Value,
-                Description = null,
-                Completed = false,
-                AuthorId = (int)cboEventCreator.SelectedValue
-            };
-            BulleAjEvenement2 suite = new BulleAjEvenement2(newEvent);
-            this.ecran.Controls.Clear();
-            suite.setPanel = this.ecran;
-            suite.setPanelPrincipal = pnlPrincipal;
-            suite.Annuler = annuler;
-            this.ecran.Controls.Add(suite);
+                PartyEvent newEvent = new PartyEvent()
+                {
+                    Id = PartyEvent.GetMaxCode() + 1,
+                    Name = txtNomEvenement.Text.Replace('\'', ' '),
+                    StartDate = dtpDateDebut.Value,
+                    EndDate = dtpDateFin.Value,
+                    Description = null,
+                    Completed = false,
+                    AuthorId = (int)cboEventCreator.SelectedValue
+                };
+                BulleAjEvenement2 suite = new BulleAjEvenement2(newEvent);
+                this.ecran.Controls.Clear();
+                suite.setPanel = this.ecran;
+                suite.setPanelPrincipal = pnlPrincipal;
+                suite.Annuler = annuler;
+                this.ecran.Controls.Add(suite);
+            }
+            
+        }
+
+        private void txtNomEvenement_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            txtNomEvenement.BackColor = Color.White;
+
         }
     }
 }

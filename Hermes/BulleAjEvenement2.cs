@@ -51,15 +51,24 @@ namespace Hermes
 
         private void BtnValider_Click(object sender, EventArgs e)
         {
-            newEvent.Description = this.rtxtDescription.Text;
-            Database.InsertEvent(newEvent, getInvitedParticipant());
+            if(rtxtDescription.Text.Length > 0 && rtxtDescription.Text.Length < 200)
+            {
+                newEvent.Description = this.rtxtDescription.Text;
+                Database.InsertEvent(newEvent, getInvitedParticipant());
 
-            this.ecran.Controls.Clear();
-            this.ecran.Visible = false;
-            pnlPrincipal.Controls.Clear();
-            Evenements evenements = new Evenements();
-            evenements.setPanel = pnlPrincipal;
-            pnlPrincipal.Controls.Add(evenements);
+                this.ecran.Controls.Clear();
+                this.ecran.Visible = false;
+                pnlPrincipal.Controls.Clear();
+                Evenements evenements = new Evenements();
+                evenements.setPanel = pnlPrincipal;
+                pnlPrincipal.Controls.Add(evenements);
+            }
+            else
+            {
+                rtxtDescription.BackColor = Color.LightPink;
+                rtxtDescription.Focus();
+            }
+            
         }
 
         public List<Participant> getInvitedParticipant()
@@ -135,6 +144,11 @@ namespace Hermes
                 annuler.DynamicInvoke();
             }
            
+        }
+
+        private void rtxtDescription_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            rtxtDescription.BackColor = Color.White;
         }
     }
 }

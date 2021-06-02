@@ -52,7 +52,7 @@
             this.cboEvenements.Location = new System.Drawing.Point(171, 259);
             this.cboEvenements.Name = "cboEvenements";
             this.cboEvenements.Size = new System.Drawing.Size(249, 28);
-            this.cboEvenements.TabIndex = 3;
+            this.cboEvenements.TabIndex = 1;
             this.cboEvenements.SelectedIndexChanged += new System.EventHandler(this.cbbEvenement_SelectedIndexChanged);
             this.cboEvenements.SelectionChangeCommitted += new System.EventHandler(this.cboEvenements_SelectionChangeCommitted);
             // 
@@ -61,9 +61,10 @@
             this.txtWhere.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtWhere.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F);
             this.txtWhere.Location = new System.Drawing.Point(171, 341);
+            this.txtWhere.MaxLength = 30;
             this.txtWhere.Name = "txtWhere";
             this.txtWhere.Size = new System.Drawing.Size(249, 27);
-            this.txtWhere.TabIndex = 9;
+            this.txtWhere.TabIndex = 2;
             // 
             // numAmount
             // 
@@ -72,7 +73,7 @@
             this.numAmount.Location = new System.Drawing.Point(174, 415);
             this.numAmount.Name = "numAmount";
             this.numAmount.Size = new System.Drawing.Size(246, 27);
-            this.numAmount.TabIndex = 10;
+            this.numAmount.TabIndex = 3;
             // 
             // dtp
             // 
@@ -81,7 +82,7 @@
             this.dtp.Location = new System.Drawing.Point(479, 261);
             this.dtp.Name = "dtp";
             this.dtp.Size = new System.Drawing.Size(263, 27);
-            this.dtp.TabIndex = 11;
+            this.dtp.TabIndex = 4;
             this.dtp.Value = new System.DateTime(2021, 5, 18, 18, 23, 0, 0);
             this.dtp.ValueChanged += new System.EventHandler(this.dtpDebut_ValueChanged);
             // 
@@ -93,7 +94,7 @@
             this.cboPayePar.Location = new System.Drawing.Point(479, 340);
             this.cboPayePar.Name = "cboPayePar";
             this.cboPayePar.Size = new System.Drawing.Size(263, 28);
-            this.cboPayePar.TabIndex = 15;
+            this.cboPayePar.TabIndex = 5;
             this.cboPayePar.SelectionChangeCommitted += new System.EventHandler(this.cboPayePar_SelectionChangeCommitted);
             this.cboPayePar.SelectedValueChanged += new System.EventHandler(this.CboPayePar_SelectedValueChanged);
             // 
@@ -106,7 +107,7 @@
             this.appFontLabel8.Location = new System.Drawing.Point(841, 576);
             this.appFontLabel8.Name = "appFontLabel8";
             this.appFontLabel8.Size = new System.Drawing.Size(61, 14);
-            this.appFontLabel8.TabIndex = 19;
+            this.appFontLabel8.TabIndex = 6;
             this.appFontLabel8.Text = "Continuer";
             this.appFontLabel8.Click += new System.EventHandler(this.AppFontLabel8_Click);
             this.appFontLabel8.MouseLeave += new System.EventHandler(this.AppFontLabel8_MouseLeave);
@@ -121,7 +122,7 @@
             this.lblAnnuler.Location = new System.Drawing.Point(771, 576);
             this.lblAnnuler.Name = "lblAnnuler";
             this.lblAnnuler.Size = new System.Drawing.Size(49, 14);
-            this.lblAnnuler.TabIndex = 18;
+            this.lblAnnuler.TabIndex = 7;
             this.lblAnnuler.Text = "Annuler";
             this.lblAnnuler.Click += new System.EventHandler(this.appFontLabel7_Click);
             this.lblAnnuler.MouseLeave += new System.EventHandler(this.lblAnnuler_MouseLeave);
