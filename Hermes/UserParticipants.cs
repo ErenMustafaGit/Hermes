@@ -19,6 +19,7 @@ namespace Hermes
             InitializeComponent();
             lblIconeMail.Text = Hermes.UI.Icons.MAIL;
             lblIconeTel.Text = Hermes.UI.Icons.PHONE;
+            lblIconePart.Text = Hermes.UI.Icons.FINANCE;
         }
 
         public Participant SetParticipant
@@ -36,6 +37,7 @@ namespace Hermes
             lblTel.Text = Espacement(this.participant.PhoneNumber);
 
             lblEmail.Text = this.participant.Mail;
+            lblNbPart.Text = this.participant.NbParts.ToString() + " parts";
         }
 
         //Permet de faire un espacement de un entre chaque dizaine
