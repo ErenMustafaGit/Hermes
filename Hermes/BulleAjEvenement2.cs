@@ -55,6 +55,7 @@ namespace Hermes
             newEvent.Description = rtxtDescription.Text.Replace('\'',' ');
 
             Database.InsertEvent(newEvent, getInvitedParticipant());
+            EmailManager.InviteList(getInvitedParticipant(), newEvent);
 
             this.ecran.Controls.Clear();
             this.ecran.Visible = false;

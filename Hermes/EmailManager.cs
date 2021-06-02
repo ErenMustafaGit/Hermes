@@ -26,14 +26,14 @@ namespace Hermes
                 Credentials = new NetworkCredential()
                 {
                     UserName = "HermesRobertSchuman@gmail.com",
-                    Password = "dpawedelwcvbahsg",
+                    Password = "dpawedelwcvbahsg", //Passwork Key
                 }
             };
 
             //Initialisation des address
             MailAddress from = new MailAddress("HermesRobertSchuman@gmail.com");
             //MailAddress to = new MailAddress(participant.Mail);
-            MailAddress to = new MailAddress("eren-mustafa.ceylan@etu.unistra.fr");
+            MailAddress to = new MailAddress("eren-mustafa.ceylan@etu.unistra.fr");//Only a mail for test
 
 
             string subject = participant.FirstName + " " + participant.LastName + " : Tu es invité à mon évenement sur Hermès !";
