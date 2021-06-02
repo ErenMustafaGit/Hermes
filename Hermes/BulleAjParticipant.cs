@@ -106,15 +106,32 @@ namespace Hermes
         private void txtPhoneNumber_KeyPress(object sender, KeyPressEventArgs e)
         {
             e.Handled = true;
+            txtPhoneNumber.BackColor = Color.LightPink;
             if (char.IsDigit(e.KeyChar) || e.KeyChar == (char)Keys.Back)
             {
                 e.Handled = false;
+                txtPhoneNumber.BackColor = Color.White;
             }
         }
 
         private void TxtPhoneNumber_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void txtFirstName_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            txtFirstName.BackColor = Color.White;
+        }
+
+        private void txtLastName_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            txtLastName.BackColor = Color.White;
+        }
+
+        private void txtMail_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            txtMail.BackColor = Color.White;
         }
     }
 }
