@@ -30,11 +30,9 @@
         {
             this.button1 = new System.Windows.Forms.Button();
             this.btnValider = new System.Windows.Forms.Button();
-            this.lblInvitations = new Hermes.UI.AppFontLabel();
             this.cboEvenements = new System.Windows.Forms.ComboBox();
-            this.pnlBeneficiaire = new System.Windows.Forms.Panel();
-            this.chkEveryOne = new System.Windows.Forms.CheckBox();
-            this.pnlBeneficiaire.SuspendLayout();
+            this.pnlParticipant = new System.Windows.Forms.Panel();
+            this.lblInvitations = new Hermes.UI.AppFontLabel();
             this.SuspendLayout();
             // 
             // button1
@@ -61,6 +59,25 @@
             this.btnValider.TabIndex = 32;
             this.btnValider.Text = "Valider";
             this.btnValider.UseVisualStyleBackColor = false;
+            this.btnValider.Click += new System.EventHandler(this.BtnValider_Click);
+            // 
+            // cboEvenements
+            // 
+            this.cboEvenements.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboEvenements.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.cboEvenements.FormattingEnabled = true;
+            this.cboEvenements.Location = new System.Drawing.Point(402, 69);
+            this.cboEvenements.Name = "cboEvenements";
+            this.cboEvenements.Size = new System.Drawing.Size(221, 28);
+            this.cboEvenements.TabIndex = 28;
+            this.cboEvenements.SelectionChangeCommitted += new System.EventHandler(this.CboEvenements_SelectionChangeCommitted);
+            // 
+            // pnlParticipant
+            // 
+            this.pnlParticipant.Location = new System.Drawing.Point(66, 122);
+            this.pnlParticipant.Name = "pnlParticipant";
+            this.pnlParticipant.Size = new System.Drawing.Size(557, 187);
+            this.pnlParticipant.TabIndex = 33;
             // 
             // lblInvitations
             // 
@@ -73,40 +90,11 @@
             this.lblInvitations.TabIndex = 30;
             this.lblInvitations.Text = "Inviter à l\'évènement\r\n";
             // 
-            // cboEvenements
-            // 
-            this.cboEvenements.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboEvenements.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.cboEvenements.FormattingEnabled = true;
-            this.cboEvenements.Location = new System.Drawing.Point(402, 69);
-            this.cboEvenements.Name = "cboEvenements";
-            this.cboEvenements.Size = new System.Drawing.Size(221, 28);
-            this.cboEvenements.TabIndex = 28;
-            // 
-            // pnlBeneficiaire
-            // 
-            this.pnlBeneficiaire.Controls.Add(this.chkEveryOne);
-            this.pnlBeneficiaire.Location = new System.Drawing.Point(66, 122);
-            this.pnlBeneficiaire.Name = "pnlBeneficiaire";
-            this.pnlBeneficiaire.Size = new System.Drawing.Size(557, 187);
-            this.pnlBeneficiaire.TabIndex = 33;
-            // 
-            // chkEveryOne
-            // 
-            this.chkEveryOne.AutoSize = true;
-            this.chkEveryOne.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chkEveryOne.Location = new System.Drawing.Point(21, 14);
-            this.chkEveryOne.Name = "chkEveryOne";
-            this.chkEveryOne.Size = new System.Drawing.Size(135, 22);
-            this.chkEveryOne.TabIndex = 0;
-            this.chkEveryOne.Text = "Tout le monde";
-            this.chkEveryOne.UseVisualStyleBackColor = true;
-            // 
             // BulleInvitations
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.pnlBeneficiaire);
+            this.Controls.Add(this.pnlParticipant);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.btnValider);
             this.Controls.Add(this.lblInvitations);
@@ -114,8 +102,6 @@
             this.Name = "BulleInvitations";
             this.Size = new System.Drawing.Size(705, 405);
             this.Load += new System.EventHandler(this.BulleInvitations_Load);
-            this.pnlBeneficiaire.ResumeLayout(false);
-            this.pnlBeneficiaire.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -127,7 +113,6 @@
         private System.Windows.Forms.Button btnValider;
         private UI.AppFontLabel lblInvitations;
         private System.Windows.Forms.ComboBox cboEvenements;
-        private System.Windows.Forms.Panel pnlBeneficiaire;
-        private System.Windows.Forms.CheckBox chkEveryOne;
+        private System.Windows.Forms.Panel pnlParticipant;
     }
 }

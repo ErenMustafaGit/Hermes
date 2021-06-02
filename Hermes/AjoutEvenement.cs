@@ -33,6 +33,9 @@ namespace Hermes
         private void AjoutEvenement_Load(object sender, EventArgs e)
         {
             pictureBox1.SendToBack();
+            pictureBox1.MouseHover += new System.EventHandler(LblAdd_MouseHover);
+            pictureBox1.MouseClick += new MouseEventHandler(LblAdd_MouseClick);
+            pictureBox1.MouseLeave += new System.EventHandler(LblAdd_MouseLeave);
         }
 
         private void LblAdd_MouseClick(object sender, MouseEventArgs e)

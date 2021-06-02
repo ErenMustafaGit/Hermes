@@ -33,7 +33,10 @@ namespace Hermes
 
         private void AjoutParticipant_Load(object sender, EventArgs e)
         {
-            
+            pictureBox1.SendToBack();
+            pictureBox1.MouseHover += new System.EventHandler(LblIconeAjoutParticipant_MouseHover);
+            pictureBox1.MouseClick += new MouseEventHandler(LblIconeAjoutParticipant_MouseClick);
+            pictureBox1.MouseLeave += new System.EventHandler(LblIconeAjoutParticipant_MouseLeave);
         }
 
 
@@ -54,8 +57,15 @@ namespace Hermes
             //Donne l'action au bouton annuler
             Stop annuler = DelegateMethodAnnuler;
             bulleAjParticipant.Annuler = annuler;
+
+            //Donne le panel qui contiendra la bulle d'ajout rapide
+            bulleAjParticipant.SetPanel = bulle;
+            bulleAjParticipant.SetEcran = pnlPrincipal;
+
             bulle.Controls.Add(bulleAjParticipant);
             bulle.Visible = true;
+
+
         }
 
         private void LblIconeAjoutParticipant_MouseHover(object sender, EventArgs e)
@@ -72,6 +82,11 @@ namespace Hermes
 
         private void AjoutParticipant_MouseHover(object sender, EventArgs e)
         {
+        }
+
+        private void PictureBox1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

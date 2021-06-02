@@ -195,7 +195,7 @@ namespace Hermes.DataModel
                 db);
             command.Parameters.AddWithValue("@Id", expense.Id);
             command.Parameters.AddWithValue("@Description", expense.Description);
-            command.Parameters.AddWithValue("@Amount", expense.Amount.ToString(CultureInfo.InvariantCulture));
+            command.Parameters.AddWithValue("@Amount", (double)expense.Amount);
             command.Parameters.AddWithValue("@Date", expense.Date);
             command.Parameters.AddWithValue("@Comment", expense.Comment);
             command.Parameters.AddWithValue("@EventId", expense.EventId);

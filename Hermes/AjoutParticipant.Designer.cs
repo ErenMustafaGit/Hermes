@@ -28,7 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AjoutParticipant));
             this.lblIconeAjoutParticipant = new Hermes.UI.AppFontLabel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // lblIconeAjoutParticipant
@@ -45,15 +48,27 @@
             this.lblIconeAjoutParticipant.MouseLeave += new System.EventHandler(this.LblIconeAjoutParticipant_MouseLeave);
             this.lblIconeAjoutParticipant.MouseHover += new System.EventHandler(this.LblIconeAjoutParticipant_MouseHover);
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(378, 177);
+            this.pictureBox1.TabIndex = 2;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.PictureBox1_Click);
+            // 
             // AjoutParticipant
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.lblIconeAjoutParticipant);
             this.Name = "AjoutParticipant";
             this.Size = new System.Drawing.Size(378, 177);
             this.Load += new System.EventHandler(this.AjoutParticipant_Load);
             this.MouseHover += new System.EventHandler(this.AjoutParticipant_MouseHover);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -62,5 +77,6 @@
         #endregion
 
         private UI.AppFontLabel lblIconeAjoutParticipant;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
