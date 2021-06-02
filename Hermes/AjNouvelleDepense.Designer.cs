@@ -65,6 +65,7 @@
             this.txtWhere.Name = "txtWhere";
             this.txtWhere.Size = new System.Drawing.Size(249, 27);
             this.txtWhere.TabIndex = 2;
+            this.txtWhere.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtWhere_KeyPress);
             // 
             // numAmount
             // 
@@ -74,6 +75,8 @@
             this.numAmount.Name = "numAmount";
             this.numAmount.Size = new System.Drawing.Size(246, 27);
             this.numAmount.TabIndex = 3;
+            this.numAmount.ValueChanged += new System.EventHandler(this.numAmount_ValueChanged);
+            this.numAmount.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.numAmount_KeyPress);
             // 
             // dtp
             // 
@@ -101,12 +104,12 @@
             // appFontLabel8
             // 
             this.appFontLabel8.AppFont = Hermes.AppFont.HelveticaNeue;
-            this.appFontLabel8.AppFontHeight = 9F;
+            this.appFontLabel8.AppFontHeight = 12F;
             this.appFontLabel8.AutoSize = true;
             this.appFontLabel8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(141)))), ((int)(((byte)(255)))));
-            this.appFontLabel8.Location = new System.Drawing.Point(841, 576);
+            this.appFontLabel8.Location = new System.Drawing.Point(783, 579);
             this.appFontLabel8.Name = "appFontLabel8";
-            this.appFontLabel8.Size = new System.Drawing.Size(61, 14);
+            this.appFontLabel8.Size = new System.Drawing.Size(80, 19);
             this.appFontLabel8.TabIndex = 6;
             this.appFontLabel8.Text = "Continuer";
             this.appFontLabel8.Click += new System.EventHandler(this.AppFontLabel8_Click);
@@ -116,12 +119,12 @@
             // lblAnnuler
             // 
             this.lblAnnuler.AppFont = Hermes.AppFont.HelveticaNeue;
-            this.lblAnnuler.AppFontHeight = 9F;
+            this.lblAnnuler.AppFontHeight = 12F;
             this.lblAnnuler.AutoSize = true;
             this.lblAnnuler.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
-            this.lblAnnuler.Location = new System.Drawing.Point(771, 576);
+            this.lblAnnuler.Location = new System.Drawing.Point(702, 579);
             this.lblAnnuler.Name = "lblAnnuler";
-            this.lblAnnuler.Size = new System.Drawing.Size(49, 14);
+            this.lblAnnuler.Size = new System.Drawing.Size(64, 19);
             this.lblAnnuler.TabIndex = 7;
             this.lblAnnuler.Text = "Annuler";
             this.lblAnnuler.Click += new System.EventHandler(this.appFontLabel7_Click);
