@@ -87,10 +87,12 @@ namespace Hermes
         }
         public void UserControl_MouseEnter(object sender, EventArgs e)
         {
-            this.BackColor = Color.FromArgb(40, 128, 237);
+            this.Cursor = Cursors.Hand;
+            this.BackColor = Color.FromArgb(50, 108, 220);
         }
         public void UserControl_MouseLeave(object sender, EventArgs e)
         {
+            this.Cursor = Cursors.Default;
             this.BackColor = Color.FromArgb(38, 147, 248);
         }
 
