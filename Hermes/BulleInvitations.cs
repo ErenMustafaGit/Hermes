@@ -154,6 +154,10 @@ namespace Hermes
 
             //Invitation à l'evenement des participants coché
             Database.InsertGuestsForEvent(currentEvent, invitedParticipant);
+
+            pnlBulle.Controls.Clear();
+            //Ajout d'une pop up pour confirmer l'invitation 
+            pnlBulle.Visible = false;
         }
     }
 }
