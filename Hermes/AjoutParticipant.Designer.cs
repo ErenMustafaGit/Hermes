@@ -68,6 +68,8 @@
             this.Name = "AjoutParticipant";
             this.Size = new System.Drawing.Size(378, 177);
             this.Load += new System.EventHandler(this.AjoutParticipant_Load);
+            this.MouseEnter += new System.EventHandler(this.AjoutParticipant_MouseEnter);
+            this.MouseLeave += new System.EventHandler(this.AjoutParticipant_MouseLeave);
             this.MouseHover += new System.EventHandler(this.AjoutParticipant_MouseHover);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);

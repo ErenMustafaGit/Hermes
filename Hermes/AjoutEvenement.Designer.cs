@@ -71,6 +71,8 @@
             this.Name = "AjoutEvenement";
             this.Size = new System.Drawing.Size(334, 233);
             this.Load += new System.EventHandler(this.AjoutEvenement_Load);
+            this.MouseEnter += new System.EventHandler(this.AjoutEvenement_MouseEnter);
+            this.MouseLeave += new System.EventHandler(this.AjoutEvenement_MouseLeave);
             this.MouseHover += new System.EventHandler(this.AjoutEvenement_MouseHover);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
