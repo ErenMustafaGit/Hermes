@@ -46,9 +46,9 @@
             // 
             // pnlParticipants
             // 
-            this.pnlParticipants.Location = new System.Drawing.Point(-37, 176);
+            this.pnlParticipants.Location = new System.Drawing.Point(76, 156);
             this.pnlParticipants.Name = "pnlParticipants";
-            this.pnlParticipants.Size = new System.Drawing.Size(942, 406);
+            this.pnlParticipants.Size = new System.Drawing.Size(806, 462);
             this.pnlParticipants.TabIndex = 7;
             // 
             // btnInviter
@@ -57,7 +57,7 @@
             this.btnInviter.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnInviter.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnInviter.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnInviter.Location = new System.Drawing.Point(718, 113);
+            this.btnInviter.Location = new System.Drawing.Point(690, 113);
             this.btnInviter.Name = "btnInviter";
             this.btnInviter.Size = new System.Drawing.Size(165, 37);
             this.btnInviter.TabIndex = 8;

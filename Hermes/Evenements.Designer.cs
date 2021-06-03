@@ -33,9 +33,9 @@
             // 
             // pnlScroll
             // 
-            this.pnlScroll.Location = new System.Drawing.Point(39, 76);
+            this.pnlScroll.Location = new System.Drawing.Point(47, 48);
             this.pnlScroll.Name = "pnlScroll";
-            this.pnlScroll.Size = new System.Drawing.Size(909, 494);
+            this.pnlScroll.Size = new System.Drawing.Size(909, 560);
             this.pnlScroll.TabIndex = 2;
             // 
             // Evenements
