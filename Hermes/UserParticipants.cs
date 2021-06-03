@@ -32,7 +32,11 @@ namespace Hermes
         {
 
             lblPrenomNom.Text = this.participant.LastName + " " + this.participant.FirstName;
-
+            if(lblPrenomNom.Text.Length > 20)
+            {
+                lblPrenomNom.Left -= 20;
+                lblPrenomNom.AppFontHeight -= 6;
+            }
             // Espacement sur le numéro de téléphone
             lblTel.Text = Espacement(this.participant.PhoneNumber);
 
