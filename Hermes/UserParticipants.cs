@@ -37,7 +37,7 @@ namespace Hermes
             lblTel.Text = Espacement(this.participant.PhoneNumber);
 
             lblEmail.Text = this.participant.Mail;
-            lblNbPart.Text = this.participant.NbParts.ToString() + " parts";
+            lblNbPart.Text = this.participant.NbParts.ToString() + " part(s)";
         }
 
         //Permet de faire un espacement de un entre chaque dizaine
