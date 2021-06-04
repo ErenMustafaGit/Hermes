@@ -34,9 +34,13 @@ namespace Hermes
         private void AjoutParticipant_Load(object sender, EventArgs e)
         {
             pictureBox1.SendToBack();
-            pictureBox1.MouseHover += new System.EventHandler(LblIconeAjoutParticipant_MouseHover);
-            pictureBox1.MouseClick += new MouseEventHandler(LblIconeAjoutParticipant_MouseClick);
-            pictureBox1.MouseLeave += new System.EventHandler(LblIconeAjoutParticipant_MouseLeave);
+
+            foreach (Control control in this.Controls)
+            {
+                control.MouseEnter += new EventHandler(AjoutParticipant_MouseEnter);
+                control.MouseLeave += new EventHandler(AjoutParticipant_MouseLeave);
+                control.MouseClick += new MouseEventHandler(LblIconeAjoutParticipant_MouseClick);
+            }
         }
 
 
@@ -75,8 +79,7 @@ namespace Hermes
 
         private void LblIconeAjoutParticipant_MouseLeave(object sender, EventArgs e)
         {
-            this.Cursor = Cursors.Default;
-            lblIconeAjoutParticipant.ForeColor = Color.FromArgb(0, 0, 0);
+           
         }
 
         private void AjoutParticipant_MouseHover(object sender, EventArgs e)
@@ -90,8 +93,19 @@ namespace Hermes
 
         private void lblIconeAjoutParticipant_MouseEnter(object sender, EventArgs e)
         {
+            
+        }
+
+        private void AjoutParticipant_MouseEnter(object sender, EventArgs e)
+        {
             this.Cursor = Cursors.Hand;
             lblIconeAjoutParticipant.ForeColor = ColorTranslator.FromHtml("#2693f8");
+        }
+
+        private void AjoutParticipant_MouseLeave(object sender, EventArgs e)
+        {
+            this.Cursor = Cursors.Default;
+            lblIconeAjoutParticipant.ForeColor = Color.FromArgb(0, 0, 0);
         }
     }
 }
