@@ -40,6 +40,7 @@ namespace Hermes
             {
                 control.MouseEnter += new System.EventHandler(AjoutEvenement_MouseEnter);
                 control.MouseLeave += new System.EventHandler(AjoutEvenement_MouseLeave);
+                control.MouseClick += new MouseEventHandler(LblAdd_MouseClick);
             }
         }
 
