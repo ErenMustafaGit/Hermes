@@ -49,5 +49,7 @@ namespace Hermes.UI
         public const string USER_GROUP = "\uE81A";
         public const string USER = "\uE81C";
         public const string PHONE = "\uE81F";
+        public const string PDF_FILE = "\uE80B";
+        public const string EXIT_DOOR = "\uE806";
     }
 }

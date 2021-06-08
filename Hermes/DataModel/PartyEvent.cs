@@ -83,7 +83,7 @@ namespace Hermes.DataModel
 
             OleDbDataReader dataReader = command.ExecuteReader();
             dataReader.Read();
-          
+
             return new PartyEvent(dataReader);
         }
 
@@ -185,5 +185,97 @@ namespace Hermes.DataModel
             return codeMax;
         }
 
+        public class Due
+        {
+            private Participant m_From, m_To;
+            private decimal m_Amount = 0.0m;
+
+            public int FromId;
+            public int ToId;
+
+            public decimal Amount
+            {
+                set
+                {
+                    // no negative values allowed, we just reverse everything
+                    if (value < 0)
+                    {
+                        m_Amount = -value;
+
+                        (m_From, m_To) = (m_To, m_From);
+                        (FromId, ToId) = (ToId, FromId);
+                    }
+                    else
+                        m_Amount = value;
+                }
+                get => m_Amount;
+            }
+
+            public Participant From
+            {
+                get
+                {
+                    if (m_From == null)
+                        m_From = Participant.GetParticipant(FromId);
+                    return m_From;
+                }
+            }
+
+            public Participant To
+            {
+                get
+                {
+                    if (m_To == null)
+                        m_To = Participant.GetParticipant(ToId);
+                    return m_To;
+                }
+            }
+        }
+
+        public List<Due> CalculateDues()
+        {
+            // FIXME: Very unoptimized, lacks caching, terrible complexity, etc.
+
+            List<Due> dues = new List<Due>();
+
+            List<Expense> expenses = this.GetExpenses();
+
+            foreach (Expense expense in expenses)
+            {
+                List<Participant> beneficiairies = expense.GetBeneficiaires();
+                int totalParts = beneficiairies.Sum(p => p.NbParts);
+
+                int target = expense.AuthorId;
+                decimal amount = expense.Amount;
+                foreach (Participant beneficiary in beneficiairies)
+                {
+                    int source = beneficiary.CodeParticipant;
+
+                    // People do not really owe themselves money.
+                    if (target == source)
+                        continue;
+
+                    // Look for an existing link between two people.
+                    Due due = dues.Find(
+                        d => (d.FromId, d.ToId) == (target, source) || (d.FromId, d.ToId) == (source, target));
+
+                    // Create one if none was found.
+                    if (due == null)
+                    {
+                        due = new Due() { FromId = source, ToId = target };
+                        dues.Add(due);
+                    }
+
+                    // Increase the amount due (or decrease it, if it's better this way).
+                    decimal v = (amount / totalParts) * beneficiary.NbParts;
+                    if (due.FromId == target)
+                        v = -v;
+
+                    due.Amount += v;
+                }
+            }
+
+            return dues;
+        }
     }
 }

@@ -57,7 +57,7 @@ namespace Hermes
                 userParticipants.SetParticipant = participant;
 
                 userParticipants.Top = 30 + 200 * ((i+1) / modulo);
-                userParticipants.Left = 118 + 400 * ((i+1) % modulo);
+                userParticipants.Left = 0 + 400 * ((i+1) % modulo);
                 pnlParticipants.Controls.Add(userParticipants);
 
             }
@@ -89,7 +89,7 @@ namespace Hermes
                     userParticipants.SetParticipant = participant;
 
                     userParticipants.Top = 30 + 200 * ((i+1) / modulo);
-                    userParticipants.Left = 118 + 400 * ((i+1) % modulo);
+                    userParticipants.Left = 0 + 400 * ((i+1) % modulo);
                     pnlParticipants.Controls.Add(userParticipants);
 
                 }
@@ -112,7 +112,7 @@ namespace Hermes
                     UserParticipants userParticipants = new UserParticipants();
                     userParticipants.SetParticipant = participant;
                     userParticipants.Top = 30 + 200 * ((i+1) / modulo);
-                    userParticipants.Left = 118 + 400 * ((i+1) % modulo);
+                    userParticipants.Left = 0 + 400 * ((i+1) % modulo);
 
                     pnlParticipants.Controls.Add(userParticipants);
 
@@ -136,7 +136,7 @@ namespace Hermes
             ajoutParticipant.setPanelPrincipal = this.ecran;
             ajoutParticipant.setPanelBulle = pnlAddParticipantBulle;
             ajoutParticipant.Top = 30;
-            ajoutParticipant.Left = 118;
+            ajoutParticipant.Left = 0;
             pnlParticipants.Controls.Add(ajoutParticipant);
         }
 

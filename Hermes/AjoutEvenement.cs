@@ -33,6 +33,15 @@ namespace Hermes
         private void AjoutEvenement_Load(object sender, EventArgs e)
         {
             pictureBox1.SendToBack();
+            this.MouseClick += new MouseEventHandler(LblAdd_MouseClick);
+            
+
+            foreach(Control control in this.Controls)
+            {
+                control.MouseEnter += new System.EventHandler(AjoutEvenement_MouseEnter);
+                control.MouseLeave += new System.EventHandler(AjoutEvenement_MouseLeave);
+                control.MouseClick += new MouseEventHandler(LblAdd_MouseClick);
+            }
         }
 
         private void LblAdd_MouseClick(object sender, MouseEventArgs e)
@@ -61,14 +70,12 @@ namespace Hermes
 
         private void LblAdd_MouseHover(object sender, EventArgs e)
         {
-            this.Cursor = Cursors.Hand;
-            lblAdd.ForeColor = ColorTranslator.FromHtml("#2693f8");
+
         }
 
         private void LblAdd_MouseLeave(object sender, EventArgs e)
         {
-            this.Cursor = Cursors.Default;
-            lblAdd.ForeColor = Color.FromArgb(12, 12, 12);
+            
         }
 
         private void AjoutEvenement_MouseHover(object sender, EventArgs e)
@@ -84,6 +91,23 @@ namespace Hermes
         private void appFontLabel1_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void lblAdd_MouseEnter(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void AjoutEvenement_MouseEnter(object sender, EventArgs e)
+        {
+            this.Cursor = Cursors.Hand;
+            lblAdd.ForeColor = ColorTranslator.FromHtml("#2693f8");
+        }
+
+        private void AjoutEvenement_MouseLeave(object sender, EventArgs e)
+        {
+            this.Cursor = Cursors.Default;
+            lblAdd.ForeColor = Color.FromArgb(12, 12, 12);
         }
     }
 }

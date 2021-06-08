@@ -62,10 +62,12 @@
             // 
             this.rtxtDescription.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.rtxtDescription.Location = new System.Drawing.Point(364, 92);
+            this.rtxtDescription.MaxLength = 200;
             this.rtxtDescription.Name = "rtxtDescription";
             this.rtxtDescription.Size = new System.Drawing.Size(258, 226);
             this.rtxtDescription.TabIndex = 2;
             this.rtxtDescription.Text = "";
+            this.rtxtDescription.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.rtxtDescription_KeyPress);
             // 
             // btnAnnuler
             // 

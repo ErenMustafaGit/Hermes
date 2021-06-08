@@ -46,9 +46,11 @@
             this.txtNomEvenement.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtNomEvenement.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F);
             this.txtNomEvenement.Location = new System.Drawing.Point(112, 167);
+            this.txtNomEvenement.MaxLength = 30;
             this.txtNomEvenement.Name = "txtNomEvenement";
             this.txtNomEvenement.Size = new System.Drawing.Size(230, 27);
             this.txtNomEvenement.TabIndex = 11;
+            this.txtNomEvenement.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNomEvenement_KeyPress);
             // 
             // dtpDateDebut
             // 
@@ -90,7 +92,7 @@
             this.btnAnnuler.Location = new System.Drawing.Point(376, 323);
             this.btnAnnuler.Name = "btnAnnuler";
             this.btnAnnuler.Size = new System.Drawing.Size(96, 30);
-            this.btnAnnuler.TabIndex = 20;
+            this.btnAnnuler.TabIndex = 22;
             this.btnAnnuler.Text = "Annuler";
             this.btnAnnuler.UseVisualStyleBackColor = false;
             this.btnAnnuler.Click += new System.EventHandler(this.Button1_Click);
