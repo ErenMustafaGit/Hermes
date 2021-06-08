@@ -51,6 +51,8 @@ namespace Hermes
             cboEventCreator.DataSource = Participant.toConcatenateDataTable(Database.FetchParticipant());
             cboEventCreator.DisplayMember = "Name";
             cboEventCreator.ValueMember = "CodeParticipant";
+
+            dtpDateDebut.Text = DateTime.Now.ToShortTimeString();
         }
 
         //btnAnnuler_Click
