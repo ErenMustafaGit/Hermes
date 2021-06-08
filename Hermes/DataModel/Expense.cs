@@ -117,7 +117,7 @@ namespace Hermes.DataModel
             OleDbConnection db = Database.Connect();
             
             OleDbCommand command = new OleDbCommand(
-                "select * from Expenditure where numDepense = @Id",
+                "select * from Depenses where numDepense = @Id",
                 db);
             command.Parameters.AddWithValue("@Id", id);
 
