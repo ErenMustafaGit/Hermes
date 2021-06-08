@@ -41,7 +41,7 @@
             this.cboEvenements.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboEvenements.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboEvenements.FormattingEnabled = true;
-            this.cboEvenements.Location = new System.Drawing.Point(437, 101);
+            this.cboEvenements.Location = new System.Drawing.Point(422, 101);
             this.cboEvenements.Name = "cboEvenements";
             this.cboEvenements.Size = new System.Drawing.Size(281, 28);
             this.cboEvenements.TabIndex = 7;
@@ -49,11 +49,11 @@
             // 
             // btnBilanGlobal
             // 
-            this.btnBilanGlobal.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(147)))), ((int)(((byte)(248)))));
+            this.btnBilanGlobal.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(66)))), ((int)(((byte)(51)))));
             this.btnBilanGlobal.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnBilanGlobal.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F);
             this.btnBilanGlobal.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnBilanGlobal.Location = new System.Drawing.Point(741, 101);
+            this.btnBilanGlobal.Location = new System.Drawing.Point(726, 101);
             this.btnBilanGlobal.Name = "btnBilanGlobal";
             this.btnBilanGlobal.Size = new System.Drawing.Size(182, 28);
             this.btnBilanGlobal.TabIndex = 40;
@@ -62,14 +62,14 @@
             // 
             // pnlBilanToutePersonnes
             // 
-            this.pnlBilanToutePersonnes.Location = new System.Drawing.Point(93, 164);
+            this.pnlBilanToutePersonnes.Location = new System.Drawing.Point(78, 164);
             this.pnlBilanToutePersonnes.Name = "pnlBilanToutePersonnes";
             this.pnlBilanToutePersonnes.Size = new System.Drawing.Size(830, 197);
             this.pnlBilanToutePersonnes.TabIndex = 41;
             // 
             // pnlBilanCasParCas
             // 
-            this.pnlBilanCasParCas.Location = new System.Drawing.Point(93, 376);
+            this.pnlBilanCasParCas.Location = new System.Drawing.Point(78, 376);
             this.pnlBilanCasParCas.Name = "pnlBilanCasParCas";
             this.pnlBilanCasParCas.Size = new System.Drawing.Size(830, 233);
             this.pnlBilanCasParCas.TabIndex = 42;
@@ -79,7 +79,7 @@
             this.lblEvenement.AppFont = Hermes.AppFont.HelveticaNeue;
             this.lblEvenement.AppFontHeight = 12F;
             this.lblEvenement.AutoSize = true;
-            this.lblEvenement.Location = new System.Drawing.Point(433, 69);
+            this.lblEvenement.Location = new System.Drawing.Point(418, 69);
             this.lblEvenement.Name = "lblEvenement";
             this.lblEvenement.Size = new System.Drawing.Size(197, 19);
             this.lblEvenement.TabIndex = 8;
@@ -90,7 +90,7 @@
             this.appFontLabel2.AppFont = Hermes.AppFont.HelveticaNeue_Bold;
             this.appFontLabel2.AppFontHeight = 40F;
             this.appFontLabel2.AutoSize = true;
-            this.appFontLabel2.Location = new System.Drawing.Point(81, 68);
+            this.appFontLabel2.Location = new System.Drawing.Point(66, 68);
             this.appFontLabel2.Name = "appFontLabel2";
             this.appFontLabel2.Size = new System.Drawing.Size(325, 67);
             this.appFontLabel2.TabIndex = 2;

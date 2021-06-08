@@ -29,11 +29,11 @@
         private void InitializeComponent()
         {
             this.pnlTitle = new System.Windows.Forms.Panel();
-            this.pnlRows = new System.Windows.Forms.Panel();
             this.appFontLabel3 = new Hermes.UI.AppFontLabel();
             this.appFontLabel2 = new Hermes.UI.AppFontLabel();
             this.appFontLabel1 = new Hermes.UI.AppFontLabel();
             this.lblPersonnes = new Hermes.UI.AppFontLabel();
+            this.pnlRows = new System.Windows.Forms.Panel();
             this.pnlTitle.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -49,14 +49,6 @@
             this.pnlTitle.Size = new System.Drawing.Size(830, 42);
             this.pnlTitle.TabIndex = 0;
             this.pnlTitle.Paint += new System.Windows.Forms.PaintEventHandler(this.PnlTitle_Paint);
-            // 
-            // pnlRows
-            // 
-            this.pnlRows.Location = new System.Drawing.Point(0, 40);
-            this.pnlRows.Name = "pnlRows";
-            this.pnlRows.Size = new System.Drawing.Size(830, 157);
-            this.pnlRows.TabIndex = 1;
-            this.pnlRows.Paint += new System.Windows.Forms.PaintEventHandler(this.PnlRows_Paint);
             // 
             // appFontLabel3
             // 
@@ -105,6 +97,14 @@
             this.lblPersonnes.Size = new System.Drawing.Size(80, 17);
             this.lblPersonnes.TabIndex = 0;
             this.lblPersonnes.Text = "Personnes";
+            // 
+            // pnlRows
+            // 
+            this.pnlRows.Location = new System.Drawing.Point(0, 40);
+            this.pnlRows.Name = "pnlRows";
+            this.pnlRows.Size = new System.Drawing.Size(830, 157);
+            this.pnlRows.TabIndex = 1;
+            this.pnlRows.Paint += new System.Windows.Forms.PaintEventHandler(this.PnlRows_Paint);
             // 
             // DataGridViewCustom
             // 

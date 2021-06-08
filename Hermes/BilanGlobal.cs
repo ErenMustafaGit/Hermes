@@ -18,6 +18,10 @@ namespace Hermes
         public Panel ecran;
         public int index;
 
+
+        //pour fix le double actualisation de la page
+        //Bricolage, mais efficace 
+        private int start = -2;
         public Panel setPanel
         {
             set { this.ecran = value; }
@@ -51,10 +55,13 @@ namespace Hermes
 
         private void cboEvenements_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if(cboEvenements.SelectedIndex != 0)
+            //Bricolage, mais efficace
+            start++;
+            if(start >= 1)
             {
                 Actualisation();
             }
+        
         }
 
         private void DataGridViewCustom1_Load(object sender, EventArgs e)
