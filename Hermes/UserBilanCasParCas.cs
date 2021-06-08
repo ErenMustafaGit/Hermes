@@ -37,21 +37,25 @@ namespace Hermes
             for (int i = 0; i < dues.Count; i++)
             {
                 //doit ...
-                /*
                 UI.AppFontLabel arrow = new UI.AppFontLabel();
                 arrow.AppFont = AppFont.Icons;
                 arrow.Text = Hermes.UI.Icons.RIGHT_ARROW; 
-                arrow.AppFontHeight = 9;
-                */
+                arrow.Top = 5 + 55 * (i / modulo);
+                arrow.Left = 0 + 150 * (i % modulo);
+                arrow.AppFontHeight = 25;
+                arrow.ForeColor = Color.FromArgb(249, 249, 249);
+                arrow.AutoSize = true;
+
 
                 UI.AppFontLabel duesNeedToGive = new UI.AppFontLabel();
                 duesNeedToGive.AppFont = AppFont.HelveticaNeue;
                 duesNeedToGive.AppFontHeight = 12;
                 duesNeedToGive.Top = 0 + 55 * (i / modulo);
-                duesNeedToGive.Left = 0 + 150 * (i % modulo);
+                duesNeedToGive.Left = 60 + 150 * (i % modulo);
                 duesNeedToGive.AutoSize = true;
                 duesNeedToGive.ForeColor = Color.FromArgb(249, 249, 249);
                 duesNeedToGive.Text = "doit " + dues[i].Amount.ToString("0.00") + "€" + "\na " + dues[i].To.FirstName + " " + dues[i].To.LastName;
+                pnlDues.Controls.Add(arrow);
                 pnlDues.Controls.Add(duesNeedToGive);
             }
 
