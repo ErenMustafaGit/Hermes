@@ -13,13 +13,20 @@ namespace Hermes.DataModel
 {
     public class Participant
     {
+        private string m_LastName;
+
         public int CodeParticipant;
-        public string LastName;
         public string FirstName;
         public string PhoneNumber;
         public int NbParts;
         public double Balance;
         public string Mail;
+
+        public string LastName
+        {
+            get => m_LastName;
+            set => m_LastName = value?.ToUpper();
+        }
 
         public Participant() : base() { }
         
