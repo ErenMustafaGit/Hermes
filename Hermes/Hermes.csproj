@@ -98,6 +98,12 @@
     <Compile Include="Bilan.Designer.cs">
       <DependentUpon>Bilan.cs</DependentUpon>
     </Compile>
+    <Compile Include="BilanGlobal.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="BilanGlobal.Designer.cs">
+      <DependentUpon>BilanGlobal.cs</DependentUpon>
+    </Compile>
     <Compile Include="ResumeEventBilan.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -236,6 +242,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Bilan.resx">
       <DependentUpon>Bilan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BilanGlobal.resx">
+      <DependentUpon>BilanGlobal.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ResumeEventBilan.resx">
       <DependentUpon>ResumeEventBilan.cs</DependentUpon>

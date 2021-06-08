@@ -111,7 +111,10 @@ namespace Hermes
 
         private void btnBilanGlobal_Click(object sender, EventArgs e)
         {
-
+            BilanGlobal bilanGlobal = new BilanGlobal(this.currentEvent);
+            bilanGlobal.setPanel = this.ecran;
+            this.ecran.Controls.Clear();
+            this.ecran.Controls.Add(bilanGlobal);
         }
     }
 }
