@@ -31,6 +31,7 @@
             this.cboParticipant = new System.Windows.Forms.ComboBox();
             this.pnlDepense = new System.Windows.Forms.Panel();
             this.pnlRemboursement = new System.Windows.Forms.Panel();
+            this.btnBilanGlobal = new System.Windows.Forms.Button();
             this.lblEvent = new Hermes.UI.AppFontLabel();
             this.lblTotalRemboursement = new Hermes.UI.AppFontLabel();
             this.lblTextRemboursement = new Hermes.UI.AppFontLabel();
@@ -64,6 +65,20 @@
             this.pnlRemboursement.Name = "pnlRemboursement";
             this.pnlRemboursement.Size = new System.Drawing.Size(387, 257);
             this.pnlRemboursement.TabIndex = 34;
+            // 
+            // btnBilanGlobal
+            // 
+            this.btnBilanGlobal.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(147)))), ((int)(((byte)(248)))));
+            this.btnBilanGlobal.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBilanGlobal.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F);
+            this.btnBilanGlobal.ForeColor = System.Drawing.SystemColors.Control;
+            this.btnBilanGlobal.Location = new System.Drawing.Point(338, 157);
+            this.btnBilanGlobal.Name = "btnBilanGlobal";
+            this.btnBilanGlobal.Size = new System.Drawing.Size(144, 28);
+            this.btnBilanGlobal.TabIndex = 39;
+            this.btnBilanGlobal.Text = "Bilan global";
+            this.btnBilanGlobal.UseVisualStyleBackColor = false;
+            this.btnBilanGlobal.Click += new System.EventHandler(this.btnBilanGlobal_Click);
             // 
             // lblEvent
             // 
@@ -135,6 +150,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.btnBilanGlobal);
             this.Controls.Add(this.lblEvent);
             this.Controls.Add(this.pnlRemboursement);
             this.Controls.Add(this.pnlDepense);
@@ -162,5 +178,6 @@
         private System.Windows.Forms.Panel pnlDepense;
         private System.Windows.Forms.Panel pnlRemboursement;
         private UI.AppFontLabel lblEvent;
+        private System.Windows.Forms.Button btnBilanGlobal;
     }
 }

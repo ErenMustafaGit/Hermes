@@ -108,5 +108,10 @@ namespace Hermes
         {
 
         }
+
+        private void btnBilanGlobal_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
