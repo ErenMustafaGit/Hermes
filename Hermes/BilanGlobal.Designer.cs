@@ -28,24 +28,83 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.cboEvenements = new System.Windows.Forms.ComboBox();
+            this.btnBilanGlobal = new System.Windows.Forms.Button();
+            this.lblEvenement = new Hermes.UI.AppFontLabel();
             this.appFontLabel2 = new Hermes.UI.AppFontLabel();
+            this.pnlBilanToutePersonnes = new System.Windows.Forms.Panel();
+            this.pnlBilanCasParCas = new System.Windows.Forms.Panel();
             this.SuspendLayout();
+            // 
+            // cboEvenements
+            // 
+            this.cboEvenements.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboEvenements.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cboEvenements.FormattingEnabled = true;
+            this.cboEvenements.Location = new System.Drawing.Point(437, 101);
+            this.cboEvenements.Name = "cboEvenements";
+            this.cboEvenements.Size = new System.Drawing.Size(281, 28);
+            this.cboEvenements.TabIndex = 7;
+            this.cboEvenements.SelectedIndexChanged += new System.EventHandler(this.cboEvenements_SelectedIndexChanged);
+            // 
+            // btnBilanGlobal
+            // 
+            this.btnBilanGlobal.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(147)))), ((int)(((byte)(248)))));
+            this.btnBilanGlobal.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBilanGlobal.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F);
+            this.btnBilanGlobal.ForeColor = System.Drawing.SystemColors.Control;
+            this.btnBilanGlobal.Location = new System.Drawing.Point(741, 101);
+            this.btnBilanGlobal.Name = "btnBilanGlobal";
+            this.btnBilanGlobal.Size = new System.Drawing.Size(182, 28);
+            this.btnBilanGlobal.TabIndex = 40;
+            this.btnBilanGlobal.Text = "Solder l\'évènement";
+            this.btnBilanGlobal.UseVisualStyleBackColor = false;
+            // 
+            // lblEvenement
+            // 
+            this.lblEvenement.AppFont = Hermes.AppFont.HelveticaNeue;
+            this.lblEvenement.AppFontHeight = 12F;
+            this.lblEvenement.AutoSize = true;
+            this.lblEvenement.Location = new System.Drawing.Point(433, 69);
+            this.lblEvenement.Name = "lblEvenement";
+            this.lblEvenement.Size = new System.Drawing.Size(197, 19);
+            this.lblEvenement.TabIndex = 8;
+            this.lblEvenement.Text = "Dans quel évènements ? *";
             // 
             // appFontLabel2
             // 
             this.appFontLabel2.AppFont = Hermes.AppFont.HelveticaNeue_Bold;
             this.appFontLabel2.AppFontHeight = 40F;
             this.appFontLabel2.AutoSize = true;
-            this.appFontLabel2.Location = new System.Drawing.Point(118, 99);
+            this.appFontLabel2.Location = new System.Drawing.Point(81, 68);
             this.appFontLabel2.Name = "appFontLabel2";
             this.appFontLabel2.Size = new System.Drawing.Size(325, 67);
             this.appFontLabel2.TabIndex = 2;
             this.appFontLabel2.Text = "Bilan global";
             // 
+            // pnlBilanToutePersonnes
+            // 
+            this.pnlBilanToutePersonnes.Location = new System.Drawing.Point(93, 164);
+            this.pnlBilanToutePersonnes.Name = "pnlBilanToutePersonnes";
+            this.pnlBilanToutePersonnes.Size = new System.Drawing.Size(830, 197);
+            this.pnlBilanToutePersonnes.TabIndex = 41;
+            // 
+            // pnlBilanCasParCas
+            // 
+            this.pnlBilanCasParCas.Location = new System.Drawing.Point(93, 376);
+            this.pnlBilanCasParCas.Name = "pnlBilanCasParCas";
+            this.pnlBilanCasParCas.Size = new System.Drawing.Size(830, 233);
+            this.pnlBilanCasParCas.TabIndex = 42;
+            // 
             // BilanGlobal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.pnlBilanCasParCas);
+            this.Controls.Add(this.pnlBilanToutePersonnes);
+            this.Controls.Add(this.btnBilanGlobal);
+            this.Controls.Add(this.lblEvenement);
+            this.Controls.Add(this.cboEvenements);
             this.Controls.Add(this.appFontLabel2);
             this.Name = "BilanGlobal";
             this.Size = new System.Drawing.Size(1064, 640);
@@ -58,5 +117,10 @@
         #endregion
 
         private UI.AppFontLabel appFontLabel2;
+        private UI.AppFontLabel lblEvenement;
+        private System.Windows.Forms.ComboBox cboEvenements;
+        private System.Windows.Forms.Button btnBilanGlobal;
+        private System.Windows.Forms.Panel pnlBilanToutePersonnes;
+        private System.Windows.Forms.Panel pnlBilanCasParCas;
     }
 }

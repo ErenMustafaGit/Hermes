@@ -210,6 +210,12 @@
     <Compile Include="SideBarUserControls.Designer.cs">
       <DependentUpon>SideBarUserControls.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserBilanCasParCas.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserBilanCasParCas.Designer.cs">
+      <DependentUpon>UserBilanCasParCas.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserEvenement.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -300,6 +306,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="SideBarUserControls.resx">
       <DependentUpon>SideBarUserControls.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserBilanCasParCas.resx">
+      <DependentUpon>UserBilanCasParCas.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserEvenement.resx">
       <DependentUpon>UserEvenement.cs</DependentUpon>

@@ -44,6 +44,7 @@ namespace Hermes
             cboParticipant.DataSource = dataTableParticipants;
             cboParticipant.DisplayMember = "Name";
             cboParticipant.ValueMember = "CodeParticipant";
+            lblEvent.Text = currentEvent.Name;
         }
 
         private void depenseUser1_Load(object sender, EventArgs e)
@@ -111,7 +112,7 @@ namespace Hermes
 
         private void btnBilanGlobal_Click(object sender, EventArgs e)
         {
-            BilanGlobal bilanGlobal = new BilanGlobal(this.currentEvent);
+            BilanGlobal bilanGlobal = new BilanGlobal(currentEvent);
             bilanGlobal.setPanel = this.ecran;
             this.ecran.Controls.Clear();
             this.ecran.Controls.Add(bilanGlobal);
