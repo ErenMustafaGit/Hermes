@@ -45,6 +45,8 @@ namespace Hermes
             cboParticipant.DisplayMember = "Name";
             cboParticipant.ValueMember = "CodeParticipant";
             lblEvent.Text = currentEvent.Name;
+            ActualisationDepense();
+            ActualisationRemboursement();
         }
 
         private void depenseUser1_Load(object sender, EventArgs e)
@@ -54,8 +56,12 @@ namespace Hermes
 
         private void CboParticipant_SelectedIndexChanged(object sender, EventArgs e)
         {
-            ActualisationDepense();
-            ActualisationRemboursement();
+            //Pour éviter que ça provoque des bugs d'affichages lors du chargement
+            if(cboParticipant.SelectedIndex != 0)
+            {
+                ActualisationDepense();
+                ActualisationRemboursement();
+            }
         }
 
         private void ActualisationDepense()

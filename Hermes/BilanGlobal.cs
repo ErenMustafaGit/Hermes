@@ -43,11 +43,24 @@ namespace Hermes
             cboEvenements.DataSource = table;
             cboEvenements.DisplayMember = "Name";
             cboEvenements.ValueMember = "Id";
-
+            Actualisation();
 
         }
 
         private void cboEvenements_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if(cboEvenements.SelectedIndex != 0)
+            {
+                Actualisation();
+            }
+        }
+
+        private void DataGridViewCustom1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        public void Actualisation()
         {
             pnlBilanToutePersonnes.Controls.Clear();
             pnlBilanCasParCas.Controls.Clear();
@@ -77,11 +90,6 @@ namespace Hermes
                 user.Left = 0 + 400 * (i % modulo);
                 pnlBilanCasParCas.Controls.Add(user);
             }
-        }
-
-        private void DataGridViewCustom1_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }
