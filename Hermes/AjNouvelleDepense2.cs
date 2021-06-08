@@ -79,20 +79,24 @@ namespace Hermes
 
         private void BtnValider_Click(object sender, EventArgs e)
         {
-            bool done = false;
 
+            //Coche celui qui paye car il est forcément bénéficiaire
             foreach (CheckBox chk in pnlBeneficiaire.Controls)
             {
-                if (chk.Checked)
-                    done = true;
+                if (chk != chkEveryOne)
+                {
+                    if((int)chk.Tag == CodePayeur)
+                    {
+                        chk.Checked = true;
+                    }
+                }
             }
+
+
             if (rtxtCommentaire.Text == "")
             {
                 rtxtCommentaire.BackColor = Color.LightPink;
-                done = false;
-            }
-
-            if (done)
+            } else
             {
                 string comment = rtxtCommentaire.Text.Replace('\'', ' ');
                 Expense newExpense = new Expense()

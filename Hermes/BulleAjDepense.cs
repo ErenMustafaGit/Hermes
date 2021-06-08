@@ -67,6 +67,7 @@ namespace Hermes
                 if ((int)cboEvenement.SelectedValue == currentEvent.Id)
                     break;
             }
+            RefreshGuests();
         }
 
 
@@ -124,6 +125,10 @@ namespace Hermes
         }
 
         private void CboEvenement_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            RefreshGuests();
+        }
+        private void RefreshGuests()
         {
             currentEvent = PartyEvent.GetFromId((int)cboEvenement.SelectedValue);
             List<Participant> listeParticipant = currentEvent.GetGuests();
