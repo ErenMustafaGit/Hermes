@@ -32,7 +32,7 @@
             this.btnContinuer = new System.Windows.Forms.Button();
             this.pnlParticipants = new System.Windows.Forms.Panel();
             this.chkEveryOne = new System.Windows.Forms.CheckBox();
-            this.cboEventCreator = new System.Windows.Forms.ComboBox();
+            this.cboExpenses = new System.Windows.Forms.ComboBox();
             this.lblBeneficiaire = new Hermes.UI.AppFontLabel();
             this.pnlParticipants.SuspendLayout();
             this.SuspendLayout();
@@ -81,15 +81,15 @@
             this.chkEveryOne.Text = "Tout le monde";
             this.chkEveryOne.UseVisualStyleBackColor = true;
             // 
-            // cboEventCreator
+            // cboExpenses
             // 
-            this.cboEventCreator.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboEventCreator.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.cboEventCreator.FormattingEnabled = true;
-            this.cboEventCreator.Location = new System.Drawing.Point(388, 48);
-            this.cboEventCreator.Name = "cboEventCreator";
-            this.cboEventCreator.Size = new System.Drawing.Size(244, 28);
-            this.cboEventCreator.TabIndex = 39;
+            this.cboExpenses.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboExpenses.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.cboExpenses.FormattingEnabled = true;
+            this.cboExpenses.Location = new System.Drawing.Point(388, 48);
+            this.cboExpenses.Name = "cboExpenses";
+            this.cboExpenses.Size = new System.Drawing.Size(244, 28);
+            this.cboExpenses.TabIndex = 39;
             // 
             // lblBeneficiaire
             // 
@@ -107,7 +107,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.cboEventCreator);
+            this.Controls.Add(this.cboExpenses);
             this.Controls.Add(this.btnAnnuler);
             this.Controls.Add(this.btnContinuer);
             this.Controls.Add(this.pnlParticipants);
@@ -129,6 +129,6 @@
         private System.Windows.Forms.Panel pnlParticipants;
         private System.Windows.Forms.CheckBox chkEveryOne;
         private UI.AppFontLabel lblBeneficiaire;
-        private System.Windows.Forms.ComboBox cboEventCreator;
+        private System.Windows.Forms.ComboBox cboExpenses;
     }
 }
