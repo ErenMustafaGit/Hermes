@@ -30,10 +30,10 @@
         {
             this.cboEvenements = new System.Windows.Forms.ComboBox();
             this.btnBilanGlobal = new System.Windows.Forms.Button();
-            this.lblEvenement = new Hermes.UI.AppFontLabel();
-            this.appFontLabel2 = new Hermes.UI.AppFontLabel();
             this.pnlBilanToutePersonnes = new System.Windows.Forms.Panel();
             this.pnlBilanCasParCas = new System.Windows.Forms.Panel();
+            this.lblEvenement = new Hermes.UI.AppFontLabel();
+            this.appFontLabel2 = new Hermes.UI.AppFontLabel();
             this.SuspendLayout();
             // 
             // cboEvenements
@@ -60,6 +60,20 @@
             this.btnBilanGlobal.Text = "Solder l\'évènement";
             this.btnBilanGlobal.UseVisualStyleBackColor = false;
             // 
+            // pnlBilanToutePersonnes
+            // 
+            this.pnlBilanToutePersonnes.Location = new System.Drawing.Point(93, 164);
+            this.pnlBilanToutePersonnes.Name = "pnlBilanToutePersonnes";
+            this.pnlBilanToutePersonnes.Size = new System.Drawing.Size(830, 197);
+            this.pnlBilanToutePersonnes.TabIndex = 41;
+            // 
+            // pnlBilanCasParCas
+            // 
+            this.pnlBilanCasParCas.Location = new System.Drawing.Point(93, 376);
+            this.pnlBilanCasParCas.Name = "pnlBilanCasParCas";
+            this.pnlBilanCasParCas.Size = new System.Drawing.Size(830, 233);
+            this.pnlBilanCasParCas.TabIndex = 42;
+            // 
             // lblEvenement
             // 
             this.lblEvenement.AppFont = Hermes.AppFont.HelveticaNeue;
@@ -81,20 +95,6 @@
             this.appFontLabel2.Size = new System.Drawing.Size(325, 67);
             this.appFontLabel2.TabIndex = 2;
             this.appFontLabel2.Text = "Bilan global";
-            // 
-            // pnlBilanToutePersonnes
-            // 
-            this.pnlBilanToutePersonnes.Location = new System.Drawing.Point(93, 164);
-            this.pnlBilanToutePersonnes.Name = "pnlBilanToutePersonnes";
-            this.pnlBilanToutePersonnes.Size = new System.Drawing.Size(830, 197);
-            this.pnlBilanToutePersonnes.TabIndex = 41;
-            // 
-            // pnlBilanCasParCas
-            // 
-            this.pnlBilanCasParCas.Location = new System.Drawing.Point(93, 376);
-            this.pnlBilanCasParCas.Name = "pnlBilanCasParCas";
-            this.pnlBilanCasParCas.Size = new System.Drawing.Size(830, 233);
-            this.pnlBilanCasParCas.TabIndex = 42;
             // 
             // BilanGlobal
             // 

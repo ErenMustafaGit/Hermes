@@ -31,6 +31,7 @@ namespace Hermes
 
         private void BilanGlobal_Load(object sender, EventArgs e)
         {
+
             pnlBilanCasParCas.HorizontalScroll.Enabled = false;
             pnlBilanCasParCas.HorizontalScroll.Visible = false;
             pnlBilanCasParCas.HorizontalScroll.Maximum = 0;
@@ -48,8 +49,15 @@ namespace Hermes
 
         private void cboEvenements_SelectedIndexChanged(object sender, EventArgs e)
         {
+            pnlBilanToutePersonnes.Controls.Clear();
             pnlBilanCasParCas.Controls.Clear();
+
             PartyEvent partyEventRefreshed = allEvent[cboEvenements.SelectedIndex];
+
+            DataGridViewCustom dataGridViewCustom = new DataGridViewCustom(partyEventRefreshed);
+            pnlBilanToutePersonnes.Controls.Add(dataGridViewCustom);
+
+
             List<Participant> listeParticipant = partyEventRefreshed.GetGuests();
             List<PartyEvent.Due> remboursement = partyEventRefreshed.CalculateDues();
 
@@ -69,6 +77,11 @@ namespace Hermes
                 user.Left = 0 + 400 * (i % modulo);
                 pnlBilanCasParCas.Controls.Add(user);
             }
+        }
+
+        private void DataGridViewCustom1_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

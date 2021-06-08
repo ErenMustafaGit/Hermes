@@ -104,6 +104,18 @@
     <Compile Include="BilanGlobal.Designer.cs">
       <DependentUpon>BilanGlobal.cs</DependentUpon>
     </Compile>
+    <Compile Include="DataGridViewCustom.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="DataGridViewCustom.Designer.cs">
+      <DependentUpon>DataGridViewCustom.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DataRowCustom.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="DataRowCustom.Designer.cs">
+      <DependentUpon>DataRowCustom.cs</DependentUpon>
+    </Compile>
     <Compile Include="ResumeEventBilan.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -251,6 +263,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="BilanGlobal.resx">
       <DependentUpon>BilanGlobal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DataGridViewCustom.resx">
+      <DependentUpon>DataGridViewCustom.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DataRowCustom.resx">
+      <DependentUpon>DataRowCustom.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ResumeEventBilan.resx">
       <DependentUpon>ResumeEventBilan.cs</DependentUpon>
