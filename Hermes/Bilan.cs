@@ -34,7 +34,7 @@ namespace Hermes
             int modulo = 2;
             for (int i = 0; i < events.Count; i++)
             {
-                ResumeEventBilan resumeEventBilan = new ResumeEventBilan(events[i].Name, events[i].Description, events[i].GetNbPart(), events[i].StartDate, events[i].EndDate, events[i].AuthorId);
+                ResumeEventBilan resumeEventBilan = new ResumeEventBilan(events[i].Name, events[i].Description, events[i].GetNbPart(), events[i].StartDate, events[i].EndDate, events[i].AuthorId, i);
                 resumeEventBilan.setPanel = this.ecran;
                 resumeEventBilan.setEvent = events[i];
                 resumeEventBilan.Top = 20 + 250 * (i  / modulo);

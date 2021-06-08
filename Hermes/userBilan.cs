@@ -15,16 +15,17 @@ namespace Hermes
     {
         private PartyEvent currentEvent;
         public Panel ecran;
-      
+        private int index;
         public Panel setPanel
         {
             set { this.ecran = value; }
         }
 
-        public UserBilan(PartyEvent currentEvent)
+        public UserBilan(PartyEvent currentEvent, int index)
         {
             InitializeComponent();
             this.currentEvent = currentEvent;
+            this.index = index;
             pnlDepense.HorizontalScroll.Enabled = false;
             pnlDepense.HorizontalScroll.Visible = false;
             pnlDepense.HorizontalScroll.Maximum = 0;
@@ -118,7 +119,7 @@ namespace Hermes
 
         private void btnBilanGlobal_Click(object sender, EventArgs e)
         {
-            BilanGlobal bilanGlobal = new BilanGlobal(currentEvent);
+            BilanGlobal bilanGlobal = new BilanGlobal(currentEvent, index);
             bilanGlobal.setPanel = this.ecran;
             this.ecran.Controls.Clear();
             this.ecran.Controls.Add(bilanGlobal);

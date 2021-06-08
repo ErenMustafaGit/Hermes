@@ -23,8 +23,9 @@ namespace Hermes
             set { this.ecran = value; }
         }
 
-        public BilanGlobal(PartyEvent partyEvent)
+        public BilanGlobal(PartyEvent partyEvent, int index)
         {
+            this.index = index;
             this.currentEvent = partyEvent;
             InitializeComponent();
         }
@@ -43,6 +44,7 @@ namespace Hermes
             cboEvenements.DataSource = table;
             cboEvenements.DisplayMember = "Name";
             cboEvenements.ValueMember = "Id";
+            cboEvenements.SelectedIndex = index;
             Actualisation();
 
         }

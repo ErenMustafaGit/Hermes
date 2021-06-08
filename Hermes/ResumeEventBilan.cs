@@ -15,6 +15,7 @@ namespace Hermes
     {
         private PartyEvent currentEvent;
         private Panel ecran;
+        private int index;
         public Panel setPanel
         {
             set { this.ecran = value; }
@@ -24,9 +25,10 @@ namespace Hermes
         {
             set { this.currentEvent = value; }
         }
-        public ResumeEventBilan(string titre, string description, int nbPart, DateTime beginDate, DateTime endDate, int codeCreator)
+        public ResumeEventBilan(string titre, string description, int nbPart, DateTime beginDate, DateTime endDate, int codeCreator, int index)
         {
             InitializeComponent();
+            this.index = index;
             lblIconDescription.Text = Hermes.UI.Icons.HOME;
             lblIconNbPart.Text = Hermes.UI.Icons.USER_GROUP;
             lblIconDate.Text = Hermes.UI.Icons.CLOCK;
@@ -87,7 +89,7 @@ namespace Hermes
 
         private void BtnMoreInfo_Click(object sender, EventArgs e)
         {
-            UserBilan userBilan = new UserBilan(currentEvent);
+            UserBilan userBilan = new UserBilan(currentEvent, index);
             userBilan.setPanel = ecran;
             this.ecran.Controls.Clear();
             this.ecran.Controls.Add(userBilan);
