@@ -194,10 +194,9 @@ namespace Hermes
 
             PartyEvent currentEvent = PartyEvent.GetFromId((int)cboEvenement.SelectedValue);
 
-            BulleAjDepense bulleAjDepense = new BulleAjDepense();
+            BulleAjDepense bulleAjDepense = new BulleAjDepense(currentEvent);
             bulleAjDepense.setPanel = pnlBulleEmplacement;
             bulleAjDepense.setPanelPrincipal = ecran;
-            bulleAjDepense.setIndex = cboEvenement.SelectedIndex;
             pnlBulleEmplacement.Controls.Add(bulleAjDepense);
             pnlBulleEmplacement.Visible = true;
 
