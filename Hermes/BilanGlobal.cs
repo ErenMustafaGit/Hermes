@@ -36,7 +36,6 @@ namespace Hermes
 
         private void BilanGlobal_Load(object sender, EventArgs e)
         {
-
             pnlBilanCasParCas.HorizontalScroll.Enabled = false;
             pnlBilanCasParCas.HorizontalScroll.Visible = false;
             pnlBilanCasParCas.HorizontalScroll.Maximum = 0;
@@ -55,13 +54,19 @@ namespace Hermes
 
         private void cboEvenements_SelectedIndexChanged(object sender, EventArgs e)
         {
+            btnBilanGlobal.Visible = true;
             //Bricolage, mais efficace
             start++;
             if(start >= 1)
             {
                 Actualisation();
+                this.index = cboEvenements.SelectedIndex;
             }
-        
+
+            if (currentEvent.Completed)
+            {
+                btnBilanGlobal.Visible = false;
+            }
         }
 
         private void DataGridViewCustom1_Load(object sender, EventArgs e)
@@ -75,6 +80,7 @@ namespace Hermes
             pnlBilanCasParCas.Controls.Clear();
 
             PartyEvent partyEventRefreshed = allEvent[cboEvenements.SelectedIndex];
+            currentEvent = partyEventRefreshed;
 
             DataGridViewCustom dataGridViewCustom = new DataGridViewCustom(partyEventRefreshed);
             pnlBilanToutePersonnes.Controls.Add(dataGridViewCustom);
@@ -99,6 +105,32 @@ namespace Hermes
                 user.Left = 0 + 400 * (i % modulo);
                 pnlBilanCasParCas.Controls.Add(user);
             }
+        }
+
+        private void BtnBilanGlobal_Click(object sender, EventArgs e)
+        {
+            if (!currentEvent.Completed)
+            {
+                DialogResult dialogResult = MessageBox.Show("Vous voulez vraiment solder\nl'évènement " + this.currentEvent.Name + " ?", "Solder évènement", MessageBoxButtons.YesNo);
+                if (dialogResult == DialogResult.Yes)
+                {
+                    currentEvent.CloseEvent();
+                    //Notification à faire apparaitre
+                    MessageBox.Show("Evenement bien soldé ! ");
+
+                    //Refresh
+                    this.ecran.Controls.Clear();
+                    MessageBox.Show(this.index.ToString());
+                    BilanGlobal refreshed = new BilanGlobal(this.currentEvent, this.index);
+                    refreshed.setPanel = this.ecran;
+                    this.ecran.Controls.Add(refreshed);
+                }
+                else if (dialogResult == DialogResult.No)
+                {
+
+                }
+            }
+            
         }
     }
 }

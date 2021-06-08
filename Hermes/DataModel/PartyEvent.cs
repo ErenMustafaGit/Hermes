@@ -277,5 +277,18 @@ namespace Hermes.DataModel
 
             return dues;
         }
+
+        public void CloseEvent()
+        {
+
+            OleDbConnection db = Database.Connect();
+
+            OleDbCommand command = new OleDbCommand(
+                "UPDATE Evenements SET soldeON = true WHERE codeEvent = @Id ",
+                db);
+
+            command.Parameters.AddWithValue("@Id", this.Id);
+            command.ExecuteNonQuery();
+        }
     }
 }

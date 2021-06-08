@@ -49,7 +49,7 @@
             // 
             // btnBilanGlobal
             // 
-            this.btnBilanGlobal.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(66)))), ((int)(((byte)(51)))));
+            this.btnBilanGlobal.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(12)))), ((int)(((byte)(12)))));
             this.btnBilanGlobal.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnBilanGlobal.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F);
             this.btnBilanGlobal.ForeColor = System.Drawing.SystemColors.Control;
@@ -59,6 +59,7 @@
             this.btnBilanGlobal.TabIndex = 40;
             this.btnBilanGlobal.Text = "Solder l\'évènement";
             this.btnBilanGlobal.UseVisualStyleBackColor = false;
+            this.btnBilanGlobal.Click += new System.EventHandler(this.BtnBilanGlobal_Click);
             // 
             // pnlBilanToutePersonnes
             // 
