@@ -120,7 +120,6 @@ namespace Hermes
 
                     //Refresh
                     this.ecran.Controls.Clear();
-                    MessageBox.Show(this.index.ToString());
                     BilanGlobal refreshed = new BilanGlobal(this.currentEvent, this.index);
                     refreshed.setPanel = this.ecran;
                     this.ecran.Controls.Add(refreshed);
