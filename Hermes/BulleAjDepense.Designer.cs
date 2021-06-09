@@ -109,6 +109,7 @@
             this.cboEvenement.Name = "cboEvenement";
             this.cboEvenement.Size = new System.Drawing.Size(195, 28);
             this.cboEvenement.TabIndex = 34;
+            this.cboEvenement.SelectionChangeCommitted += new System.EventHandler(this.CboEvenement_SelectionChangeCommitted);
             // 
             // dtpDateDepense
             // 

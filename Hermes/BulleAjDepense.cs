@@ -16,11 +16,11 @@ namespace Hermes
 
         //Panel où la bulle va être placer
         private static Panel pnlBulleEmplacement;
-        
         //Panel où le form de fond va rester visible
         private static Panel pnlPrincipal;
 
-        private static int index;
+        private PartyEvent currentEvent;
+
 
 
         public Panel setPanel
@@ -34,15 +34,11 @@ namespace Hermes
             set { pnlPrincipal = value; }
         }
 
-        public int setIndex
-        {
-            set { index = value; }
-        }
 
-
-        public BulleAjDepense()
+        public BulleAjDepense(PartyEvent currentEvent)
         {
             InitializeComponent();
+            this.currentEvent = currentEvent;
         }
 
 
@@ -62,7 +58,16 @@ namespace Hermes
             cboEventCreator.DisplayMember = "Name";
             cboEventCreator.ValueMember = "CodeParticipant";
             cboEvenement.SelectedIndexChanged += new System.EventHandler(cboEventCreator_SelectedIndexChanged);
-            cboEvenement.SelectedIndex = index - 1;
+            
+
+            //Trouve l'evenement qui a le meme id que sur l'ancien form
+            for(int i = 0; i<cboEvenement.Items.Count; i++)
+            {
+                cboEvenement.SelectedIndex = i;
+                if ((int)cboEvenement.SelectedValue == currentEvent.Id)
+                    break;
+            }
+            RefreshGuests();
         }
 
 
@@ -110,15 +115,28 @@ namespace Hermes
 
         private void cboEventCreator_SelectedIndexChanged(object sender, EventArgs e)
         {
-            List<PartyEvent> listeEvenement = Database.FetchEvents();
-            DataTable dataTableEvenement = listeEvenement.ToDataTable();
+            
 
-            List<Participant> listeParticipant = listeEvenement[(int)cboEvenement.SelectedValue - 1].GetGuests();
+        }
+
+        private void CboEvenement_SelectedIndexChanged(object sender, EventArgs e)
+        {
+           
+        }
+
+        private void CboEvenement_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            RefreshGuests();
+        }
+        private void RefreshGuests()
+        {
+            currentEvent = PartyEvent.GetFromId((int)cboEvenement.SelectedValue);
+            List<Participant> listeParticipant = currentEvent.GetGuests();
+
             DataTable dataTableParticipant = Participant.toConcatenateDataTable(listeParticipant);
             cboEventCreator.DataSource = dataTableParticipant;
             cboEventCreator.DisplayMember = "Name";
             cboEventCreator.ValueMember = "CodeParticipant";
-
         }
     }
 }

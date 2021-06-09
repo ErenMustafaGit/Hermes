@@ -75,22 +75,25 @@ namespace Hermes
 
         private void BtnContinuer_Click(object sender, EventArgs e)
         {
-            bool done = false;
-
             foreach (CheckBox chk in pnlBeneficiaire.Controls)
             {
-                if (chk.Checked)
-                    done = true;
-            }
-            if (rtxtCommentaire.Text == "")
-            {
-                rtxtCommentaire.BackColor = Color.LightPink;
-                done = false;
+                if (chk != chkEveryOne)
+                {
+                    if ((int)chk.Tag == codeParticipant)
+                    {
+                        chk.Checked = true;
+                    }
+                }
             }
 
-            if (done)
+            
+            string comment = rtxtCommentaire.Text.Replace('\'', ' ');
+            if(comment.Length <= 0)
             {
-                string comment = rtxtCommentaire.Text.Replace('\'', ' ');
+                rtxtCommentaire.BackColor = Color.LightPink;
+            }
+            else
+            {
                 Expense newExpenditure = new Expense()
                 {
                     Id = 100,
@@ -111,8 +114,8 @@ namespace Hermes
 
                 this.pnlPrincipal.Controls.Clear();
                 this.pnlPrincipal.Controls.Add(new ViewExpenditures());
-                
             }
+            
         }
 
         public List<Participant> getBeneficiary()
@@ -144,6 +147,14 @@ namespace Hermes
                 this.pnlBulleEmplacement.Visible = false;
             }
             
+        }
+
+        private void RtxtCommentaire_TextChanged(object sender, EventArgs e)
+        {
+            if(rtxtCommentaire.BackColor == Color.LightPink)
+            {
+                rtxtCommentaire.BackColor = Color.White;
+            }
         }
     }
 }

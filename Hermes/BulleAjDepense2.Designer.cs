@@ -72,6 +72,7 @@
             this.rtxtCommentaire.Size = new System.Drawing.Size(269, 227);
             this.rtxtCommentaire.TabIndex = 37;
             this.rtxtCommentaire.Text = "";
+            this.rtxtCommentaire.TextChanged += new System.EventHandler(this.RtxtCommentaire_TextChanged);
             // 
             // pnlBeneficiaire
             // 
