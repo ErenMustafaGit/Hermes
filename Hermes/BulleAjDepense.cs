@@ -49,10 +49,10 @@ namespace Hermes
             cboEvenement.DataSource = dataTableEvenement;
             cboEvenement.DisplayMember = "Name";
             cboEvenement.ValueMember = "Id";
-            PartyEvent partyEvent = listeEvenement[(int)cboEvenement.SelectedValue - 1];
+            PartyEvent partyEvent = listeEvenement[cboEvenement.SelectedIndex];
             dtpDateDepense.MinDate = partyEvent.StartDate;
 
-            List<Participant> listeParticipant = listeEvenement[(int)cboEvenement.SelectedValue - 1].GetGuests();
+            List<Participant> listeParticipant = listeEvenement[cboEvenement.SelectedIndex].GetGuests();
             DataTable dataTableParticipant = Participant.toConcatenateDataTable(listeParticipant);
             cboEventCreator.DataSource = dataTableParticipant;
             cboEventCreator.DisplayMember = "Name";
