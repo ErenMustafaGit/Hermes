@@ -51,7 +51,6 @@ namespace Hermes
             this.pnlEcran.Name = "pnlEcran";
             this.pnlEcran.Size = new System.Drawing.Size(965, 640);
             this.pnlEcran.TabIndex = 3;
-            this.pnlEcran.Paint += new System.Windows.Forms.PaintEventHandler(this.PnlEcran_Paint_1);
             // 
             // sideBarUserControls1
             // 

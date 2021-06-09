@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Hermes.UI;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -13,12 +14,17 @@ namespace Hermes
 {
     public partial class MainForm : Form
     {
+        private static MainForm Singleton;
+
+        private List<AppToast> m_Toasts = new List<AppToast>();
+
         //Variable utilisé pour déplacer la fênetre, en effet FormBorderStle = none ne permet pas de déplacer
         // la formulaire.
         private Point movementPoint;
 
         public MainForm()
         {
+            Singleton = this;
             InitializeComponent();
         }
 
@@ -36,6 +42,10 @@ namespace Hermes
             Accueil a1 = new Accueil();
             a1.setPanel = pnlEcran;
             this.pnlEcran.Controls.Add(a1);
+
+            MainForm.ShowToast(AppToast.CreateSuccessToast("Hello World"));
+            MainForm.ShowToast(AppToast.CreateWarningToast("Hello World"));
+            MainForm.ShowToast(AppToast.CreateErrorToast("bruh moment"));
         }
         
 
@@ -61,18 +71,35 @@ namespace Hermes
             this.sideBarUserControls1.MouseHover += new System.EventHandler(sideBarUserControls1_MouseHover);
         }
 
-        private void pnlEcran_Paint(object sender, PaintEventArgs e)
+        private void RelocateToasts()
         {
-
+            int i = 0;
+            const int padding = 10;
+            foreach (AppToast toast in m_Toasts)
+            {
+                int x = (this.Size.Width - toast.Size.Width) / 2;
+                int y = this.Size.Height - (toast.Size.Height + padding) * ++i;
+                toast.Location = new Point(x, y);
+                toast.BringToFront();
+            }
         }
 
-
-
-        private void PnlEcran_Paint_1(object sender, PaintEventArgs e)
+        private void OnToastClosed(object sender, EventArgs e)
         {
+            AppToast toast = (AppToast)sender;
 
+            this.m_Toasts.Remove(toast);
+            this.Controls.Remove(toast);
+            this.RelocateToasts();
         }
 
+        public static void ShowToast(AppToast toast)
+        {
+            toast.OnClosed += Singleton.OnToastClosed;
 
+            Singleton.m_Toasts.Add(toast);
+            Singleton.Controls.Add(toast);
+            Singleton.RelocateToasts();
+        }
     }
 }
