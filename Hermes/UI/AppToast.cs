@@ -39,6 +39,16 @@ namespace Hermes.UI
             this.closeButton.Text = Icons.CLOSE;
         }
 
+        public void Close()
+        {
+            this.OnClosed.Invoke(this, EventArgs.Empty);
+        }
+
+        private void closeButton_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
         public static AppToast CreateWarningToast(string message)
         {
             AppToast toast = new AppToast();
@@ -78,11 +88,6 @@ namespace Hermes.UI
             toast.ResumeLayout();
 
             return toast;
-        }
-
-        private void closeButton_Click(object sender, EventArgs e)
-        {
-            this.OnClosed.Invoke(this, EventArgs.Empty);
         }
     }
 }
