@@ -20,7 +20,7 @@ namespace Hermes
         //Panel où le form de fond va rester visible
         private static Panel pnlPrincipal;
 
-        private static int index;
+        private int index;
 
 
         public Panel setPanel
@@ -53,16 +53,11 @@ namespace Hermes
             cboEvenement.DataSource = dataTableEvenement;
             cboEvenement.DisplayMember = "Name";
             cboEvenement.ValueMember = "Id";
-            PartyEvent partyEvent = listeEvenement[(int)cboEvenement.SelectedValue - 1];
-            dtpDateDepense.MinDate = partyEvent.StartDate;
 
-            List<Participant> listeParticipant = listeEvenement[(int)cboEvenement.SelectedValue - 1].GetGuests();
-            DataTable dataTableParticipant = Participant.toConcatenateDataTable(listeParticipant);
-            cboEventCreator.DataSource = dataTableParticipant;
-            cboEventCreator.DisplayMember = "Name";
-            cboEventCreator.ValueMember = "CodeParticipant";
-            cboEvenement.SelectedIndexChanged += new System.EventHandler(cboEventCreator_SelectedIndexChanged);
-            cboEvenement.SelectedIndex = index - 1;
+            PartyEvent partyEvent = listeEvenement[index];
+            dtpDateDepense.MinDate = partyEvent.StartDate;
+            dtpDateDepense.MaxDate = partyEvent.EndDate;
+            cboEvenement.SelectedIndex = index;
         }
 
 
@@ -109,16 +104,16 @@ namespace Hermes
         }
 
         private void cboEventCreator_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            List<PartyEvent> listeEvenement = Database.FetchEvents();
+        {   
+            List<PartyEvent> listeEvenement = Database.FetchUncompletedEvents();
             DataTable dataTableEvenement = listeEvenement.ToDataTable();
+            List<Participant> listeParticipant = listeEvenement[(int)cboEvenement.SelectedIndex].GetGuests();
 
-            List<Participant> listeParticipant = listeEvenement[(int)cboEvenement.SelectedValue - 1].GetGuests();
+
             DataTable dataTableParticipant = Participant.toConcatenateDataTable(listeParticipant);
             cboEventCreator.DataSource = dataTableParticipant;
             cboEventCreator.DisplayMember = "Name";
             cboEventCreator.ValueMember = "CodeParticipant";
-
         }
     }
 }
