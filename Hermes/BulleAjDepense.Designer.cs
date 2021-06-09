@@ -79,6 +79,7 @@
             this.cboEventCreator.Name = "cboEventCreator";
             this.cboEventCreator.Size = new System.Drawing.Size(230, 28);
             this.cboEventCreator.TabIndex = 28;
+            this.cboEventCreator.SelectedIndexChanged += new System.EventHandler(this.cboEventCreator_SelectedIndexChanged);
             // 
             // txtDescription
             // 
@@ -108,7 +109,6 @@
             this.cboEvenement.Name = "cboEvenement";
             this.cboEvenement.Size = new System.Drawing.Size(195, 28);
             this.cboEvenement.TabIndex = 34;
-            this.cboEvenement.SelectedIndexChanged += new System.EventHandler(this.cboEventCreator_SelectedIndexChanged);
             // 
             // dtpDateDepense
             // 

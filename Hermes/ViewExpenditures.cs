@@ -189,23 +189,10 @@ namespace Hermes
 
             PartyEvent currentEvent = PartyEvent.GetFromId((int)cboEvenement.SelectedValue);
 
-            List<PartyEvent> listeEvenementFini = Database.FetchUncompletedEvents();
-
-            int tempIndex = 0;
-            for(int i = 0; i < listeEvenementFini.Count; i++)
-            {
-                if(currentEvent.Name == listeEvenementFini[i].Name)
-                {
-                    tempIndex = i;
-                    break;
-                }
-            }
-            //MessageBox.Show(tempIndex.ToString()); 
-
             BulleAjDepense bulleAjDepense = new BulleAjDepense();
             bulleAjDepense.setPanel = pnlBulleEmplacement;
             bulleAjDepense.setPanelPrincipal = ecran;
-            bulleAjDepense.setIndex = tempIndex;
+            bulleAjDepense.setIndex = cboEvenement.SelectedIndex;
             pnlBulleEmplacement.Controls.Add(bulleAjDepense);
             pnlBulleEmplacement.Visible = true;
 
