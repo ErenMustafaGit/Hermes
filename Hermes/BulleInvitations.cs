@@ -49,7 +49,7 @@ namespace Hermes
             pnlParticipant.AutoScroll = true;
 
             //Remplissage de la combobox
-            List<PartyEvent> events = Database.FetchEvents();
+            List<PartyEvent> events = Database.FetchUncompletedEvents();
             cboEvenements.DataSource = events.ToDataTable();
             cboEvenements.DisplayMember = "Name";
             cboEvenements.ValueMember = "Id";
