@@ -113,7 +113,9 @@ namespace Hermes
                 this.pnlBulleEmplacement.Visible = false;
 
                 this.pnlPrincipal.Controls.Clear();
-                this.pnlPrincipal.Controls.Add(new ViewExpenditures());
+                ViewExpenditures viewExpenditures = new ViewExpenditures();
+                viewExpenditures.setPanel = this.pnlPrincipal;
+                this.pnlPrincipal.Controls.Add(viewExpenditures);
             }
             
         }
