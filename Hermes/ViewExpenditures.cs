@@ -77,7 +77,7 @@ namespace Hermes
                     lblDepense.AppFontHeight = 16F;
                     lblDepense.Tag = i;
                     lblDepense.MouseClick += new MouseEventHandler(lblDepense_MouseClick);
-                    lblDepense.MouseHover += new EventHandler(lblDepense_MouseHover);
+                    lblDepense.MouseEnter += new EventHandler(lblDepense_MouseHover);
                     lblDepense.MouseLeave += new EventHandler(lblDepense_MouseLeave);
                     if (i == 0)
                     {
