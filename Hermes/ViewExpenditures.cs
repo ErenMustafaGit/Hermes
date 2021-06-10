@@ -71,13 +71,12 @@ namespace Hermes
                     //lblDepense.Tag = expenses[i].Id;
                     lblDepense.Left = 20;
                     lblDepense.Top = 20 + 50 * i;
-                    lblDepense.AutoSize = false;
-                    lblDepense.Width = 300;
+                    lblDepense.AutoSize = true;
                     lblDepense.Height = 30;
                     lblDepense.AppFontHeight = 16F;
                     lblDepense.Tag = i;
                     lblDepense.MouseClick += new MouseEventHandler(lblDepense_MouseClick);
-                    lblDepense.MouseHover += new EventHandler(lblDepense_MouseHover);
+                    lblDepense.MouseEnter += new EventHandler(lblDepense_MouseHover);
                     lblDepense.MouseLeave += new EventHandler(lblDepense_MouseLeave);
                     if (i == 0)
                     {
