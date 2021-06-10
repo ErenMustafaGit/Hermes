@@ -16,6 +16,9 @@ namespace Hermes
         private static Panel ecran;
         private static Panel pnlBulle;
 
+        //Event choisi avant de cliquer dans inviter
+        private PartyEvent basicEvent;
+
         public Panel setPanelPrincipal
         {
             set { ecran = value; }
@@ -24,6 +27,11 @@ namespace Hermes
         public Panel setPanelBulle
         {
             set { pnlBulle = value; }
+        }
+
+        public PartyEvent setBasicEvent
+        {
+            set { basicEvent = value; }
         }
 
         public BulleInvitations()
@@ -46,6 +54,10 @@ namespace Hermes
             cboEvenements.DisplayMember = "Name";
             cboEvenements.ValueMember = "Id";
 
+            if (basicEvent != null)
+            {
+                cboEvenements.SelectedValue = basicEvent.Id;
+            }
             RefreshParticipants();
            
             
