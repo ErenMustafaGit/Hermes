@@ -99,7 +99,10 @@ namespace Hermes
                 ecran.Controls.Clear();
 
                 Participants participants = new Participants();
+                participants.setPanel = this.ecran;
                 ecran.Controls.Add(participants);
+
+
             }
         }
 

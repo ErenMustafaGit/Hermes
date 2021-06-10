@@ -36,14 +36,14 @@ namespace Hermes
             this.evenementsListe = Database.FetchEvents();
 
             DataTable evenementTable = this.evenementsListe.ToDataTable();
-            DataRow rowTous;
-            rowTous = evenementTable.NewRow();
+            DataRow rowTous = evenementTable.NewRow();
             rowTous["Name"] = "Tous";
+            rowTous["Id"] = 0;
             evenementTable.Rows.Add(rowTous);
 
             cboEvenements.DataSource = evenementTable;
             cboEvenements.DisplayMember = "Name";
-            cboEvenements.ValueMember = "AuthorId";
+            cboEvenements.ValueMember = "Id";
 
             BulleAjout();
 
@@ -67,8 +67,7 @@ namespace Hermes
         }
         public void CboEvenements_SelectedIndexChanged(object sender, EventArgs e)
         {
-            Remplissage(this.cboEvenements.SelectedIndex);
-            
+            Remplissage((int)this.cboEvenements.SelectedValue);
         }
 
         public void Remplissage(int index)
@@ -97,7 +96,7 @@ namespace Hermes
 
             else if (index != -1)
             {
-                PartyEvent partyEvent = evenementsListe[cboEvenements.SelectedIndex];
+                PartyEvent partyEvent = PartyEvent.GetFromId(index);
                 List<Participant> participantsConcerné = partyEvent.GetGuests();
 
                 pnlParticipants.Controls.Clear();
@@ -142,6 +141,7 @@ namespace Hermes
 
         private void btnInviter_Click(object sender, EventArgs e)
         {
+
             Panel pnlInvitationsBulle = new Panel();
             pnlInvitationsBulle.Size = new Size(705, 405);
             Point coordonneePanel = new Point(127, 115);
@@ -150,9 +150,15 @@ namespace Hermes
             pnlInvitationsBulle.BringToFront();
             pnlInvitationsBulle.Visible = true;
 
+
+
             BulleInvitations bulleInvitations = new BulleInvitations();
             bulleInvitations.setPanelPrincipal = this.ecran;
             bulleInvitations.setPanelBulle = pnlInvitationsBulle;
+
+            if (cboEvenements.Text != "Tous")
+                bulleInvitations.setBasicEvent = PartyEvent.GetFromId((int)cboEvenements.SelectedValue);
+
             pnlInvitationsBulle.Controls.Add(bulleInvitations);
 
         }
