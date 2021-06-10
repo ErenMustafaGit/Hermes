@@ -71,8 +71,7 @@ namespace Hermes
                     //lblDepense.Tag = expenses[i].Id;
                     lblDepense.Left = 20;
                     lblDepense.Top = 20 + 50 * i;
-                    lblDepense.AutoSize = false;
-                    lblDepense.Width = 300;
+                    lblDepense.AutoSize = true;
                     lblDepense.Height = 30;
                     lblDepense.AppFontHeight = 16F;
                     lblDepense.Tag = i;
