@@ -96,6 +96,11 @@
             this.numAmount.DecimalPlaces = 2;
             this.numAmount.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F);
             this.numAmount.Location = new System.Drawing.Point(384, 146);
+            this.numAmount.Maximum = new decimal(new int[] {
+            1874919424,
+            2328306,
+            0,
+            0});
             this.numAmount.Name = "numAmount";
             this.numAmount.Size = new System.Drawing.Size(195, 27);
             this.numAmount.TabIndex = 33;
