@@ -1,6 +1,6 @@
 ﻿namespace Hermes
 {
-    partial class Evenements
+    partial class Bilan
     {
         /// <summary> 
         /// Variable nécessaire au concepteur.
@@ -28,29 +28,30 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.pnlScroll = new System.Windows.Forms.Panel();
+            this.pnlEvenement = new System.Windows.Forms.Panel();
             this.SuspendLayout();
             // 
-            // pnlScroll
+            // pnlEvenement
             // 
-            this.pnlScroll.Location = new System.Drawing.Point(47, 48);
-            this.pnlScroll.Name = "pnlScroll";
-            this.pnlScroll.Size = new System.Drawing.Size(909, 560);
-            this.pnlScroll.TabIndex = 2;
+            this.pnlEvenement.Location = new System.Drawing.Point(39, 76);
+            this.pnlEvenement.Name = "pnlEvenement";
+            this.pnlEvenement.Size = new System.Drawing.Size(909, 494);
+            this.pnlEvenement.TabIndex = 3;
             // 
-            // Evenements
+            // Bilan
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.pnlScroll);
-            this.Name = "Evenements";
+            this.Controls.Add(this.pnlEvenement);
+            this.Name = "Bilan";
             this.Size = new System.Drawing.Size(1064, 640);
-            this.Load += new System.EventHandler(this.Evenements_Load);
+            this.Load += new System.EventHandler(this.Bilan_Load);
             this.ResumeLayout(false);
 
         }
 
         #endregion
-        private System.Windows.Forms.Panel pnlScroll;
+
+        private System.Windows.Forms.Panel pnlEvenement;
     }
 }

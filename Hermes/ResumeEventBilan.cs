@@ -11,31 +11,28 @@ using Hermes.DataModel;
 
 namespace Hermes
 {
-    public partial class ResumePartyEvent : UserControl
+    public partial class ResumeEventBilan : UserControl
     {
-        public int codeEvent;
-        public int index;
-        public Panel ecran;
-        public ResumePartyEvent()
-        {
-            InitializeComponent();
-            InitializeIcon();
-        }
-
-        public int setIndex
-        {
-            set { this.index = value; }
-        }
-
+        private PartyEvent currentEvent;
+        private Panel ecran;
+        private int index;
         public Panel setPanel
         {
             set { this.ecran = value; }
         }
 
-        public ResumePartyEvent(string titre, string description, int nbPart, DateTime beginDate, DateTime endDate, int codeCreator)
+        public PartyEvent setEvent
+        {
+            set { this.currentEvent = value; }
+        }
+        public ResumeEventBilan(string titre, string description, int nbPart, DateTime beginDate, DateTime endDate, int codeCreator, int index)
         {
             InitializeComponent();
-            InitializeIcon();
+            this.index = index;
+            lblIconDescription.Text = Hermes.UI.Icons.HOME;
+            lblIconNbPart.Text = Hermes.UI.Icons.USER_GROUP;
+            lblIconDate.Text = Hermes.UI.Icons.CLOCK;
+            lblIconCreator.Text = Hermes.UI.Icons.CROWN;
 
 
             //Limite de caractère du titre et des textes, après cette limite on met "..."
@@ -43,7 +40,7 @@ namespace Hermes
             int textLength = 40;
 
 
-            if(titre.Length > titreLength)
+            if (titre.Length > titreLength)
             {
                 titre = titre.Substring(0, titreLength) + "...";
             }
@@ -57,20 +54,13 @@ namespace Hermes
 
 
             lblNbPart.Text = nbPart.ToString();
-            lblDate.Text = beginDate.ToString("dd/MM/yyyy")+ " - " + endDate.ToString("dd/MM/yyyy") ;
+            lblDate.Text = beginDate.ToString("dd/MM/yyyy") + " - " + endDate.ToString("dd/MM/yyyy");
 
             Participant creator = Participant.GetParticipant(codeCreator);
             lblCreator.Text = creator.FirstName + " " + creator.LastName;
         }
 
-        public void InitializeIcon()
-        {
-            lblIconDescription.Text = Hermes.UI.Icons.HOME;
-            lblIconNbPart.Text = Hermes.UI.Icons.USER_GROUP;
-            lblIconDate.Text = Hermes.UI.Icons.CLOCK;
-            lblIconCreator.Text = Hermes.UI.Icons.CROWN;
-        }
-        private void ResumePartyEvent_Load(object sender, EventArgs e)
+        private void ResumeEventBilan_Load(object sender, EventArgs e)
         {
             //Ajout des evenements à l'UserControl
             this.MouseEnter += new System.EventHandler(UserControl_MouseEnter);
@@ -85,6 +75,7 @@ namespace Hermes
                 control.Click += new System.EventHandler(BtnMoreInfo_Click);
             }
         }
+
         public void UserControl_MouseEnter(object sender, EventArgs e)
         {
             this.Cursor = Cursors.Hand;
@@ -98,12 +89,10 @@ namespace Hermes
 
         private void BtnMoreInfo_Click(object sender, EventArgs e)
         {
-            CompleteInfoEvenement CIE = new CompleteInfoEvenement();
-            CIE.setIndex = index;
-            CIE.setPanel = ecran;
+            UserBilan userBilan = new UserBilan(currentEvent, index);
+            userBilan.setPanel = ecran;
             this.ecran.Controls.Clear();
-            this.ecran.Controls.Add(CIE);
-
+            this.ecran.Controls.Add(userBilan);
         }
     }
 }

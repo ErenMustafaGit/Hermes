@@ -57,6 +57,7 @@
             this.lblAdd.Text = "O";
             this.lblAdd.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.lblAdd.MouseClick += new System.Windows.Forms.MouseEventHandler(this.LblAdd_MouseClick);
+            this.lblAdd.MouseEnter += new System.EventHandler(this.lblAdd_MouseEnter);
             this.lblAdd.MouseLeave += new System.EventHandler(this.LblAdd_MouseLeave);
             this.lblAdd.MouseHover += new System.EventHandler(this.LblAdd_MouseHover);
             // 
@@ -70,6 +71,8 @@
             this.Name = "AjoutEvenement";
             this.Size = new System.Drawing.Size(334, 233);
             this.Load += new System.EventHandler(this.AjoutEvenement_Load);
+            this.MouseEnter += new System.EventHandler(this.AjoutEvenement_MouseEnter);
+            this.MouseLeave += new System.EventHandler(this.AjoutEvenement_MouseLeave);
             this.MouseHover += new System.EventHandler(this.AjoutEvenement_MouseHover);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);

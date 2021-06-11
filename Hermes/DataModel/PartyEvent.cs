@@ -83,7 +83,7 @@ namespace Hermes.DataModel
 
             OleDbDataReader dataReader = command.ExecuteReader();
             dataReader.Read();
-          
+
             return new PartyEvent(dataReader);
         }
 
@@ -110,37 +110,20 @@ namespace Hermes.DataModel
                 OleDbDataReader dataReaderGuest = commandGuest.ExecuteReader();
 
                 dataReaderGuest.Read();
-
-                // FIXME: use a ctor that takes a DataReader
-                Participant guest = new Participant();
-                guest.CodeParticipant = dataReaderGuest.GetInt32(0);
-                guest.FirstName = dataReaderGuest.GetString(1);
-                guest.LastName = dataReaderGuest.GetString(2);
-                guest.PhoneNumber = dataReaderGuest.GetString(3);
-                guest.NbParts = dataReaderGuest.GetInt32(4);
-
-                //Si le solde est null
-                if (!dataReaderGuest.IsDBNull(5))
-                {
-                    guest.Balance = dataReaderGuest.GetDouble(5);
-                }
-                guest.Mail = dataReaderGuest.GetString(6);
-
-                guests.Add(guest);
+                guests.Add(new Participant(dataReaderGuest));
             }
 
             return guests;
         }
 
-        // TODO: I think this could be better   -squid
         public List<Participant> GetUninvitedPeople()
         {
-            List<Participant> uninvited = new List<Participant>();
+            List<Participant> uninvited = Database.FetchParticipant();
 
             OleDbConnection db = Database.Connect();
 
             OleDbCommand command = new OleDbCommand(
-                "select codePart from Invites where codeEvent <> @Id",
+                "select codePart from Invites where codeEvent = @Id",
                 db);
             command.Parameters.AddWithValue("@Id", this.Id);
 
@@ -148,7 +131,7 @@ namespace Hermes.DataModel
             while (dataReader.Read())
             {
                 int id = dataReader.GetInt32(0);
-                uninvited.Add(Participant.GetParticipant(id));
+                uninvited.RemoveAt(uninvited.FindIndex(x => x.CodeParticipant == id));
             }
 
             return uninvited;
@@ -202,5 +185,121 @@ namespace Hermes.DataModel
             return codeMax;
         }
 
+        public class Due
+        {
+            private Participant m_From, m_To;
+            private decimal m_Amount = 0.0m;
+
+            public int FromId;
+            public int ToId;
+
+            public decimal Amount
+            {
+                set
+                {
+                    // no negative values allowed, we just reverse everything
+                    if (value < 0)
+                    {
+                        m_Amount = -value;
+
+                        (m_From, m_To) = (m_To, m_From);
+                        (FromId, ToId) = (ToId, FromId);
+                    }
+                    else
+                        m_Amount = value;
+                }
+                get => m_Amount;
+            }
+
+            public Participant From
+            {
+                get
+                {
+                    if (m_From == null)
+                        m_From = Participant.GetParticipant(FromId);
+                    return m_From;
+                }
+            }
+
+            public Participant To
+            {
+                get
+                {
+                    if (m_To == null)
+                        m_To = Participant.GetParticipant(ToId);
+                    return m_To;
+                }
+            }
+        }
+
+        
+        public List<Due> CalculateDues()
+        {
+            List<Due> dues = new List<Due>();
+            Dictionary<int, decimal> balances = new Dictionary<int, decimal>();
+
+            List<Participant> invited = this.GetGuests();
+
+            // Define each balance for each guest in the event.
+            foreach (Participant i in invited)
+            {
+                List<UserSpendingRecord> spendings = Database.QuerySpendings(this, i);
+                List<UserParticipationRecord> participation = Database.QueryParticipation(this, i);
+
+                decimal plus = spendings.Sum(s => s.Amount);
+                decimal minus = -participation.Sum(p => (p.Amount / (decimal)p.ExpenseTotalShares) * i.NbParts);
+                decimal balance = plus + minus;
+
+                balances[i.CodeParticipant] = balance;
+            }
+
+            // We balance benefits between people to regularize everything to zero.
+            while (!balances.All(t => Decimal.Round(t.Value, 2) == 0))
+            {
+                // Order values by lowest to highest.
+                var tmp = balances.OrderBy(kvp => kvp.Value);
+                var lowest = tmp.First(); // the one that "gives"
+                var highest = tmp.Last(); // the one that "receives"
+
+                Due due = new Due();
+                decimal lowestAmount = Math.Abs(lowest.Value);
+                decimal highestAmount = Math.Abs(highest.Value);
+
+                due.FromId = lowest.Key;
+                due.ToId = highest.Key;
+
+                if (lowestAmount >= highestAmount)
+                {
+                    due.Amount = Decimal.Round(highestAmount, 2);
+
+                    balances[lowest.Key] = lowest.Value + highest.Value;
+                    balances[highest.Key] = 0m;
+                }
+                else
+                {
+                    due.Amount = Decimal.Round(lowestAmount, 2);
+
+                    balances[lowest.Key] = 0m;
+                    balances[highest.Key] = lowest.Value + highest.Value;
+                }
+
+                dues.Add(due);
+            }
+
+            return dues;
+        }
+
+        public void CloseEvent()
+        {
+
+            OleDbConnection db = Database.Connect();
+
+            OleDbCommand command = new OleDbCommand(
+                "UPDATE Evenements SET soldeON = true WHERE codeEvent = @Id ",
+                db);
+
+            command.Parameters.AddWithValue("@Id", this.Id);
+            command.ExecuteNonQuery();
+        }
     }
 }

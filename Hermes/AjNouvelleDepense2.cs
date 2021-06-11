@@ -79,24 +79,22 @@ namespace Hermes
 
         private void BtnValider_Click(object sender, EventArgs e)
         {
+            Participant payeur = Participant.GetParticipant(this.CodePayeur);
+            string name = payeur.FirstName + " " + payeur.LastName;
 
             //Coche celui qui paye car il est forcément bénéficiaire
             foreach (CheckBox chk in pnlBeneficiaire.Controls)
             {
-                if (chk != chkEveryOne)
-                {
-                    if((int)chk.Tag == CodePayeur)
-                    {
-                        chk.Checked = true;
-                    }
-                }
+                if (chk.Text == name)
+                    chk.Checked = true;
             }
 
 
             if (rtxtCommentaire.Text == "")
             {
                 rtxtCommentaire.BackColor = Color.LightPink;
-            } else
+            }
+            else
             {
                 string comment = rtxtCommentaire.Text.Replace('\'', ' ');
                 Expense newExpense = new Expense()
@@ -160,6 +158,13 @@ namespace Hermes
                 a.setPanel = this.ecran;
                 this.ecran.Controls.Add(a);
             }
+        }
+
+        private void rtxtCommentaire_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if(rtxtCommentaire.BackColor == Color.LightPink)
+                rtxtCommentaire.BackColor = Color.White;
+
         }
     }
 }

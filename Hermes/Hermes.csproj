@@ -104,6 +104,42 @@
     <Compile Include="BulleAjDepense2.Designer.cs">
       <DependentUpon>BulleAjDepense2.cs</DependentUpon>
     </Compile>
+    <Compile Include="Bilan.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Bilan.Designer.cs">
+      <DependentUpon>Bilan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BilanGlobal.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="BilanGlobal.Designer.cs">
+      <DependentUpon>BilanGlobal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DataGridViewCustom.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="DataGridViewCustom.Designer.cs">
+      <DependentUpon>DataGridViewCustom.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DataRowCustom.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="DataRowCustom.Designer.cs">
+      <DependentUpon>DataRowCustom.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ResumeEventBilan.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ResumeEventBilan.Designer.cs">
+      <DependentUpon>ResumeEventBilan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserBilan.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserBilan.Designer.cs">
+      <DependentUpon>UserBilan.cs</DependentUpon>
+    </Compile>
     <Compile Include="BulleAjEvenement.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -140,11 +176,23 @@
     <Compile Include="CompleteInfoEvenement.Designer.cs">
       <DependentUpon>CompleteInfoEvenement.cs</DependentUpon>
     </Compile>
+    <Compile Include="DepenseUser.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="DepenseUser.Designer.cs">
+      <DependentUpon>DepenseUser.cs</DependentUpon>
+    </Compile>
     <Compile Include="Participants.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Participants.Designer.cs">
       <DependentUpon>Participants.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RemboursementUser.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="RemboursementUser.Designer.cs">
+      <DependentUpon>RemboursementUser.cs</DependentUpon>
     </Compile>
     <Compile Include="ResumePartyEvent.cs">
       <SubType>UserControl</SubType>
@@ -192,6 +240,12 @@
     <Compile Include="SideBarUserControls.Designer.cs">
       <DependentUpon>SideBarUserControls.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserBilanCasParCas.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserBilanCasParCas.Designer.cs">
+      <DependentUpon>UserBilanCasParCas.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserEvenement.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -234,6 +288,24 @@
     <EmbeddedResource Include="BulleAjDepense2.resx">
       <DependentUpon>BulleAjDepense2.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Bilan.resx">
+      <DependentUpon>Bilan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BilanGlobal.resx">
+      <DependentUpon>BilanGlobal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DataGridViewCustom.resx">
+      <DependentUpon>DataGridViewCustom.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DataRowCustom.resx">
+      <DependentUpon>DataRowCustom.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ResumeEventBilan.resx">
+      <DependentUpon>ResumeEventBilan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserBilan.resx">
+      <DependentUpon>UserBilan.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="BulleAjEvenement.resx">
       <DependentUpon>BulleAjEvenement.cs</DependentUpon>
     </EmbeddedResource>
@@ -251,6 +323,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="CompleteInfoEvenement.resx">
       <DependentUpon>CompleteInfoEvenement.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DepenseUser.resx">
+      <DependentUpon>DepenseUser.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Evenements.resx">
       <DependentUpon>Evenements.cs</DependentUpon>
@@ -270,6 +345,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="RemboursementUser.resx">
+      <DependentUpon>RemboursementUser.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Resources\Fonts.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Fonts.Designer.cs</LastGenOutput>
@@ -279,6 +357,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="SideBarUserControls.resx">
       <DependentUpon>SideBarUserControls.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserBilanCasParCas.resx">
+      <DependentUpon>UserBilanCasParCas.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserEvenement.resx">
       <DependentUpon>UserEvenement.cs</DependentUpon>

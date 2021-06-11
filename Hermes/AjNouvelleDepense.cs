@@ -160,5 +160,23 @@ namespace Hermes
         {
             this.Cursor = Cursors.Default;
         }
+
+        private void txtWhere_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (txtWhere.BackColor == Color.LightPink)
+                txtWhere.BackColor = Color.White;
+        }
+
+        private void numAmount_ValueChanged(object sender, EventArgs e)
+        {
+            if (numAmount.BackColor == Color.LightPink)
+                numAmount.BackColor = Color.White;
+        }
+
+        private void numAmount_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (numAmount.BackColor == Color.LightPink)
+                numAmount.BackColor = Color.White;
+        }
     }
 }
