@@ -232,47 +232,58 @@ namespace Hermes.DataModel
             }
         }
 
+        
         public List<Due> CalculateDues()
         {
-            // FIXME: Very unoptimized, lacks caching, terrible complexity, etc.
-
             List<Due> dues = new List<Due>();
+            Dictionary<int, decimal> balances = new Dictionary<int, decimal>();
 
-            List<Expense> expenses = this.GetExpenses();
+            List<Participant> invited = this.GetGuests();
 
-            foreach (Expense expense in expenses)
+            // Define each balance for each guest in the event.
+            foreach (Participant i in invited)
             {
-                List<Participant> beneficiairies = expense.GetBeneficiaires();
-                int totalParts = beneficiairies.Sum(p => p.NbParts);
+                List<UserSpendingRecord> spendings = Database.QuerySpendings(this, i);
+                List<UserParticipationRecord> participation = Database.QueryParticipation(this, i);
 
-                int target = expense.AuthorId;
-                decimal amount = expense.Amount;
-                foreach (Participant beneficiary in beneficiairies)
+                decimal plus = spendings.Sum(s => s.Amount);
+                decimal minus = -participation.Sum(p => (p.Amount / (decimal)p.ExpenseTotalShares) * i.NbParts);
+                decimal balance = plus + minus;
+
+                balances[i.CodeParticipant] = balance;
+            }
+
+            // We balance benefits between people to regularize everything to zero.
+            while (!balances.All(t => Decimal.Round(t.Value, 2) == 0))
+            {
+                // Order values by lowest to highest.
+                var tmp = balances.OrderBy(kvp => kvp.Value);
+                var lowest = tmp.First(); // the one that "gives"
+                var highest = tmp.Last(); // the one that "receives"
+
+                Due due = new Due();
+                decimal lowestAmount = Math.Abs(lowest.Value);
+                decimal highestAmount = Math.Abs(highest.Value);
+
+                due.FromId = lowest.Key;
+                due.ToId = highest.Key;
+
+                if (lowestAmount >= highestAmount)
                 {
-                    int source = beneficiary.CodeParticipant;
+                    due.Amount = Decimal.Round(highestAmount, 2);
 
-                    // People do not really owe themselves money.
-                    if (target == source)
-                        continue;
-
-                    // Look for an existing link between two people.
-                    Due due = dues.Find(
-                        d => (d.FromId, d.ToId) == (target, source) || (d.FromId, d.ToId) == (source, target));
-
-                    // Create one if none was found.
-                    if (due == null)
-                    {
-                        due = new Due() { FromId = source, ToId = target };
-                        dues.Add(due);
-                    }
-
-                    // Increase the amount due (or decrease it, if it's better this way).
-                    decimal v = (amount / totalParts) * beneficiary.NbParts;
-                    if (due.FromId == target)
-                        v = -v;
-
-                    due.Amount += v;
+                    balances[lowest.Key] = lowest.Value + highest.Value;
+                    balances[highest.Key] = 0m;
                 }
+                else
+                {
+                    due.Amount = Decimal.Round(lowestAmount, 2);
+
+                    balances[lowest.Key] = 0m;
+                    balances[highest.Key] = lowest.Value + highest.Value;
+                }
+
+                dues.Add(due);
             }
 
             return dues;
