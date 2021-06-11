@@ -323,6 +323,9 @@ namespace Hermes.DataModel
 
             List<UserSpendingRecord> records = new List<UserSpendingRecord>();
 
+            command.Parameters.AddWithValue("@pEvent", eventId);
+            command.Parameters.AddWithValue("@pPart", participantId);
+
             OleDbDataReader reader = command.ExecuteReader();
             while (reader.Read())
             {
@@ -354,6 +357,9 @@ namespace Hermes.DataModel
             command.Parameters.AddWithValue("@pPart", participantId);
 
             List<UserParticipationRecord> records = new List<UserParticipationRecord>();
+
+            command.Parameters.AddWithValue("@pEvent", eventId);
+            command.Parameters.AddWithValue("@pPart", participantId);
 
             OleDbDataReader reader = command.ExecuteReader();
             while (reader.Read())

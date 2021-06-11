@@ -50,6 +50,8 @@ namespace Hermes
             lblEvenements.ForeColor = Color.FromArgb(249, 249, 249);
             lblIconeParticipant.ForeColor = Color.FromArgb(249, 249, 249);
             lblParticipants.ForeColor = Color.FromArgb(249, 249, 249);
+            lblIconeBilan.ForeColor = Color.FromArgb(249, 249, 249);
+            lblBilan.ForeColor = Color.FromArgb(249, 249, 249);
 
             //Apparaition du US concerné
 
@@ -72,6 +74,8 @@ namespace Hermes
             lblDepenses.ForeColor = Color.FromArgb(249, 249, 249);
             lblIconeParticipant.ForeColor = Color.FromArgb(249, 249, 249);
             lblParticipants.ForeColor = Color.FromArgb(249, 249, 249);
+            lblIconeBilan.ForeColor = Color.FromArgb(249, 249, 249);
+            lblBilan.ForeColor = Color.FromArgb(249, 249, 249);
 
             //Aparaition du US concerné
             Evenements ee = new Evenements();
@@ -92,7 +96,7 @@ namespace Hermes
 
         private void LblBilan_Click(object sender, EventArgs e)
         {
-
+            
         }
 
         private void LblAccueil_Click(object sender, EventArgs e)
@@ -125,11 +129,34 @@ namespace Hermes
             lblDepenses.ForeColor = Color.FromArgb(249, 249, 249);
             lblIconeEvenement.ForeColor = Color.FromArgb(249, 249, 249);
             lblEvenements.ForeColor = Color.FromArgb(249, 249, 249);
+            lblIconeBilan.ForeColor = Color.FromArgb(249, 249, 249);
+            lblBilan.ForeColor = Color.FromArgb(249, 249, 249);
 
             //Aparaition du US concerné
             Participants participants = new Participants();
             participants.setPanel = this.ecrans;
             this.ecrans.Controls.Add(participants);
+        }
+
+        private void lblIconeBilan_Click(object sender, EventArgs e)
+        {
+            this.ecrans.Controls.Clear();
+            //Partie concerné par le changement de couleur en bleu
+            lblIconeBilan.ForeColor = ColorTranslator.FromHtml("#2693f8");
+            lblBilan.ForeColor = ColorTranslator.FromHtml("#2693f8");
+
+            //Le reste en blanc
+            lblIconeAccueil.ForeColor = Color.FromArgb(249, 249, 249);
+            lblAccueil.ForeColor = Color.FromArgb(249, 249, 249);
+            lblIconeDepense.ForeColor = Color.FromArgb(249, 249, 249);
+            lblDepenses.ForeColor = Color.FromArgb(249, 249, 249);
+            lblIconeParticipant.ForeColor = Color.FromArgb(249, 249, 249);
+            lblParticipants.ForeColor = Color.FromArgb(249, 249, 249);
+            lblIconeEvenement.ForeColor = Color.FromArgb(249, 249, 249);
+            lblEvenements.ForeColor = Color.FromArgb(249, 249, 249);
+            Bilan bilan = new Bilan();
+            bilan.setPanel = this.ecrans;
+            this.ecrans.Controls.Add(bilan);
         }
     }
 }
