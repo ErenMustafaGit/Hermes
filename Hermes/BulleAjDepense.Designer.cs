@@ -119,10 +119,10 @@
             // dtpDateDepense
             // 
             this.dtpDateDepense.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 13F);
-            this.dtpDateDepense.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F);
+            this.dtpDateDepense.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.5F);
             this.dtpDateDepense.Location = new System.Drawing.Point(120, 314);
             this.dtpDateDepense.Name = "dtpDateDepense";
-            this.dtpDateDepense.Size = new System.Drawing.Size(230, 27);
+            this.dtpDateDepense.Size = new System.Drawing.Size(230, 25);
             this.dtpDateDepense.TabIndex = 36;
             // 
             // lblDate
