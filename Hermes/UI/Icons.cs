@@ -41,6 +41,8 @@ namespace Hermes.UI
         public const string SMALL_CROSS = "\uE802";
         public const string LARGE_CROSS = "\uE803";
 
+        public const string INFORMATION = "\uF129";
+        public const string EXCLAMATION_MARK = "\uF12A";
         public const string TICK = "\uE817";
         public const string PLUS = "\uE81E";
         public const string TICK_OPEN_CIRCLE = "\uE804";
