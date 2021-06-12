@@ -47,7 +47,6 @@ namespace Hermes
 
             PartyEvent currentEvent = PartyEvent.GetFromId((int)cboEvenement.SelectedValue);
             btnAddExpenditure.Visible = !currentEvent.Completed;
-            btnAddBeneficiary.Visible = !currentEvent.Completed;
 
             RefreshExpenditures();
             cboEvenement.SelectedIndexChanged += new EventHandler(cboEvenement_SelectedIndexChanged);
@@ -104,7 +103,6 @@ namespace Hermes
                 MessageBox.Show("Pas de dépense dans cet évènement - POPUP A AJOUTER");
                 lblExpenditureTitle.Visible = false;
                 pnlDetailExpenditure.Visible = false;
-                btnAddBeneficiary.Visible = false;
             }
         }
 
@@ -135,8 +133,6 @@ namespace Hermes
         {
             PartyEvent currentEvent = PartyEvent.GetFromId((int)cboEvenement.SelectedValue);
             btnAddExpenditure.Visible = !currentEvent.Completed;
-            btnAddBeneficiary.Visible = !currentEvent.Completed;
-
 
             RefreshExpenditures();
         }
@@ -203,20 +199,7 @@ namespace Hermes
 
         private void btnAddBeneficiary_Click(object sender, EventArgs e)
         {
-            Panel pnlBulleEmplacement = new Panel();
-            pnlBulleEmplacement.Size = new Size(705, 405);
-            Point coordonneePanel = new Point(127, 115);
-            pnlBulleEmplacement.Location = coordonneePanel;
-            this.Controls.Add(pnlBulleEmplacement);
-            pnlBulleEmplacement.BringToFront();
-
-            PartyEvent currentEvent = PartyEvent.GetFromId((int)cboEvenement.SelectedValue);
-
-            BulleAjoutBeneficiaire bulleAjoutBeneficiaire = new BulleAjoutBeneficiaire(currentEvent, expenseIndex);
-            bulleAjoutBeneficiaire.setPanel = pnlBulleEmplacement;
-            bulleAjoutBeneficiaire.setPanelPrincipal = ecran;
-            pnlBulleEmplacement.Controls.Add(bulleAjoutBeneficiaire);
-            pnlBulleEmplacement.Visible = true;
+           //
 
         }
     }
