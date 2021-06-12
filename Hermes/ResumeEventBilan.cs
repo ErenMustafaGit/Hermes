@@ -89,10 +89,10 @@ namespace Hermes
 
         private void BtnMoreInfo_Click(object sender, EventArgs e)
         {
-            UserBilan userBilan = new UserBilan(currentEvent, index);
-            userBilan.setPanel = ecran;
+            BilanGlobal bilanGlobal = new BilanGlobal(currentEvent, index);
+            bilanGlobal.setPanel = ecran;
             this.ecran.Controls.Clear();
-            this.ecran.Controls.Add(userBilan);
+            this.ecran.Controls.Add(bilanGlobal);
         }
     }
 }

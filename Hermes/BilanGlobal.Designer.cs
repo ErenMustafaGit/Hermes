@@ -102,9 +102,9 @@ namespace Hermes
             this.lblVueGlobale.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(147)))), ((int)(((byte)(248)))));
             this.lblVueGlobale.Location = new System.Drawing.Point(48, 607);
             this.lblVueGlobale.Name = "lblVueGlobale";
-            this.lblVueGlobale.Size = new System.Drawing.Size(96, 14);
+            this.lblVueGlobale.Size = new System.Drawing.Size(63, 14);
             this.lblVueGlobale.TabIndex = 44;
-            this.lblVueGlobale.Text = "Bilan cas par cas";
+            this.lblVueGlobale.Text = "Vue global";
             this.lblVueGlobale.Click += new System.EventHandler(this.lblGoBaaack_Click);
             this.lblVueGlobale.MouseEnter += new System.EventHandler(this.lblGoBaaack_MouseEnter);
             this.lblVueGlobale.MouseLeave += new System.EventHandler(this.lblGoBaaack_MouseLeave);

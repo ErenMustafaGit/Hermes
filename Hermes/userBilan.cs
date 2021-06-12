@@ -16,17 +16,21 @@ namespace Hermes
         private PartyEvent currentEvent;
         public Panel ecran;
         private int index;
+        //Bricolage
+        private int compteur = -2;
+        private int currentIndexPage;
         public Panel setPanel
         {
             set { this.ecran = value; }
         }
 
-        public UserBilan(PartyEvent currentEvent, int index)
+        public UserBilan(PartyEvent currentEvent, int index, int currentIndexPage)
         {
             InitializeComponent();
             lblGoBaaack.Text = Hermes.UI.Icons.LEFT;
             this.currentEvent = currentEvent;
             this.index = index;
+            this.currentIndexPage = currentIndexPage;
             pnlDepense.HorizontalScroll.Enabled = false;
             pnlDepense.HorizontalScroll.Visible = false;
             pnlDepense.HorizontalScroll.Maximum = 0;
@@ -47,6 +51,7 @@ namespace Hermes
             cboParticipant.DisplayMember = "Name";
             cboParticipant.ValueMember = "CodeParticipant";
             lblEvent.Text = currentEvent.Name;
+            cboParticipant.SelectedIndex = this.index;
             ActualisationDepense();
             ActualisationRemboursement();
         }
@@ -58,12 +63,13 @@ namespace Hermes
 
         private void CboParticipant_SelectedIndexChanged(object sender, EventArgs e)
         {
-            //Pour éviter que ça provoque des bugs d'affichages lors du chargement
-            if(cboParticipant.SelectedIndex != 0)
+            compteur++;
+            if(compteur >= 1)
             {
                 ActualisationDepense();
                 ActualisationRemboursement();
             }
+            
         }
 
         private void ActualisationDepense()
@@ -133,10 +139,10 @@ namespace Hermes
 
         private void lblGoBaaack_Click(object sender, EventArgs e)
         {
-            Bilan bilan= new Bilan();
-            bilan.setPanel = this.ecran;
+            BilanGlobal bilanGlobal = new BilanGlobal(currentEvent, currentIndexPage);
+            bilanGlobal.setPanel = this.ecran;
             this.ecran.Controls.Clear();
-            this.ecran.Controls.Add(bilan);
+            this.ecran.Controls.Add(bilanGlobal);
         }
 
         private void lblGoBaaack_MouseEnter(object sender, EventArgs e)

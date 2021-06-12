@@ -64,8 +64,8 @@ namespace Hermes
             start++;
             if(start >= 1)
             {
+                this.index = cboEvenements.SelectedIndex; this.index = cboEvenements.SelectedIndex;
                 Actualisation();
-                this.index = cboEvenements.SelectedIndex;
             }
 
             if (currentEvent.Completed)
@@ -92,7 +92,7 @@ namespace Hermes
             PartyEvent partyEventRefreshed = allEvent[cboEvenements.SelectedIndex];
             currentEvent = partyEventRefreshed;
 
-            DataGridViewCustom dataGridViewCustom = new DataGridViewCustom(partyEventRefreshed);
+            DataGridViewCustom dataGridViewCustom = new DataGridViewCustom(partyEventRefreshed, this.ecran, this.index);
             pnlBilanToutePersonnes.Controls.Add(dataGridViewCustom);
 
 
@@ -100,6 +100,7 @@ namespace Hermes
             List<PartyEvent.Due> remboursement = partyEventRefreshed.CalculateDues();
 
             int modulo = 2;
+            int compteur = 0;
             for (int i = 0; i < listeParticipant.Count(); i++)
             {
                 List<PartyEvent.Due> dueParticipant = new List<PartyEvent.Due>();
@@ -110,10 +111,15 @@ namespace Hermes
                         dueParticipant.Add(due);
                     }
                 }
-                UserBilanCasParCas user = new UserBilanCasParCas(listeParticipant[i].FirstName + " " + listeParticipant[i].LastName, dueParticipant, partyEventRefreshed);
-                user.Top = 0 + 245 * (i / modulo);
-                user.Left = 0 + 400 * (i % modulo);
-                pnlBilanCasParCas.Controls.Add(user);
+                if(dueParticipant.Count != 0)
+                {
+                    UserBilanCasParCas user = new UserBilanCasParCas(listeParticipant[i].FirstName + " " + listeParticipant[i].LastName, dueParticipant, partyEventRefreshed);
+                    user.Top = 0 + 245 * (compteur / modulo);
+                    user.Left = 0 + 400 * (compteur % modulo);
+                    compteur++;
+                    pnlBilanCasParCas.Controls.Add(user);
+                }
+               
             }
         }
 
@@ -173,10 +179,10 @@ namespace Hermes
 
         private void lblGoBaaack_Click(object sender, EventArgs e)
         {
-            UserBilan userBilan = new UserBilan(currentEvent, this.index);
-            userBilan.setPanel = this.ecran;
+            Bilan bilan = new Bilan();
+            bilan.setPanel = this.ecran;
             this.ecran.Controls.Clear();
-            this.ecran.Controls.Add(userBilan);
+            this.ecran.Controls.Add(bilan);
         }
 
         private void lblGoBaaack_MouseEnter(object sender, EventArgs e)

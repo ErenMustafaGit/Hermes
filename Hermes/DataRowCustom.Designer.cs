@@ -45,6 +45,9 @@
             this.lblSolde.Size = new System.Drawing.Size(49, 19);
             this.lblSolde.TabIndex = 7;
             this.lblSolde.Text = "Solde";
+            this.lblSolde.Click += new System.EventHandler(this.DataRowCustom_Click);
+            this.lblSolde.MouseEnter += new System.EventHandler(this.DataRowCustom_Enter);
+            this.lblSolde.MouseLeave += new System.EventHandler(this.DataRowCustom_Leave);
             // 
             // lblMoins
             // 
@@ -57,6 +60,9 @@
             this.lblMoins.Size = new System.Drawing.Size(52, 19);
             this.lblMoins.TabIndex = 6;
             this.lblMoins.Text = "Moins";
+            this.lblMoins.Click += new System.EventHandler(this.DataRowCustom_Click);
+            this.lblMoins.MouseEnter += new System.EventHandler(this.DataRowCustom_Enter);
+            this.lblMoins.MouseLeave += new System.EventHandler(this.DataRowCustom_Leave);
             // 
             // lblPlus
             // 
@@ -69,6 +75,9 @@
             this.lblPlus.Size = new System.Drawing.Size(40, 19);
             this.lblPlus.TabIndex = 5;
             this.lblPlus.Text = "Plus";
+            this.lblPlus.Click += new System.EventHandler(this.DataRowCustom_Click);
+            this.lblPlus.MouseEnter += new System.EventHandler(this.DataRowCustom_Enter);
+            this.lblPlus.MouseLeave += new System.EventHandler(this.DataRowCustom_Leave);
             // 
             // lblPersonnes
             // 
@@ -81,6 +90,9 @@
             this.lblPersonnes.Size = new System.Drawing.Size(84, 19);
             this.lblPersonnes.TabIndex = 4;
             this.lblPersonnes.Text = "Personnes";
+            this.lblPersonnes.Click += new System.EventHandler(this.DataRowCustom_Click);
+            this.lblPersonnes.MouseEnter += new System.EventHandler(this.DataRowCustom_Enter);
+            this.lblPersonnes.MouseLeave += new System.EventHandler(this.DataRowCustom_Leave);
             // 
             // DataRowCustom
             // 
@@ -94,6 +106,9 @@
             this.Name = "DataRowCustom";
             this.Size = new System.Drawing.Size(830, 42);
             this.Load += new System.EventHandler(this.DataRowCustom_Load);
+            this.Click += new System.EventHandler(this.DataRowCustom_Click);
+            this.MouseEnter += new System.EventHandler(this.DataRowCustom_Enter);
+            this.MouseLeave += new System.EventHandler(this.DataRowCustom_Leave);
             this.ResumeLayout(false);
             this.PerformLayout();
 
