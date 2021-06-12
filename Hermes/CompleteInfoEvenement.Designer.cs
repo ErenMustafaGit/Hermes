@@ -71,7 +71,6 @@
             this.lblDescEvenement.Size = new System.Drawing.Size(609, 86);
             this.lblDescEvenement.TabIndex = 4;
             this.lblDescEvenement.Text = "Nom";
-            this.lblDescEvenement.Click += new System.EventHandler(this.appFontLabel1_Click);
             // 
             // lblNomEvenement
             // 
@@ -213,7 +212,6 @@
             this.lblTrueFalse.Size = new System.Drawing.Size(43, 51);
             this.lblTrueFalse.TabIndex = 11;
             this.lblTrueFalse.Text = "x";
-            this.lblTrueFalse.Click += new System.EventHandler(this.LblTrueFalse_Click);
             // 
             // lblSoldé
             // 
@@ -226,7 +224,6 @@
             this.lblSoldé.Size = new System.Drawing.Size(189, 62);
             this.lblSoldé.TabIndex = 5;
             this.lblSoldé.Text = "Soldé :";
-            this.lblSoldé.Click += new System.EventHandler(this.LblSoldé_Click);
             // 
             // lblDateEnd
             // 
@@ -239,7 +236,6 @@
             this.lblDateEnd.Size = new System.Drawing.Size(44, 30);
             this.lblDateEnd.TabIndex = 10;
             this.lblDateEnd.Text = "Du";
-            this.lblDateEnd.Click += new System.EventHandler(this.LblDateEnd_Click);
             // 
             // lblDateEvenementAu
             // 
@@ -252,7 +248,6 @@
             this.lblDateEvenementAu.Size = new System.Drawing.Size(52, 28);
             this.lblDateEvenementAu.TabIndex = 9;
             this.lblDateEvenementAu.Text = "au :";
-            this.lblDateEvenementAu.Click += new System.EventHandler(this.LblDateEvenementAu_Click);
             // 
             // lblDateStart
             // 
@@ -265,7 +260,6 @@
             this.lblDateStart.Size = new System.Drawing.Size(44, 30);
             this.lblDateStart.TabIndex = 8;
             this.lblDateStart.Text = "Du";
-            this.lblDateStart.Click += new System.EventHandler(this.LblDateStart_Click);
             // 
             // lblIconeDate
             // 
@@ -280,7 +274,6 @@
             this.lblIconeDate.Size = new System.Drawing.Size(56, 52);
             this.lblIconeDate.TabIndex = 6;
             this.lblIconeDate.Text = "O";
-            this.lblIconeDate.Click += new System.EventHandler(this.LblIconeDate_Click);
             // 
             // lblVueGlobale
             // 

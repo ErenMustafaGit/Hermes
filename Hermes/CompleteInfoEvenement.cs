@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.OleDb;
 using Hermes.DataModel;
+using Hermes.Extensions;
 
 namespace Hermes
 {
@@ -63,11 +64,11 @@ namespace Hermes
 
             //Date début
             DateTime dateDebut = (DateTime)dataRowView[2];
-            lblDateStart.Text = dateDebut.ToLongDateString();
+            lblDateStart.Text = dateDebut.ToFrenchLongDateString();
 
             //Date fin
             DateTime dateFin = (DateTime)dataRowView[3];
-            lblDateEnd.Text = dateFin.ToLongDateString();
+            lblDateEnd.Text = dateFin.ToFrenchLongDateString();
 
             //Description
             lblDescEvenement.Text = dataRowView[4].ToString();
@@ -117,41 +118,6 @@ namespace Hermes
                 user.Top = 20 + 80 * (i + 1);
                 pnlParticipant.Controls.Add(user);
             }
-
-        }
-
-        private void appFontLabel1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void LblSoldé_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void LblTrueFalse_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void LblDateEnd_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void LblDateEvenementAu_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void LblDateStart_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void LblIconeDate_Click(object sender, EventArgs e)
-        {
 
         }
 
@@ -205,10 +171,10 @@ namespace Hermes
                 lblNomEvenement.Text = dataRowView[1].ToString();
                 //Date début
                 DateTime dateDebut = (DateTime)dataRowView[2];
-                lblDateStart.Text = dateDebut.ToLongDateString();
+                lblDateStart.Text = dateDebut.ToFrenchLongDateString();
                 //Date fin
                 DateTime dateFin = (DateTime)dataRowView[3];
-                lblDateEnd.Text = dateFin.ToLongDateString();
+                lblDateEnd.Text = dateFin.ToFrenchLongDateString();
                 //Description de l'évènement
                 lblDescEvenement.Text = dataRowView[4].ToString();
                 //Soldé ou non
