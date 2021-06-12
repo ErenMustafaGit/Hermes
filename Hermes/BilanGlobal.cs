@@ -8,6 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Hermes.DataModel;
+using System.IO;
+using Hermes.UI;
 
 namespace Hermes
 {
@@ -50,6 +52,8 @@ namespace Hermes
             cboEvenements.SelectedIndex = index;
             Actualisation();
 
+            exportPdf.Font = new Font(FontManager.GetFontFamily(AppFont.Icons), 24f);
+            exportPdf.Text = Icons.PDF_FILE;
         }
 
         private void cboEvenements_SelectedIndexChanged(object sender, EventArgs e)
@@ -107,29 +111,70 @@ namespace Hermes
             }
         }
 
+        private bool ExportToPdf()
+        {
+            FolderBrowserDialog browser = new FolderBrowserDialog();
+            browser.ShowNewFolderButton = true;
+            browser.Description = "Choisissez un chemin dans lequel exporter les PDFs individuels.";
+
+            if (browser.ShowDialog() != DialogResult.OK)
+                return false;
+
+            string path = browser.SelectedPath;
+            if (Directory.Exists(path))
+            {
+                try { Directory.CreateDirectory(path); }
+                catch { return false; }
+            }
+
+            PdfExporter.ExportEventSummaries(path, this.currentEvent);
+
+            return true;
+        }
+
         private void BtnBilanGlobal_Click(object sender, EventArgs e)
         {
-            if (!currentEvent.Completed)
+            if (currentEvent.Completed)
+                return;
+
+            DialogResult dialogResult = MessageBox.Show(
+                "Vous voulez vraiment solder\nl'évènement "
+                + this.currentEvent.Name + " ?",
+                "Hermès", MessageBoxButtons.YesNo,
+                MessageBoxIcon.Question,
+                MessageBoxDefaultButton.Button1);
+
+            if (dialogResult == DialogResult.Yes)
             {
-                DialogResult dialogResult = MessageBox.Show("Vous voulez vraiment solder\nl'évènement " + this.currentEvent.Name + " ?", "Solder évènement", MessageBoxButtons.YesNo);
-                if (dialogResult == DialogResult.Yes)
+                if (!ExportToPdf())
                 {
-                    currentEvent.CloseEvent();
-                    //Notification à faire apparaitre
-                    MessageBox.Show("Evenement bien soldé ! ");
+                    dialogResult = MessageBox.Show(
+                        "Vous voulez vraiment solder\nl'évènement "
+                        + this.currentEvent.Name
+                        + "\nsans exporter de PDF ?", "Hermès",
+                        MessageBoxButtons.YesNo,
+                        MessageBoxIcon.Exclamation,
+                        MessageBoxDefaultButton.Button2);
 
-                    //Refresh
-                    this.ecran.Controls.Clear();
-                    BilanGlobal refreshed = new BilanGlobal(this.currentEvent, this.index);
-                    refreshed.setPanel = this.ecran;
-                    this.ecran.Controls.Add(refreshed);
+                    if (dialogResult != DialogResult.Yes)
+                        return;
                 }
-                else if (dialogResult == DialogResult.No)
-                {
 
-                }
+                currentEvent.CloseEvent();
+
+                MessageBox.Show("Evenement bien soldé ! "); // TODO: use toast
+
+                //Refresh
+                this.ecran.Controls.Clear();
+                BilanGlobal refreshed = new BilanGlobal(this.currentEvent, this.index);
+                refreshed.setPanel = this.ecran;
+                this.ecran.Controls.Add(refreshed);
             }
-            
+        }
+
+        private void exportPdf_Click(object sender, EventArgs e)
+        {
+            ExportToPdf();
         }
     }
 }
