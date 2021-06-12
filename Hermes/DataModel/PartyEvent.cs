@@ -81,10 +81,11 @@ namespace Hermes.DataModel
                 db);
             command.Parameters.AddWithValue("@Id", id);
 
-            OleDbDataReader dataReader = command.ExecuteReader();
-            dataReader.Read();
-
-            return new PartyEvent(dataReader);
+            using (OleDbDataReader dataReader = command.ExecuteReader())
+            {
+                dataReader.Read();
+                return new PartyEvent(dataReader);
+            }
         }
 
         public List<Participant> GetGuests()
@@ -98,19 +99,22 @@ namespace Hermes.DataModel
                 db);
             command.Parameters.AddWithValue("@Id", this.Id);
 
-            OleDbDataReader dataReader = command.ExecuteReader();
-            while (dataReader.Read())
+            using (OleDbDataReader dataReader = command.ExecuteReader())
             {
-                // FIXME: Couldn't an imbricated request be used instead..?
-                OleDbCommand commandGuest = new OleDbCommand(
-                    "select * from Participants where codeParticipant = @GuestId",
-                    db);
-                commandGuest.Parameters.AddWithValue("@GuestId", dataReader.GetInt32(0) /* eww */);
+                while (dataReader.Read())
+                {
+                    // FIXME: Couldn't an imbricated request be used instead..?
+                    OleDbCommand commandGuest = new OleDbCommand(
+                        "select * from Participants where codeParticipant = @GuestId",
+                        db);
+                    commandGuest.Parameters.AddWithValue("@GuestId", dataReader.GetInt32(0) /* eww */);
 
-                OleDbDataReader dataReaderGuest = commandGuest.ExecuteReader();
-
-                dataReaderGuest.Read();
-                guests.Add(new Participant(dataReaderGuest));
+                    using (OleDbDataReader dataReaderGuest = commandGuest.ExecuteReader())
+                    {
+                        dataReaderGuest.Read();
+                        guests.Add(new Participant(dataReaderGuest));
+                    }
+                }
             }
 
             return guests;
@@ -127,11 +131,13 @@ namespace Hermes.DataModel
                 db);
             command.Parameters.AddWithValue("@Id", this.Id);
 
-            OleDbDataReader dataReader = command.ExecuteReader();
-            while (dataReader.Read())
+            using (OleDbDataReader dataReader = command.ExecuteReader())
             {
-                int id = dataReader.GetInt32(0);
-                uninvited.RemoveAt(uninvited.FindIndex(x => x.CodeParticipant == id));
+                while (dataReader.Read())
+                {
+                    int id = dataReader.GetInt32(0);
+                    uninvited.RemoveAt(uninvited.FindIndex(x => x.CodeParticipant == id));
+                }
             }
 
             return uninvited;
@@ -148,9 +154,11 @@ namespace Hermes.DataModel
                 db);
             command.Parameters.AddWithValue("@Id", this.Id);
 
-            OleDbDataReader dataReader = command.ExecuteReader();
-            while (dataReader.Read())
-                expenses.Add(new Expense(dataReader));
+            using (OleDbDataReader dataReader = command.ExecuteReader())
+            {
+                while (dataReader.Read())
+                    expenses.Add(new Expense(dataReader));
+            }
 
             return expenses;
         }

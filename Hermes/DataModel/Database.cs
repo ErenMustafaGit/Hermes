@@ -122,11 +122,12 @@ namespace Hermes.DataModel
             OleDbConnection db = Database.Connect();
             OleDbCommand command = new OleDbCommand("select * from Evenements", db); // FIXME: request specific fields to not mess the order up
 
-            OleDbDataReader dataReader = command.ExecuteReader();
             List<PartyEvent> partyEvents = new List<PartyEvent>();
-
-            while (dataReader.Read())
-                partyEvents.Add(new PartyEvent(dataReader));
+            using (OleDbDataReader dataReader = command.ExecuteReader())
+            {
+                while (dataReader.Read())
+                    partyEvents.Add(new PartyEvent(dataReader));
+            }
 
             return partyEvents;
         }
@@ -136,11 +137,12 @@ namespace Hermes.DataModel
             OleDbConnection db = Database.Connect();
             OleDbCommand command = new OleDbCommand("select * from Evenements where soldeON = false", db); // FIXME: request specific fields to not mess the order up
 
-            OleDbDataReader dataReader = command.ExecuteReader();
             List<PartyEvent> partyEvents = new List<PartyEvent>();
-
-            while (dataReader.Read())
-                partyEvents.Add(new PartyEvent(dataReader));
+            using (OleDbDataReader dataReader = command.ExecuteReader())
+            {
+                while (dataReader.Read())
+                    partyEvents.Add(new PartyEvent(dataReader));
+            }
 
             return partyEvents;
         }
@@ -153,9 +155,11 @@ namespace Hermes.DataModel
 
             OleDbCommand command = new OleDbCommand("select * from Participants", db);
 
-            OleDbDataReader dataReader = command.ExecuteReader();
-            while (dataReader.Read())
-                participants.Add(new Participant(dataReader));
+            using (OleDbDataReader dataReader = command.ExecuteReader())
+            {
+                while (dataReader.Read())
+                    participants.Add(new Participant(dataReader));
+            }
             
             return participants;
         }
@@ -308,10 +312,11 @@ namespace Hermes.DataModel
             OleDbCommand command = new OleDbCommand("select * from Depenses", db);
 
             List<Expense> expenses = new List<Expense>();
-
-            OleDbDataReader dataReader = command.ExecuteReader();
-            while (dataReader.Read())
-                expenses.Add(new Expense(dataReader));
+            using (OleDbDataReader dataReader = command.ExecuteReader())
+            {
+                while (dataReader.Read())
+                    expenses.Add(new Expense(dataReader));
+            }
             
             return expenses;
         }
@@ -335,17 +340,19 @@ namespace Hermes.DataModel
             command.Parameters.AddWithValue("@pEvent", eventId);
             command.Parameters.AddWithValue("@pPart", participantId);
 
-            OleDbDataReader reader = command.ExecuteReader();
-            while (reader.Read())
+            using (OleDbDataReader reader = command.ExecuteReader())
             {
-                int expenseId = reader.GetInt32(0);
-                DateTime date = reader.GetDateTime(1);
-                string description = "";
-                if (!reader.IsDBNull(2))
-                    description = reader.GetString(2);
-                decimal amount = reader.GetDecimal(3);
+                while (reader.Read())
+                {
+                    int expenseId = reader.GetInt32(0);
+                    DateTime date = reader.GetDateTime(1);
+                    string description = "";
+                    if (!reader.IsDBNull(2))
+                        description = reader.GetString(2);
+                    decimal amount = reader.GetDecimal(3);
 
-                records.Add(new UserSpendingRecord(expenseId, date, description, amount));
+                    records.Add(new UserSpendingRecord(expenseId, date, description, amount));
+                }
             }
 
             return records;
@@ -370,14 +377,16 @@ namespace Hermes.DataModel
             command.Parameters.AddWithValue("@pEvent", eventId);
             command.Parameters.AddWithValue("@pPart", participantId);
 
-            OleDbDataReader reader = command.ExecuteReader();
-            while (reader.Read())
+            using (OleDbDataReader reader = command.ExecuteReader())
             {
-                int expenseId = reader.GetInt32(0);
-                decimal amount = reader.GetDecimal(1);
-                double totalShares = reader.GetDouble(2);
+                while (reader.Read())
+                {
+                    int expenseId = reader.GetInt32(0);
+                    decimal amount = reader.GetDecimal(1);
+                    double totalShares = reader.GetDouble(2);
 
-                records.Add(new UserParticipationRecord(expenseId, amount, totalShares));
+                    records.Add(new UserParticipationRecord(expenseId, amount, totalShares));
+                }
             }
 
             return records;
