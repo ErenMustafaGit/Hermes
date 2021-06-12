@@ -20,7 +20,8 @@ namespace Hermes
         private Panel ecran;
         private int index;
         private Color currentColor;
-        public DataRowCustom(string name, double plus, double moins, PartyEvent partyEvent, Panel ecran, int index)
+        private int currentIndexPage;
+        public DataRowCustom(string name, double plus, double moins, PartyEvent partyEvent, Panel ecran, int index, int currentIndexPage)
         {
             InitializeComponent();
             this.name = name;
@@ -29,6 +30,7 @@ namespace Hermes
             this.currentEvent = partyEvent;
             this.ecran = ecran;
             this.index = index;
+            this.currentIndexPage = currentIndexPage;
         }
 
         public void ChangeColor()
@@ -47,8 +49,8 @@ namespace Hermes
 
         private void DataRowCustom_Click(object sender, EventArgs e)
         {
-           UserBilan userBilan = new UserBilan(currentEvent, index);
-           userBilan.setPanel = ecran;
+            UserBilan userBilan = new UserBilan(currentEvent, index, currentIndexPage);
+           userBilan.setPanel = ecran; 
            this.ecran.Controls.Clear();
            this.ecran.Controls.Add(userBilan);
         }

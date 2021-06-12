@@ -16,13 +16,14 @@ namespace Hermes
         private PartyEvent currentEvent;
         private List<Participant> participants;
         private Panel ecran;
-        public DataGridViewCustom(PartyEvent currentEvent, Panel ecran)
+        private int currentIndexPage;
+        public DataGridViewCustom(PartyEvent currentEvent, Panel ecran, int currentIndexPage)
         {
             InitializeComponent();
             this.currentEvent = currentEvent;
             participants = currentEvent.GetGuests();
             this.ecran = ecran;
-
+            this.currentIndexPage = currentIndexPage;
             pnlRows.HorizontalScroll.Enabled = false;
             pnlRows.HorizontalScroll.Visible = false;
             pnlRows.HorizontalScroll.Maximum = 0;
@@ -49,7 +50,7 @@ namespace Hermes
                 Decimal totalMinus = 0;
                 totalMinus = CalculeRemboursement(listeRemboursement, participant);
 
-                DataRowCustom row = new DataRowCustom(participant.FirstName + " " + participant.LastName, (double)totalAmount, (double)totalMinus, currentEvent, ecran, i);
+                DataRowCustom row = new DataRowCustom(participant.FirstName + " " + participant.LastName, (double)totalAmount, (double)totalMinus, currentEvent, ecran, i, currentIndexPage);
                 // si impaire
                 if (i % 2 != 0)
                 {

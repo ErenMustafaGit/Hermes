@@ -64,8 +64,8 @@ namespace Hermes
             start++;
             if(start >= 1)
             {
+                this.index = cboEvenements.SelectedIndex; this.index = cboEvenements.SelectedIndex;
                 Actualisation();
-                this.index = cboEvenements.SelectedIndex;
             }
 
             if (currentEvent.Completed)
@@ -92,7 +92,7 @@ namespace Hermes
             PartyEvent partyEventRefreshed = allEvent[cboEvenements.SelectedIndex];
             currentEvent = partyEventRefreshed;
 
-            DataGridViewCustom dataGridViewCustom = new DataGridViewCustom(partyEventRefreshed, this.ecran);
+            DataGridViewCustom dataGridViewCustom = new DataGridViewCustom(partyEventRefreshed, this.ecran, this.index);
             pnlBilanToutePersonnes.Controls.Add(dataGridViewCustom);
 
 

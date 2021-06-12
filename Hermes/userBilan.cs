@@ -18,17 +18,19 @@ namespace Hermes
         private int index;
         //Bricolage
         private int compteur = -2;
+        private int currentIndexPage;
         public Panel setPanel
         {
             set { this.ecran = value; }
         }
 
-        public UserBilan(PartyEvent currentEvent, int index)
+        public UserBilan(PartyEvent currentEvent, int index, int currentIndexPage)
         {
             InitializeComponent();
             lblGoBaaack.Text = Hermes.UI.Icons.LEFT;
             this.currentEvent = currentEvent;
             this.index = index;
+            this.currentIndexPage = currentIndexPage;
             pnlDepense.HorizontalScroll.Enabled = false;
             pnlDepense.HorizontalScroll.Visible = false;
             pnlDepense.HorizontalScroll.Maximum = 0;
@@ -137,7 +139,7 @@ namespace Hermes
 
         private void lblGoBaaack_Click(object sender, EventArgs e)
         {
-            BilanGlobal bilanGlobal = new BilanGlobal(currentEvent, index);
+            BilanGlobal bilanGlobal = new BilanGlobal(currentEvent, currentIndexPage);
             bilanGlobal.setPanel = this.ecran;
             this.ecran.Controls.Clear();
             this.ecran.Controls.Add(bilanGlobal);
