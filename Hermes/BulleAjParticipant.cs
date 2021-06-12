@@ -49,6 +49,20 @@ namespace Hermes
             annuler.DynamicInvoke();
         }
 
+        //Return false ou true si l'email est valide ou pas
+        private bool IsValidEmail(string email)
+        {
+            try
+            {
+                var addr = new System.Net.Mail.MailAddress(email);
+                return addr.Address == email;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
         private void btnValider_Click(object sender, EventArgs e)
         {
             bool valide = true;
@@ -65,7 +79,7 @@ namespace Hermes
                 txtFirstName.BackColor = Color.LightPink;
             }
 
-            if (txtMail.Text.Length < 5 && !txtMail.Text.Contains("@"))
+            if (!IsValidEmail(txtMail.Text))
             {
                 valide = false;
                 txtMail.BackColor = Color.LightPink;
