@@ -96,6 +96,12 @@ namespace Hermes.UI
             return this;
         }
 
+        public AppToast SetIcon(string icon)
+        {
+            this.Icon = icon;
+            return this;
+        }
+
         public void OnAdded()
         {
             if (m_Duration.Ticks > 0)
@@ -162,7 +168,7 @@ namespace Hermes.UI
 
             toast.BackgroundColor = Color.FromArgb(0xFD, 0x7E, 0x14);
             toast.Message = message;
-            toast.Icon = Icons.GEAR;
+            toast.Icon = Icons.CIRCLED_EXCLAMATION_MARK;
 
             toast.ResumeLayout();
 
@@ -177,7 +183,7 @@ namespace Hermes.UI
             toast.BackgroundColor = Color.FromArgb(0xDC, 0x35, 0x45);
             toast.TextColor = Color.White;
             toast.Message = message;
-            toast.Icon = Icons.GEAR;
+            toast.Icon = Icons.CIRCLED_CROSS;
 
             toast.ResumeLayout();
 
@@ -192,7 +198,7 @@ namespace Hermes.UI
             toast.BackgroundColor = Color.FromArgb(0x20, 0xC9, 0x27);
             toast.TextColor = Color.White;
             toast.Message = message;
-            toast.Icon = Icons.EMOTE_THUMBS_UP;
+            toast.Icon = Icons.CIRCLED_TICK;
 
             toast.ResumeLayout();
 
