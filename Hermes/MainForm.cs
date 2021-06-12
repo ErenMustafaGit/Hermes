@@ -31,7 +31,6 @@ namespace Hermes
 
         private void MainForm_Load(object sender, EventArgs e)
         {
-            this.Icon = new Icon("../../UI/hermes.ico");
             sideBarUserControls1.BringToFront();
             sideBarUserControls1.setPanel = pnlEcran;
             Accueil a1 = new Accueil();
