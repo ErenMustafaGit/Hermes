@@ -85,7 +85,7 @@
             // 
             this.txtFirstName.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtFirstName.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F);
-            this.txtFirstName.Location = new System.Drawing.Point(132, 230);
+            this.txtFirstName.Location = new System.Drawing.Point(381, 147);
             this.txtFirstName.MaxLength = 20;
             this.txtFirstName.Name = "txtFirstName";
             this.txtFirstName.Size = new System.Drawing.Size(201, 27);
@@ -96,7 +96,7 @@
             // 
             this.txtPhoneNumber.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtPhoneNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F);
-            this.txtPhoneNumber.Location = new System.Drawing.Point(381, 147);
+            this.txtPhoneNumber.Location = new System.Drawing.Point(132, 230);
             this.txtPhoneNumber.MaxLength = 30;
             this.txtPhoneNumber.Name = "txtPhoneNumber";
             this.txtPhoneNumber.Size = new System.Drawing.Size(201, 27);
@@ -109,7 +109,7 @@
             this.txtMail.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtMail.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F);
             this.txtMail.Location = new System.Drawing.Point(381, 230);
-            this.txtMail.MaxLength = 30;
+            this.txtMail.MaxLength = 50;
             this.txtMail.Name = "txtMail";
             this.txtMail.Size = new System.Drawing.Size(201, 27);
             this.txtMail.TabIndex = 38;
@@ -126,7 +126,7 @@
             0});
             this.nudNbPart.Name = "nudNbPart";
             this.nudNbPart.Size = new System.Drawing.Size(201, 27);
-            this.nudNbPart.TabIndex = 33;
+            this.nudNbPart.TabIndex = 39;
             this.nudNbPart.Value = new decimal(new int[] {
             1,
             0,
@@ -141,7 +141,7 @@
             this.lblEmail.AutoSize = true;
             this.lblEmail.Location = new System.Drawing.Point(378, 201);
             this.lblEmail.Name = "lblEmail";
-            this.lblEmail.Size = new System.Drawing.Size(115, 16);
+            this.lblEmail.Size = new System.Drawing.Size(116, 16);
             this.lblEmail.TabIndex = 37;
             this.lblEmail.Text = "Adresse e-mail ?";
             // 
@@ -150,9 +150,9 @@
             this.lblNumero.AppFont = Hermes.AppFont.HelveticaNeue;
             this.lblNumero.AppFontHeight = 10F;
             this.lblNumero.AutoSize = true;
-            this.lblNumero.Location = new System.Drawing.Point(378, 118);
+            this.lblNumero.Location = new System.Drawing.Point(129, 201);
             this.lblNumero.Name = "lblNumero";
-            this.lblNumero.Size = new System.Drawing.Size(167, 16);
+            this.lblNumero.Size = new System.Drawing.Size(170, 16);
             this.lblNumero.TabIndex = 35;
             this.lblNumero.Text = "Numéro de téléphone ? *";
             // 
@@ -163,7 +163,7 @@
             this.lblNbPart.AutoSize = true;
             this.lblNbPart.Location = new System.Drawing.Point(129, 284);
             this.lblNbPart.Name = "lblNbPart";
-            this.lblNbPart.Size = new System.Drawing.Size(129, 16);
+            this.lblNbPart.Size = new System.Drawing.Size(133, 16);
             this.lblNbPart.TabIndex = 33;
             this.lblNbPart.Text = "Nombre de part ? *";
             // 
@@ -172,9 +172,9 @@
             this.lblPrenom.AppFont = Hermes.AppFont.HelveticaNeue;
             this.lblPrenom.AppFontHeight = 10F;
             this.lblPrenom.AutoSize = true;
-            this.lblPrenom.Location = new System.Drawing.Point(129, 201);
+            this.lblPrenom.Location = new System.Drawing.Point(378, 118);
             this.lblPrenom.Name = "lblPrenom";
-            this.lblPrenom.Size = new System.Drawing.Size(170, 16);
+            this.lblPrenom.Size = new System.Drawing.Size(175, 16);
             this.lblPrenom.TabIndex = 33;
             this.lblPrenom.Text = "Prénom du participant ? *";
             // 
@@ -196,7 +196,7 @@
             this.lblNom.AutoSize = true;
             this.lblNom.Location = new System.Drawing.Point(129, 118);
             this.lblNom.Name = "lblNom";
-            this.lblNom.Size = new System.Drawing.Size(150, 16);
+            this.lblNom.Size = new System.Drawing.Size(155, 16);
             this.lblNom.TabIndex = 22;
             this.lblNom.Text = "Nom du participant ? *";
             // 
