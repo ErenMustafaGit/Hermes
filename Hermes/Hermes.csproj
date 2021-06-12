@@ -216,6 +216,7 @@
     <Compile Include="DepenseUser.Designer.cs">
       <DependentUpon>DepenseUser.cs</DependentUpon>
     </Compile>
+    <Compile Include="EmailManager.cs" />
     <Compile Include="Participants.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -434,9 +435,8 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Hermes.ico" />
-    <None Include="Resources\Hermes.ico" />
     <None Include="Resources\AppIcon.ico" />
+    <Content Include="Resources\EmailTemplate.html" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

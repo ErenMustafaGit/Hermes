@@ -55,6 +55,11 @@ namespace Hermes
             {
                 newEvent.Description = this.rtxtDescription.Text;
                 Database.InsertEvent(newEvent, getInvitedParticipant());
+                EmailManager.InviteList(newEvent, getInvitedParticipant())
+                    .ContinueWith(_ =>
+                    {
+                        MessageBox.Show("Les emails d'invitation ont été envoyés."); // TODO: use toasts
+                    });
 
                 this.ecran.Controls.Clear();
                 this.ecran.Visible = false;
@@ -68,7 +73,7 @@ namespace Hermes
                 rtxtDescription.BackColor = Color.LightPink;
                 rtxtDescription.Focus();
             }
-            
+
         }
 
         public List<Participant> getInvitedParticipant()
@@ -87,7 +92,7 @@ namespace Hermes
                         invitedParticipant.Add(Participant.GetParticipant((int)chk.Tag));
 
                 }
-                
+
             }
             return invitedParticipant;
         }
@@ -143,7 +148,7 @@ namespace Hermes
             {
                 annuler.DynamicInvoke();
             }
-           
+
         }
 
         private void rtxtDescription_KeyPress(object sender, KeyPressEventArgs e)

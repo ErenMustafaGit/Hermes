@@ -173,6 +173,11 @@ namespace Hermes
 
             //Invitation à l'evenement des participants coché
             Database.InsertGuestsForEvent(currentEvent, invitedParticipant);
+            EmailManager.InviteList(currentEvent, invitedParticipant)
+                .ContinueWith(_ =>
+                {
+                    MessageBox.Show("Les emails d'invitation ont été envoyés."); // TODO
+                });
 
             pnlBulle.Controls.Clear();
             //Ajout d'une pop up pour confirmer l'invitation 
