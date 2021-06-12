@@ -33,7 +33,6 @@
             this.pnlDetailExpenditure = new System.Windows.Forms.Panel();
             this.pnlBeneficiary = new System.Windows.Forms.Panel();
             this.btnAddExpenditure = new System.Windows.Forms.Button();
-            this.btnAddBeneficiary = new System.Windows.Forms.Button();
             this.lblExpenditureTitle = new Hermes.UI.AppFontLabel();
             this.lblDepense = new Hermes.UI.AppFontLabel();
             this.lblCreator = new Hermes.UI.AppFontLabel();
@@ -71,14 +70,14 @@
             this.pnlDetailExpenditure.Controls.Add(this.lblIconMoney);
             this.pnlDetailExpenditure.Location = new System.Drawing.Point(522, 191);
             this.pnlDetailExpenditure.Name = "pnlDetailExpenditure";
-            this.pnlDetailExpenditure.Size = new System.Drawing.Size(374, 335);
+            this.pnlDetailExpenditure.Size = new System.Drawing.Size(374, 389);
             this.pnlDetailExpenditure.TabIndex = 0;
             // 
             // pnlBeneficiary
             // 
             this.pnlBeneficiary.Location = new System.Drawing.Point(39, 188);
             this.pnlBeneficiary.Name = "pnlBeneficiary";
-            this.pnlBeneficiary.Size = new System.Drawing.Size(306, 139);
+            this.pnlBeneficiary.Size = new System.Drawing.Size(306, 198);
             this.pnlBeneficiary.TabIndex = 2;
             // 
             // btnAddExpenditure
@@ -94,21 +93,6 @@
             this.btnAddExpenditure.Text = "Ajouter une dépenses à cet évènement";
             this.btnAddExpenditure.UseVisualStyleBackColor = false;
             this.btnAddExpenditure.Click += new System.EventHandler(this.btnAddExpenditure_Click);
-            // 
-            // btnAddBeneficiary
-            // 
-            this.btnAddBeneficiary.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(147)))), ((int)(((byte)(248)))));
-            this.btnAddBeneficiary.Enabled = false;
-            this.btnAddBeneficiary.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAddBeneficiary.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.btnAddBeneficiary.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnAddBeneficiary.Location = new System.Drawing.Point(522, 543);
-            this.btnAddBeneficiary.Name = "btnAddBeneficiary";
-            this.btnAddBeneficiary.Size = new System.Drawing.Size(374, 37);
-            this.btnAddBeneficiary.TabIndex = 3;
-            this.btnAddBeneficiary.Text = "Ajout d\'un bénéficiaire";
-            this.btnAddBeneficiary.UseVisualStyleBackColor = false;
-            this.btnAddBeneficiary.Click += new System.EventHandler(this.btnAddBeneficiary_Click);
             // 
             // lblExpenditureTitle
             // 
@@ -194,7 +178,6 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.lblExpenditureTitle);
-            this.Controls.Add(this.btnAddBeneficiary);
             this.Controls.Add(this.btnAddExpenditure);
             this.Controls.Add(this.cboEvenement);
             this.Controls.Add(this.lblDepense);
@@ -217,7 +200,6 @@
         private System.Windows.Forms.ComboBox cboEvenement;
         private System.Windows.Forms.Panel pnlDetailExpenditure;
         private System.Windows.Forms.Button btnAddExpenditure;
-        private System.Windows.Forms.Button btnAddBeneficiary;
         private UI.AppFontLabel lblIconMoney;
         private UI.AppFontLabel lblBeneficiary;
         private UI.AppFontLabel lblIconCreator;
