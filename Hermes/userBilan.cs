@@ -64,7 +64,7 @@ namespace Hermes
         private void CboParticipant_SelectedIndexChanged(object sender, EventArgs e)
         {
             compteur++;
-            if(compteur > 0)
+            if(compteur >= 1)
             {
                 ActualisationDepense();
                 ActualisationRemboursement();
