@@ -55,7 +55,6 @@ namespace Hermes
             this.pnlTitleBar.Name = "pnlTitleBar";
             this.pnlTitleBar.Size = new System.Drawing.Size(1080, 34);
             this.pnlTitleBar.TabIndex = 0;
-            this.pnlTitleBar.Paint += new System.Windows.Forms.PaintEventHandler(this.PnlTitleBar_Paint);
             this.pnlTitleBar.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MainForm_MouseDown);
             this.pnlTitleBar.MouseMove += new System.Windows.Forms.MouseEventHandler(this.MainForm_MouseMove);
             // 

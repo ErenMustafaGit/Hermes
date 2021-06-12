@@ -54,9 +54,10 @@ namespace Hermes
                 EmailManager.InviteList(newEvent, getInvitedParticipant())
                     .ContinueWith(_ =>
                     {
-                        AppToast.CreateSuccessToast("Les emails d'invitation ont été envoyés !")
-                            .SetDurationInSeconds(15)
-                            .ShowToast();
+                        MainForm.GetSingleton().Invoke(new MethodInvoker(() =>
+                            AppToast.CreateSuccessToast("Les emails d'invitation ont été envoyés !")
+                                .SetDurationInSeconds(15)
+                                .ShowToast()));
                     });
 
                 this.ecran.Controls.Clear();
