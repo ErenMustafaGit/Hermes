@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Hermes.DataModel;
+using Hermes.UI;
 
 namespace Hermes
 {
@@ -53,7 +54,9 @@ namespace Hermes
                 EmailManager.InviteList(newEvent, getInvitedParticipant())
                     .ContinueWith(_ =>
                     {
-                        MessageBox.Show("Les emails d'invitation ont été envoyés."); // TODO: use toasts
+                        AppToast.CreateSuccessToast("Les emails d'invitation ont été envoyés !")
+                            .SetDurationInSeconds(15)
+                            .ShowToast();
                     });
 
                 this.ecran.Controls.Clear();

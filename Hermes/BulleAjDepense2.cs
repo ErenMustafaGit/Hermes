@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Hermes.DataModel;
+using Hermes.UI;
 
 namespace Hermes
 {
@@ -93,7 +94,7 @@ namespace Hermes
             }
 
             
-            string comment = rtxtCommentaire.Text.Replace('\'', ' ');
+            string comment = rtxtCommentaire.Text;
             if(comment.Length <= 0)
             {
                 rtxtCommentaire.BackColor = Color.LightPink;
@@ -102,18 +103,19 @@ namespace Hermes
             {
                 Expense newExpenditure = new Expense()
                 {
-                    Id = 100,
                     Amount = this.montant,
                     Description = this.description,
-                    Comment = rtxtCommentaire.Text,
+                    Comment = comment,
                     Date = this.dateDepense.Date,
                     EventId = this.codeEvenement,
                     AuthorId = this.codeParticipant,
                 };
 
                 Database.InsertExpense(newExpenditure, getBeneficiary());
-                //UNE POPUP A AJOUTER
-                MessageBox.Show("AJOUTE POPUP");
+
+                AppToast.CreateSuccessToast("La dépense a été ajoutée !")
+                    .SetDurationInSeconds(15)
+                    .ShowToast();
 
                 this.pnlBulleEmplacement.Controls.Clear();
                 this.pnlBulleEmplacement.Visible = false;

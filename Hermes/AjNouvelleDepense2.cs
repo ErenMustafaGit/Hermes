@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Hermes.DataModel;
+using Hermes.UI;
 
 namespace Hermes
 {
@@ -102,10 +103,9 @@ namespace Hermes
             }
             else
             {
-                string comment = rtxtCommentaire.Text.Replace('\'', ' ');
+                string comment = rtxtCommentaire.Text;
                 Expense newExpense = new Expense()
                 {
-                    Id = 100,
                     Amount = this.Amount,
                     Description = this.Description,
                     Comment = comment,
@@ -116,8 +116,9 @@ namespace Hermes
 
                 Database.InsertExpense(newExpense, getBeneficiary());
 
-                //UNE POPUP A AJOUTER
-                MessageBox.Show("AJOUTE POPUP");
+                AppToast.CreateSuccessToast("La dépense a été ajoutée !")
+                    .SetDurationInSeconds(15)
+                    .ShowToast();
 
                 this.ecran.Controls.Clear();
                 Accueil a = new Accueil();
@@ -152,8 +153,7 @@ namespace Hermes
             MessageBoxButtons buttons = MessageBoxButtons.YesNo;
             DialogResult result;
             string message = "Voulez vous vraiment annuler l'ajout ?";
-            string caption = "";
-            result = result = MessageBox.Show(this, message, caption, buttons,
+            result = MessageBox.Show(this, message, "Hermès", buttons,
             MessageBoxIcon.Question, MessageBoxDefaultButton.Button1,
             MessageBoxOptions.RightAlign);
 

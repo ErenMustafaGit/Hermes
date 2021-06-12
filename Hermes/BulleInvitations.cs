@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Hermes.DataModel;
+using Hermes.UI;
 
 namespace Hermes
 {
@@ -176,7 +177,9 @@ namespace Hermes
             EmailManager.InviteList(currentEvent, invitedParticipant)
                 .ContinueWith(_ =>
                 {
-                    MessageBox.Show("Les emails d'invitation ont été envoyés."); // TODO
+                    AppToast.CreateSuccessToast("Les emails d'invitation ont été envoyés !")
+                            .SetDurationInSeconds(15)
+                            .ShowToast();
                 });
 
             pnlBulle.Controls.Clear();

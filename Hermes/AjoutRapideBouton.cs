@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Runtime.InteropServices;
 using Hermes.DataModel;
+using Hermes.UI;
 
 namespace Hermes
 {
@@ -48,7 +49,9 @@ namespace Hermes
             }
             else
             {
-                MessageBox.Show("Veuillez selectionner un évènement !");
+                AppToast.CreateErrorToast("Veuillez sélectionner un évènement !")
+                    .SetDurationInSeconds(10)
+                    .ShowToast();
             }
             
            
