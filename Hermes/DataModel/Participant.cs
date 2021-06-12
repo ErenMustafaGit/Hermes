@@ -49,10 +49,12 @@ namespace Hermes.DataModel
             // FIXME: use command parameters
             string sql = "select * from Participants where codeParticipant = " + codeParticipant;
             OleDbCommand command = new OleDbCommand(sql, db);
-            OleDbDataReader dataReader = command.ExecuteReader();
 
-            dataReader.Read();
-            return new Participant(dataReader);
+            using (OleDbDataReader dataReader = command.ExecuteReader())
+            {
+                dataReader.Read();
+                return new Participant(dataReader);
+            }
         }
 
         public static DataTable toDataTable(List<Participant> participants)
@@ -121,11 +123,13 @@ namespace Hermes.DataModel
             OleDbCommand command = new OleDbCommand(sql1, db);
 
             //Contient toutes les numDepense de notre Participant
-            OleDbDataReader dataReader = command.ExecuteReader();
-            while (dataReader.Read())
+            using (OleDbDataReader dataReader = command.ExecuteReader())
             {
-                //Ajoute à notre liste : Les dépenses(Expenditure) de notre Participant
-                allExpenditure.Add(Expense.GetFromId(dataReader.GetInt32(0)));
+                while (dataReader.Read())
+                {
+                    //Ajoute à notre liste : Les dépenses(Expenditure) de notre Participant
+                    allExpenditure.Add(Expense.GetFromId(dataReader.GetInt32(0)));
+                }
             }
 
             return allExpenditure;

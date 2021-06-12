@@ -82,10 +82,11 @@ namespace Hermes.DataModel
                 db);
             command.Parameters.AddWithValue("@EventId", this.EventId);
 
-            OleDbDataReader dataReader = command.ExecuteReader();
-            dataReader.Read();
-
-            return new PartyEvent(dataReader);
+            using (OleDbDataReader dataReader = command.ExecuteReader())
+            {
+                dataReader.Read();
+                return new PartyEvent(dataReader);
+            }
         }
 
         public List<Participant> GetBeneficiaires()
@@ -99,16 +100,18 @@ namespace Hermes.DataModel
                 db);
             command.Parameters.AddWithValue("@Id", this.Id);
 
-            OleDbDataReader dataReader = command.ExecuteReader();
-            while (dataReader.Read())
+            using (OleDbDataReader dataReader = command.ExecuteReader())
             {
-                int beneficiaryId = dataReader.GetInt32(0);
+                while (dataReader.Read())
+                {
+                    int beneficiaryId = dataReader.GetInt32(0);
 
-                Participant participant = Participant.GetParticipant(beneficiaryId);
-                if (participant == null)
-                    throw new DatabaseFetchException("Beneficiary for expense does not exist");
+                    Participant participant = Participant.GetParticipant(beneficiaryId);
+                    if (participant == null)
+                        throw new DatabaseFetchException("Beneficiary for expense does not exist");
 
-                beneficiaries.Add(participant);
+                    beneficiaries.Add(participant);
+                }
             }
 
             return beneficiaries;
@@ -123,10 +126,11 @@ namespace Hermes.DataModel
                 db);
             command.Parameters.AddWithValue("@Id", id);
 
-            OleDbDataReader dataReader = command.ExecuteReader();
-            dataReader.Read();
-
-            return new Expense(dataReader);
+            using (OleDbDataReader dataReader = command.ExecuteReader())
+            {
+                dataReader.Read();
+                return new Expense(dataReader);
+            }
         }
     }
 
