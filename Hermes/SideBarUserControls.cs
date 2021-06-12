@@ -7,12 +7,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Hermes.DataModel;
+using Hermes.UI;
 
 namespace Hermes
 {
     public partial class SideBarUserControls : UserControl
     {
         private Panel ecrans;
+        private static Color BLUE = ColorTranslator.FromHtml("#2693f8");
+        private static Color WHITE = Color.FromArgb(249, 249, 249);
 
         public SideBarUserControls()
         {
@@ -38,20 +42,22 @@ namespace Hermes
 
         private void LblIconeAccueil_Click(object sender, EventArgs e)
         {
+            this.Cursor = Cursors.Default;
+
             this.ecrans.Controls.Clear();
             //Partie concerné par le changement de couleur en bleue
-            lblIconeAccueil.ForeColor = ColorTranslator.FromHtml("#2693f8");
-            lblAccueil.ForeColor = ColorTranslator.FromHtml("#2693f8");
+            lblIconeAccueil.ForeColor = BLUE;
+            lblAccueil.ForeColor = BLUE;
 
             //Le reste en blanc
-            lblIconeDepense.ForeColor = Color.FromArgb(249, 249, 249);
-            lblDepenses.ForeColor = Color.FromArgb(249, 249, 249);
-            lblIconeEvenement.ForeColor = Color.FromArgb(249, 249, 249);
-            lblEvenements.ForeColor = Color.FromArgb(249, 249, 249);
-            lblIconeParticipant.ForeColor = Color.FromArgb(249, 249, 249);
-            lblParticipants.ForeColor = Color.FromArgb(249, 249, 249);
-            lblIconeBilan.ForeColor = Color.FromArgb(249, 249, 249);
-            lblBilan.ForeColor = Color.FromArgb(249, 249, 249);
+            lblIconeDepense.ForeColor = WHITE;
+            lblDepenses.ForeColor = WHITE;
+            lblIconeEvenement.ForeColor = WHITE;
+            lblEvenements.ForeColor = WHITE;
+            lblIconeParticipant.ForeColor = WHITE;
+            lblParticipants.ForeColor = WHITE;
+            lblIconeBilan.ForeColor = WHITE;
+            lblBilan.ForeColor = WHITE;
 
             //Apparaition du US concerné
 
@@ -62,20 +68,22 @@ namespace Hermes
 
         private void LblIconeEvenement_Click(object sender, EventArgs e)
         {
+            this.Cursor = Cursors.Default;
+
             this.ecrans.Controls.Clear();
             //Partie concerné par le changement de couleur en bleu
-            lblIconeEvenement.ForeColor = ColorTranslator.FromHtml("#2693f8");
-            lblEvenements.ForeColor = ColorTranslator.FromHtml("#2693f8");
+            lblIconeEvenement.ForeColor = BLUE;
+            lblEvenements.ForeColor = BLUE;
 
             //Le reste en blanc
-            lblIconeAccueil.ForeColor = Color.FromArgb(249, 249, 249);
-            lblAccueil.ForeColor = Color.FromArgb(249, 249, 249);
-            lblIconeDepense.ForeColor = Color.FromArgb(249, 249, 249);
-            lblDepenses.ForeColor = Color.FromArgb(249, 249, 249);
-            lblIconeParticipant.ForeColor = Color.FromArgb(249, 249, 249);
-            lblParticipants.ForeColor = Color.FromArgb(249, 249, 249);
-            lblIconeBilan.ForeColor = Color.FromArgb(249, 249, 249);
-            lblBilan.ForeColor = Color.FromArgb(249, 249, 249);
+            lblIconeAccueil.ForeColor = WHITE;
+            lblAccueil.ForeColor = WHITE;
+            lblIconeDepense.ForeColor = WHITE;
+            lblDepenses.ForeColor = WHITE;
+            lblIconeParticipant.ForeColor = WHITE;
+            lblParticipants.ForeColor = WHITE;
+            lblIconeBilan.ForeColor = WHITE;
+            lblBilan.ForeColor = WHITE;
 
             //Aparaition du US concerné
             Evenements ee = new Evenements();
@@ -85,8 +93,30 @@ namespace Hermes
 
         private void SideBarUserControls_Load(object sender, EventArgs e)
         {
-            lblIconeAccueil.ForeColor = ColorTranslator.FromHtml("#2693f8");
-            lblAccueil.ForeColor = ColorTranslator.FromHtml("#2693f8");
+            lblIconeAccueil.ForeColor = BLUE;
+            lblAccueil.ForeColor = BLUE;
+
+            foreach (Control lbl in sideBar.Controls)
+            {
+                if(lbl is Hermes.UI.AppFontLabel)
+                {
+                    lbl.MouseEnter += new EventHandler(Control_MouseEnter);
+                    lbl.MouseLeave += new EventHandler(Control_MouseLeave);
+                }
+            }
+        }
+
+        private void Control_MouseEnter(object sender, EventArgs e)
+        {
+            AppFontLabel lbl = (AppFontLabel)sender;
+            if(lbl.ForeColor != BLUE)
+                this.Cursor = Cursors.Hand;
+
+        }
+
+        private void Control_MouseLeave(object sender, EventArgs e)
+        {
+            this.Cursor = Cursors.Default;
         }
 
         private void AppFontLabel1_Click(object sender, EventArgs e)
@@ -107,7 +137,7 @@ namespace Hermes
 
         private void SideBarUserControls_MouseHover(object sender, EventArgs e)
         {
-            MessageBox.Show("ok");
+            //
         }
 
         private void SideBar_Paint(object sender, PaintEventArgs e)
@@ -117,18 +147,20 @@ namespace Hermes
 
         private void LblIconeDepense_Click(object sender, EventArgs e)
         {
+            this.Cursor = Cursors.Default;
+
             this.ecrans.Controls.Clear();
             //Partie concerné par le changement de couleur en bleu
-            lblIconeDepense.ForeColor = ColorTranslator.FromHtml("#2693f8");
-            lblDepenses.ForeColor = ColorTranslator.FromHtml("#2693f8");
+            lblIconeDepense.ForeColor = BLUE;
+            lblDepenses.ForeColor = BLUE;
 
             //Le reste en blanc
-            lblIconeAccueil.ForeColor = Color.FromArgb(249, 249, 249);
-            lblAccueil.ForeColor = Color.FromArgb(249, 249, 249);
-            lblEvenements.ForeColor = Color.FromArgb(249, 249, 249);
-            lblIconeEvenement.ForeColor = Color.FromArgb(249, 249, 249);
-            lblIconeParticipant.ForeColor = Color.FromArgb(249, 249, 249);
-            lblParticipants.ForeColor = Color.FromArgb(249, 249, 249);
+            lblIconeAccueil.ForeColor = WHITE;
+            lblAccueil.ForeColor = WHITE;
+            lblEvenements.ForeColor = WHITE;
+            lblIconeEvenement.ForeColor = WHITE;
+            lblIconeParticipant.ForeColor = WHITE;
+            lblParticipants.ForeColor = WHITE;
 
             //Aparaition du US concerné
             ViewExpenditures expendituresView = new ViewExpenditures();
@@ -138,20 +170,22 @@ namespace Hermes
 
         private void LblIconeParticipant_Click(object sender, EventArgs e)
         {
+            this.Cursor = Cursors.Default;
+
             this.ecrans.Controls.Clear();
             //Partie concerné par le changement de couleur en bleu
-            lblIconeParticipant.ForeColor = ColorTranslator.FromHtml("#2693f8");
-            lblParticipants.ForeColor = ColorTranslator.FromHtml("#2693f8");
+            lblIconeParticipant.ForeColor = BLUE;
+            lblParticipants.ForeColor = BLUE;
 
             //Le reste en blanc
-            lblIconeAccueil.ForeColor = Color.FromArgb(249, 249, 249);
-            lblAccueil.ForeColor = Color.FromArgb(249, 249, 249);
-            lblIconeDepense.ForeColor = Color.FromArgb(249, 249, 249);
-            lblDepenses.ForeColor = Color.FromArgb(249, 249, 249);
-            lblIconeEvenement.ForeColor = Color.FromArgb(249, 249, 249);
-            lblEvenements.ForeColor = Color.FromArgb(249, 249, 249);
-            lblIconeBilan.ForeColor = Color.FromArgb(249, 249, 249);
-            lblBilan.ForeColor = Color.FromArgb(249, 249, 249);
+            lblIconeAccueil.ForeColor = WHITE;
+            lblAccueil.ForeColor = WHITE;
+            lblIconeDepense.ForeColor = WHITE;
+            lblDepenses.ForeColor = WHITE;
+            lblIconeEvenement.ForeColor = WHITE;
+            lblEvenements.ForeColor = WHITE;
+            lblIconeBilan.ForeColor = WHITE;
+            lblBilan.ForeColor = WHITE;
 
             //Aparaition du US concerné
             Participants participants = new Participants();
@@ -161,20 +195,22 @@ namespace Hermes
 
         private void lblIconeBilan_Click(object sender, EventArgs e)
         {
+            this.Cursor = Cursors.Default;
+
             this.ecrans.Controls.Clear();
             //Partie concerné par le changement de couleur en bleu
-            lblIconeBilan.ForeColor = ColorTranslator.FromHtml("#2693f8");
-            lblBilan.ForeColor = ColorTranslator.FromHtml("#2693f8");
+            lblIconeBilan.ForeColor = BLUE;
+            lblBilan.ForeColor = BLUE;
 
             //Le reste en blanc
-            lblIconeAccueil.ForeColor = Color.FromArgb(249, 249, 249);
-            lblAccueil.ForeColor = Color.FromArgb(249, 249, 249);
-            lblIconeDepense.ForeColor = Color.FromArgb(249, 249, 249);
-            lblDepenses.ForeColor = Color.FromArgb(249, 249, 249);
-            lblIconeParticipant.ForeColor = Color.FromArgb(249, 249, 249);
-            lblParticipants.ForeColor = Color.FromArgb(249, 249, 249);
-            lblIconeEvenement.ForeColor = Color.FromArgb(249, 249, 249);
-            lblEvenements.ForeColor = Color.FromArgb(249, 249, 249);
+            lblIconeAccueil.ForeColor = WHITE;
+            lblAccueil.ForeColor = WHITE;
+            lblIconeDepense.ForeColor = WHITE;
+            lblDepenses.ForeColor = WHITE;
+            lblIconeParticipant.ForeColor = WHITE;
+            lblParticipants.ForeColor = WHITE;
+            lblIconeEvenement.ForeColor = WHITE;
+            lblEvenements.ForeColor = WHITE;
             Bilan bilan = new Bilan();
             bilan.setPanel = this.ecrans;
             this.ecrans.Controls.Add(bilan);
