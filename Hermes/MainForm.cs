@@ -42,10 +42,6 @@ namespace Hermes
             Accueil a1 = new Accueil();
             a1.setPanel = pnlEcran;
             this.pnlEcran.Controls.Add(a1);
-
-            MainForm.ShowToast(AppToast.CreateSuccessToast("Hello World"));
-            MainForm.ShowToast(AppToast.CreateWarningToast("Hello World"));
-            MainForm.ShowToast(AppToast.CreateErrorToast("bruh moment"));
         }
         
 
@@ -99,6 +95,8 @@ namespace Hermes
 
             Singleton.m_Toasts.Add(toast);
             Singleton.Controls.Add(toast);
+            toast.OnAdded();
+
             Singleton.RelocateToasts();
         }
     }
