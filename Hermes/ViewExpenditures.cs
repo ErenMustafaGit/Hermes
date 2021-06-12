@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Hermes.DataModel;
+using Hermes.Extensions;
 
 namespace Hermes
 {
@@ -118,7 +119,7 @@ namespace Hermes
 
                 lblExpenditureTitle.Text = expenses[0].Description;
                 lblExpenditureTitle.Text = lblExpenditureTitle.Text.Substring(0, 1).ToUpper() + lblExpenditureTitle.Text.Substring(1);
-                lblMoney.Text = expenses[0].Amount.ToString("C");
+                lblMoney.Text = expenses[0].Amount.ToEuros();
 
                 Participant participant = Participant.GetParticipant(expenses[0].AuthorId);
                 lblCreator.Text = participant.FirstName + " " + participant.LastName;
@@ -179,7 +180,7 @@ namespace Hermes
                 pnlDetailExpenditure.Visible = true;
                 lblExpenditureTitle.Text = expenses[(int)depense.Tag].Description;
                 lblExpenditureTitle.Text = lblExpenditureTitle.Text.Substring(0, 1).ToUpper() + lblExpenditureTitle.Text.Substring(1);
-                lblMoney.Text = expenses[(int)depense.Tag].Amount.ToString("C");
+                lblMoney.Text = expenses[(int)depense.Tag].Amount.ToEuros();
                 lblCreator.Text = participant.FirstName + " " + participant.LastName;
                 RefreshBeneficiaries(expenses, (int)depense.Tag);
             }

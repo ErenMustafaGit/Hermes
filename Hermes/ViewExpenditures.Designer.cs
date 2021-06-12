@@ -87,9 +87,9 @@
             this.lblCreator.AutoSize = true;
             this.lblCreator.Location = new System.Drawing.Point(107, 108);
             this.lblCreator.Name = "lblCreator";
-            this.lblCreator.Size = new System.Drawing.Size(107, 19);
+            this.lblCreator.Size = new System.Drawing.Size(58, 19);
             this.lblCreator.TabIndex = 1;
-            this.lblCreator.Text = "CreatorName";
+            this.lblCreator.Text = "Auteur";
             // 
             // lblMoney
             // 
@@ -98,9 +98,9 @@
             this.lblMoney.AutoSize = true;
             this.lblMoney.Location = new System.Drawing.Point(107, 38);
             this.lblMoney.Name = "lblMoney";
-            this.lblMoney.Size = new System.Drawing.Size(74, 19);
+            this.lblMoney.Size = new System.Drawing.Size(53, 19);
             this.lblMoney.TabIndex = 1;
-            this.lblMoney.Text = "Amount€";
+            this.lblMoney.Text = "0,00 €";
             // 
             // lblBeneficiary
             // 
@@ -109,7 +109,7 @@
             this.lblBeneficiary.AutoSize = true;
             this.lblBeneficiary.Location = new System.Drawing.Point(35, 166);
             this.lblBeneficiary.Name = "lblBeneficiary";
-            this.lblBeneficiary.Size = new System.Drawing.Size(103, 19);
+            this.lblBeneficiary.Size = new System.Drawing.Size(105, 19);
             this.lblBeneficiary.TabIndex = 1;
             this.lblBeneficiary.Text = "Bénéficiaire :";
             // 
@@ -158,9 +158,9 @@
             this.lblExpenditureTitle.AutoSize = true;
             this.lblExpenditureTitle.Location = new System.Drawing.Point(516, 161);
             this.lblExpenditureTitle.Name = "lblExpenditureTitle";
-            this.lblExpenditureTitle.Size = new System.Drawing.Size(203, 34);
+            this.lblExpenditureTitle.Size = new System.Drawing.Size(258, 34);
             this.lblExpenditureTitle.TabIndex = 3;
-            this.lblExpenditureTitle.Text = "appFontLabel1";
+            this.lblExpenditureTitle.Text = "Nom de la dépense";
             // 
             // lblDepense
             // 
@@ -169,7 +169,7 @@
             this.lblDepense.AutoSize = true;
             this.lblDepense.Location = new System.Drawing.Point(87, 63);
             this.lblDepense.Name = "lblDepense";
-            this.lblDepense.Size = new System.Drawing.Size(128, 19);
+            this.lblDepense.Size = new System.Drawing.Size(131, 19);
             this.lblDepense.TabIndex = 1;
             this.lblDepense.Text = "Dépenses dans :";
             // 
