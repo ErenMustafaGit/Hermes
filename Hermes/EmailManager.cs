@@ -8,6 +8,7 @@ using System.Net;
 using System.Windows.Forms;
 using System.ComponentModel;
 using Hermes.DataModel;
+using System.Web;
 
 namespace Hermes
 {
@@ -57,8 +58,8 @@ namespace Hermes
 
             // Replace template contents by actual values.
             string body = Properties.Resources.EmailTemplate;
-            body = body.Replace("%FULL_NAME%", p.FirstName + " " + p.LastName);
-            body = body.Replace("%EVENT_NAME%", e.Name);
+            body = body.Replace("%FULL_NAME%", HttpUtility.HtmlEncode(p.FirstName + " " + p.LastName));
+            body = body.Replace("%EVENT_NAME%", HttpUtility.HtmlEncode(e.Name));
 
             // Prepare the message to be sent.
             MailMessage message = new MailMessage()
