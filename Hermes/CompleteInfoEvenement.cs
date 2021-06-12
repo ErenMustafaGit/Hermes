@@ -25,6 +25,7 @@ namespace Hermes
             lblGaucheGauche.Text = Hermes.UI.Icons.DOUBLE_LEFT;
             lblGauche.Text = Hermes.UI.Icons.LEFT;
             lblIconeDroiteDroite.Text = Hermes.UI.Icons.DOUBLE_RIGHT;
+            lblGoBaaack.Text = Hermes.UI.Icons.LEFT;
         }
 
         public int setIndex
@@ -296,6 +297,24 @@ namespace Hermes
         }
 
         private void LblGaucheGauche_MouseLeave(object sender, EventArgs e)
+        {
+            this.Cursor = Cursors.Default;
+        }
+
+        private void lblGoBaaack_Click(object sender, EventArgs e)
+        {
+            Evenements evenements = new Evenements();
+            evenements.setPanel = this.ecran;
+            this.ecran.Controls.Clear();
+            this.ecran.Controls.Add(evenements);
+        }
+
+        private void lblGoBaaack_MouseEnter(object sender, EventArgs e)
+        {
+            this.Cursor = Cursors.Hand;
+        }
+
+        private void lblGoBaaack_MouseLeave(object sender, EventArgs e)
         {
             this.Cursor = Cursors.Default;
         }

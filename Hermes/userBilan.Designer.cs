@@ -38,6 +38,8 @@
             this.lblTotalDepnse = new Hermes.UI.AppFontLabel();
             this.appFontLabel3 = new Hermes.UI.AppFontLabel();
             this.appFontLabel1 = new Hermes.UI.AppFontLabel();
+            this.lblVueGlobale = new Hermes.UI.AppFontLabel();
+            this.lblGoBaaack = new Hermes.UI.AppFontLabel();
             this.SuspendLayout();
             // 
             // cboParticipant
@@ -47,13 +49,13 @@
             this.cboParticipant.FormattingEnabled = true;
             this.cboParticipant.Location = new System.Drawing.Point(72, 157);
             this.cboParticipant.Name = "cboParticipant";
-            this.cboParticipant.Size = new System.Drawing.Size(230, 28);
+            this.cboParticipant.Size = new System.Drawing.Size(260, 28);
             this.cboParticipant.TabIndex = 21;
             this.cboParticipant.SelectedIndexChanged += new System.EventHandler(this.CboParticipant_SelectedIndexChanged);
             // 
             // pnlDepense
             // 
-            this.pnlDepense.Location = new System.Drawing.Point(70, 350);
+            this.pnlDepense.Location = new System.Drawing.Point(72, 330);
             this.pnlDepense.Name = "pnlDepense";
             this.pnlDepense.Size = new System.Drawing.Size(388, 257);
             this.pnlDepense.TabIndex = 33;
@@ -61,7 +63,7 @@
             // 
             // pnlRemboursement
             // 
-            this.pnlRemboursement.Location = new System.Drawing.Point(517, 350);
+            this.pnlRemboursement.Location = new System.Drawing.Point(519, 330);
             this.pnlRemboursement.Name = "pnlRemboursement";
             this.pnlRemboursement.Size = new System.Drawing.Size(387, 257);
             this.pnlRemboursement.TabIndex = 34;
@@ -94,9 +96,9 @@
             // lblTotalRemboursement
             // 
             this.lblTotalRemboursement.AppFont = Hermes.AppFont.HelveticaNeue_Bold;
-            this.lblTotalRemboursement.AppFontHeight = 60F;
+            this.lblTotalRemboursement.AppFontHeight = 45F;
             this.lblTotalRemboursement.AutoSize = true;
-            this.lblTotalRemboursement.Location = new System.Drawing.Point(531, 247);
+            this.lblTotalRemboursement.Location = new System.Drawing.Point(506, 247);
             this.lblTotalRemboursement.Name = "lblTotalRemboursement";
             this.lblTotalRemboursement.Size = new System.Drawing.Size(345, 100);
             this.lblTotalRemboursement.TabIndex = 32;
@@ -105,9 +107,9 @@
             // lblTextRemboursement
             // 
             this.lblTextRemboursement.AppFont = Hermes.AppFont.HelveticaNeue;
-            this.lblTextRemboursement.AppFontHeight = 18F;
+            this.lblTextRemboursement.AppFontHeight = 14F;
             this.lblTextRemboursement.AutoSize = true;
-            this.lblTextRemboursement.Location = new System.Drawing.Point(543, 219);
+            this.lblTextRemboursement.Location = new System.Drawing.Point(515, 228);
             this.lblTextRemboursement.Name = "lblTextRemboursement";
             this.lblTextRemboursement.Size = new System.Drawing.Size(253, 28);
             this.lblTextRemboursement.TabIndex = 31;
@@ -116,20 +118,21 @@
             // lblTotalDepnse
             // 
             this.lblTotalDepnse.AppFont = Hermes.AppFont.HelveticaNeue_Bold;
-            this.lblTotalDepnse.AppFontHeight = 60F;
+            this.lblTotalDepnse.AppFontHeight = 45F;
             this.lblTotalDepnse.AutoSize = true;
-            this.lblTotalDepnse.Location = new System.Drawing.Point(98, 247);
+            this.lblTotalDepnse.Location = new System.Drawing.Point(59, 247);
             this.lblTotalDepnse.Name = "lblTotalDepnse";
             this.lblTotalDepnse.Size = new System.Drawing.Size(345, 100);
             this.lblTotalDepnse.TabIndex = 30;
             this.lblTotalDepnse.Text = "278,00€";
+            this.lblTotalDepnse.Click += new System.EventHandler(this.lblTotalDepnse_Click);
             // 
             // appFontLabel3
             // 
             this.appFontLabel3.AppFont = Hermes.AppFont.HelveticaNeue;
-            this.appFontLabel3.AppFontHeight = 18F;
+            this.appFontLabel3.AppFontHeight = 14F;
             this.appFontLabel3.AutoSize = true;
-            this.appFontLabel3.Location = new System.Drawing.Point(110, 219);
+            this.appFontLabel3.Location = new System.Drawing.Point(72, 228);
             this.appFontLabel3.Name = "appFontLabel3";
             this.appFontLabel3.Size = new System.Drawing.Size(176, 28);
             this.appFontLabel3.TabIndex = 25;
@@ -146,10 +149,43 @@
             this.appFontLabel1.TabIndex = 22;
             this.appFontLabel1.Text = "Quel participant ?";
             // 
+            // lblVueGlobale
+            // 
+            this.lblVueGlobale.AppFont = Hermes.AppFont.HelveticaNeue;
+            this.lblVueGlobale.AppFontHeight = 9F;
+            this.lblVueGlobale.AutoSize = true;
+            this.lblVueGlobale.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(147)))), ((int)(((byte)(248)))));
+            this.lblVueGlobale.Location = new System.Drawing.Point(48, 607);
+            this.lblVueGlobale.Name = "lblVueGlobale";
+            this.lblVueGlobale.Size = new System.Drawing.Size(69, 14);
+            this.lblVueGlobale.TabIndex = 41;
+            this.lblVueGlobale.Text = "Vue globale";
+            this.lblVueGlobale.Click += new System.EventHandler(this.lblGoBaaack_Click);
+            this.lblVueGlobale.MouseEnter += new System.EventHandler(this.lblGoBaaack_MouseEnter);
+            this.lblVueGlobale.MouseLeave += new System.EventHandler(this.lblGoBaaack_MouseLeave);
+            // 
+            // lblGoBaaack
+            // 
+            this.lblGoBaaack.AppFont = Hermes.AppFont.Icons;
+            this.lblGoBaaack.AppFontHeight = 20F;
+            this.lblGoBaaack.AutoSize = true;
+            this.lblGoBaaack.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(147)))), ((int)(((byte)(248)))));
+            this.lblGoBaaack.Location = new System.Drawing.Point(23, 599);
+            this.lblGoBaaack.Name = "lblGoBaaack";
+            this.lblGoBaaack.Size = new System.Drawing.Size(29, 27);
+            this.lblGoBaaack.TabIndex = 40;
+            this.lblGoBaaack.Text = "O";
+            this.lblGoBaaack.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.lblGoBaaack.Click += new System.EventHandler(this.lblGoBaaack_Click);
+            this.lblGoBaaack.MouseEnter += new System.EventHandler(this.lblGoBaaack_MouseEnter);
+            this.lblGoBaaack.MouseLeave += new System.EventHandler(this.lblGoBaaack_MouseLeave);
+            // 
             // UserBilan
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.lblVueGlobale);
+            this.Controls.Add(this.lblGoBaaack);
             this.Controls.Add(this.btnBilanGlobal);
             this.Controls.Add(this.lblEvent);
             this.Controls.Add(this.pnlRemboursement);
@@ -179,5 +215,7 @@
         private System.Windows.Forms.Panel pnlRemboursement;
         private UI.AppFontLabel lblEvent;
         private System.Windows.Forms.Button btnBilanGlobal;
+        private UI.AppFontLabel lblVueGlobale;
+        private UI.AppFontLabel lblGoBaaack;
     }
 }

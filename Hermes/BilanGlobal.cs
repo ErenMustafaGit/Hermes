@@ -32,6 +32,7 @@ namespace Hermes
             this.index = index;
             this.currentEvent = partyEvent;
             InitializeComponent();
+            lblGoBaaack.Text = Hermes.UI.Icons.LEFT;
         }
 
         private void BilanGlobal_Load(object sender, EventArgs e)
@@ -131,5 +132,24 @@ namespace Hermes
             }
             
         }
+
+        private void lblGoBaaack_Click(object sender, EventArgs e)
+        {
+            UserBilan userBilan = new UserBilan(currentEvent, this.index);
+            userBilan.setPanel = this.ecran;
+            this.ecran.Controls.Clear();
+            this.ecran.Controls.Add(userBilan);
+        }
+
+        private void lblGoBaaack_MouseEnter(object sender, EventArgs e)
+        {
+            this.Cursor = Cursors.Hand;
+        }
+
+        private void lblGoBaaack_MouseLeave(object sender, EventArgs e)
+        {
+            this.Cursor = Cursors.Default;
+        }
+
     }
 }

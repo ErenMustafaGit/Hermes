@@ -24,6 +24,7 @@ namespace Hermes
         public UserBilan(PartyEvent currentEvent, int index)
         {
             InitializeComponent();
+            lblGoBaaack.Text = Hermes.UI.Icons.LEFT;
             this.currentEvent = currentEvent;
             this.index = index;
             pnlDepense.HorizontalScroll.Enabled = false;
@@ -123,6 +124,29 @@ namespace Hermes
             bilanGlobal.setPanel = this.ecran;
             this.ecran.Controls.Clear();
             this.ecran.Controls.Add(bilanGlobal);
+        }
+
+        private void lblTotalDepnse_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblGoBaaack_Click(object sender, EventArgs e)
+        {
+            Bilan bilan= new Bilan();
+            bilan.setPanel = this.ecran;
+            this.ecran.Controls.Clear();
+            this.ecran.Controls.Add(bilan);
+        }
+
+        private void lblGoBaaack_MouseEnter(object sender, EventArgs e)
+        {
+            this.Cursor = Cursors.Hand;
+        }
+
+        private void lblGoBaaack_MouseLeave(object sender, EventArgs e)
+        {
+            this.Cursor = Cursors.Default;
         }
     }
 }

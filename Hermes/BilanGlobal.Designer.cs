@@ -32,6 +32,8 @@
             this.btnBilanGlobal = new System.Windows.Forms.Button();
             this.pnlBilanToutePersonnes = new System.Windows.Forms.Panel();
             this.pnlBilanCasParCas = new System.Windows.Forms.Panel();
+            this.lblVueGlobale = new Hermes.UI.AppFontLabel();
+            this.lblGoBaaack = new Hermes.UI.AppFontLabel();
             this.lblEvenement = new Hermes.UI.AppFontLabel();
             this.appFontLabel2 = new Hermes.UI.AppFontLabel();
             this.SuspendLayout();
@@ -63,17 +65,48 @@
             // 
             // pnlBilanToutePersonnes
             // 
-            this.pnlBilanToutePersonnes.Location = new System.Drawing.Point(78, 164);
+            this.pnlBilanToutePersonnes.Location = new System.Drawing.Point(87, 163);
             this.pnlBilanToutePersonnes.Name = "pnlBilanToutePersonnes";
-            this.pnlBilanToutePersonnes.Size = new System.Drawing.Size(830, 197);
+            this.pnlBilanToutePersonnes.Size = new System.Drawing.Size(830, 191);
             this.pnlBilanToutePersonnes.TabIndex = 41;
             // 
             // pnlBilanCasParCas
             // 
-            this.pnlBilanCasParCas.Location = new System.Drawing.Point(78, 376);
+            this.pnlBilanCasParCas.Location = new System.Drawing.Point(87, 369);
             this.pnlBilanCasParCas.Name = "pnlBilanCasParCas";
-            this.pnlBilanCasParCas.Size = new System.Drawing.Size(830, 233);
+            this.pnlBilanCasParCas.Size = new System.Drawing.Size(830, 220);
             this.pnlBilanCasParCas.TabIndex = 42;
+            // 
+            // lblVueGlobale
+            // 
+            this.lblVueGlobale.AppFont = Hermes.AppFont.HelveticaNeue;
+            this.lblVueGlobale.AppFontHeight = 9F;
+            this.lblVueGlobale.AutoSize = true;
+            this.lblVueGlobale.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(147)))), ((int)(((byte)(248)))));
+            this.lblVueGlobale.Location = new System.Drawing.Point(48, 607);
+            this.lblVueGlobale.Name = "lblVueGlobale";
+            this.lblVueGlobale.Size = new System.Drawing.Size(96, 14);
+            this.lblVueGlobale.TabIndex = 44;
+            this.lblVueGlobale.Text = "Bilan cas par cas";
+            this.lblVueGlobale.Click += new System.EventHandler(this.lblGoBaaack_Click);
+            this.lblVueGlobale.MouseEnter += new System.EventHandler(this.lblGoBaaack_MouseEnter);
+            this.lblVueGlobale.MouseLeave += new System.EventHandler(this.lblGoBaaack_MouseLeave);
+            // 
+            // lblGoBaaack
+            // 
+            this.lblGoBaaack.AppFont = Hermes.AppFont.Icons;
+            this.lblGoBaaack.AppFontHeight = 20F;
+            this.lblGoBaaack.AutoSize = true;
+            this.lblGoBaaack.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(147)))), ((int)(((byte)(248)))));
+            this.lblGoBaaack.Location = new System.Drawing.Point(23, 599);
+            this.lblGoBaaack.Name = "lblGoBaaack";
+            this.lblGoBaaack.Size = new System.Drawing.Size(29, 27);
+            this.lblGoBaaack.TabIndex = 43;
+            this.lblGoBaaack.Text = "O";
+            this.lblGoBaaack.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.lblGoBaaack.Click += new System.EventHandler(this.lblGoBaaack_Click);
+            this.lblGoBaaack.MouseEnter += new System.EventHandler(this.lblGoBaaack_MouseEnter);
+            this.lblGoBaaack.MouseLeave += new System.EventHandler(this.lblGoBaaack_MouseLeave);
             // 
             // lblEvenement
             // 
@@ -101,6 +134,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.lblVueGlobale);
+            this.Controls.Add(this.lblGoBaaack);
             this.Controls.Add(this.pnlBilanCasParCas);
             this.Controls.Add(this.pnlBilanToutePersonnes);
             this.Controls.Add(this.btnBilanGlobal);
@@ -123,5 +158,7 @@
         private System.Windows.Forms.Button btnBilanGlobal;
         private System.Windows.Forms.Panel pnlBilanToutePersonnes;
         private System.Windows.Forms.Panel pnlBilanCasParCas;
+        private UI.AppFontLabel lblVueGlobale;
+        private UI.AppFontLabel lblGoBaaack;
     }
 }
