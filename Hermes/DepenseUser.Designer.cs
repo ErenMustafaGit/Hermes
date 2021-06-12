@@ -37,13 +37,13 @@
             // 
             this.lblAmountDepense.AppFont = Hermes.AppFont.HelveticaNeue_Medium;
             this.lblAmountDepense.AppFontHeight = 20F;
-            this.lblAmountDepense.AutoSize = true;
             this.lblAmountDepense.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(249)))), ((int)(((byte)(249)))));
-            this.lblAmountDepense.Location = new System.Drawing.Point(250, 70);
+            this.lblAmountDepense.Location = new System.Drawing.Point(185, 70);
             this.lblAmountDepense.Name = "lblAmountDepense";
-            this.lblAmountDepense.Size = new System.Drawing.Size(113, 32);
+            this.lblAmountDepense.Size = new System.Drawing.Size(180, 35);
             this.lblAmountDepense.TabIndex = 3;
-            this.lblAmountDepense.Text = "120,00€";
+            this.lblAmountDepense.Text = "120,00 €";
+            this.lblAmountDepense.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
             // lblDateDepense
             // 
@@ -51,9 +51,9 @@
             this.lblDateDepense.AppFontHeight = 10F;
             this.lblDateDepense.AutoSize = true;
             this.lblDateDepense.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(249)))), ((int)(((byte)(249)))));
-            this.lblDateDepense.Location = new System.Drawing.Point(27, 70);
+            this.lblDateDepense.Location = new System.Drawing.Point(25, 70);
             this.lblDateDepense.Name = "lblDateDepense";
-            this.lblDateDepense.Size = new System.Drawing.Size(133, 16);
+            this.lblDateDepense.Size = new System.Drawing.Size(136, 16);
             this.lblDateDepense.TabIndex = 2;
             this.lblDateDepense.Text = "Mardi 28 décembre";
             // 
@@ -63,7 +63,7 @@
             this.lblNomDepense.AppFontHeight = 17F;
             this.lblNomDepense.AutoSize = true;
             this.lblNomDepense.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(249)))), ((int)(((byte)(249)))));
-            this.lblNomDepense.Location = new System.Drawing.Point(25, 27);
+            this.lblNomDepense.Location = new System.Drawing.Point(23, 23);
             this.lblNomDepense.Name = "lblNomDepense";
             this.lblNomDepense.Size = new System.Drawing.Size(229, 29);
             this.lblNomDepense.TabIndex = 1;

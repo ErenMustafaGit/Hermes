@@ -58,7 +58,6 @@
             this.pnlDepense.Name = "pnlDepense";
             this.pnlDepense.Size = new System.Drawing.Size(388, 257);
             this.pnlDepense.TabIndex = 33;
-            this.pnlDepense.Paint += new System.Windows.Forms.PaintEventHandler(this.PnlDepense_Paint);
             // 
             // pnlRemboursement
             // 
@@ -75,9 +74,9 @@
             this.lblVueGlobale.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(147)))), ((int)(((byte)(248)))));
             this.lblVueGlobale.Location = new System.Drawing.Point(48, 607);
             this.lblVueGlobale.Name = "lblVueGlobale";
-            this.lblVueGlobale.Size = new System.Drawing.Size(76, 14);
+            this.lblVueGlobale.Size = new System.Drawing.Size(72, 14);
             this.lblVueGlobale.TabIndex = 41;
-            this.lblVueGlobale.Text = "Bilan globale";
+            this.lblVueGlobale.Text = "Bilan global";
             this.lblVueGlobale.Click += new System.EventHandler(this.lblGoBaaack_Click);
             this.lblVueGlobale.MouseEnter += new System.EventHandler(this.lblGoBaaack_MouseEnter);
             this.lblVueGlobale.MouseLeave += new System.EventHandler(this.lblGoBaaack_MouseLeave);
@@ -116,9 +115,9 @@
             this.lblTotalRemboursement.AutoSize = true;
             this.lblTotalRemboursement.Location = new System.Drawing.Point(506, 247);
             this.lblTotalRemboursement.Name = "lblTotalRemboursement";
-            this.lblTotalRemboursement.Size = new System.Drawing.Size(258, 75);
+            this.lblTotalRemboursement.Size = new System.Drawing.Size(276, 75);
             this.lblTotalRemboursement.TabIndex = 32;
-            this.lblTotalRemboursement.Text = "147,20€";
+            this.lblTotalRemboursement.Text = "147,20 €";
             // 
             // lblTextRemboursement
             // 
@@ -127,9 +126,9 @@
             this.lblTextRemboursement.AutoSize = true;
             this.lblTextRemboursement.Location = new System.Drawing.Point(515, 228);
             this.lblTextRemboursement.Name = "lblTextRemboursement";
-            this.lblTextRemboursement.Size = new System.Drawing.Size(199, 22);
+            this.lblTextRemboursement.Size = new System.Drawing.Size(348, 22);
             this.lblTextRemboursement.TabIndex = 31;
-            this.lblTextRemboursement.Text = "Total remboursement :";
+            this.lblTextRemboursement.Text = "Total des remboursements à effectuer";
             // 
             // lblTotalDepnse
             // 
@@ -138,21 +137,19 @@
             this.lblTotalDepnse.AutoSize = true;
             this.lblTotalDepnse.Location = new System.Drawing.Point(59, 247);
             this.lblTotalDepnse.Name = "lblTotalDepnse";
-            this.lblTotalDepnse.Size = new System.Drawing.Size(258, 75);
+            this.lblTotalDepnse.Size = new System.Drawing.Size(276, 75);
             this.lblTotalDepnse.TabIndex = 30;
-            this.lblTotalDepnse.Text = "278,00€";
-            this.lblTotalDepnse.Click += new System.EventHandler(this.lblTotalDepnse_Click);
+            this.lblTotalDepnse.Text = "278,00 €";
             // 
             // appFontLabel3
             // 
             this.appFontLabel3.AppFont = Hermes.AppFont.HelveticaNeue;
             this.appFontLabel3.AppFontHeight = 14F;
-            this.appFontLabel3.AutoSize = true;
             this.appFontLabel3.Location = new System.Drawing.Point(72, 228);
             this.appFontLabel3.Name = "appFontLabel3";
-            this.appFontLabel3.Size = new System.Drawing.Size(138, 22);
+            this.appFontLabel3.Size = new System.Drawing.Size(304, 34);
             this.appFontLabel3.TabIndex = 25;
-            this.appFontLabel3.Text = "Total dépense :";
+            this.appFontLabel3.Text = "Total des dépenses effectuées";
             // 
             // appFontLabel1
             // 
@@ -161,9 +158,9 @@
             this.appFontLabel1.AutoSize = true;
             this.appFontLabel1.Location = new System.Drawing.Point(69, 129);
             this.appFontLabel1.Name = "appFontLabel1";
-            this.appFontLabel1.Size = new System.Drawing.Size(121, 16);
+            this.appFontLabel1.Size = new System.Drawing.Size(235, 16);
             this.appFontLabel1.TabIndex = 22;
-            this.appFontLabel1.Text = "Quel participant ?";
+            this.appFontLabel1.Text = "Compte-rendu pour le participant :";
             // 
             // UserBilan
             // 

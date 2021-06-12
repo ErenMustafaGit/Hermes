@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Hermes.DataModel;
+using Hermes.Extensions;
 
 namespace Hermes
 {
@@ -52,24 +53,23 @@ namespace Hermes
             cboParticipant.ValueMember = "CodeParticipant";
             lblEvent.Text = currentEvent.Name;
             cboParticipant.SelectedIndex = this.index;
+
+            this.SuspendLayout();
             ActualisationDepense();
             ActualisationRemboursement();
-        }
-
-        private void depenseUser1_Load(object sender, EventArgs e)
-        {
-
+            this.ResumeLayout(true);
         }
 
         private void CboParticipant_SelectedIndexChanged(object sender, EventArgs e)
         {
             compteur++;
-            if(compteur >= 1)
+            if (compteur >= 1)
             {
+                this.SuspendLayout();
                 ActualisationDepense();
                 ActualisationRemboursement();
+                this.ResumeLayout(true);
             }
-            
         }
 
         private void ActualisationDepense()
@@ -82,7 +82,7 @@ namespace Hermes
             foreach (UserSpendingRecord userSpending in listeDepense)
                 totalAmount += userSpending.Amount;
 
-            lblTotalDepnse.Text = totalAmount.ToString("0.00") + "€";
+            lblTotalDepnse.Text = totalAmount.ToEuros();
             for (int i = 0; i < listeDepense.Count; i++)
             {
                 DepenseUser depenseUser = new DepenseUser(listeDepense[i].Date, listeDepense[i].Description, listeDepense[i].Amount);
@@ -100,28 +100,23 @@ namespace Hermes
             List<UserParticipationRecord> listeRemboursement = Database.QueryParticipation(currentEvent.Id, participant.CodeParticipant);
             Decimal totalAmount = 0;
             totalAmount = CalculeRemboursement(listeRemboursement, participant);
-            lblTotalRemboursement.Text = totalAmount.ToString("0.00") + "€";
+            lblTotalRemboursement.Text = totalAmount.ToEuros();
             for (int i = 0; i < listeRemboursement.Count; i++)
             {
-                RemboursementUser remboursementUser = new RemboursementUser(listeRemboursement[i].ExpenseTotalShares, listeRemboursement[i].Amount);
+                RemboursementUser remboursementUser = new RemboursementUser(listeRemboursement[i], participant.NbParts);
                 Point position = new Point(1, 0 + 129 * i);
                 remboursementUser.Location = position;
                 pnlRemboursement.Controls.Add(remboursementUser);
             }
         }
 
-        private Decimal CalculeRemboursement(List<UserParticipationRecord> listeRemboursement, Participant participant)
+        private decimal CalculeRemboursement(List<UserParticipationRecord> listeRemboursement, Participant participant)
         {
-            double total = 0;
+            decimal total = 0;
             foreach (UserParticipationRecord userParticipationRecord in listeRemboursement)
-                total += Convert.ToDouble(userParticipationRecord.Amount)/ userParticipationRecord.ExpenseTotalShares * participant.NbParts;
+                total += userParticipationRecord.Amount / (decimal)userParticipationRecord.ExpenseTotalShares * participant.NbParts;
 
-            return (Decimal)total;
-        }
-
-        private void PnlDepense_Paint(object sender, PaintEventArgs e)
-        {
-
+            return (decimal)total;
         }
 
         private void btnBilanGlobal_Click(object sender, EventArgs e)
@@ -130,11 +125,6 @@ namespace Hermes
             bilanGlobal.setPanel = this.ecran;
             this.ecran.Controls.Clear();
             this.ecran.Controls.Add(bilanGlobal);
-        }
-
-        private void lblTotalDepnse_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void lblGoBaaack_Click(object sender, EventArgs e)

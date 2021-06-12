@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Hermes.Extensions;
 
 namespace Hermes
 {
@@ -32,8 +33,8 @@ namespace Hermes
 
         private void DepenseUser_Load(object sender, EventArgs e)
         {
-            lblAmountDepense.Text = this.montant + "€";
-            lblDateDepense.Text = this.dateDepense.ToLongDateString();
+            lblAmountDepense.Text = this.montant.ToEuros();
+            lblDateDepense.Text = this.dateDepense.ToFrenchLongDateString();
             lblNomDepense.Text = this.description;
         }
     }

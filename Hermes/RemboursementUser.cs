@@ -7,29 +7,34 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Hermes.DataModel;
+using Hermes.Extensions;
 
 namespace Hermes
 {
     public partial class RemboursementUser : UserControl
     {
-        private Decimal amount;
-        private double nombreDePart;
+        readonly UserParticipationRecord record;
+        readonly int sharesForUser;
+
         public RemboursementUser()
         {
             InitializeComponent();
         }
 
-        public RemboursementUser(double nombreDePart, Decimal amount)
+        public RemboursementUser(UserParticipationRecord record, int sharesForUser)
         {
-            this.nombreDePart = nombreDePart;
-            this.amount = amount;
+            this.record = record;
+            this.sharesForUser = sharesForUser;
+
             InitializeComponent();
         }
 
         private void RemboursementUser_Load(object sender, EventArgs e)
         {
-            lblNbrPart.Text = "Nombre de part : " + this.nombreDePart;
-            lblAmountDepense.Text = this.amount + "€";
+            lblNom.Text = this.record.Expense.Description;
+            lblNbrPart.Text = Math.Round(this.sharesForUser / this.record.ExpenseTotalShares * 100) + " % des parts";
+            lblAmountDepense.Text = this.record.Amount.ToEuros();
         }
     }
 }
