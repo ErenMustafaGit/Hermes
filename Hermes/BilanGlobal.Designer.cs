@@ -63,8 +63,8 @@ namespace Hermes
             this.btnBilanGlobal.Text = "Solder l\'évènement";
             this.btnBilanGlobal.UseVisualStyleBackColor = false;
             this.btnBilanGlobal.Click += new System.EventHandler(this.BtnBilanGlobal_Click);
-            this.btnBilanGlobal.MouseEnter += new System.EventHandler(this.btnBilanGlobal_MouseEnter);
-            this.btnBilanGlobal.MouseLeave += new System.EventHandler(this.btnBilanGlobal_MouseLeave);
+            this.btnBilanGlobal.MouseEnter += new System.EventHandler(this.ClickableMouseEnter);
+            this.btnBilanGlobal.MouseLeave += new System.EventHandler(this.ClickableMouseLeave);
             // 
             // pnlBilanToutePersonnes
             // 
@@ -91,8 +91,8 @@ namespace Hermes
             this.exportPdf.Text = "PDF";
             this.exportPdf.UseVisualStyleBackColor = true;
             this.exportPdf.Click += new System.EventHandler(this.exportPdf_Click);
-            this.exportPdf.MouseEnter += new System.EventHandler(this.exportPdf_MouseEnter);
-            this.exportPdf.MouseLeave += new System.EventHandler(this.exportPdf_MouseLeave);
+            this.exportPdf.MouseEnter += new System.EventHandler(this.ClickableMouseEnter);
+            this.exportPdf.MouseLeave += new System.EventHandler(this.ClickableMouseLeave);
             // 
             // lblVueGlobale
             // 
@@ -102,12 +102,12 @@ namespace Hermes
             this.lblVueGlobale.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(147)))), ((int)(((byte)(248)))));
             this.lblVueGlobale.Location = new System.Drawing.Point(48, 607);
             this.lblVueGlobale.Name = "lblVueGlobale";
-            this.lblVueGlobale.Size = new System.Drawing.Size(63, 14);
+            this.lblVueGlobale.Size = new System.Drawing.Size(72, 14);
             this.lblVueGlobale.TabIndex = 44;
-            this.lblVueGlobale.Text = "Vue global";
+            this.lblVueGlobale.Text = "Vue globale";
             this.lblVueGlobale.Click += new System.EventHandler(this.lblGoBaaack_Click);
-            this.lblVueGlobale.MouseEnter += new System.EventHandler(this.lblGoBaaack_MouseEnter);
-            this.lblVueGlobale.MouseLeave += new System.EventHandler(this.lblGoBaaack_MouseLeave);
+            this.lblVueGlobale.MouseEnter += new System.EventHandler(this.ClickableMouseEnter);
+            this.lblVueGlobale.MouseLeave += new System.EventHandler(this.ClickableMouseLeave);
             // 
             // lblGoBaaack
             // 
@@ -122,8 +122,8 @@ namespace Hermes
             this.lblGoBaaack.Text = "O";
             this.lblGoBaaack.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.lblGoBaaack.Click += new System.EventHandler(this.lblGoBaaack_Click);
-            this.lblGoBaaack.MouseEnter += new System.EventHandler(this.lblGoBaaack_MouseEnter);
-            this.lblGoBaaack.MouseLeave += new System.EventHandler(this.lblGoBaaack_MouseLeave);
+            this.lblGoBaaack.MouseEnter += new System.EventHandler(this.ClickableMouseEnter);
+            this.lblGoBaaack.MouseLeave += new System.EventHandler(this.ClickableMouseLeave);
             // 
             // lblEvenement
             // 
@@ -132,7 +132,7 @@ namespace Hermes
             this.lblEvenement.AutoSize = true;
             this.lblEvenement.Location = new System.Drawing.Point(418, 69);
             this.lblEvenement.Name = "lblEvenement";
-            this.lblEvenement.Size = new System.Drawing.Size(197, 19);
+            this.lblEvenement.Size = new System.Drawing.Size(199, 19);
             this.lblEvenement.TabIndex = 8;
             this.lblEvenement.Text = "Dans quel évènements ? *";
             // 

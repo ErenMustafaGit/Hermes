@@ -71,7 +71,7 @@ namespace Hermes
             if (currentEvent.Completed)
             {
                 btnBilanGlobal.Visible = false;
-                exportPdf.Location = new Point(794,95);
+                exportPdf.Location = new Point(799, 95);
             }
             else
             {
@@ -79,25 +79,21 @@ namespace Hermes
             }
         }
 
-        private void DataGridViewCustom1_Load(object sender, EventArgs e)
-        {
-
-        }
-
         public void Actualisation()
         {
+            PartyEvent partyEventRefreshed = allEvent[cboEvenements.SelectedIndex];
+            List<Participant> listeParticipant = partyEventRefreshed.GetGuests();
+            List<PartyEvent.Due> remboursement = partyEventRefreshed.CalculateDues();
+
+            this.SuspendLayout();
+
             pnlBilanToutePersonnes.Controls.Clear();
             pnlBilanCasParCas.Controls.Clear();
 
-            PartyEvent partyEventRefreshed = allEvent[cboEvenements.SelectedIndex];
             currentEvent = partyEventRefreshed;
 
             DataGridViewCustom dataGridViewCustom = new DataGridViewCustom(partyEventRefreshed, this.ecran, this.index);
             pnlBilanToutePersonnes.Controls.Add(dataGridViewCustom);
-
-
-            List<Participant> listeParticipant = partyEventRefreshed.GetGuests();
-            List<PartyEvent.Due> remboursement = partyEventRefreshed.CalculateDues();
 
             int modulo = 2;
             int compteur = 0;
@@ -111,7 +107,8 @@ namespace Hermes
                         dueParticipant.Add(due);
                     }
                 }
-                if(dueParticipant.Count != 0)
+
+                if (dueParticipant.Count != 0)
                 {
                     UserBilanCasParCas user = new UserBilanCasParCas(listeParticipant[i].FirstName + " " + listeParticipant[i].LastName, dueParticipant, partyEventRefreshed);
                     user.Top = 0 + 245 * (compteur / modulo);
@@ -119,8 +116,9 @@ namespace Hermes
                     compteur++;
                     pnlBilanCasParCas.Controls.Add(user);
                 }
-               
             }
+
+            this.ResumeLayout(true);
         }
 
         private bool ExportToPdf()
@@ -189,32 +187,12 @@ namespace Hermes
             this.ecran.Controls.Add(bilan);
         }
 
-        private void lblGoBaaack_MouseEnter(object sender, EventArgs e)
+        private void ClickableMouseEnter(object sender, EventArgs e)
         {
             this.Cursor = Cursors.Hand;
         }
 
-        private void lblGoBaaack_MouseLeave(object sender, EventArgs e)
-        {
-            this.Cursor = Cursors.Default;
-        }
-
-        private void exportPdf_MouseEnter(object sender, EventArgs e)
-        {
-            this.Cursor = Cursors.Hand;
-        }
-
-        private void btnBilanGlobal_MouseEnter(object sender, EventArgs e)
-        {
-            this.Cursor = Cursors.Hand;
-        }
-
-        private void btnBilanGlobal_MouseLeave(object sender, EventArgs e)
-        {
-            this.Cursor = Cursors.Default;
-        }
-
-        private void exportPdf_MouseLeave(object sender, EventArgs e)
+        private void ClickableMouseLeave(object sender, EventArgs e)
         {
             this.Cursor = Cursors.Default;
         }

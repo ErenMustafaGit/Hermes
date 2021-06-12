@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Hermes.DataModel;
+using Hermes.Extensions;
 
 namespace Hermes
 {
@@ -42,9 +43,9 @@ namespace Hermes
         {
             currentColor = this.BackColor;
             lblPersonnes.Text = name;
-            lblPlus.Text = plus.ToString("0.00");
-            lblMoins.Text = moins.ToString("0.00");
-            lblSolde.Text = (plus - moins).ToString("0.00");
+            lblPlus.Text = plus.ToEuros();
+            lblMoins.Text = moins.ToEuros();
+            lblSolde.Text = (plus - moins).ToEuros();
         }
 
         private void DataRowCustom_Click(object sender, EventArgs e)

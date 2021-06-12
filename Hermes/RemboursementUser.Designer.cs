@@ -28,39 +28,53 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.lblNom = new Hermes.UI.AppFontLabel();
             this.lblAmountDepense = new Hermes.UI.AppFontLabel();
             this.lblNbrPart = new Hermes.UI.AppFontLabel();
             this.SuspendLayout();
+            // 
+            // lblNom
+            // 
+            this.lblNom.AppFont = Hermes.AppFont.HelveticaNeue_Bold;
+            this.lblNom.AppFontHeight = 17F;
+            this.lblNom.AutoEllipsis = true;
+            this.lblNom.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(249)))), ((int)(((byte)(249)))));
+            this.lblNom.Location = new System.Drawing.Point(23, 23);
+            this.lblNom.Name = "lblNom";
+            this.lblNom.Size = new System.Drawing.Size(342, 32);
+            this.lblNom.TabIndex = 7;
+            this.lblNom.Text = "Nom de la dépense";
             // 
             // lblAmountDepense
             // 
             this.lblAmountDepense.AppFont = Hermes.AppFont.HelveticaNeue_Medium;
             this.lblAmountDepense.AppFontHeight = 20F;
-            this.lblAmountDepense.AutoSize = true;
             this.lblAmountDepense.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(249)))), ((int)(((byte)(249)))));
-            this.lblAmountDepense.Location = new System.Drawing.Point(23, 68);
+            this.lblAmountDepense.Location = new System.Drawing.Point(185, 70);
             this.lblAmountDepense.Name = "lblAmountDepense";
-            this.lblAmountDepense.Size = new System.Drawing.Size(113, 32);
+            this.lblAmountDepense.Size = new System.Drawing.Size(180, 35);
             this.lblAmountDepense.TabIndex = 6;
-            this.lblAmountDepense.Text = "120,00€";
+            this.lblAmountDepense.Text = "120,00 €";
+            this.lblAmountDepense.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
             // lblNbrPart
             // 
-            this.lblNbrPart.AppFont = Hermes.AppFont.HelveticaNeue_Bold;
-            this.lblNbrPart.AppFontHeight = 17F;
+            this.lblNbrPart.AppFont = Hermes.AppFont.HelveticaNeue;
+            this.lblNbrPart.AppFontHeight = 10F;
             this.lblNbrPart.AutoSize = true;
             this.lblNbrPart.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(249)))), ((int)(((byte)(249)))));
-            this.lblNbrPart.Location = new System.Drawing.Point(24, 23);
+            this.lblNbrPart.Location = new System.Drawing.Point(25, 70);
             this.lblNbrPart.Name = "lblNbrPart";
-            this.lblNbrPart.Size = new System.Drawing.Size(218, 29);
+            this.lblNbrPart.Size = new System.Drawing.Size(161, 23);
             this.lblNbrPart.TabIndex = 4;
-            this.lblNbrPart.Text = "Nombre de part : 9";
+            this.lblNbrPart.Text = "100 % des parts";
             // 
             // RemboursementUser
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(147)))), ((int)(((byte)(248)))));
+            this.Controls.Add(this.lblNom);
             this.Controls.Add(this.lblAmountDepense);
             this.Controls.Add(this.lblNbrPart);
             this.Name = "RemboursementUser";
@@ -75,5 +89,6 @@
 
         private UI.AppFontLabel lblAmountDepense;
         private UI.AppFontLabel lblNbrPart;
+        private UI.AppFontLabel lblNom;
     }
 }
