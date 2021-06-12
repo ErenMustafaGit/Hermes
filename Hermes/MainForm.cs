@@ -1,4 +1,4 @@
-﻿using Hermes.UI;
+using Hermes.UI;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -43,7 +43,9 @@ namespace Hermes
             a1.setPanel = pnlEcran;
             this.pnlEcran.Controls.Add(a1);
         }
-        
+
+        public delegate void MouseMoveFenetre();
+        public delegate void MouseDownFenetre();
 
         // L'évenement MouseMove et MouseDown sont utilisé pour 
         // permette de faire la translation de la fênetre
@@ -98,6 +100,64 @@ namespace Hermes
             toast.OnAdded();
 
             Singleton.RelocateToasts();
+        }
+        
+        private void PnlTitleBar_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void AppFontLabel2_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
+        }
+
+        private void LblExit_Click(object sender, EventArgs e)
+        {
+            /*
+            DialogResult dialogResult = MessageBox.Show("Voulez vous vraiment\nquittez l'application ?", "Hermès", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.Yes)
+            {
+                Application.Exit();
+            }
+            */
+            Application.Exit();
+
+        }
+
+        private void LblExit_MouseHover(object sender, EventArgs e)
+        {
+            //
+        }
+
+        private void LblExit_MouseLeave(object sender, EventArgs e)
+        {
+            this.Cursor = Cursors.Default;
+        }
+
+        private void LblMinimise_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
+        }
+
+        private void LblMinimise_MouseHover(object sender, EventArgs e)
+        {
+            //
+        }
+
+        private void LblMinimise_MouseLeave(object sender, EventArgs e)
+        {
+            this.Cursor = Cursors.Default;
+        }
+
+        private void lblExit_MouseEnter(object sender, EventArgs e)
+        {
+            this.Cursor = Cursors.Hand;
+        }
+
+        private void lblMinimise_MouseEnter(object sender, EventArgs e)
+        {
+            this.Cursor = Cursors.Hand;
         }
     }
 }

@@ -81,9 +81,18 @@ namespace Hermes.DataModel
 
     public static class Database
     {
-        const string ConnectionString = "Provider=Microsoft.Jet.OLEDB.4.0;Data Source='../../../bdEvents.mdb'";
+        static string ConnectionString = null;
         static OleDbConnection connection = null;
         static DataSet dataset;
+
+        public static void SetDatabasePath(string path)
+        {
+            OleDbConnectionStringBuilder builder = new OleDbConnectionStringBuilder();
+            builder.Provider = "Microsoft.Jet.OLEDB.4.0";
+            builder.DataSource = path;
+
+            ConnectionString = builder.ConnectionString;
+        }
 
         public static OleDbConnection Connect()
         {
@@ -323,6 +332,9 @@ namespace Hermes.DataModel
 
             List<UserSpendingRecord> records = new List<UserSpendingRecord>();
 
+            command.Parameters.AddWithValue("@pEvent", eventId);
+            command.Parameters.AddWithValue("@pPart", participantId);
+
             OleDbDataReader reader = command.ExecuteReader();
             while (reader.Read())
             {
@@ -354,6 +366,9 @@ namespace Hermes.DataModel
             command.Parameters.AddWithValue("@pPart", participantId);
 
             List<UserParticipationRecord> records = new List<UserParticipationRecord>();
+
+            command.Parameters.AddWithValue("@pEvent", eventId);
+            command.Parameters.AddWithValue("@pPart", participantId);
 
             OleDbDataReader reader = command.ExecuteReader();
             while (reader.Read())

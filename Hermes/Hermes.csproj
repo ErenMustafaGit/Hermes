@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
@@ -47,7 +47,46 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Resources\AppIcon.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
+    <Reference Include="BouncyCastle.Crypto, Version=1.8.9.0, Culture=neutral, PublicKeyToken=0e99375e54769942, processorArchitecture=MSIL">
+      <HintPath>packages\Portable.BouncyCastle.1.8.9\lib\net40\BouncyCastle.Crypto.dll</HintPath>
+    </Reference>
+    <Reference Include="Common.Logging, Version=3.4.1.0, Culture=neutral, PublicKeyToken=af08829b84f0328e, processorArchitecture=MSIL">
+      <HintPath>packages\Common.Logging.3.4.1\lib\net40\Common.Logging.dll</HintPath>
+    </Reference>
+    <Reference Include="Common.Logging.Core, Version=3.4.1.0, Culture=neutral, PublicKeyToken=af08829b84f0328e, processorArchitecture=MSIL">
+      <HintPath>packages\Common.Logging.Core.3.4.1\lib\net40\Common.Logging.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="itext.barcodes, Version=7.1.15.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>packages\itext7.7.1.15\lib\net45\itext.barcodes.dll</HintPath>
+    </Reference>
+    <Reference Include="itext.forms, Version=7.1.15.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>packages\itext7.7.1.15\lib\net45\itext.forms.dll</HintPath>
+    </Reference>
+    <Reference Include="itext.io, Version=7.1.15.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>packages\itext7.7.1.15\lib\net45\itext.io.dll</HintPath>
+    </Reference>
+    <Reference Include="itext.kernel, Version=7.1.15.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>packages\itext7.7.1.15\lib\net45\itext.kernel.dll</HintPath>
+    </Reference>
+    <Reference Include="itext.layout, Version=7.1.15.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>packages\itext7.7.1.15\lib\net45\itext.layout.dll</HintPath>
+    </Reference>
+    <Reference Include="itext.pdfa, Version=7.1.15.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>packages\itext7.7.1.15\lib\net45\itext.pdfa.dll</HintPath>
+    </Reference>
+    <Reference Include="itext.sign, Version=7.1.15.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>packages\itext7.7.1.15\lib\net45\itext.sign.dll</HintPath>
+    </Reference>
+    <Reference Include="itext.styledxmlparser, Version=7.1.15.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>packages\itext7.7.1.15\lib\net45\itext.styledxmlparser.dll</HintPath>
+    </Reference>
+    <Reference Include="itext.svg, Version=7.1.15.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>packages\itext7.7.1.15\lib\net45\itext.svg.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Design" />
@@ -92,6 +131,55 @@
     <Compile Include="AjoutRapideBouton.Designer.cs">
       <DependentUpon>AjoutRapideBouton.cs</DependentUpon>
     </Compile>
+    <Compile Include="BulleAjDepense.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="BulleAjDepense.Designer.cs">
+      <DependentUpon>BulleAjDepense.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BulleAjDepense2.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="BulleAjDepense2.Designer.cs">
+      <DependentUpon>BulleAjDepense2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Bilan.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Bilan.Designer.cs">
+      <DependentUpon>Bilan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BilanGlobal.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="BilanGlobal.Designer.cs">
+      <DependentUpon>BilanGlobal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DataGridViewCustom.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="DataGridViewCustom.Designer.cs">
+      <DependentUpon>DataGridViewCustom.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DataRowCustom.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="DataRowCustom.Designer.cs">
+      <DependentUpon>DataRowCustom.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PdfExporter.cs" />
+    <Compile Include="ResumeEventBilan.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ResumeEventBilan.Designer.cs">
+      <DependentUpon>ResumeEventBilan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserBilan.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserBilan.Designer.cs">
+      <DependentUpon>UserBilan.cs</DependentUpon>
+    </Compile>
     <Compile Include="BulleAjEvenement.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -122,11 +210,24 @@
     <Compile Include="CompleteInfoEvenement.Designer.cs">
       <DependentUpon>CompleteInfoEvenement.cs</DependentUpon>
     </Compile>
+    <Compile Include="DepenseUser.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="DepenseUser.Designer.cs">
+      <DependentUpon>DepenseUser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EmailManager.cs" />
     <Compile Include="Participants.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Participants.Designer.cs">
       <DependentUpon>Participants.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RemboursementUser.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="RemboursementUser.Designer.cs">
+      <DependentUpon>RemboursementUser.cs</DependentUpon>
     </Compile>
     <Compile Include="ResumePartyEvent.cs">
       <SubType>UserControl</SubType>
@@ -180,11 +281,23 @@
     <Compile Include="SideBarUserControls.Designer.cs">
       <DependentUpon>SideBarUserControls.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserBilanCasParCas.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserBilanCasParCas.Designer.cs">
+      <DependentUpon>UserBilanCasParCas.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserEvenement.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="UserEvenement.Designer.cs">
       <DependentUpon>UserEvenement.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ViewExpenditures.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ViewExpenditures.Designer.cs">
+      <DependentUpon>ViewExpenditures.cs</DependentUpon>
     </Compile>
     <Compile Include="UserParticipants.cs">
       <SubType>UserControl</SubType>
@@ -210,6 +323,30 @@
     <EmbeddedResource Include="AjoutRapideBouton.resx">
       <DependentUpon>AjoutRapideBouton.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="BulleAjDepense.resx">
+      <DependentUpon>BulleAjDepense.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BulleAjDepense2.resx">
+      <DependentUpon>BulleAjDepense2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Bilan.resx">
+      <DependentUpon>Bilan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BilanGlobal.resx">
+      <DependentUpon>BilanGlobal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DataGridViewCustom.resx">
+      <DependentUpon>DataGridViewCustom.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DataRowCustom.resx">
+      <DependentUpon>DataRowCustom.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ResumeEventBilan.resx">
+      <DependentUpon>ResumeEventBilan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserBilan.resx">
+      <DependentUpon>UserBilan.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="BulleAjEvenement.resx">
       <DependentUpon>BulleAjEvenement.cs</DependentUpon>
     </EmbeddedResource>
@@ -224,6 +361,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="CompleteInfoEvenement.resx">
       <DependentUpon>CompleteInfoEvenement.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DepenseUser.resx">
+      <DependentUpon>DepenseUser.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Evenements.resx">
       <DependentUpon>Evenements.cs</DependentUpon>
@@ -242,7 +382,11 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="RemboursementUser.resx">
+      <DependentUpon>RemboursementUser.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Resources\Fonts.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Fonts.Designer.cs</LastGenOutput>
@@ -256,12 +400,19 @@
     <EmbeddedResource Include="UI\AppToast.resx">
       <DependentUpon>AppToast.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UserBilanCasParCas.resx">
+      <DependentUpon>UserBilanCasParCas.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UserEvenement.resx">
       <DependentUpon>UserEvenement.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ViewExpenditures.resx">
+      <DependentUpon>ViewExpenditures.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserParticipants.resx">
       <DependentUpon>UserParticipants.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -291,6 +442,10 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\AppIcon.ico" />
+    <Content Include="Resources\EmailTemplate.html" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

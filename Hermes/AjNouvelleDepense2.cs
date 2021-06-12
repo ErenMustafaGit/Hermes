@@ -28,6 +28,12 @@ namespace Hermes
             this.Description = description;
             this.CodePayeur = codePayeur;
             this.Amount = amount;
+
+            pnlBeneficiaire.HorizontalScroll.Enabled = false;
+            pnlBeneficiaire.HorizontalScroll.Visible = false;
+            pnlBeneficiaire.HorizontalScroll.Maximum = 0;
+            pnlBeneficiaire.AutoScroll = true;
+
         }
 
         public Panel setPanel
@@ -82,11 +88,14 @@ namespace Hermes
             Participant payeur = Participant.GetParticipant(this.CodePayeur);
             string name = payeur.FirstName + " " + payeur.LastName;
 
+            //Coche celui qui paye car il est forcément bénéficiaire
             foreach (CheckBox chk in pnlBeneficiaire.Controls)
             {
                 if (chk.Text == name)
                     chk.Checked = true;
             }
+
+
             if (rtxtCommentaire.Text == "")
             {
                 rtxtCommentaire.BackColor = Color.LightPink;

@@ -73,6 +73,7 @@
             this.lblIconeBilan.Size = new System.Drawing.Size(29, 27);
             this.lblIconeBilan.TabIndex = 17;
             this.lblIconeBilan.Text = "O";
+            this.lblIconeBilan.Click += new System.EventHandler(this.lblIconeBilan_Click);
             // 
             // lblIconeDepense
             // 
@@ -85,6 +86,7 @@
             this.lblIconeDepense.Size = new System.Drawing.Size(29, 27);
             this.lblIconeDepense.TabIndex = 15;
             this.lblIconeDepense.Text = "O";
+            this.lblIconeDepense.Click += new System.EventHandler(this.LblIconeDepense_Click);
             // 
             // lblIconeParticipant
             // 

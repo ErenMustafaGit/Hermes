@@ -38,6 +38,7 @@ namespace Hermes
             updateGuests();
 
             dtp.Value = selectedEvent.StartDate;
+            dtp.MinDate = selectedEvent.StartDate;
         }
         public void updateGuests()
         {

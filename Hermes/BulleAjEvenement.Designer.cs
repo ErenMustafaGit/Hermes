@@ -45,7 +45,7 @@
             // 
             this.txtNomEvenement.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtNomEvenement.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F);
-            this.txtNomEvenement.Location = new System.Drawing.Point(112, 167);
+            this.txtNomEvenement.Location = new System.Drawing.Point(112, 170);
             this.txtNomEvenement.MaxLength = 30;
             this.txtNomEvenement.Name = "txtNomEvenement";
             this.txtNomEvenement.Size = new System.Drawing.Size(230, 27);
@@ -55,10 +55,10 @@
             // dtpDateDebut
             // 
             this.dtpDateDebut.CalendarFont = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtpDateDebut.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F);
-            this.dtpDateDebut.Location = new System.Drawing.Point(376, 167);
+            this.dtpDateDebut.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.5F);
+            this.dtpDateDebut.Location = new System.Drawing.Point(376, 170);
             this.dtpDateDebut.Name = "dtpDateDebut";
-            this.dtpDateDebut.Size = new System.Drawing.Size(195, 27);
+            this.dtpDateDebut.Size = new System.Drawing.Size(219, 25);
             this.dtpDateDebut.TabIndex = 13;
             this.dtpDateDebut.Value = new System.DateTime(2021, 5, 18, 18, 23, 0, 0);
             this.dtpDateDebut.ValueChanged += new System.EventHandler(this.DtpDateDebut_ValueChanged);
@@ -66,10 +66,10 @@
             // dtpDateFin
             // 
             this.dtpDateFin.CalendarFont = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtpDateFin.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F);
-            this.dtpDateFin.Location = new System.Drawing.Point(376, 250);
+            this.dtpDateFin.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.5F);
+            this.dtpDateFin.Location = new System.Drawing.Point(376, 253);
             this.dtpDateFin.Name = "dtpDateFin";
-            this.dtpDateFin.Size = new System.Drawing.Size(195, 27);
+            this.dtpDateFin.Size = new System.Drawing.Size(219, 25);
             this.dtpDateFin.TabIndex = 15;
             this.dtpDateFin.Value = new System.DateTime(2021, 5, 18, 18, 23, 0, 0);
             this.dtpDateFin.ValueChanged += new System.EventHandler(this.DtpDateFin_ValueChanged);
@@ -79,7 +79,7 @@
             this.cboEventCreator.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboEventCreator.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F);
             this.cboEventCreator.FormattingEnabled = true;
-            this.cboEventCreator.Location = new System.Drawing.Point(112, 250);
+            this.cboEventCreator.Location = new System.Drawing.Point(112, 253);
             this.cboEventCreator.Name = "cboEventCreator";
             this.cboEventCreator.Size = new System.Drawing.Size(230, 28);
             this.cboEventCreator.TabIndex = 17;
@@ -91,7 +91,7 @@
             this.btnAnnuler.ForeColor = System.Drawing.SystemColors.Control;
             this.btnAnnuler.Location = new System.Drawing.Point(376, 323);
             this.btnAnnuler.Name = "btnAnnuler";
-            this.btnAnnuler.Size = new System.Drawing.Size(96, 30);
+            this.btnAnnuler.Size = new System.Drawing.Size(101, 30);
             this.btnAnnuler.TabIndex = 22;
             this.btnAnnuler.Text = "Annuler";
             this.btnAnnuler.UseVisualStyleBackColor = false;
@@ -102,9 +102,9 @@
             this.btnContinuer.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(147)))), ((int)(((byte)(248)))));
             this.btnContinuer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnContinuer.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnContinuer.Location = new System.Drawing.Point(487, 323);
+            this.btnContinuer.Location = new System.Drawing.Point(495, 323);
             this.btnContinuer.Name = "btnContinuer";
-            this.btnContinuer.Size = new System.Drawing.Size(96, 30);
+            this.btnContinuer.Size = new System.Drawing.Size(100, 30);
             this.btnContinuer.TabIndex = 21;
             this.btnContinuer.Text = "Continuer";
             this.btnContinuer.UseVisualStyleBackColor = false;
@@ -126,7 +126,7 @@
             this.cboCreateur.AppFont = Hermes.AppFont.HelveticaNeue;
             this.cboCreateur.AppFontHeight = 10F;
             this.cboCreateur.AutoSize = true;
-            this.cboCreateur.Location = new System.Drawing.Point(109, 222);
+            this.cboCreateur.Location = new System.Drawing.Point(109, 225);
             this.cboCreateur.Name = "cboCreateur";
             this.cboCreateur.Size = new System.Drawing.Size(137, 16);
             this.cboCreateur.TabIndex = 18;
@@ -137,7 +137,7 @@
             this.lblFinEvenement.AppFont = Hermes.AppFont.HelveticaNeue;
             this.lblFinEvenement.AppFontHeight = 10F;
             this.lblFinEvenement.AutoSize = true;
-            this.lblFinEvenement.Location = new System.Drawing.Point(373, 221);
+            this.lblFinEvenement.Location = new System.Drawing.Point(373, 224);
             this.lblFinEvenement.Name = "lblFinEvenement";
             this.lblFinEvenement.Size = new System.Drawing.Size(150, 16);
             this.lblFinEvenement.TabIndex = 16;
@@ -148,7 +148,7 @@
             this.lblDebutEvenement.AppFont = Hermes.AppFont.HelveticaNeue;
             this.lblDebutEvenement.AppFontHeight = 10F;
             this.lblDebutEvenement.AutoSize = true;
-            this.lblDebutEvenement.Location = new System.Drawing.Point(373, 138);
+            this.lblDebutEvenement.Location = new System.Drawing.Point(373, 141);
             this.lblDebutEvenement.Name = "lblDebutEvenement";
             this.lblDebutEvenement.Size = new System.Drawing.Size(169, 16);
             this.lblDebutEvenement.TabIndex = 14;
@@ -159,7 +159,7 @@
             this.lblNomEvenement.AppFont = Hermes.AppFont.HelveticaNeue;
             this.lblNomEvenement.AppFontHeight = 10F;
             this.lblNomEvenement.AutoSize = true;
-            this.lblNomEvenement.Location = new System.Drawing.Point(109, 138);
+            this.lblNomEvenement.Location = new System.Drawing.Point(109, 141);
             this.lblNomEvenement.Name = "lblNomEvenement";
             this.lblNomEvenement.Size = new System.Drawing.Size(161, 16);
             this.lblNomEvenement.TabIndex = 10;

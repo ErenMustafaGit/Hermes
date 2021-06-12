@@ -43,6 +43,7 @@
             this.cboEvenements.Name = "cboEvenements";
             this.cboEvenements.Size = new System.Drawing.Size(281, 28);
             this.cboEvenements.TabIndex = 5;
+            this.cboEvenements.SelectedIndexChanged += new System.EventHandler(this.CboEvenements_SelectedIndexChanged_1);
             // 
             // pnlParticipants
             // 
