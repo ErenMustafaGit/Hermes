@@ -177,9 +177,10 @@ namespace Hermes
             EmailManager.InviteList(currentEvent, invitedParticipant)
                 .ContinueWith(_ =>
                 {
-                    AppToast.CreateSuccessToast("Les emails d'invitation ont été envoyés !")
+                    MainForm.GetSingleton().Invoke(new MethodInvoker(() =>
+                        AppToast.CreateSuccessToast("Les emails d'invitation ont été envoyés !")
                             .SetDurationInSeconds(15)
-                            .ShowToast();
+                            .ShowToast()));
                 });
 
             pnlBulle.Controls.Clear();

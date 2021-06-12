@@ -28,6 +28,8 @@ namespace Hermes
             InitializeComponent();
         }
 
+        public static MainForm GetSingleton() => Singleton;
+
         void sideBarUserControls1_MouseHover(object sender, EventArgs e)
         {
             MessageBox.Show("hover");
@@ -100,11 +102,6 @@ namespace Hermes
             toast.OnAdded();
 
             Singleton.RelocateToasts();
-        }
-        
-        private void PnlTitleBar_Paint(object sender, PaintEventArgs e)
-        {
-
         }
 
         private void AppFontLabel2_Click(object sender, EventArgs e)
