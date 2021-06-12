@@ -135,6 +135,7 @@ namespace Hermes
 
             PdfExporter.ExportEventSummaries(path, this.currentEvent);
 
+            MessageBox.Show("PDF exporté"); // TODO: use toast
             return true;
         }
 
@@ -152,19 +153,6 @@ namespace Hermes
 
             if (dialogResult == DialogResult.Yes)
             {
-                if (!ExportToPdf())
-                {
-                    dialogResult = MessageBox.Show(
-                        "Vous voulez vraiment solder\nl'évènement "
-                        + this.currentEvent.Name
-                        + "\nsans exporter de PDF ?", "Hermès",
-                        MessageBoxButtons.YesNo,
-                        MessageBoxIcon.Exclamation,
-                        MessageBoxDefaultButton.Button2);
-
-                    if (dialogResult != DialogResult.Yes)
-                        return;
-                }
 
                 currentEvent.CloseEvent();
 
