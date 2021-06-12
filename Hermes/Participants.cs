@@ -68,6 +68,7 @@ namespace Hermes
         public void CboEvenements_SelectedIndexChanged(object sender, EventArgs e)
         {
             Remplissage((int)this.cboEvenements.SelectedValue);
+            EvenementFiniOuPas();
         }
 
         public void Remplissage(int index)
@@ -120,6 +121,24 @@ namespace Hermes
 
             }
 
+        }
+
+        public void EvenementFiniOuPas()
+        {
+            foreach (PartyEvent partyEvent in evenementsListe)
+            {
+                if (partyEvent.Id == (int)this.cboEvenements.SelectedValue)
+                {
+                    if (partyEvent.Completed)
+                    {
+                        btnInviter.Visible = false;
+                    }
+                    else
+                    {
+                        btnInviter.Visible = true;
+                    }
+                }
+            }
         }
 
         public void BulleAjout()
