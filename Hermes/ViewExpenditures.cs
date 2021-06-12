@@ -15,6 +15,10 @@ namespace Hermes
     {
         private Panel ecran;
         private int expenseIndex;
+
+        //Evenement de base qui doit être afficher en 1er
+        private int idBasicEvent = -1;
+
         public ViewExpenditures()
         {
             InitializeComponent();
@@ -32,6 +36,25 @@ namespace Hermes
             pnlBeneficiary.AutoScroll = true;
         }
 
+        public ViewExpenditures(int idBasicEvent)
+        {
+            InitializeComponent();
+
+            pnlListExpenditure.AutoScroll = false;
+            pnlListExpenditure.HorizontalScroll.Enabled = false;
+            pnlListExpenditure.HorizontalScroll.Visible = false;
+            pnlListExpenditure.HorizontalScroll.Maximum = 0;
+            pnlListExpenditure.AutoScroll = true;
+
+            pnlBeneficiary.AutoScroll = false;
+            pnlBeneficiary.HorizontalScroll.Enabled = false;
+            pnlBeneficiary.HorizontalScroll.Visible = false;
+            pnlBeneficiary.HorizontalScroll.Maximum = 0;
+            pnlBeneficiary.AutoScroll = true;
+
+            this.idBasicEvent = idBasicEvent;
+        }
+
         public Panel setPanel
         {
             set { this.ecran = value; }
@@ -44,6 +67,9 @@ namespace Hermes
             cboEvenement.ValueMember = "Id";
             lblIconCreator.Text = Hermes.UI.Icons.FINANCE;
             lblIconMoney.Text = Hermes.UI.Icons.COINS;
+
+            if (idBasicEvent != -1)
+                cboEvenement.SelectedValue = idBasicEvent;
 
             PartyEvent currentEvent = PartyEvent.GetFromId((int)cboEvenement.SelectedValue);
             btnAddExpenditure.Visible = !currentEvent.Completed;
