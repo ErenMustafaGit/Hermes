@@ -69,5 +69,72 @@ namespace Hermes.Properties {
                 return ((System.Drawing.Icon)(obj));
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to HermesRobertSchuman@gmail.com.
+        /// </summary>
+        internal static string Email {
+            get {
+                return ResourceManager.GetString("Email", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;!doctype html&gt;
+        ///&lt;html&gt;
+        ///  &lt;head&gt;
+        ///    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width&quot;&gt;
+        ///    &lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html; charset=UTF-8&quot;&gt;
+        ///    &lt;link rel=&quot;stylesheet&quot; href=&quot;https://fonts.googleapis.com/css?family=Open+Sans:sans-serif,bold&quot;&gt;
+        ///    &lt;title&gt;Invitation à un évènement&lt;/title&gt;
+        ///    &lt;style&gt;
+        ///    @media only screen and (max-width: 620px) {
+        ///      table[class=body] h1 {
+        ///        font-size: 28px !important;
+        ///        margin-bottom: 10px !important;
+        ///      }
+        ///      table[class=bo [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string EmailTemplate {
+            get {
+                return ResourceManager.GetString("EmailTemplate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to smtp.gmail.com.
+        /// </summary>
+        internal static string SmtpHost {
+            get {
+                return ResourceManager.GetString("SmtpHost", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to dpawedelwcvbahsg.
+        /// </summary>
+        internal static string SmtpPassword {
+            get {
+                return ResourceManager.GetString("SmtpPassword", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 587.
+        /// </summary>
+        internal static string SmtpPort {
+            get {
+                return ResourceManager.GetString("SmtpPort", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to HermesRobertSchuman@gmail.com.
+        /// </summary>
+        internal static string SmtpUser {
+            get {
+                return ResourceManager.GetString("SmtpUser", resourceCulture);
+            }
+        }
     }
 }

@@ -435,10 +435,8 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Hermes.ico" />
-    <None Include="Resources\Hermes.ico" />
     <None Include="Resources\AppIcon.ico" />
-    <Content Include="Resources\mail.html" />
+    <Content Include="Resources\EmailTemplate.html" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

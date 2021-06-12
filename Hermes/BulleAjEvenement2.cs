@@ -55,7 +55,11 @@ namespace Hermes
             {
                 newEvent.Description = this.rtxtDescription.Text;
                 Database.InsertEvent(newEvent, getInvitedParticipant());
-                EmailManager.InviteList(getInvitedParticipant(), newEvent);
+                EmailManager.InviteList(newEvent, getInvitedParticipant())
+                    .ContinueWith(_ =>
+                    {
+                        MessageBox.Show("Les emails d'invitation ont été envoyés."); // TODO: use toasts
+                    });
 
                 this.ecran.Controls.Clear();
                 this.ecran.Visible = false;

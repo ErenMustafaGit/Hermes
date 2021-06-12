@@ -13,76 +13,77 @@ namespace Hermes
 {
     public static class EmailManager
     {
-        public static void Invite(Participant participant, PartyEvent evenement)
+        private static SmtpClient m_Client = null;
+
+        private static SmtpClient Client
         {
-            //Setup SMTP Client
-            SmtpClient Client = new SmtpClient()
+            get
             {
-                Host = "smtp.gmail.com",
-                Port = 587,
-                EnableSsl = true,
-                DeliveryMethod = SmtpDeliveryMethod.Network,
-                UseDefaultCredentials = false,
-                Credentials = new NetworkCredential()
+                if (m_Client == null)
                 {
-                    UserName = "HermesRobertSchuman@gmail.com",
-                    Password = "dpawedelwcvbahsg", //Passwork Key
+                    m_Client = new SmtpClient()
+                    {
+                        DeliveryMethod = SmtpDeliveryMethod.Network,
+                        UseDefaultCredentials = false,
+
+                        Host = Properties.Resources.SmtpHost,
+                        Port = int.Parse(Properties.Resources.SmtpPort),
+                        EnableSsl = true, // force SSL
+                        Credentials = new NetworkCredential()
+                        {
+                            UserName = Properties.Resources.SmtpUser,
+                            Password = Properties.Resources.SmtpPassword
+                        }
+                    };
                 }
-            };
 
-            //Initialisation des address
-            MailAddress from = new MailAddress("HermesRobertSchuman@gmail.com");
-            //MailAddress to = new MailAddress(participant.Mail);
-            MailAddress to = new MailAddress("eren-mustafa.ceylan@etu.unistra.fr");//Only a mail for test
+                return m_Client;
+            }
+        }
 
+        public static bool IsEmailValid(string email)
+        {
+            try { return new MailAddress(email).Address == email; }
+            catch { return false; }
+        }
 
-            string subject = participant.FirstName + " " + participant.LastName + " : Tu es invité à mon évenement sur Hermès !";
-            string body = " <!DOCTYPE html>" +
-                "<html>" +
-                "<head>" +
-                "<style>" +
-                "span { font-weight: bold; }" +
-                " h1   { color: dark; }" +
-                " p    { color: blue; }" +
-                "</style>" +
-                //"<link rel=\"stylesheet\" href=\"../../../style.css\">" +
-                "</head>" +
-                "<body>" +
-                "<h1>Hermès</h1>" +
-                "<p>Tu es invité à un nouvelle évenement qui se nomme : <span>" + evenement.Description + "</span></p> " +
-                "</body>" +
-                "</html>";
+        public static Task Invite(PartyEvent e, Participant p, SendCompletedEventHandler handler = null)
+        {
+            if (!IsEmailValid(p.Mail))
+                return Task.FromException(new SmtpFailedRecipientException());
 
+            MailAddress from = new MailAddress(Properties.Resources.Email, "Hermès");
+            MailAddress to = new MailAddress(p.Mail);
 
+            // Replace template contents by actual values.
+            string body = Properties.Resources.EmailTemplate;
+            body = body.Replace("%FULL_NAME%", p.FirstName + " " + p.LastName);
+            body = body.Replace("%EVENT_NAME%", e.Name);
 
-            //Setup du message à envoyer 
-            MailMessage Message = new MailMessage()
+            // Prepare the message to be sent.
+            MailMessage message = new MailMessage()
             {
                 From = from,
                 Body = body,
-                Subject = subject,
+                Subject = "Vous avez été invité·e à un évènement !",
                 IsBodyHtml = true,
             };
-            Message.To.Add(to);
+            message.To.Add(to);
 
-            Client.SendCompleted += EmailSended;
-            Client.SendMailAsync(Message);
+            if (handler != null)
+                Client.SendCompleted += handler;
 
+            // Send it asynchronously. Return the created task.
+            return Client.SendMailAsync(message);
         }
 
-        public static void InviteList(List<Participant> participants, PartyEvent partyEvent)
+        public static async Task<Task> InviteList(PartyEvent e, List<Participant> participants)
         {
             foreach (Participant participant in participants)
-                EmailManager.Invite(participant, partyEvent);
+                await EmailManager.Invite(e, participant);
+
+            return Task.CompletedTask;
         }
 
-        
-        public static void EmailSended(object sender, AsyncCompletedEventArgs e)
-        {
-            if(e.Error != null)
-            {
-                Console.WriteLine("ERROR" + e.Error.ToString());
-            }
-        }
     }
 }
