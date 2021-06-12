@@ -32,6 +32,7 @@
             this.btnBilanGlobal = new System.Windows.Forms.Button();
             this.pnlBilanToutePersonnes = new System.Windows.Forms.Panel();
             this.pnlBilanCasParCas = new System.Windows.Forms.Panel();
+            this.exportPdf = new System.Windows.Forms.Button();
             this.lblEvenement = new Hermes.UI.AppFontLabel();
             this.appFontLabel2 = new Hermes.UI.AppFontLabel();
             this.SuspendLayout();
@@ -75,6 +76,18 @@
             this.pnlBilanCasParCas.Size = new System.Drawing.Size(830, 233);
             this.pnlBilanCasParCas.TabIndex = 42;
             // 
+            // exportPdf
+            // 
+            this.exportPdf.FlatAppearance.BorderSize = 0;
+            this.exportPdf.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.exportPdf.Location = new System.Drawing.Point(726, 47);
+            this.exportPdf.Name = "exportPdf";
+            this.exportPdf.Size = new System.Drawing.Size(48, 48);
+            this.exportPdf.TabIndex = 43;
+            this.exportPdf.Text = "PDF";
+            this.exportPdf.UseVisualStyleBackColor = true;
+            this.exportPdf.Click += new System.EventHandler(this.exportPdf_Click);
+            // 
             // lblEvenement
             // 
             this.lblEvenement.AppFont = Hermes.AppFont.HelveticaNeue;
@@ -82,7 +95,7 @@
             this.lblEvenement.AutoSize = true;
             this.lblEvenement.Location = new System.Drawing.Point(418, 69);
             this.lblEvenement.Name = "lblEvenement";
-            this.lblEvenement.Size = new System.Drawing.Size(197, 19);
+            this.lblEvenement.Size = new System.Drawing.Size(199, 19);
             this.lblEvenement.TabIndex = 8;
             this.lblEvenement.Text = "Dans quel évènements ? *";
             // 
@@ -101,6 +114,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.exportPdf);
             this.Controls.Add(this.pnlBilanCasParCas);
             this.Controls.Add(this.pnlBilanToutePersonnes);
             this.Controls.Add(this.btnBilanGlobal);
@@ -123,5 +137,6 @@
         private System.Windows.Forms.Button btnBilanGlobal;
         private System.Windows.Forms.Panel pnlBilanToutePersonnes;
         private System.Windows.Forms.Panel pnlBilanCasParCas;
+        private System.Windows.Forms.Button exportPdf;
     }
 }
