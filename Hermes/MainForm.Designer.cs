@@ -29,6 +29,8 @@ namespace Hermes
         /// </summary>
         private void InitializeComponent()
         {
+            this.Icon = Properties.Resources.AppIcon;
+
             this.pnlEcran = new System.Windows.Forms.Panel();
             this.pnlTitleBar = new System.Windows.Forms.Panel();
             this.lblMinimise = new Hermes.UI.AppFontLabel();
