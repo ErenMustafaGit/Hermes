@@ -38,11 +38,6 @@ namespace Hermes
         {
             InitializeComponent();
             this.newEvent = newEvent;
-            pnlParticipants.AutoScroll = false;
-            pnlParticipants.HorizontalScroll.Enabled = false;
-            pnlParticipants.HorizontalScroll.Visible = false;
-            pnlParticipants.HorizontalScroll.Maximum = 0;
-            pnlParticipants.AutoScroll = true;
         }
         public Panel setPanel
         {
@@ -74,14 +69,11 @@ namespace Hermes
         public List<Participant> getInvitedParticipant()
         {
             List<Participant> invitedParticipant = new List<Participant>();
-            foreach(CheckBox chk in pnlParticipants.Controls)
+            invitedParticipant.Add(Participant.GetParticipant(newEvent.AuthorId));
+            foreach (CheckBox chk in pnlParticipants.Controls)
             {
                 if(chk != chkEveryOne)
                 {
-
-                    //Coche automatiquement l'auteur de l'evenement
-                    if ((int)chk.Tag == newEvent.AuthorId)
-                        chk.Checked = true;
 
                     if (chk.Checked)
                         invitedParticipant.Add(Participant.GetParticipant((int)chk.Tag));
@@ -89,24 +81,38 @@ namespace Hermes
                 }
                 
             }
+
             return invitedParticipant;
         }
 
         private void BulleAjEvenement2_Load(object sender, EventArgs e)
         {
+            pnlParticipants.HorizontalScroll.Enabled = false;
+            pnlParticipants.HorizontalScroll.Visible = false;
+            pnlParticipants.HorizontalScroll.Maximum = 0;
+            pnlParticipants.AutoScroll = true;
             List<Participant> participants = Database.FetchParticipant();
 
+            int compteur = 0;
             for(int i = 0; i < participants.Count; i++)
             {
-                CheckBox chkParticipant = new CheckBox();
-                chkParticipant.Left = chkEveryOne.Left;
-                chkParticipant.Top = 40 + 30 * i;
-                chkParticipant.Tag = participants[i].CodeParticipant;
-                chkParticipant.Text = participants[i].FirstName + " " + participants[i].LastName.ToUpper();
-                chkParticipant.AutoSize = false;
-                chkParticipant.Width = 300;
-                chkParticipant.Height = 20;
-                pnlParticipants.Controls.Add(chkParticipant);
+                if(participants[i].CodeParticipant != newEvent.AuthorId)
+                {
+                    CheckBox chkParticipant = new CheckBox();
+                    chkParticipant.Left = chkEveryOne.Left;
+                    chkParticipant.Top = 40 + 30 * compteur;
+                    chkParticipant.Tag = participants[i].CodeParticipant;
+                    chkParticipant.Text = participants[i].FirstName + " " + participants[i].LastName.ToUpper();
+                    chkParticipant.AutoSize = false;
+                    chkParticipant.Width = 300;
+                    chkParticipant.Height = 20;
+                    compteur++;
+                    pnlParticipants.Controls.Add(chkParticipant);
+                }
+                else
+                {
+
+                }
             }
         }
 
