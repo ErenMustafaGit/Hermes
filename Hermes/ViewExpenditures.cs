@@ -95,7 +95,7 @@ namespace Hermes
                     lblDepense.Text = expenses[i].Description.Substring(0, 1).ToUpper() + expenses[i].Description.Substring(1);
                     //lblDepense.Tag = expenses[i].Id;
                     lblDepense.Left = 20;
-                    lblDepense.Top = 20 + 50 * i;
+                    lblDepense.Top = 10 + 47 * i;
                     lblDepense.AutoSize = true;
                     lblDepense.Height = 30;
                     lblDepense.AppFontHeight = 16F;

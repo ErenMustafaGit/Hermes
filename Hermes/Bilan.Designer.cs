@@ -35,7 +35,7 @@
             // 
             this.pnlEvenement.Location = new System.Drawing.Point(39, 76);
             this.pnlEvenement.Name = "pnlEvenement";
-            this.pnlEvenement.Size = new System.Drawing.Size(909, 494);
+            this.pnlEvenement.Size = new System.Drawing.Size(909, 546);
             this.pnlEvenement.TabIndex = 3;
             // 
             // Bilan
