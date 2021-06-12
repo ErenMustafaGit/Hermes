@@ -31,15 +31,14 @@
             this.cboParticipant = new System.Windows.Forms.ComboBox();
             this.pnlDepense = new System.Windows.Forms.Panel();
             this.pnlRemboursement = new System.Windows.Forms.Panel();
-            this.btnBilanGlobal = new System.Windows.Forms.Button();
+            this.lblVueGlobale = new Hermes.UI.AppFontLabel();
+            this.lblGoBaaack = new Hermes.UI.AppFontLabel();
             this.lblEvent = new Hermes.UI.AppFontLabel();
             this.lblTotalRemboursement = new Hermes.UI.AppFontLabel();
             this.lblTextRemboursement = new Hermes.UI.AppFontLabel();
             this.lblTotalDepnse = new Hermes.UI.AppFontLabel();
             this.appFontLabel3 = new Hermes.UI.AppFontLabel();
             this.appFontLabel1 = new Hermes.UI.AppFontLabel();
-            this.lblVueGlobale = new Hermes.UI.AppFontLabel();
-            this.lblGoBaaack = new Hermes.UI.AppFontLabel();
             this.SuspendLayout();
             // 
             // cboParticipant
@@ -68,87 +67,6 @@
             this.pnlRemboursement.Size = new System.Drawing.Size(387, 257);
             this.pnlRemboursement.TabIndex = 34;
             // 
-            // btnBilanGlobal
-            // 
-            this.btnBilanGlobal.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(147)))), ((int)(((byte)(248)))));
-            this.btnBilanGlobal.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnBilanGlobal.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F);
-            this.btnBilanGlobal.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnBilanGlobal.Location = new System.Drawing.Point(338, 157);
-            this.btnBilanGlobal.Name = "btnBilanGlobal";
-            this.btnBilanGlobal.Size = new System.Drawing.Size(144, 28);
-            this.btnBilanGlobal.TabIndex = 39;
-            this.btnBilanGlobal.Text = "Bilan global";
-            this.btnBilanGlobal.UseVisualStyleBackColor = false;
-            this.btnBilanGlobal.Click += new System.EventHandler(this.btnBilanGlobal_Click);
-            // 
-            // lblEvent
-            // 
-            this.lblEvent.AppFont = Hermes.AppFont.HelveticaNeue_Bold;
-            this.lblEvent.AppFontHeight = 35F;
-            this.lblEvent.AutoSize = true;
-            this.lblEvent.Location = new System.Drawing.Point(62, 58);
-            this.lblEvent.Name = "lblEvent";
-            this.lblEvent.Size = new System.Drawing.Size(525, 59);
-            this.lblEvent.TabIndex = 38;
-            this.lblEvent.Text = "Week-end dans le Jura";
-            // 
-            // lblTotalRemboursement
-            // 
-            this.lblTotalRemboursement.AppFont = Hermes.AppFont.HelveticaNeue_Bold;
-            this.lblTotalRemboursement.AppFontHeight = 45F;
-            this.lblTotalRemboursement.AutoSize = true;
-            this.lblTotalRemboursement.Location = new System.Drawing.Point(506, 247);
-            this.lblTotalRemboursement.Name = "lblTotalRemboursement";
-            this.lblTotalRemboursement.Size = new System.Drawing.Size(345, 100);
-            this.lblTotalRemboursement.TabIndex = 32;
-            this.lblTotalRemboursement.Text = "147,20€";
-            // 
-            // lblTextRemboursement
-            // 
-            this.lblTextRemboursement.AppFont = Hermes.AppFont.HelveticaNeue;
-            this.lblTextRemboursement.AppFontHeight = 14F;
-            this.lblTextRemboursement.AutoSize = true;
-            this.lblTextRemboursement.Location = new System.Drawing.Point(515, 228);
-            this.lblTextRemboursement.Name = "lblTextRemboursement";
-            this.lblTextRemboursement.Size = new System.Drawing.Size(253, 28);
-            this.lblTextRemboursement.TabIndex = 31;
-            this.lblTextRemboursement.Text = "Total remboursement :";
-            // 
-            // lblTotalDepnse
-            // 
-            this.lblTotalDepnse.AppFont = Hermes.AppFont.HelveticaNeue_Bold;
-            this.lblTotalDepnse.AppFontHeight = 45F;
-            this.lblTotalDepnse.AutoSize = true;
-            this.lblTotalDepnse.Location = new System.Drawing.Point(59, 247);
-            this.lblTotalDepnse.Name = "lblTotalDepnse";
-            this.lblTotalDepnse.Size = new System.Drawing.Size(345, 100);
-            this.lblTotalDepnse.TabIndex = 30;
-            this.lblTotalDepnse.Text = "278,00€";
-            this.lblTotalDepnse.Click += new System.EventHandler(this.lblTotalDepnse_Click);
-            // 
-            // appFontLabel3
-            // 
-            this.appFontLabel3.AppFont = Hermes.AppFont.HelveticaNeue;
-            this.appFontLabel3.AppFontHeight = 14F;
-            this.appFontLabel3.AutoSize = true;
-            this.appFontLabel3.Location = new System.Drawing.Point(72, 228);
-            this.appFontLabel3.Name = "appFontLabel3";
-            this.appFontLabel3.Size = new System.Drawing.Size(176, 28);
-            this.appFontLabel3.TabIndex = 25;
-            this.appFontLabel3.Text = "Total dépense :";
-            // 
-            // appFontLabel1
-            // 
-            this.appFontLabel1.AppFont = Hermes.AppFont.HelveticaNeue;
-            this.appFontLabel1.AppFontHeight = 10F;
-            this.appFontLabel1.AutoSize = true;
-            this.appFontLabel1.Location = new System.Drawing.Point(69, 129);
-            this.appFontLabel1.Name = "appFontLabel1";
-            this.appFontLabel1.Size = new System.Drawing.Size(121, 16);
-            this.appFontLabel1.TabIndex = 22;
-            this.appFontLabel1.Text = "Quel participant ?";
-            // 
             // lblVueGlobale
             // 
             this.lblVueGlobale.AppFont = Hermes.AppFont.HelveticaNeue;
@@ -157,9 +75,9 @@
             this.lblVueGlobale.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(147)))), ((int)(((byte)(248)))));
             this.lblVueGlobale.Location = new System.Drawing.Point(48, 607);
             this.lblVueGlobale.Name = "lblVueGlobale";
-            this.lblVueGlobale.Size = new System.Drawing.Size(69, 14);
+            this.lblVueGlobale.Size = new System.Drawing.Size(76, 14);
             this.lblVueGlobale.TabIndex = 41;
-            this.lblVueGlobale.Text = "Vue globale";
+            this.lblVueGlobale.Text = "Bilan globale";
             this.lblVueGlobale.Click += new System.EventHandler(this.lblGoBaaack_Click);
             this.lblVueGlobale.MouseEnter += new System.EventHandler(this.lblGoBaaack_MouseEnter);
             this.lblVueGlobale.MouseLeave += new System.EventHandler(this.lblGoBaaack_MouseLeave);
@@ -180,13 +98,79 @@
             this.lblGoBaaack.MouseEnter += new System.EventHandler(this.lblGoBaaack_MouseEnter);
             this.lblGoBaaack.MouseLeave += new System.EventHandler(this.lblGoBaaack_MouseLeave);
             // 
+            // lblEvent
+            // 
+            this.lblEvent.AppFont = Hermes.AppFont.HelveticaNeue_Bold;
+            this.lblEvent.AppFontHeight = 35F;
+            this.lblEvent.AutoSize = true;
+            this.lblEvent.Location = new System.Drawing.Point(62, 58);
+            this.lblEvent.Name = "lblEvent";
+            this.lblEvent.Size = new System.Drawing.Size(525, 59);
+            this.lblEvent.TabIndex = 38;
+            this.lblEvent.Text = "Week-end dans le Jura";
+            // 
+            // lblTotalRemboursement
+            // 
+            this.lblTotalRemboursement.AppFont = Hermes.AppFont.HelveticaNeue_Bold;
+            this.lblTotalRemboursement.AppFontHeight = 45F;
+            this.lblTotalRemboursement.AutoSize = true;
+            this.lblTotalRemboursement.Location = new System.Drawing.Point(506, 247);
+            this.lblTotalRemboursement.Name = "lblTotalRemboursement";
+            this.lblTotalRemboursement.Size = new System.Drawing.Size(258, 75);
+            this.lblTotalRemboursement.TabIndex = 32;
+            this.lblTotalRemboursement.Text = "147,20€";
+            // 
+            // lblTextRemboursement
+            // 
+            this.lblTextRemboursement.AppFont = Hermes.AppFont.HelveticaNeue;
+            this.lblTextRemboursement.AppFontHeight = 14F;
+            this.lblTextRemboursement.AutoSize = true;
+            this.lblTextRemboursement.Location = new System.Drawing.Point(515, 228);
+            this.lblTextRemboursement.Name = "lblTextRemboursement";
+            this.lblTextRemboursement.Size = new System.Drawing.Size(199, 22);
+            this.lblTextRemboursement.TabIndex = 31;
+            this.lblTextRemboursement.Text = "Total remboursement :";
+            // 
+            // lblTotalDepnse
+            // 
+            this.lblTotalDepnse.AppFont = Hermes.AppFont.HelveticaNeue_Bold;
+            this.lblTotalDepnse.AppFontHeight = 45F;
+            this.lblTotalDepnse.AutoSize = true;
+            this.lblTotalDepnse.Location = new System.Drawing.Point(59, 247);
+            this.lblTotalDepnse.Name = "lblTotalDepnse";
+            this.lblTotalDepnse.Size = new System.Drawing.Size(258, 75);
+            this.lblTotalDepnse.TabIndex = 30;
+            this.lblTotalDepnse.Text = "278,00€";
+            this.lblTotalDepnse.Click += new System.EventHandler(this.lblTotalDepnse_Click);
+            // 
+            // appFontLabel3
+            // 
+            this.appFontLabel3.AppFont = Hermes.AppFont.HelveticaNeue;
+            this.appFontLabel3.AppFontHeight = 14F;
+            this.appFontLabel3.AutoSize = true;
+            this.appFontLabel3.Location = new System.Drawing.Point(72, 228);
+            this.appFontLabel3.Name = "appFontLabel3";
+            this.appFontLabel3.Size = new System.Drawing.Size(138, 22);
+            this.appFontLabel3.TabIndex = 25;
+            this.appFontLabel3.Text = "Total dépense :";
+            // 
+            // appFontLabel1
+            // 
+            this.appFontLabel1.AppFont = Hermes.AppFont.HelveticaNeue;
+            this.appFontLabel1.AppFontHeight = 10F;
+            this.appFontLabel1.AutoSize = true;
+            this.appFontLabel1.Location = new System.Drawing.Point(69, 129);
+            this.appFontLabel1.Name = "appFontLabel1";
+            this.appFontLabel1.Size = new System.Drawing.Size(121, 16);
+            this.appFontLabel1.TabIndex = 22;
+            this.appFontLabel1.Text = "Quel participant ?";
+            // 
             // UserBilan
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.lblVueGlobale);
             this.Controls.Add(this.lblGoBaaack);
-            this.Controls.Add(this.btnBilanGlobal);
             this.Controls.Add(this.lblEvent);
             this.Controls.Add(this.pnlRemboursement);
             this.Controls.Add(this.pnlDepense);
@@ -214,7 +198,6 @@
         private System.Windows.Forms.Panel pnlDepense;
         private System.Windows.Forms.Panel pnlRemboursement;
         private UI.AppFontLabel lblEvent;
-        private System.Windows.Forms.Button btnBilanGlobal;
         private UI.AppFontLabel lblVueGlobale;
         private UI.AppFontLabel lblGoBaaack;
     }
