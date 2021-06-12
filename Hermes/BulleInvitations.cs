@@ -90,22 +90,29 @@ namespace Hermes
                 chkEveryOne.AutoSize = true;
                 chkEveryOne.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Bold);
                 chkEveryOne.Top = 20;
-                chkEveryOne.Left = 20;
+                chkEveryOne.Left = 0;
                 chkEveryOne.CheckedChanged += new EventHandler(chkEveryOne_CheckedChanged);
                 pnlParticipant.Controls.Add(chkEveryOne);
 
 
                 int modulo = 2;
+
                 //Une checkBox pour chaque participant non encore invité
                 for (int i = 0; i < uninvitedParticipants.Count; i++)
                 {
                     CheckBox chk = new CheckBox();
-                    chk.Text = uninvitedParticipants[i].LastName + " " + uninvitedParticipants[i].FirstName;
+
+                    string fullname = uninvitedParticipants[i].LastName + " " + uninvitedParticipants[i].FirstName;
+
+                    if (fullname.Length > 30)
+                        fullname = fullname.Substring(0, 30) + "...";
+
+                    chk.Text = fullname;
                     chk.Tag = uninvitedParticipants[i].CodeParticipant;
                     chk.AutoSize = true;
                     chk.Font = new Font("Microsoft Sans Serif", 11.25F);
                     chk.Top = 40 + 20 * (i / modulo);
-                    chk.Left = 20 + 300 * (i % modulo);
+                    chk.Left = 0 + 300 * (i % modulo);
                     pnlParticipant.Controls.Add(chk);
                 }
             }
