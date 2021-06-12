@@ -164,6 +164,7 @@
     <Compile Include="DataRowCustom.Designer.cs">
       <DependentUpon>DataRowCustom.cs</DependentUpon>
     </Compile>
+    <Compile Include="PdfExporter.cs" />
     <Compile Include="ResumeEventBilan.cs">
       <SubType>UserControl</SubType>
     </Compile>
