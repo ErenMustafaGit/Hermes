@@ -53,7 +53,7 @@
             this.btnValider.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(147)))), ((int)(((byte)(248)))));
             this.btnValider.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnValider.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnValider.Location = new System.Drawing.Point(354, 324);
+            this.btnValider.Location = new System.Drawing.Point(375, 324);
             this.btnValider.Name = "btnValider";
             this.btnValider.Size = new System.Drawing.Size(269, 30);
             this.btnValider.TabIndex = 32;
@@ -68,7 +68,7 @@
             this.cboEvenements.FormattingEnabled = true;
             this.cboEvenements.Location = new System.Drawing.Point(402, 69);
             this.cboEvenements.Name = "cboEvenements";
-            this.cboEvenements.Size = new System.Drawing.Size(221, 28);
+            this.cboEvenements.Size = new System.Drawing.Size(242, 28);
             this.cboEvenements.TabIndex = 28;
             this.cboEvenements.SelectionChangeCommitted += new System.EventHandler(this.CboEvenements_SelectionChangeCommitted);
             // 
@@ -76,7 +76,7 @@
             // 
             this.pnlParticipant.Location = new System.Drawing.Point(66, 122);
             this.pnlParticipant.Name = "pnlParticipant";
-            this.pnlParticipant.Size = new System.Drawing.Size(557, 187);
+            this.pnlParticipant.Size = new System.Drawing.Size(578, 187);
             this.pnlParticipant.TabIndex = 33;
             // 
             // lblInvitations
