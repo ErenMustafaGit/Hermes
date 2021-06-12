@@ -63,6 +63,8 @@ namespace Hermes
             this.btnBilanGlobal.Text = "Solder l\'évènement";
             this.btnBilanGlobal.UseVisualStyleBackColor = false;
             this.btnBilanGlobal.Click += new System.EventHandler(this.BtnBilanGlobal_Click);
+            this.btnBilanGlobal.MouseEnter += new System.EventHandler(this.btnBilanGlobal_MouseEnter);
+            this.btnBilanGlobal.MouseLeave += new System.EventHandler(this.btnBilanGlobal_MouseLeave);
             // 
             // pnlBilanToutePersonnes
             // 
@@ -89,6 +91,8 @@ namespace Hermes
             this.exportPdf.Text = "PDF";
             this.exportPdf.UseVisualStyleBackColor = true;
             this.exportPdf.Click += new System.EventHandler(this.exportPdf_Click);
+            this.exportPdf.MouseEnter += new System.EventHandler(this.exportPdf_MouseEnter);
+            this.exportPdf.MouseLeave += new System.EventHandler(this.exportPdf_MouseLeave);
             // 
             // lblVueGlobale
             // 
