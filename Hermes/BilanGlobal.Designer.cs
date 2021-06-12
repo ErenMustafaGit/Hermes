@@ -32,9 +32,9 @@ namespace Hermes
             this.btnBilanGlobal = new System.Windows.Forms.Button();
             this.pnlBilanToutePersonnes = new System.Windows.Forms.Panel();
             this.pnlBilanCasParCas = new System.Windows.Forms.Panel();
+            this.exportPdf = new System.Windows.Forms.Button();
             this.lblVueGlobale = new Hermes.UI.AppFontLabel();
             this.lblGoBaaack = new Hermes.UI.AppFontLabel();
-            this.exportPdf = new System.Windows.Forms.Button();
             this.lblEvenement = new Hermes.UI.AppFontLabel();
             this.appFontLabel2 = new Hermes.UI.AppFontLabel();
             this.SuspendLayout();
@@ -56,7 +56,7 @@ namespace Hermes
             this.btnBilanGlobal.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnBilanGlobal.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F);
             this.btnBilanGlobal.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnBilanGlobal.Location = new System.Drawing.Point(726, 101);
+            this.btnBilanGlobal.Location = new System.Drawing.Point(735, 117);
             this.btnBilanGlobal.Name = "btnBilanGlobal";
             this.btnBilanGlobal.Size = new System.Drawing.Size(182, 28);
             this.btnBilanGlobal.TabIndex = 40;
@@ -77,6 +77,18 @@ namespace Hermes
             this.pnlBilanCasParCas.Name = "pnlBilanCasParCas";
             this.pnlBilanCasParCas.Size = new System.Drawing.Size(830, 220);
             this.pnlBilanCasParCas.TabIndex = 42;
+            // 
+            // exportPdf
+            // 
+            this.exportPdf.FlatAppearance.BorderSize = 0;
+            this.exportPdf.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.exportPdf.Location = new System.Drawing.Point(799, 63);
+            this.exportPdf.Name = "exportPdf";
+            this.exportPdf.Size = new System.Drawing.Size(46, 41);
+            this.exportPdf.TabIndex = 43;
+            this.exportPdf.Text = "PDF";
+            this.exportPdf.UseVisualStyleBackColor = true;
+            this.exportPdf.Click += new System.EventHandler(this.exportPdf_Click);
             // 
             // lblVueGlobale
             // 
@@ -109,18 +121,6 @@ namespace Hermes
             this.lblGoBaaack.MouseEnter += new System.EventHandler(this.lblGoBaaack_MouseEnter);
             this.lblGoBaaack.MouseLeave += new System.EventHandler(this.lblGoBaaack_MouseLeave);
             // 
-            // exportPdf
-            // 
-            this.exportPdf.FlatAppearance.BorderSize = 0;
-            this.exportPdf.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.exportPdf.Location = new System.Drawing.Point(726, 47);
-            this.exportPdf.Name = "exportPdf";
-            this.exportPdf.Size = new System.Drawing.Size(48, 48);
-            this.exportPdf.TabIndex = 43;
-            this.exportPdf.Text = "PDF";
-            this.exportPdf.UseVisualStyleBackColor = true;
-            this.exportPdf.Click += new System.EventHandler(this.exportPdf_Click);
-            // 
             // lblEvenement
             // 
             this.lblEvenement.AppFont = Hermes.AppFont.HelveticaNeue;
@@ -128,7 +128,7 @@ namespace Hermes
             this.lblEvenement.AutoSize = true;
             this.lblEvenement.Location = new System.Drawing.Point(418, 69);
             this.lblEvenement.Name = "lblEvenement";
-            this.lblEvenement.Size = new System.Drawing.Size(199, 19);
+            this.lblEvenement.Size = new System.Drawing.Size(197, 19);
             this.lblEvenement.TabIndex = 8;
             this.lblEvenement.Text = "Dans quel évènements ? *";
             // 

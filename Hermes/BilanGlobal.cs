@@ -71,6 +71,11 @@ namespace Hermes
             if (currentEvent.Completed)
             {
                 btnBilanGlobal.Visible = false;
+                exportPdf.Location = new Point(794,95);
+            }
+            else
+            {
+                exportPdf.Location = new Point(799, 63);
             }
         }
 
