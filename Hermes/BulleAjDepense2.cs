@@ -33,6 +33,12 @@ namespace Hermes
             this.pnlPrincipal = pnlPrincipal;
             this.pnlBulleEmplacement = pnlBulleEmplacement;
             InitializeComponent();
+
+            pnlBeneficiaire.HorizontalScroll.Enabled = false;
+            pnlBeneficiaire.HorizontalScroll.Visible = false;
+            pnlBeneficiaire.HorizontalScroll.Maximum = 0;
+            pnlBeneficiaire.AutoScroll = true;
+
         }
 
         private void BulleAjDepense2_Load(object sender, EventArgs e)

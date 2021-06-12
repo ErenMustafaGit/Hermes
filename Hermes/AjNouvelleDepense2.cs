@@ -28,6 +28,12 @@ namespace Hermes
             this.Description = description;
             this.CodePayeur = codePayeur;
             this.Amount = amount;
+
+            pnlBeneficiaire.HorizontalScroll.Enabled = false;
+            pnlBeneficiaire.HorizontalScroll.Visible = false;
+            pnlBeneficiaire.HorizontalScroll.Maximum = 0;
+            pnlBeneficiaire.AutoScroll = true;
+
         }
 
         public Panel setPanel
