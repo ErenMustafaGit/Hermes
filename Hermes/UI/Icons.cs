@@ -24,7 +24,17 @@ namespace Hermes.UI
 
         public const string EMOTE_THUMBS_UP = "\uE800";
         public const string EMOTE_SUNGLASSES = "\uE805";
+        public const string EMOTE_SURPRISED = "\uE819";
+        public const string EMOTE_SAD = "\uE80C";
 
+        public const string CIRCLED_EXCLAMATION_MARK = "\uE81B";
+        public const string CIRCLED_QUESTION_MARK = "\uE822";
+        public const string CIRCLED_TICK = "\uE81D";
+        public const string CIRCLED_CROSS = "\uE820";
+        public const string CIRCLED_PLUS = "\uE821";
+        public const string CIRCLED_MINUS = "\uE824";
+        public const string CIRCLED_INFORMATION = "\uE823";
+        
         public const string CLOSE = "\uE814";
         public const string MINIMIZE = "\uE811";
 
