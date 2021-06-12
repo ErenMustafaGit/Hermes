@@ -102,7 +102,7 @@ namespace Hermes
 
         private void LblExit_MouseHover(object sender, EventArgs e)
         {
-            this.Cursor = Cursors.Hand;
+            //
         }
 
         private void LblExit_MouseLeave(object sender, EventArgs e)
@@ -117,12 +117,22 @@ namespace Hermes
 
         private void LblMinimise_MouseHover(object sender, EventArgs e)
         {
-            this.Cursor = Cursors.Hand;
+            //
         }
 
         private void LblMinimise_MouseLeave(object sender, EventArgs e)
         {
             this.Cursor = Cursors.Default;
+        }
+
+        private void lblExit_MouseEnter(object sender, EventArgs e)
+        {
+            this.Cursor = Cursors.Hand;
+        }
+
+        private void lblMinimise_MouseEnter(object sender, EventArgs e)
+        {
+            this.Cursor = Cursors.Hand;
         }
     }
 }

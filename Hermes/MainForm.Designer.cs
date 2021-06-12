@@ -70,8 +70,8 @@ namespace Hermes
             this.lblMinimise.TabIndex = 3;
             this.lblMinimise.Text = "_";
             this.lblMinimise.Click += new System.EventHandler(this.LblMinimise_Click);
+            this.lblMinimise.MouseEnter += new System.EventHandler(this.lblMinimise_MouseEnter);
             this.lblMinimise.MouseLeave += new System.EventHandler(this.LblMinimise_MouseLeave);
-            this.lblMinimise.MouseHover += new System.EventHandler(this.LblMinimise_MouseHover);
             // 
             // lblExit
             // 
@@ -86,8 +86,8 @@ namespace Hermes
             this.lblExit.Text = "X";
             this.lblExit.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.lblExit.Click += new System.EventHandler(this.LblExit_Click);
+            this.lblExit.MouseEnter += new System.EventHandler(this.lblExit_MouseEnter);
             this.lblExit.MouseLeave += new System.EventHandler(this.LblExit_MouseLeave);
-            this.lblExit.MouseHover += new System.EventHandler(this.LblExit_MouseHover);
             // 
             // sideBarUserControls1
             // 
