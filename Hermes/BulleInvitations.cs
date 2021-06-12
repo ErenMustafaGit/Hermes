@@ -13,7 +13,7 @@ namespace Hermes
 {
     public partial class BulleInvitations : UserControl
     {
-        private static Panel ecran;
+        private  Panel ecran;
         private static Panel pnlBulle;
 
         //Event choisi avant de cliquer dans inviter
@@ -180,6 +180,10 @@ namespace Hermes
                 });
 
             pnlBulle.Controls.Clear();
+            Participants participants = new Participants();
+            participants.setPanel = ecran;
+            this.ecran.Controls.Clear();
+            this.ecran.Controls.Add(participants);
             //Ajout d'une pop up pour confirmer l'invitation 
             pnlBulle.Visible = false;
         }
