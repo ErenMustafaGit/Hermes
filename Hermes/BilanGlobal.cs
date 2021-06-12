@@ -140,8 +140,6 @@ namespace Hermes
             }
 
             PdfExporter.ExportEventSummaries(path, this.currentEvent);
-
-            MessageBox.Show("PDF exporté"); // TODO: use toast
             return true;
         }
 
@@ -159,10 +157,11 @@ namespace Hermes
 
             if (dialogResult == DialogResult.Yes)
             {
-
                 currentEvent.CloseEvent();
 
-                MessageBox.Show("Evenement bien soldé ! "); // TODO: use toast
+                AppToast.CreateSuccessToast("L'évènement a été soldé !")
+                    .SetDurationInSeconds(15)
+                    .ShowToast();
 
                 //Refresh
                 this.ecran.Controls.Clear();
@@ -174,7 +173,12 @@ namespace Hermes
 
         private void exportPdf_Click(object sender, EventArgs e)
         {
-            ExportToPdf();
+            if (ExportToPdf())
+            {
+                AppToast.CreateSuccessToast("Les fichiers PDF ont été exportés !")
+                    .SetDurationInSeconds(15)
+                    .ShowToast();
+            }
         }
 
         private void lblGoBaaack_Click(object sender, EventArgs e)
