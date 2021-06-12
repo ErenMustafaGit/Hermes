@@ -161,6 +161,8 @@ namespace Hermes
             lblIconeEvenement.ForeColor = WHITE;
             lblIconeParticipant.ForeColor = WHITE;
             lblParticipants.ForeColor = WHITE;
+            lblIconeBilan.ForeColor = WHITE;
+            lblBilan.ForeColor = WHITE;
 
             //Aparaition du US concerné
             ViewExpenditures expendituresView = new ViewExpenditures();
