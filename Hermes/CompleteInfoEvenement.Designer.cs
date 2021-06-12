@@ -159,7 +159,7 @@
             this.appFontLabel1.AutoSize = true;
             this.appFontLabel1.Location = new System.Drawing.Point(441, 597);
             this.appFontLabel1.Name = "appFontLabel1";
-            this.appFontLabel1.Size = new System.Drawing.Size(31, 19);
+            this.appFontLabel1.Size = new System.Drawing.Size(32, 19);
             this.appFontLabel1.TabIndex = 16;
             this.appFontLabel1.Text = "sur";
             // 
@@ -207,11 +207,12 @@
             this.lblTrueFalse.AppFontHeight = 37F;
             this.lblTrueFalse.AutoSize = true;
             this.lblTrueFalse.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(49)))), ((int)(((byte)(49)))));
-            this.lblTrueFalse.Location = new System.Drawing.Point(289, 460);
+            this.lblTrueFalse.Location = new System.Drawing.Point(94, 460);
             this.lblTrueFalse.Name = "lblTrueFalse";
             this.lblTrueFalse.Size = new System.Drawing.Size(43, 51);
             this.lblTrueFalse.TabIndex = 11;
             this.lblTrueFalse.Text = "x";
+            this.lblTrueFalse.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
             // lblSoldé
             // 
@@ -219,11 +220,11 @@
             this.lblSoldé.AppFontHeight = 37F;
             this.lblSoldé.AutoSize = true;
             this.lblSoldé.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(49)))), ((int)(((byte)(49)))));
-            this.lblSoldé.Location = new System.Drawing.Point(94, 454);
+            this.lblSoldé.Location = new System.Drawing.Point(168, 454);
             this.lblSoldé.Name = "lblSoldé";
-            this.lblSoldé.Size = new System.Drawing.Size(189, 62);
+            this.lblSoldé.Size = new System.Drawing.Size(159, 62);
             this.lblSoldé.TabIndex = 5;
-            this.lblSoldé.Text = "Soldé :";
+            this.lblSoldé.Text = "Soldé";
             // 
             // lblDateEnd
             // 
@@ -231,11 +232,11 @@
             this.lblDateEnd.AppFontHeight = 18F;
             this.lblDateEnd.AutoSize = true;
             this.lblDateEnd.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(49)))), ((int)(((byte)(49)))));
-            this.lblDateEnd.Location = new System.Drawing.Point(212, 377);
+            this.lblDateEnd.Location = new System.Drawing.Point(208, 376);
             this.lblDateEnd.Name = "lblDateEnd";
-            this.lblDateEnd.Size = new System.Drawing.Size(44, 30);
+            this.lblDateEnd.Size = new System.Drawing.Size(222, 30);
             this.lblDateEnd.TabIndex = 10;
-            this.lblDateEnd.Text = "Du";
+            this.lblDateEnd.Text = "31 décembre 2020";
             // 
             // lblDateEvenementAu
             // 
@@ -245,7 +246,7 @@
             this.lblDateEvenementAu.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(49)))), ((int)(((byte)(49)))));
             this.lblDateEvenementAu.Location = new System.Drawing.Point(174, 377);
             this.lblDateEvenementAu.Name = "lblDateEvenementAu";
-            this.lblDateEvenementAu.Size = new System.Drawing.Size(52, 28);
+            this.lblDateEvenementAu.Size = new System.Drawing.Size(53, 28);
             this.lblDateEvenementAu.TabIndex = 9;
             this.lblDateEvenementAu.Text = "au :";
             // 
@@ -255,7 +256,7 @@
             this.lblDateStart.AppFontHeight = 18F;
             this.lblDateStart.AutoSize = true;
             this.lblDateStart.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(49)))), ((int)(((byte)(49)))));
-            this.lblDateStart.Location = new System.Drawing.Point(174, 349);
+            this.lblDateStart.Location = new System.Drawing.Point(174, 350);
             this.lblDateStart.Name = "lblDateStart";
             this.lblDateStart.Size = new System.Drawing.Size(44, 30);
             this.lblDateStart.TabIndex = 8;
@@ -283,7 +284,7 @@
             this.lblVueGlobale.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(147)))), ((int)(((byte)(248)))));
             this.lblVueGlobale.Location = new System.Drawing.Point(49, 597);
             this.lblVueGlobale.Name = "lblVueGlobale";
-            this.lblVueGlobale.Size = new System.Drawing.Size(69, 14);
+            this.lblVueGlobale.Size = new System.Drawing.Size(72, 14);
             this.lblVueGlobale.TabIndex = 22;
             this.lblVueGlobale.Text = "Vue globale";
             this.lblVueGlobale.Click += new System.EventHandler(this.lblGoBaaack_Click);

@@ -51,7 +51,7 @@
             this.btnMoreInfo.Name = "btnMoreInfo";
             this.btnMoreInfo.Size = new System.Drawing.Size(125, 28);
             this.btnMoreInfo.TabIndex = 13;
-            this.btnMoreInfo.Text = "Bilan";
+            this.btnMoreInfo.Text = "Bilan de l\'évènement";
             this.btnMoreInfo.UseVisualStyleBackColor = false;
             this.btnMoreInfo.Click += new System.EventHandler(this.BtnMoreInfo_Click);
             // 
@@ -111,7 +111,7 @@
             this.lblDate.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(249)))), ((int)(((byte)(249)))));
             this.lblDate.Location = new System.Drawing.Point(58, 117);
             this.lblDate.Name = "lblDate";
-            this.lblDate.Size = new System.Drawing.Size(75, 16);
+            this.lblDate.Size = new System.Drawing.Size(76, 16);
             this.lblDate.TabIndex = 5;
             this.lblDate.Text = "BeginDate";
             // 
@@ -123,7 +123,7 @@
             this.lblCreator.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(249)))), ((int)(((byte)(249)))));
             this.lblCreator.Location = new System.Drawing.Point(58, 147);
             this.lblCreator.Name = "lblCreator";
-            this.lblCreator.Size = new System.Drawing.Size(64, 16);
+            this.lblCreator.Size = new System.Drawing.Size(65, 16);
             this.lblCreator.TabIndex = 6;
             this.lblCreator.Text = "Createur";
             // 
@@ -135,7 +135,7 @@
             this.lblNbPart.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(249)))), ((int)(((byte)(249)))));
             this.lblNbPart.Location = new System.Drawing.Point(58, 89);
             this.lblNbPart.Name = "lblNbPart";
-            this.lblNbPart.Size = new System.Drawing.Size(150, 16);
+            this.lblNbPart.Size = new System.Drawing.Size(156, 16);
             this.lblNbPart.TabIndex = 7;
             this.lblNbPart.Text = "Nombre de participant";
             // 
@@ -147,7 +147,7 @@
             this.lblDescription.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(249)))), ((int)(((byte)(249)))));
             this.lblDescription.Location = new System.Drawing.Point(58, 60);
             this.lblDescription.Name = "lblDescription";
-            this.lblDescription.Size = new System.Drawing.Size(80, 16);
+            this.lblDescription.Size = new System.Drawing.Size(82, 16);
             this.lblDescription.TabIndex = 8;
             this.lblDescription.Text = "Description";
             // 

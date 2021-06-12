@@ -39,7 +39,7 @@ namespace Hermes
             DataRow rowTous = evenementTable.NewRow();
             rowTous["Name"] = "Tous";
             rowTous["Id"] = 0;
-            evenementTable.Rows.Add(rowTous);
+            evenementTable.Rows.InsertAt(rowTous, 0);
 
             cboEvenements.DataSource = evenementTable;
             cboEvenements.DisplayMember = "Name";
@@ -63,7 +63,7 @@ namespace Hermes
             }
 
             cboEvenements.SelectedIndexChanged += new EventHandler(CboEvenements_SelectedIndexChanged);
-            cboEvenements.SelectedIndex = evenementTable.Rows.Count- 1;
+            cboEvenements.SelectedIndex = 0;
         }
         public void CboEvenements_SelectedIndexChanged(object sender, EventArgs e)
         {

@@ -55,7 +55,7 @@
             this.lblAdd.Size = new System.Drawing.Size(58, 55);
             this.lblAdd.TabIndex = 0;
             this.lblAdd.Text = "O";
-            this.lblAdd.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblAdd.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.lblAdd.MouseClick += new System.Windows.Forms.MouseEventHandler(this.LblAdd_MouseClick);
             this.lblAdd.MouseEnter += new System.EventHandler(this.lblAdd_MouseEnter);
             this.lblAdd.MouseLeave += new System.EventHandler(this.LblAdd_MouseLeave);

@@ -132,9 +132,9 @@ namespace Hermes
             this.lblEvenement.AutoSize = true;
             this.lblEvenement.Location = new System.Drawing.Point(418, 69);
             this.lblEvenement.Name = "lblEvenement";
-            this.lblEvenement.Size = new System.Drawing.Size(199, 19);
+            this.lblEvenement.Size = new System.Drawing.Size(178, 19);
             this.lblEvenement.TabIndex = 8;
-            this.lblEvenement.Text = "Dans quel évènements ? *";
+            this.lblEvenement.Text = "Pour quel évènement ?";
             // 
             // appFontLabel2
             // 

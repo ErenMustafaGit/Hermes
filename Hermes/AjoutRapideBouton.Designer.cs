@@ -89,9 +89,9 @@
             this.lblQuelEvenement.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(49)))), ((int)(((byte)(49)))));
             this.lblQuelEvenement.Location = new System.Drawing.Point(77, 214);
             this.lblQuelEvenement.Name = "lblQuelEvenement";
-            this.lblQuelEvenement.Size = new System.Drawing.Size(173, 17);
+            this.lblQuelEvenement.Size = new System.Drawing.Size(167, 18);
             this.lblQuelEvenement.TabIndex = 4;
-            this.lblQuelEvenement.Text = "Dans quel évènements ?";
+            this.lblQuelEvenement.Text = "Pour quel évènement ?";
             // 
             // AjoutRapideBouton
             // 
