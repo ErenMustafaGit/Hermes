@@ -97,5 +97,15 @@ namespace Hermes
             foreach (AppFont f in fontDataPairs.Keys)
                 GetFontFamily(f);
         }
+
+        /// <summary>
+        /// Returns the font program data associated with the given enumeration value.
+        /// </summary>
+        /// <param name="font">The requested font family.</param>
+        /// <returns>The program data for the requested font.</returns>
+        public static byte[] GetFontData(AppFont font)
+        {
+            return fontDataPairs[font];
+        }
     }
 }

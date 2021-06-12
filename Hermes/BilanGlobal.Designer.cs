@@ -1,4 +1,4 @@
-﻿namespace Hermes
+namespace Hermes
 {
     partial class BilanGlobal
     {
@@ -34,6 +34,7 @@
             this.pnlBilanCasParCas = new System.Windows.Forms.Panel();
             this.lblVueGlobale = new Hermes.UI.AppFontLabel();
             this.lblGoBaaack = new Hermes.UI.AppFontLabel();
+            this.exportPdf = new System.Windows.Forms.Button();
             this.lblEvenement = new Hermes.UI.AppFontLabel();
             this.appFontLabel2 = new Hermes.UI.AppFontLabel();
             this.SuspendLayout();
@@ -108,6 +109,18 @@
             this.lblGoBaaack.MouseEnter += new System.EventHandler(this.lblGoBaaack_MouseEnter);
             this.lblGoBaaack.MouseLeave += new System.EventHandler(this.lblGoBaaack_MouseLeave);
             // 
+            // exportPdf
+            // 
+            this.exportPdf.FlatAppearance.BorderSize = 0;
+            this.exportPdf.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.exportPdf.Location = new System.Drawing.Point(726, 47);
+            this.exportPdf.Name = "exportPdf";
+            this.exportPdf.Size = new System.Drawing.Size(48, 48);
+            this.exportPdf.TabIndex = 43;
+            this.exportPdf.Text = "PDF";
+            this.exportPdf.UseVisualStyleBackColor = true;
+            this.exportPdf.Click += new System.EventHandler(this.exportPdf_Click);
+            // 
             // lblEvenement
             // 
             this.lblEvenement.AppFont = Hermes.AppFont.HelveticaNeue;
@@ -115,7 +128,7 @@
             this.lblEvenement.AutoSize = true;
             this.lblEvenement.Location = new System.Drawing.Point(418, 69);
             this.lblEvenement.Name = "lblEvenement";
-            this.lblEvenement.Size = new System.Drawing.Size(197, 19);
+            this.lblEvenement.Size = new System.Drawing.Size(199, 19);
             this.lblEvenement.TabIndex = 8;
             this.lblEvenement.Text = "Dans quel évènements ? *";
             // 
@@ -136,6 +149,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.lblVueGlobale);
             this.Controls.Add(this.lblGoBaaack);
+            this.Controls.Add(this.exportPdf);
             this.Controls.Add(this.pnlBilanCasParCas);
             this.Controls.Add(this.pnlBilanToutePersonnes);
             this.Controls.Add(this.btnBilanGlobal);
@@ -160,5 +174,6 @@
         private System.Windows.Forms.Panel pnlBilanCasParCas;
         private UI.AppFontLabel lblVueGlobale;
         private UI.AppFontLabel lblGoBaaack;
+        private System.Windows.Forms.Button exportPdf;
     }
 }
