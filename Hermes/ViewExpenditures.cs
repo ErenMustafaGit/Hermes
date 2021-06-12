@@ -126,7 +126,7 @@ namespace Hermes
             }
             else
             {
-                MessageBox.Show("Pas de dépense dans cet évènement - POPUP A AJOUTER");
+                MessageBox.Show("Pas de dépense dans cet évènement - POPUP A AJOUTER"); // TODO 
                 lblExpenditureTitle.Visible = false;
                 pnlDetailExpenditure.Visible = false;
             }
