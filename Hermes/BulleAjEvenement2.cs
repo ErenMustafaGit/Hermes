@@ -169,7 +169,9 @@ namespace Hermes
             result = MessageBox.Show(message, "",buttons);
             if (result == System.Windows.Forms.DialogResult.Yes)
             {
-                annuler.DynamicInvoke();
+                this.ecran.Controls.Clear();
+                this.ecran.Visible = false;
+                //annuler.DynamicInvoke();
             }
 
         }

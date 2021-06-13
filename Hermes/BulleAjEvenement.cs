@@ -89,7 +89,9 @@ namespace Hermes
         //btnAnnuler_Click
         private void Button1_Click(object sender, EventArgs e)
         {
-            annuler.DynamicInvoke();
+            this.ecran.Controls.Clear();
+            this.ecran.Visible = false;
+            //annuler.DynamicInvoke();
         }
 
         private void BtnValider_Click(object sender, EventArgs e)
