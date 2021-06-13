@@ -278,11 +278,11 @@
       <DependentUpon>Fonts.resx</DependentUpon>
     </Compile>
     <Compile Include="UI\Icons.cs" />
-    <Compile Include="SideBarUserControls.cs">
+    <Compile Include="UI\SidebarControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="SideBarUserControls.Designer.cs">
-      <DependentUpon>SideBarUserControls.cs</DependentUpon>
+    <Compile Include="UI\SidebarControl.Designer.cs">
+      <DependentUpon>SidebarControl.cs</DependentUpon>
     </Compile>
     <Compile Include="UserBilanCasParCas.cs">
       <SubType>UserControl</SubType>
@@ -397,8 +397,8 @@
     <EmbeddedResource Include="ResumePartyEvent.resx">
       <DependentUpon>ResumePartyEvent.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="SideBarUserControls.resx">
-      <DependentUpon>SideBarUserControls.cs</DependentUpon>
+    <EmbeddedResource Include="UI\SidebarControl.resx">
+      <DependentUpon>SidebarControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\AppToast.resx">
       <DependentUpon>AppToast.cs</DependentUpon>

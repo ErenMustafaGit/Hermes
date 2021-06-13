@@ -33,7 +33,7 @@ namespace Hermes
             this.pnlTitleBar = new System.Windows.Forms.Panel();
             this.lblMinimise = new Hermes.UI.AppFontLabel();
             this.lblExit = new Hermes.UI.AppFontLabel();
-            this.sideBarUserControls1 = new Hermes.SideBarUserControls();
+            this.sideBarUserControls1 = new Hermes.UI.SidebarControl();
             this.pnlTitleBar.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -43,7 +43,6 @@ namespace Hermes
             this.pnlEcran.Name = "pnlEcran";
             this.pnlEcran.Size = new System.Drawing.Size(965, 640);
             this.pnlEcran.TabIndex = 3;
-            this.pnlEcran.Paint += new System.Windows.Forms.PaintEventHandler(this.PnlEcran_Paint);
             // 
             // pnlTitleBar
             // 
@@ -68,8 +67,8 @@ namespace Hermes
             this.lblMinimise.TabIndex = 3;
             this.lblMinimise.Text = "_";
             this.lblMinimise.Click += new System.EventHandler(this.LblMinimise_Click);
-            this.lblMinimise.MouseEnter += new System.EventHandler(this.lblMinimise_MouseEnter);
-            this.lblMinimise.MouseLeave += new System.EventHandler(this.LblMinimise_MouseLeave);
+            this.lblMinimise.MouseEnter += new System.EventHandler(this.Clickable_MouseEnter);
+            this.lblMinimise.MouseLeave += new System.EventHandler(this.Clickable_MouseLeave);
             // 
             // lblExit
             // 
@@ -83,8 +82,8 @@ namespace Hermes
             this.lblExit.Text = "X";
             this.lblExit.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.lblExit.Click += new System.EventHandler(this.LblExit_Click);
-            this.lblExit.MouseEnter += new System.EventHandler(this.lblExit_MouseEnter);
-            this.lblExit.MouseLeave += new System.EventHandler(this.LblExit_MouseLeave);
+            this.lblExit.MouseEnter += new System.EventHandler(this.Clickable_MouseEnter);
+            this.lblExit.MouseLeave += new System.EventHandler(this.Clickable_MouseLeave);
             // 
             // sideBarUserControls1
             // 
@@ -94,7 +93,6 @@ namespace Hermes
             this.sideBarUserControls1.Name = "sideBarUserControls1";
             this.sideBarUserControls1.Size = new System.Drawing.Size(116, 640);
             this.sideBarUserControls1.TabIndex = 4;
-            this.sideBarUserControls1.Load += new System.EventHandler(this.SideBarUserControls1_Load);
             // 
             // MainForm
             // 
@@ -121,7 +119,7 @@ namespace Hermes
 
         #endregion
         private System.Windows.Forms.Panel pnlEcran;
-        private SideBarUserControls sideBarUserControls1;
+        private UI.SidebarControl sideBarUserControls1;
         private System.Windows.Forms.Panel pnlTitleBar;
         private UI.AppFontLabel lblExit;
         private UI.AppFontLabel lblMinimise;

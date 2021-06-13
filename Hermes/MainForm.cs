@@ -30,8 +30,6 @@ namespace Hermes
 
         public static MainForm GetSingleton() => Singleton;
 
-       
-
         private void MainForm_Load(object sender, EventArgs e)
         {
             lblExit.Text = Icons.CLOSE;
@@ -43,9 +41,6 @@ namespace Hermes
             a1.setPanel = pnlEcran;
             this.pnlEcran.Controls.Add(a1);
         }
-
-        public delegate void MouseMoveFenetre();
-        public delegate void MouseDownFenetre();
 
         // L'évenement MouseMove et MouseDown sont utilisé pour 
         // permette de faire la translation de la fênetre
@@ -62,17 +57,6 @@ namespace Hermes
         {
             movementPoint = new Point(e.X, e.Y);
         }
-
-
-        private void SideBarUserControls1_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        
-
-
-
 
         private void RelocateToasts()
         {
@@ -125,44 +109,12 @@ namespace Hermes
 
         }
 
-        private void LblExit_MouseHover(object sender, EventArgs e)
-        {
-            //
-        }
-
-        private void LblExit_MouseLeave(object sender, EventArgs e)
-        {
-            this.Cursor = Cursors.Default;
-        }
+        private void Clickable_MouseEnter(object sender, EventArgs e) => this.Cursor = Cursors.Hand;
+        private void Clickable_MouseLeave(object sender, EventArgs e) => this.Cursor = Cursors.Default;
 
         private void LblMinimise_Click(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Minimized;
-        }
-
-        private void LblMinimise_MouseHover(object sender, EventArgs e)
-        {
-            //
-        }
-
-        private void LblMinimise_MouseLeave(object sender, EventArgs e)
-        {
-            this.Cursor = Cursors.Default;
-        }
-
-        private void lblExit_MouseEnter(object sender, EventArgs e)
-        {
-            this.Cursor = Cursors.Hand;
-        }
-
-        private void lblMinimise_MouseEnter(object sender, EventArgs e)
-        {
-            this.Cursor = Cursors.Hand;
-        }
-
-        private void PnlEcran_Paint(object sender, PaintEventArgs e)
-        {
-
         }
     }
 }

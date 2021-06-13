@@ -1,6 +1,6 @@
-﻿namespace Hermes
+﻿namespace Hermes.UI
 {
-    partial class SideBarUserControls
+    partial class SidebarControl
     {
         /// <summary> 
         /// Variable nécessaire au concepteur.
@@ -46,12 +46,12 @@
             this.lblIconeBilan.AppFontHeight = 20F;
             this.lblIconeBilan.AutoSize = true;
             this.lblIconeBilan.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(249)))), ((int)(((byte)(249)))));
-            this.lblIconeBilan.Location = new System.Drawing.Point(42, 520);
+            this.lblIconeBilan.Location = new System.Drawing.Point(40, 514);
             this.lblIconeBilan.Name = "lblIconeBilan";
             this.lblIconeBilan.Size = new System.Drawing.Size(29, 27);
             this.lblIconeBilan.TabIndex = 17;
             this.lblIconeBilan.Text = "O";
-            this.lblIconeBilan.Click += new System.EventHandler(this.lblIconeBilan_Click);
+            this.lblIconeBilan.Click += new System.EventHandler(this.MenuItem_Click);
             // 
             // lblIconeDepense
             // 
@@ -59,12 +59,12 @@
             this.lblIconeDepense.AppFontHeight = 20F;
             this.lblIconeDepense.AutoSize = true;
             this.lblIconeDepense.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(249)))), ((int)(((byte)(249)))));
-            this.lblIconeDepense.Location = new System.Drawing.Point(42, 417);
+            this.lblIconeDepense.Location = new System.Drawing.Point(40, 411);
             this.lblIconeDepense.Name = "lblIconeDepense";
             this.lblIconeDepense.Size = new System.Drawing.Size(29, 27);
             this.lblIconeDepense.TabIndex = 15;
             this.lblIconeDepense.Text = "O";
-            this.lblIconeDepense.Click += new System.EventHandler(this.LblIconeDepense_Click);
+            this.lblIconeDepense.Click += new System.EventHandler(this.MenuItem_Click);
             // 
             // lblIconeAccueil
             // 
@@ -72,12 +72,12 @@
             this.lblIconeAccueil.AppFontHeight = 20F;
             this.lblIconeAccueil.AutoSize = true;
             this.lblIconeAccueil.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(249)))), ((int)(((byte)(249)))));
-            this.lblIconeAccueil.Location = new System.Drawing.Point(42, 119);
+            this.lblIconeAccueil.Location = new System.Drawing.Point(40, 113);
             this.lblIconeAccueil.Name = "lblIconeAccueil";
             this.lblIconeAccueil.Size = new System.Drawing.Size(29, 27);
             this.lblIconeAccueil.TabIndex = 11;
             this.lblIconeAccueil.Text = "O";
-            this.lblIconeAccueil.Click += new System.EventHandler(this.LblIconeAccueil_Click);
+            this.lblIconeAccueil.Click += new System.EventHandler(this.MenuItem_Click);
             // 
             // lblIconeParticipant
             // 
@@ -85,12 +85,12 @@
             this.lblIconeParticipant.AppFontHeight = 20F;
             this.lblIconeParticipant.AutoSize = true;
             this.lblIconeParticipant.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(249)))), ((int)(((byte)(249)))));
-            this.lblIconeParticipant.Location = new System.Drawing.Point(42, 318);
+            this.lblIconeParticipant.Location = new System.Drawing.Point(40, 312);
             this.lblIconeParticipant.Name = "lblIconeParticipant";
             this.lblIconeParticipant.Size = new System.Drawing.Size(29, 27);
             this.lblIconeParticipant.TabIndex = 13;
             this.lblIconeParticipant.Text = "O";
-            this.lblIconeParticipant.Click += new System.EventHandler(this.LblIconeParticipant_Click);
+            this.lblIconeParticipant.Click += new System.EventHandler(this.MenuItem_Click);
             // 
             // lblAccueil
             // 
@@ -98,12 +98,12 @@
             this.lblAccueil.AppFontHeight = 12F;
             this.lblAccueil.AutoSize = true;
             this.lblAccueil.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(249)))), ((int)(((byte)(249)))));
-            this.lblAccueil.Location = new System.Drawing.Point(116, 126);
+            this.lblAccueil.Location = new System.Drawing.Point(116, 120);
             this.lblAccueil.Name = "lblAccueil";
-            this.lblAccueil.Size = new System.Drawing.Size(63, 19);
+            this.lblAccueil.Size = new System.Drawing.Size(64, 19);
             this.lblAccueil.TabIndex = 6;
             this.lblAccueil.Text = "Accueil";
-            this.lblAccueil.Click += new System.EventHandler(this.LblIconeAccueil_Click);
+            this.lblAccueil.Click += new System.EventHandler(this.MenuItem_Click);
             // 
             // lblIconeEvenement
             // 
@@ -111,12 +111,12 @@
             this.lblIconeEvenement.AppFontHeight = 20F;
             this.lblIconeEvenement.AutoSize = true;
             this.lblIconeEvenement.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(249)))), ((int)(((byte)(249)))));
-            this.lblIconeEvenement.Location = new System.Drawing.Point(42, 216);
+            this.lblIconeEvenement.Location = new System.Drawing.Point(40, 210);
             this.lblIconeEvenement.Name = "lblIconeEvenement";
             this.lblIconeEvenement.Size = new System.Drawing.Size(29, 27);
             this.lblIconeEvenement.TabIndex = 12;
             this.lblIconeEvenement.Text = "O";
-            this.lblIconeEvenement.Click += new System.EventHandler(this.LblIconeEvenement_Click);
+            this.lblIconeEvenement.Click += new System.EventHandler(this.MenuItem_Click);
             // 
             // lblEvenements
             // 
@@ -124,12 +124,12 @@
             this.lblEvenements.AppFontHeight = 12F;
             this.lblEvenements.AutoSize = true;
             this.lblEvenements.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(249)))), ((int)(((byte)(249)))));
-            this.lblEvenements.Location = new System.Drawing.Point(116, 223);
+            this.lblEvenements.Location = new System.Drawing.Point(116, 217);
             this.lblEvenements.Name = "lblEvenements";
             this.lblEvenements.Size = new System.Drawing.Size(99, 19);
             this.lblEvenements.TabIndex = 7;
             this.lblEvenements.Text = "Évènements";
-            this.lblEvenements.Click += new System.EventHandler(this.LblIconeEvenement_Click);
+            this.lblEvenements.Click += new System.EventHandler(this.MenuItem_Click);
             // 
             // lblParticipants
             // 
@@ -137,12 +137,12 @@
             this.lblParticipants.AppFontHeight = 12F;
             this.lblParticipants.AutoSize = true;
             this.lblParticipants.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(249)))), ((int)(((byte)(249)))));
-            this.lblParticipants.Location = new System.Drawing.Point(116, 325);
+            this.lblParticipants.Location = new System.Drawing.Point(116, 319);
             this.lblParticipants.Name = "lblParticipants";
-            this.lblParticipants.Size = new System.Drawing.Size(95, 19);
+            this.lblParticipants.Size = new System.Drawing.Size(98, 19);
             this.lblParticipants.TabIndex = 8;
             this.lblParticipants.Text = "Participants";
-            this.lblParticipants.Click += new System.EventHandler(this.LblIconeParticipant_Click);
+            this.lblParticipants.Click += new System.EventHandler(this.MenuItem_Click);
             // 
             // lblBilan
             // 
@@ -150,12 +150,12 @@
             this.lblBilan.AppFontHeight = 12F;
             this.lblBilan.AutoSize = true;
             this.lblBilan.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(249)))), ((int)(((byte)(249)))));
-            this.lblBilan.Location = new System.Drawing.Point(116, 528);
+            this.lblBilan.Location = new System.Drawing.Point(116, 522);
             this.lblBilan.Name = "lblBilan";
             this.lblBilan.Size = new System.Drawing.Size(46, 19);
             this.lblBilan.TabIndex = 10;
             this.lblBilan.Text = "Bilan";
-            this.lblBilan.Click += new System.EventHandler(this.lblIconeBilan_Click);
+            this.lblBilan.Click += new System.EventHandler(this.MenuItem_Click);
             // 
             // lblDepenses
             // 
@@ -163,14 +163,14 @@
             this.lblDepenses.AppFontHeight = 12F;
             this.lblDepenses.AutoSize = true;
             this.lblDepenses.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(249)))), ((int)(((byte)(249)))));
-            this.lblDepenses.Location = new System.Drawing.Point(116, 424);
+            this.lblDepenses.Location = new System.Drawing.Point(116, 419);
             this.lblDepenses.Name = "lblDepenses";
-            this.lblDepenses.Size = new System.Drawing.Size(81, 19);
+            this.lblDepenses.Size = new System.Drawing.Size(83, 19);
             this.lblDepenses.TabIndex = 9;
             this.lblDepenses.Text = "Dépenses";
-            this.lblDepenses.Click += new System.EventHandler(this.LblIconeDepense_Click);
+            this.lblDepenses.Click += new System.EventHandler(this.MenuItem_Click);
             // 
-            // SideBarUserControls
+            // SidebarControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -186,11 +186,11 @@
             this.Controls.Add(this.lblBilan);
             this.Controls.Add(this.lblDepenses);
             this.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.Name = "SideBarUserControls";
-            this.Size = new System.Drawing.Size(424, 640);
+            this.Name = "SidebarControl";
+            this.Size = new System.Drawing.Size(280, 640);
             this.Load += new System.EventHandler(this.SideBarUserControls_Load);
-            this.MouseEnter += new System.EventHandler(this.sideBarUserControls1_Enter);
-            this.MouseLeave += new System.EventHandler(this.sideBarUserControls1_Leave);
+            this.MouseEnter += new System.EventHandler(this.SidebarControl_MouseEnter);
+            this.MouseLeave += new System.EventHandler(this.SidebarControl_MouseLeave);
             this.ResumeLayout(false);
             this.PerformLayout();
 
