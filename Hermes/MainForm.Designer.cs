@@ -43,6 +43,7 @@ namespace Hermes
             this.pnlEcran.Name = "pnlEcran";
             this.pnlEcran.Size = new System.Drawing.Size(965, 640);
             this.pnlEcran.TabIndex = 3;
+            this.pnlEcran.Paint += new System.Windows.Forms.PaintEventHandler(this.PnlEcran_Paint);
             // 
             // pnlTitleBar
             // 
@@ -87,7 +88,7 @@ namespace Hermes
             // 
             // sideBarUserControls1
             // 
-            this.sideBarUserControls1.BackColor = System.Drawing.Color.White;
+            this.sideBarUserControls1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(12)))), ((int)(((byte)(12)))));
             this.sideBarUserControls1.ForeColor = System.Drawing.SystemColors.ControlText;
             this.sideBarUserControls1.Location = new System.Drawing.Point(0, 0);
             this.sideBarUserControls1.Name = "sideBarUserControls1";

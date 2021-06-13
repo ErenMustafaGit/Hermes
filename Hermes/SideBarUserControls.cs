@@ -26,6 +26,7 @@ namespace Hermes
             lblIconeParticipant.Text = Hermes.UI.Icons.USER_GROUP;
             lblIconeDepense.Text = Hermes.UI.Icons.MONEY_BAG;
             lblIconeBilan.Text = Hermes.UI.Icons.CLIPBOARD;
+
         }
 
         public Panel setPanel
@@ -33,9 +34,9 @@ namespace Hermes
             set { this.ecrans = value; }
         }
 
-        public Panel getSideBar
+        public SideBarUserControls getSideBar
         {
-            get => this.sideBar;
+            get => this;
         }
 
 
@@ -96,7 +97,7 @@ namespace Hermes
             lblIconeAccueil.ForeColor = BLUE;
             lblAccueil.ForeColor = BLUE;
 
-            foreach (Control lbl in sideBar.Controls)
+            foreach (Control lbl in this.Controls)
             {
                 if(lbl is Hermes.UI.AppFontLabel)
                 {
@@ -109,8 +110,11 @@ namespace Hermes
         private void Control_MouseEnter(object sender, EventArgs e)
         {
             AppFontLabel lbl = (AppFontLabel)sender;
-            if(lbl.ForeColor != BLUE)
+            if (lbl.ForeColor != BLUE)
+            {
                 this.Cursor = Cursors.Hand;
+            }
+            this.Size = new Size(424, this.Size.Height);
 
         }
 
@@ -119,31 +123,7 @@ namespace Hermes
             this.Cursor = Cursors.Default;
         }
 
-        private void AppFontLabel1_Click(object sender, EventArgs e)
-        {
 
-        }
-
-        private void LblBilan_Click(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void LblAccueil_Click(object sender, EventArgs e)
-        {
-
-        }
-
-
-        private void SideBarUserControls_MouseHover(object sender, EventArgs e)
-        {
-            //
-        }
-
-        private void SideBar_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
 
         private void LblIconeDepense_Click(object sender, EventArgs e)
         {
@@ -216,6 +196,16 @@ namespace Hermes
             Bilan bilan = new Bilan();
             bilan.setPanel = this.ecrans;
             this.ecrans.Controls.Add(bilan);
+        }
+
+        private void sideBarUserControls1_Enter(object sender, EventArgs e)
+        {
+            this.Size = new Size(424, this.Size.Height);
+        }
+
+        private void sideBarUserControls1_Leave(object sender, EventArgs e)
+        {
+            this.Size = new Size(116, this.Size.Height);
         }
     }
 }

@@ -30,12 +30,7 @@ namespace Hermes
 
         public static MainForm GetSingleton() => Singleton;
 
-        void sideBarUserControls1_MouseHover(object sender, EventArgs e)
-        {
-            MessageBox.Show("hover");
-            this.sideBarUserControls1.Size = new Size(424, this.sideBarUserControls1.Size.Height);
-        }
-
+       
 
         private void MainForm_Load(object sender, EventArgs e)
         {
@@ -71,8 +66,13 @@ namespace Hermes
 
         private void SideBarUserControls1_Load(object sender, EventArgs e)
         {
-            this.sideBarUserControls1.MouseHover += new System.EventHandler(sideBarUserControls1_MouseHover);
+
         }
+
+        
+
+
+
 
         private void RelocateToasts()
         {
@@ -158,6 +158,11 @@ namespace Hermes
         private void lblMinimise_MouseEnter(object sender, EventArgs e)
         {
             this.Cursor = Cursors.Hand;
+        }
+
+        private void PnlEcran_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }
