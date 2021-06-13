@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Hermes.DataModel;
+using Hermes.UI;
 
 namespace Hermes
 {
@@ -132,19 +133,30 @@ namespace Hermes
             bool done = true;
             txtDescription.BackColor = Color.White;
             numAmount.BackColor = Color.White;
-            if(txtDescription.Text.Length == 0 || txtDescription.Text.Length > 30)
+            if(String.IsNullOrWhiteSpace(txtDescription.Text) || txtDescription.Text.Length > 30)
             {
-                //Toast à mettre
                 done = false;
                 txtDescription.Focus();
                 txtDescription.BackColor = Color.LightPink;
+
+                if (String.IsNullOrWhiteSpace(txtDescription.Text))
+                    AppToast.CreateErrorToast("Veuillez entrer une description !")
+                        .SetDurationInSeconds(15).ShowToast();
+                else if (txtDescription.Text.Length > 30)
+                    AppToast.CreateErrorToast("La description est trop longue ! (30 caractères max.)")
+                        .SetDurationInSeconds(15).ShowToast();
             }
+
             if(numAmount.Value <= 0)
             {
                 done = false;
                 numAmount.Focus();
                 numAmount.BackColor = Color.LightPink;
+
+                AppToast.CreateErrorToast("Veuillez entrer une somme valide !")
+                        .SetDurationInSeconds(15).ShowToast();
             }
+
             if (done)
             {
                 decimal montant = numAmount.Value;

@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Hermes.DataModel;
+using Hermes.UI;
 
 namespace Hermes
 {
@@ -181,23 +182,27 @@ namespace Hermes
             txtWhere.BackColor = Color.White;
             numAmount.BackColor = Color.White;
 
-            if (txtWhere.Text == "")
+            if (String.IsNullOrWhiteSpace(txtWhere.Text))
             {
                 done = false;
                 txtWhere.Focus();
                 txtWhere.BackColor = Color.LightPink;
+
+                AppToast.CreateErrorToast("Veuillez entrer une description !")
+                    .SetDurationInSeconds(15).ShowToast();
             }
-            if (numAmount.Value == 0)
+            if (numAmount.Value <= 0)
             {
                 done = false;
                 numAmount.Focus();
                 numAmount.BackColor = Color.LightPink;
+
+                AppToast.CreateErrorToast("Veuillez entrer une somme valide !")
+                    .SetDurationInSeconds(15).ShowToast();
             }
 
             if (done)
             {
-                string description = txtWhere.Text.Replace('\'', ' ');
-
                 this.ecran.Controls.Clear();
                 AjNouvelleDepense2 suite = new AjNouvelleDepense2(int.Parse(cboEvenements.SelectedValue.ToString()), dtp.Value, description, int.Parse(cboPayePar.SelectedValue.ToString()), numAmount.Value, codeEvenement, cboPayePar.SelectedIndex);
                 suite.setPanel = this.ecran;

@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Hermes.DataModel;
+using Hermes.UI;
 
 namespace Hermes
 {
@@ -59,29 +60,40 @@ namespace Hermes
         private void btnValider_Click(object sender, EventArgs e)
         {
             bool valide = true;
-            if (txtLastName.Text.Length < 2)
+            if (txtLastName.Text.Length < 1 || String.IsNullOrWhiteSpace(txtLastName.Text))
             {
                 //AVEC DES ALERTES SUR LES CHAMPS NON REMPLIS
                 valide = false;
                 txtLastName.BackColor = Color.LightPink;
 
+                AppToast.CreateErrorToast("Veuillez entrer un nom valide !")
+                        .SetDurationInSeconds(15).ShowToast();
             }
-            if (txtFirstName.Text.Length < 2)
+            if (txtFirstName.Text.Length < 1 || String.IsNullOrWhiteSpace(txtLastName.Text))
             {
                 valide = false;
                 txtFirstName.BackColor = Color.LightPink;
+
+                AppToast.CreateErrorToast("Veuillez entrer un prénom valide !")
+                        .SetDurationInSeconds(15).ShowToast();
             }
 
             if (!EmailManager.IsEmailValid(txtMail.Text))
             {
                 valide = false;
                 txtMail.BackColor = Color.LightPink;
+
+                AppToast.CreateErrorToast("L'adresse email entrée est invalide !")
+                        .SetDurationInSeconds(15).ShowToast();
             }
 
             if (txtPhoneNumber.Text.Length < 6)
             {
                 valide = false;
                 txtPhoneNumber.BackColor = Color.LightPink;
+
+                AppToast.CreateErrorToast("Le numéro de téléphone entré est trop court !")
+                        .SetDurationInSeconds(15).ShowToast();
             }
 
 
@@ -92,7 +104,6 @@ namespace Hermes
                 //Creation du nouveau participant
                 Participant newParticipant = new Participant()
                 {
-                    CodeParticipant = 15,
                     LastName = txtLastName.Text,
                     FirstName = txtFirstName.Text,
                     PhoneNumber = txtPhoneNumber.Text,

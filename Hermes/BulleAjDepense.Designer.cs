@@ -133,7 +133,7 @@
             this.lblDate.AutoSize = true;
             this.lblDate.Location = new System.Drawing.Point(117, 288);
             this.lblDate.Name = "lblDate";
-            this.lblDate.Size = new System.Drawing.Size(132, 16);
+            this.lblDate.Size = new System.Drawing.Size(136, 16);
             this.lblDate.TabIndex = 37;
             this.lblDate.Text = "Date de la dépense";
             // 
@@ -144,7 +144,7 @@
             this.appFontLabel1.AutoSize = true;
             this.appFontLabel1.Location = new System.Drawing.Point(381, 201);
             this.appFontLabel1.Name = "appFontLabel1";
-            this.appFontLabel1.Size = new System.Drawing.Size(156, 16);
+            this.appFontLabel1.Size = new System.Drawing.Size(158, 16);
             this.appFontLabel1.TabIndex = 35;
             this.appFontLabel1.Text = "Pour quel évènement ?";
             // 
@@ -166,7 +166,7 @@
             this.cboCreateur.AutoSize = true;
             this.cboCreateur.Location = new System.Drawing.Point(117, 201);
             this.cboCreateur.Name = "cboCreateur";
-            this.cboCreateur.Size = new System.Drawing.Size(85, 16);
+            this.cboCreateur.Size = new System.Drawing.Size(86, 16);
             this.cboCreateur.TabIndex = 29;
             this.cboCreateur.Text = "Payée par ?";
             // 
@@ -177,7 +177,7 @@
             this.lblDebutEvenement.AutoSize = true;
             this.lblDebutEvenement.Location = new System.Drawing.Point(381, 117);
             this.lblDebutEvenement.Name = "lblDebutEvenement";
-            this.lblDebutEvenement.Size = new System.Drawing.Size(154, 16);
+            this.lblDebutEvenement.Size = new System.Drawing.Size(159, 16);
             this.lblDebutEvenement.TabIndex = 25;
             this.lblDebutEvenement.Text = "Montant de la dépense";
             // 
@@ -188,9 +188,9 @@
             this.lblNomEvenement.AutoSize = true;
             this.lblNomEvenement.Location = new System.Drawing.Point(117, 117);
             this.lblNomEvenement.Name = "lblNomEvenement";
-            this.lblNomEvenement.Size = new System.Drawing.Size(132, 16);
+            this.lblNomEvenement.Size = new System.Drawing.Size(179, 16);
             this.lblNomEvenement.TabIndex = 22;
-            this.lblNomEvenement.Text = "Nom de la dépense";
+            this.lblNomEvenement.Text = "Description de la dépense";
             // 
             // BulleAjDepense
             // 

@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Hermes.DataModel;
+using Hermes.UI;
 
 namespace Hermes
 {
@@ -96,17 +97,19 @@ namespace Hermes
 
         private void BtnValider_Click(object sender, EventArgs e)
         {
-            if(txtNomEvenement.Text.Length == 0)
+            if(String.IsNullOrWhiteSpace(txtNomEvenement.Text))
             {
                 txtNomEvenement.BackColor = Color.LightPink;
                 txtNomEvenement.Focus();
+
+                AppToast.CreateErrorToast("Veuillez entrer un nom valide !")
+                        .SetDurationInSeconds(15).ShowToast();
             }
             else
             {
                 PartyEvent newEvent = new PartyEvent()
                 {
-                    Id = PartyEvent.GetMaxCode() + 1,
-                    Name = txtNomEvenement.Text.Replace('\'', ' '),
+                    Name = txtNomEvenement.Text,
                     StartDate = dtpDateDebut.Value,
                     EndDate = dtpDateFin.Value,
                     Description = null,
