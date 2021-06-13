@@ -90,22 +90,7 @@ namespace Hermes
 
         private void appFontLabel7_Click(object sender, EventArgs e)
         {
-            MessageBoxButtons buttons = MessageBoxButtons.YesNo;
-            DialogResult result;
-            string message = "Voulez vous vraiment annuler l'ajout ?";
-            string caption = "";
-            result = result = MessageBox.Show(this, message, caption, buttons,
-            MessageBoxIcon.Question, MessageBoxDefaultButton.Button1,
-            MessageBoxOptions.RightAlign);
 
-            if (result == DialogResult.Yes)
-            {
-                this.ecran.Controls.Clear();
-                Accueil a = new Accueil();
-                a.setPanel = this.ecran;
-                this.ecran.Controls.Add(a);
-            }
-            
         }
 
         private void appFontLabel7_MouseHover(object sender, EventArgs e)
@@ -131,38 +116,9 @@ namespace Hermes
             updateGuests();
         }
 
-        //Continuer
         private void AppFontLabel8_Click(object sender, EventArgs e)
         {
-            bool done = true;
-            PartyEvent currentEvent = PartyEvent.GetFromId(int.Parse(cboEvenements.SelectedValue.ToString()));
 
-            //Les animations d'erreur sont juste de test ! Il faudra changer ABSOLUMENT !
-            txtWhere.BackColor = Color.White;
-            numAmount.BackColor = Color.White;
-
-            if(txtWhere.Text == "")
-            {
-                done = false;
-                txtWhere.Focus();
-                txtWhere.BackColor = Color.LightPink;
-            }
-            if(numAmount.Value == 0)
-            {
-                done = false;
-                numAmount.Focus();
-                numAmount.BackColor = Color.LightPink;
-            }
-
-            if (done)
-            {
-                string description = txtWhere.Text.Replace('\'', ' ');
-
-                this.ecran.Controls.Clear();
-                AjNouvelleDepense2 suite = new AjNouvelleDepense2(int.Parse(cboEvenements.SelectedValue.ToString()), dtp.Value,description, int.Parse(cboPayePar.SelectedValue.ToString()), numAmount.Value, indice, cboPayePar.SelectedIndex);
-                suite.setPanel = this.ecran;
-                this.ecran.Controls.Add(suite);
-            }
         }
 
 
@@ -192,6 +148,59 @@ namespace Hermes
         {
             if (numAmount.BackColor == Color.LightPink)
                 numAmount.BackColor = Color.White;
+        }
+
+        private void BtnCancel_Click(object sender, EventArgs e)
+        {
+            MessageBoxButtons buttons = MessageBoxButtons.YesNo;
+            DialogResult result;
+            string message = "Voulez vous vraiment annuler l'ajout ?";
+            string caption = "";
+            result = result = MessageBox.Show(this, message, caption, buttons,
+            MessageBoxIcon.Question, MessageBoxDefaultButton.Button1,
+            MessageBoxOptions.RightAlign);
+
+            if (result == DialogResult.Yes)
+            {
+                this.ecran.Controls.Clear();
+                Accueil a = new Accueil();
+                a.setPanel = this.ecran;
+                this.ecran.Controls.Add(a);
+            }
+
+        }
+
+        private void BtnContinue_Click(object sender, EventArgs e)
+        {
+            bool done = true;
+            PartyEvent currentEvent = PartyEvent.GetFromId(int.Parse(cboEvenements.SelectedValue.ToString()));
+
+            //Les animations d'erreur sont juste de test ! Il faudra changer ABSOLUMENT !
+            txtWhere.BackColor = Color.White;
+            numAmount.BackColor = Color.White;
+
+            if (txtWhere.Text == "")
+            {
+                done = false;
+                txtWhere.Focus();
+                txtWhere.BackColor = Color.LightPink;
+            }
+            if (numAmount.Value == 0)
+            {
+                done = false;
+                numAmount.Focus();
+                numAmount.BackColor = Color.LightPink;
+            }
+
+            if (done)
+            {
+                string description = txtWhere.Text.Replace('\'', ' ');
+
+                this.ecran.Controls.Clear();
+                AjNouvelleDepense2 suite = new AjNouvelleDepense2(int.Parse(cboEvenements.SelectedValue.ToString()), dtp.Value, description, int.Parse(cboPayePar.SelectedValue.ToString()), numAmount.Value, indice, cboPayePar.SelectedIndex);
+                suite.setPanel = this.ecran;
+                this.ecran.Controls.Add(suite);
+            }
         }
     }
 }
