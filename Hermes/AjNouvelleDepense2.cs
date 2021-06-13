@@ -54,7 +54,7 @@ namespace Hermes
             FontFamily helvetica_bold = FontManager.GetFontFamily(AppFont.HelveticaNeue_Bold);
             btnCancel.Font = new Font(helvetica, btnCancel.Font.Size);
             btnValider.Font = new Font(helvetica, btnValider.Font.Size);
-            chkEveryOne.Font = new Font(helvetica_bold, chkEveryOne.Font.Size + 3);
+            chkEveryOne.Font = new Font(helvetica_bold, chkEveryOne.Font.Size);
             rtxtCommentaire.Font = new Font(helvetica, rtxtCommentaire.Font.Size);
 
             PartyEvent evenement = PartyEvent.GetFromId(this.CodeEvenement);

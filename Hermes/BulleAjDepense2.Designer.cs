@@ -88,10 +88,10 @@
             // chkEveryOne
             // 
             this.chkEveryOne.AutoSize = true;
-            this.chkEveryOne.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chkEveryOne.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.chkEveryOne.Location = new System.Drawing.Point(21, 14);
             this.chkEveryOne.Name = "chkEveryOne";
-            this.chkEveryOne.Size = new System.Drawing.Size(135, 22);
+            this.chkEveryOne.Size = new System.Drawing.Size(165, 28);
             this.chkEveryOne.TabIndex = 0;
             this.chkEveryOne.Text = "Tout le monde";
             this.chkEveryOne.UseVisualStyleBackColor = true;
