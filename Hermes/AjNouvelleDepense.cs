@@ -64,6 +64,14 @@ namespace Hermes
             PartyEvent selectedEvent = PartyEvent.GetFromId(int.Parse(cboEvenements.SelectedValue.ToString()));
 
             updateGuests();
+            if (wentBack)
+            {
+                txtWhere.Text = this.description;
+                cboEvenements.SelectedValue = indice;
+                cboPayePar.SelectedIndex = indicePayePar;
+                numAmount.Value = amount;
+                dtp.Value = date;
+            }
             if (!wentBack)
             {
                 dtp.Value = selectedEvent.StartDate;
@@ -78,14 +86,7 @@ namespace Hermes
             cboPayePar.DataSource = guests;
             cboPayePar.DisplayMember = "name";
             cboPayePar.ValueMember = "codeParticipant";
-            if (wentBack)
-            {
-                txtWhere.Text = this.description;
-                cboEvenements.SelectedValue = indice;
-                cboPayePar.SelectedIndex = indicePayePar;
-                numAmount.Value = amount;
-                dtp.Value = date;
-            }
+           
         }
 
         private void appFontLabel7_Click(object sender, EventArgs e)
