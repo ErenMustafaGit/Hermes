@@ -53,6 +53,7 @@ namespace Hermes
             cboEvenements.DisplayMember = "Name";
             cboEvenements.ValueMember = "Id";
             cboEvenements.SelectedIndex = index;
+
             Actualisation();
 
             exportPdf.Font = new Font(FontManager.GetFontFamily(AppFont.Icons), 24f);
@@ -97,6 +98,16 @@ namespace Hermes
                     pnlBilanCasParCas.Controls.Add(user);
                 }
             }
+
+            if (currentEvent.Completed)
+            {
+                btnBilanGlobal.Visible = false;
+                exportPdf.Location = new Point(799, 95);
+            }
+            else
+            {
+                exportPdf.Location = new Point(799, 63);
+            }   
 
             this.ResumeLayout(true);
         }
