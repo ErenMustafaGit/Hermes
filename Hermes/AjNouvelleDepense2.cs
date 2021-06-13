@@ -113,7 +113,7 @@ namespace Hermes
             Participant payeur = Participant.GetParticipant(this.CodePayeur);
             string name = payeur.FirstName + " " + payeur.LastName;
 
-            if (rtxtCommentaire.Text == "")
+            if (String.IsNullOrEmpty(rtxtCommentaire.Text))
             {
                 rtxtCommentaire.Text = " ";
             }

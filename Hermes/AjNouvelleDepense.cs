@@ -204,7 +204,7 @@ namespace Hermes
             if (done)
             {
                 this.ecran.Controls.Clear();
-                AjNouvelleDepense2 suite = new AjNouvelleDepense2(int.Parse(cboEvenements.SelectedValue.ToString()), dtp.Value, description, int.Parse(cboPayePar.SelectedValue.ToString()), numAmount.Value, codeEvenement, cboPayePar.SelectedIndex);
+                AjNouvelleDepense2 suite = new AjNouvelleDepense2(int.Parse(cboEvenements.SelectedValue.ToString()), dtp.Value, txtWhere.Text, int.Parse(cboPayePar.SelectedValue.ToString()), numAmount.Value, codeEvenement, cboPayePar.SelectedIndex);
                 suite.setPanel = this.ecran;
                 this.ecran.Controls.Add(suite);
             }
