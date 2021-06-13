@@ -93,6 +93,8 @@ namespace Hermes
 
             if (wentBack)
             {
+                txtDescription.Text = description;
+                numAmount.Value = montant;
                 cboEventCreator.SelectedIndex = this.index;
                 dtpDateDepense.Value = dateDepense;
                 dtpDateDepense.MinDate = currentEvent.StartDate;
