@@ -100,13 +100,8 @@ namespace Hermes
             cboEvenement.SelectedIndexChanged += new System.EventHandler(cboEventCreator_SelectedIndexChanged);
             
 
-            //Trouve l'evenement qui a le meme id que sur l'ancien form
-            for(int i = 0; i<cboEvenement.Items.Count; i++)
-            {
-                cboEvenement.SelectedIndex = i;
-                if ((int)cboEvenement.SelectedValue == currentEvent.Id)
-                    break;
-            }
+
+            cboEvenement.SelectedValue = currentEvent.Id;
             RefreshGuests();
         }
 
