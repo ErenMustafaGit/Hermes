@@ -15,11 +15,19 @@ namespace Hermes
     {
 
         //Panel où la bulle va être placer
-        private static Panel pnlBulleEmplacement;
+        private  Panel pnlBulleEmplacement;
         //Panel où le form de fond va rester visible
-        private static Panel pnlPrincipal;
+        private Panel pnlPrincipal;
 
         private PartyEvent currentEvent;
+
+        private bool wentBack;
+        private decimal montant;
+        private string description;
+        private int codeParticipant;
+        private int codeEvenement;
+        private DateTime dateDepense;
+        private int index;
 
 
 
@@ -39,6 +47,22 @@ namespace Hermes
         {
             InitializeComponent();
             this.currentEvent = currentEvent;
+            this.wentBack = false;
+        }
+
+        public BulleAjDepense(bool wentBack,decimal montant, string description, int codeParticipant, int codeEvenement, DateTime dateDepense, Panel pnlPrincipal, Panel pnlBulleEmplacement, PartyEvent currentEvent, int index)
+        {
+            InitializeComponent();
+            this.wentBack = true;
+            this.montant = montant;
+            this.description = description;
+            this.codeEvenement = codeEvenement;
+            this.codeParticipant = codeParticipant;
+            this.dateDepense = dateDepense;
+            this.pnlPrincipal = pnlPrincipal;
+            this.pnlBulleEmplacement = pnlBulleEmplacement;
+            this.currentEvent = currentEvent;
+            this.index = index;
         }
 
 
@@ -66,6 +90,13 @@ namespace Hermes
             cboEventCreator.DataSource = dataTableParticipant;
             cboEventCreator.DisplayMember = "Name";
             cboEventCreator.ValueMember = "CodeParticipant";
+            if (wentBack)
+            {
+                txtDescription.Text = description;
+                numAmount.Value = montant;
+                dtpDateDepense.Value = dateDepense;
+            }
+
             cboEvenement.SelectedIndexChanged += new System.EventHandler(cboEventCreator_SelectedIndexChanged);
             
 
@@ -117,7 +148,7 @@ namespace Hermes
                 DateTime dateDepense = dtpDateDepense.Value;
 
                 pnlBulleEmplacement.Controls.Clear();
-                BulleAjDepense2 bulleAjDepense2 = new BulleAjDepense2(montant, description, codeParticipant, codeEvenement, dateDepense, pnlPrincipal, pnlBulleEmplacement);
+                BulleAjDepense2 bulleAjDepense2 = new BulleAjDepense2(montant, description, codeParticipant, codeEvenement, dateDepense, pnlPrincipal, pnlBulleEmplacement, currentEvent, (int)cboEventCreator.SelectedIndex);
                 pnlBulleEmplacement.Controls.Add(bulleAjDepense2);
             }
 
@@ -147,6 +178,10 @@ namespace Hermes
             cboEventCreator.DataSource = dataTableParticipant;
             cboEventCreator.DisplayMember = "Name";
             cboEventCreator.ValueMember = "CodeParticipant";
+            if (wentBack)
+            {
+                cboEventCreator.SelectedIndex = this.index;
+            }
         }
     }
 }
