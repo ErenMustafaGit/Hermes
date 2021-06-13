@@ -65,7 +65,7 @@
             this.rtxtDescription.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.rtxtDescription.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rtxtDescription.Location = new System.Drawing.Point(364, 92);
-            this.rtxtDescription.MaxLength = 200;
+            this.rtxtDescription.MaxLength = 30;
             this.rtxtDescription.Name = "rtxtDescription";
             this.rtxtDescription.Size = new System.Drawing.Size(258, 213);
             this.rtxtDescription.TabIndex = 2;

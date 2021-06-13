@@ -32,14 +32,16 @@
             this.cboEvenement = new System.Windows.Forms.ComboBox();
             this.pnlDetailExpenditure = new System.Windows.Forms.Panel();
             this.pnlBeneficiary = new System.Windows.Forms.Panel();
+            this.btnAddExpenditure = new System.Windows.Forms.Button();
+            this.lblExpenditureTitle = new Hermes.UI.AppFontLabel();
+            this.lblDepense = new Hermes.UI.AppFontLabel();
+            this.lblDesc = new Hermes.UI.AppFontLabel();
+            this.lblIconeDesc = new Hermes.UI.AppFontLabel();
             this.lblCreator = new Hermes.UI.AppFontLabel();
             this.lblMoney = new Hermes.UI.AppFontLabel();
             this.lblBeneficiary = new Hermes.UI.AppFontLabel();
             this.lblIconCreator = new Hermes.UI.AppFontLabel();
             this.lblIconMoney = new Hermes.UI.AppFontLabel();
-            this.btnAddExpenditure = new System.Windows.Forms.Button();
-            this.lblExpenditureTitle = new Hermes.UI.AppFontLabel();
-            this.lblDepense = new Hermes.UI.AppFontLabel();
             this.pnlDetailExpenditure.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -62,23 +64,83 @@
             // 
             // pnlDetailExpenditure
             // 
+            this.pnlDetailExpenditure.Controls.Add(this.lblDesc);
+            this.pnlDetailExpenditure.Controls.Add(this.lblIconeDesc);
             this.pnlDetailExpenditure.Controls.Add(this.pnlBeneficiary);
             this.pnlDetailExpenditure.Controls.Add(this.lblCreator);
             this.pnlDetailExpenditure.Controls.Add(this.lblMoney);
             this.pnlDetailExpenditure.Controls.Add(this.lblBeneficiary);
             this.pnlDetailExpenditure.Controls.Add(this.lblIconCreator);
             this.pnlDetailExpenditure.Controls.Add(this.lblIconMoney);
-            this.pnlDetailExpenditure.Location = new System.Drawing.Point(522, 213);
+            this.pnlDetailExpenditure.Location = new System.Drawing.Point(522, 192);
             this.pnlDetailExpenditure.Name = "pnlDetailExpenditure";
-            this.pnlDetailExpenditure.Size = new System.Drawing.Size(374, 389);
+            this.pnlDetailExpenditure.Size = new System.Drawing.Size(374, 410);
             this.pnlDetailExpenditure.TabIndex = 0;
             // 
             // pnlBeneficiary
             // 
-            this.pnlBeneficiary.Location = new System.Drawing.Point(39, 188);
+            this.pnlBeneficiary.Location = new System.Drawing.Point(39, 255);
             this.pnlBeneficiary.Name = "pnlBeneficiary";
-            this.pnlBeneficiary.Size = new System.Drawing.Size(306, 198);
+            this.pnlBeneficiary.Size = new System.Drawing.Size(306, 152);
             this.pnlBeneficiary.TabIndex = 2;
+            // 
+            // btnAddExpenditure
+            // 
+            this.btnAddExpenditure.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(147)))), ((int)(((byte)(248)))));
+            this.btnAddExpenditure.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAddExpenditure.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.btnAddExpenditure.ForeColor = System.Drawing.SystemColors.Control;
+            this.btnAddExpenditure.Location = new System.Drawing.Point(91, 565);
+            this.btnAddExpenditure.Name = "btnAddExpenditure";
+            this.btnAddExpenditure.Size = new System.Drawing.Size(374, 37);
+            this.btnAddExpenditure.TabIndex = 3;
+            this.btnAddExpenditure.Text = "Ajouter une dépense à cet évènement";
+            this.btnAddExpenditure.UseVisualStyleBackColor = false;
+            this.btnAddExpenditure.Click += new System.EventHandler(this.btnAddExpenditure_Click);
+            // 
+            // lblExpenditureTitle
+            // 
+            this.lblExpenditureTitle.AppFont = Hermes.AppFont.HelveticaNeue_Bold;
+            this.lblExpenditureTitle.AppFontHeight = 20F;
+            this.lblExpenditureTitle.AutoSize = true;
+            this.lblExpenditureTitle.Location = new System.Drawing.Point(516, 155);
+            this.lblExpenditureTitle.Name = "lblExpenditureTitle";
+            this.lblExpenditureTitle.Size = new System.Drawing.Size(258, 34);
+            this.lblExpenditureTitle.TabIndex = 3;
+            this.lblExpenditureTitle.Text = "Nom de la dépense";
+            // 
+            // lblDepense
+            // 
+            this.lblDepense.AppFont = Hermes.AppFont.HelveticaNeue;
+            this.lblDepense.AppFontHeight = 12F;
+            this.lblDepense.AutoSize = true;
+            this.lblDepense.Location = new System.Drawing.Point(87, 63);
+            this.lblDepense.Name = "lblDepense";
+            this.lblDepense.Size = new System.Drawing.Size(218, 19);
+            this.lblDepense.TabIndex = 1;
+            this.lblDepense.Text = "Dépenses pour l\'évènement :";
+            // 
+            // lblDesc
+            // 
+            this.lblDesc.AppFont = Hermes.AppFont.HelveticaNeue;
+            this.lblDesc.AppFontHeight = 11F;
+            this.lblDesc.Location = new System.Drawing.Point(107, 171);
+            this.lblDesc.Name = "lblDesc";
+            this.lblDesc.Size = new System.Drawing.Size(238, 62);
+            this.lblDesc.TabIndex = 4;
+            this.lblDesc.Text = "Auteur";
+            // 
+            // lblIconeDesc
+            // 
+            this.lblIconeDesc.AppFont = Hermes.AppFont.Icons;
+            this.lblIconeDesc.AppFontHeight = 30F;
+            this.lblIconeDesc.AutoSize = true;
+            this.lblIconeDesc.Location = new System.Drawing.Point(41, 162);
+            this.lblIconeDesc.Name = "lblIconeDesc";
+            this.lblIconeDesc.Size = new System.Drawing.Size(45, 41);
+            this.lblIconeDesc.TabIndex = 3;
+            this.lblIconeDesc.Text = "O";
+            this.lblIconeDesc.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblCreator
             // 
@@ -107,7 +169,7 @@
             this.lblBeneficiary.AppFont = Hermes.AppFont.HelveticaNeue;
             this.lblBeneficiary.AppFontHeight = 12F;
             this.lblBeneficiary.AutoSize = true;
-            this.lblBeneficiary.Location = new System.Drawing.Point(35, 166);
+            this.lblBeneficiary.Location = new System.Drawing.Point(35, 233);
             this.lblBeneficiary.Name = "lblBeneficiary";
             this.lblBeneficiary.Size = new System.Drawing.Size(111, 19);
             this.lblBeneficiary.TabIndex = 1;
@@ -136,42 +198,6 @@
             this.lblIconMoney.TabIndex = 0;
             this.lblIconMoney.Text = "O";
             this.lblIconMoney.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // btnAddExpenditure
-            // 
-            this.btnAddExpenditure.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(147)))), ((int)(((byte)(248)))));
-            this.btnAddExpenditure.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAddExpenditure.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.btnAddExpenditure.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnAddExpenditure.Location = new System.Drawing.Point(91, 565);
-            this.btnAddExpenditure.Name = "btnAddExpenditure";
-            this.btnAddExpenditure.Size = new System.Drawing.Size(374, 37);
-            this.btnAddExpenditure.TabIndex = 3;
-            this.btnAddExpenditure.Text = "Ajouter une dépense à cet évènement";
-            this.btnAddExpenditure.UseVisualStyleBackColor = false;
-            this.btnAddExpenditure.Click += new System.EventHandler(this.btnAddExpenditure_Click);
-            // 
-            // lblExpenditureTitle
-            // 
-            this.lblExpenditureTitle.AppFont = Hermes.AppFont.HelveticaNeue_Bold;
-            this.lblExpenditureTitle.AppFontHeight = 20F;
-            this.lblExpenditureTitle.AutoSize = true;
-            this.lblExpenditureTitle.Location = new System.Drawing.Point(516, 161);
-            this.lblExpenditureTitle.Name = "lblExpenditureTitle";
-            this.lblExpenditureTitle.Size = new System.Drawing.Size(258, 34);
-            this.lblExpenditureTitle.TabIndex = 3;
-            this.lblExpenditureTitle.Text = "Nom de la dépense";
-            // 
-            // lblDepense
-            // 
-            this.lblDepense.AppFont = Hermes.AppFont.HelveticaNeue;
-            this.lblDepense.AppFontHeight = 12F;
-            this.lblDepense.AutoSize = true;
-            this.lblDepense.Location = new System.Drawing.Point(87, 63);
-            this.lblDepense.Name = "lblDepense";
-            this.lblDepense.Size = new System.Drawing.Size(218, 19);
-            this.lblDepense.TabIndex = 1;
-            this.lblDepense.Text = "Dépenses pour l\'évènement :";
             // 
             // ViewExpenditures
             // 
@@ -207,5 +233,7 @@
         private UI.AppFontLabel lblCreator;
         private UI.AppFontLabel lblMoney;
         private UI.AppFontLabel lblExpenditureTitle;
+        private UI.AppFontLabel lblDesc;
+        private UI.AppFontLabel lblIconeDesc;
     }
 }

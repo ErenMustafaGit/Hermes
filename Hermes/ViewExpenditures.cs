@@ -39,7 +39,7 @@ namespace Hermes
             pnlBeneficiary.HorizontalScroll.Visible = false;
             pnlBeneficiary.HorizontalScroll.Maximum = 0;
             pnlBeneficiary.AutoScroll = true;
-
+            lblIconeDesc.Text = Hermes.UI.Icons.INFORMATION;
             //Creation de lblNone et Invisible
             lblNone = new AppFontLabel();
             lblNone.Text = "Il n'y a pas de dépense dans cet évenement";
@@ -68,6 +68,7 @@ namespace Hermes
             pnlBeneficiary.HorizontalScroll.Visible = false;
             pnlBeneficiary.HorizontalScroll.Maximum = 0;
             pnlBeneficiary.AutoScroll = true;
+            lblIconeDesc.Text = Hermes.UI.Icons.INFORMATION;
 
             this.idBasicEvent = idBasicEvent;
 
@@ -162,6 +163,15 @@ namespace Hermes
                 lblExpenditureTitle.Text = expenses[0].Description;
                 lblExpenditureTitle.Text = lblExpenditureTitle.Text.Substring(0, 1).ToUpper() + lblExpenditureTitle.Text.Substring(1);
                 lblMoney.Text = expenses[0].Amount.ToEuros();
+                if (expenses[0].Comment.Length != 0)
+                {
+                    lblDesc.Text = "\"" + expenses[0].Comment + "\"";
+                }
+                else
+                {
+                    lblDesc.Text = "Pas de commentaire";
+                }
+                
 
                 Participant participant = Participant.GetParticipant(expenses[0].AuthorId);
                 lblCreator.Text = participant.FirstName + " " + participant.LastName;
@@ -226,6 +236,14 @@ namespace Hermes
                 lblExpenditureTitle.Text = expenses[(int)depense.Tag].Description;
                 lblExpenditureTitle.Text = lblExpenditureTitle.Text.Substring(0, 1).ToUpper() + lblExpenditureTitle.Text.Substring(1);
                 lblMoney.Text = expenses[(int)depense.Tag].Amount.ToEuros();
+                if(expenses[(int)depense.Tag].Comment.Length != 0)
+                {
+                    lblDesc.Text = "\"" + expenses[(int)depense.Tag].Comment + "\"";
+                }
+                else
+                {
+                    lblDesc.Text = "Pas de commentaire";
+                }
                 lblCreator.Text = participant.FirstName + " " + participant.LastName;
                 RefreshBeneficiaries(expenses, (int)depense.Tag);
             }

@@ -65,7 +65,7 @@
             this.rtxtCommentaire.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.rtxtCommentaire.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rtxtCommentaire.Location = new System.Drawing.Point(550, 174);
-            this.rtxtCommentaire.MaxLength = 200;
+            this.rtxtCommentaire.MaxLength = 50;
             this.rtxtCommentaire.Name = "rtxtCommentaire";
             this.rtxtCommentaire.Size = new System.Drawing.Size(336, 283);
             this.rtxtCommentaire.TabIndex = 2;
