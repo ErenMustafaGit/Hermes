@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Hermes.DataModel;
+using Hermes.UI.Activities;
 
 namespace Hermes
 {
@@ -100,8 +101,7 @@ namespace Hermes
 
         private void BtnMoreInfo_Click(object sender, EventArgs e)
         {
-            CompleteInfoEvenement CIE = new CompleteInfoEvenement();
-            CIE.setIndex = index;
+            EventViewingActivity CIE = new EventViewingActivity(index);
             CIE.setPanel = ecran;
             this.ecran.Controls.Clear();
             this.ecran.Controls.Add(CIE);

@@ -177,6 +177,12 @@
     <Compile Include="ResumeEventBilan.Designer.cs">
       <DependentUpon>ResumeEventBilan.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\Activities\EventViewingActivity.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Activities\EventViewingActivity.Designer.cs">
+      <DependentUpon>EventViewingActivity.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserBilan.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -206,12 +212,6 @@
     </Compile>
     <Compile Include="BulleInvitations.Designer.cs">
       <DependentUpon>BulleInvitations.cs</DependentUpon>
-    </Compile>
-    <Compile Include="CompleteInfoEvenement.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="CompleteInfoEvenement.Designer.cs">
-      <DependentUpon>CompleteInfoEvenement.cs</DependentUpon>
     </Compile>
     <Compile Include="DepenseUser.cs">
       <SubType>UserControl</SubType>
@@ -347,6 +347,9 @@
     <EmbeddedResource Include="ResumeEventBilan.resx">
       <DependentUpon>ResumeEventBilan.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UI\Activities\EventViewingActivity.resx">
+      <DependentUpon>EventViewingActivity.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UserBilan.resx">
       <DependentUpon>UserBilan.cs</DependentUpon>
     </EmbeddedResource>
@@ -361,9 +364,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="BulleInvitations.resx">
       <DependentUpon>BulleInvitations.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="CompleteInfoEvenement.resx">
-      <DependentUpon>CompleteInfoEvenement.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="DepenseUser.resx">
       <DependentUpon>DepenseUser.cs</DependentUpon>
