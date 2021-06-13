@@ -14,23 +14,24 @@ namespace Hermes
     public partial class AjNouvelleDepense : UserControl
     {
         Panel ecran;
-        int indice;
+        int codeEvenement;
+
         private bool wentBack;
         private DateTime date;
         private string description;
         private int codePayeur;
         private Decimal amount;
         private int indicePayePar;
-        public AjNouvelleDepense(int indice)
+        public AjNouvelleDepense(int codeEvenement)
         {
             InitializeComponent();
-            this.indice = indice;
+            this.codeEvenement = codeEvenement;
         }
 
         public AjNouvelleDepense(bool wentBack, int codeEvenement, DateTime date, string description, int codePayeur, Decimal amount, int indiceEvenement, int indicePayePar, Panel ecran)
         {
             InitializeComponent();
-            this.indice = codeEvenement;
+            this.codeEvenement = codeEvenement;
             this.wentBack = wentBack;
             this.date = date;
             this.description = description;
@@ -59,7 +60,7 @@ namespace Hermes
             cboEvenements.DataSource = table;
             cboEvenements.DisplayMember = "Name";
             cboEvenements.ValueMember = "Id";
-            cboEvenements.SelectedIndex = indice - 2;
+            cboEvenements.SelectedValue = codeEvenement;
 
             PartyEvent selectedEvent = PartyEvent.GetFromId(int.Parse(cboEvenements.SelectedValue.ToString()));
 
@@ -86,7 +87,14 @@ namespace Hermes
             cboPayePar.DataSource = guests;
             cboPayePar.DisplayMember = "name";
             cboPayePar.ValueMember = "codeParticipant";
-           
+            if (wentBack)
+            {
+                txtWhere.Text = this.description;
+                cboEvenements.SelectedValue = codeEvenement;
+                cboPayePar.SelectedIndex = indicePayePar;
+                numAmount.Value = amount;
+                dtp.Value = date;
+            }
         }
 
         private void appFontLabel7_Click(object sender, EventArgs e)
@@ -198,7 +206,7 @@ namespace Hermes
                 string description = txtWhere.Text.Replace('\'', ' ');
 
                 this.ecran.Controls.Clear();
-                AjNouvelleDepense2 suite = new AjNouvelleDepense2(int.Parse(cboEvenements.SelectedValue.ToString()), dtp.Value, description, int.Parse(cboPayePar.SelectedValue.ToString()), numAmount.Value, indice, cboPayePar.SelectedIndex);
+                AjNouvelleDepense2 suite = new AjNouvelleDepense2(int.Parse(cboEvenements.SelectedValue.ToString()), dtp.Value, description, int.Parse(cboPayePar.SelectedValue.ToString()), numAmount.Value, codeEvenement, cboPayePar.SelectedIndex);
                 suite.setPanel = this.ecran;
                 this.ecran.Controls.Add(suite);
             }
