@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Hermes.DataModel;
 using Hermes.Extensions;
+using Hermes.UI;
 
 namespace Hermes
 {
@@ -19,6 +20,9 @@ namespace Hermes
 
         //Evenement de base qui doit être afficher en 1er
         private int idBasicEvent = -1;
+
+        //Label pour dire qu'il n'y a pas de dépense dans cet evenement
+        AppFontLabel lblNone;
 
         public ViewExpenditures()
         {
@@ -35,6 +39,18 @@ namespace Hermes
             pnlBeneficiary.HorizontalScroll.Visible = false;
             pnlBeneficiary.HorizontalScroll.Maximum = 0;
             pnlBeneficiary.AutoScroll = true;
+
+            //Creation de lblNone et Invisible
+            lblNone = new AppFontLabel();
+            lblNone.Text = "Il n'y a pas de dépense dans cet évenement";
+            lblNone.AutoSize = true;
+            lblNone.Left = (this.Width / 2) - 260;
+            lblNone.Top = this.Height / 2;
+            lblNone.ForeColor = Color.Gray;
+            lblNone.AppFontHeight = 16;
+            this.Controls.Add(lblNone);
+            lblNone.BringToFront();
+            lblNone.Visible = false;
         }
 
         public ViewExpenditures(int idBasicEvent)
@@ -54,6 +70,19 @@ namespace Hermes
             pnlBeneficiary.AutoScroll = true;
 
             this.idBasicEvent = idBasicEvent;
+
+
+            //Creation de lblNone et Invisible
+            lblNone = new AppFontLabel();
+            lblNone.Text = "Il n'y a pas de dépense dans cet évenement";
+            lblNone.AutoSize = true;
+            lblNone.Left = (this.Width / 2) - 260;
+            lblNone.Top = this.Height / 2;
+            lblNone.ForeColor = Color.Gray;
+            lblNone.AppFontHeight = 16;
+            this.Controls.Add(lblNone);
+            lblNone.BringToFront();
+            lblNone.Visible = false;
         }
 
         public Panel setPanel
@@ -86,6 +115,8 @@ namespace Hermes
         }
         public void RefreshExpenditures()
         {
+            
+
             pnlListExpenditure.Controls.Clear();
 
             PartyEvent currentEvent = PartyEvent.GetFromId((int)cboEvenement.SelectedValue);
@@ -94,6 +125,7 @@ namespace Hermes
             //Si des dépenses existe pour l'evenement sélectionner
             if(expenses.Count != 0)
             {
+                
                 for (int i = 0; i < expenses.Count; i++)
                 {
                     Hermes.UI.AppFontLabel lblDepense = new Hermes.UI.AppFontLabel();
@@ -119,8 +151,13 @@ namespace Hermes
                     }
                     pnlListExpenditure.Controls.Add(lblDepense);
                 }
+
+                this.lblNone.Visible = false;
+
                 lblExpenditureTitle.Visible = true;
                 pnlDetailExpenditure.Visible = true;
+                pnlListExpenditure.Visible = true;
+                pnlBeneficiary.Visible = true;
 
                 lblExpenditureTitle.Text = expenses[0].Description;
                 lblExpenditureTitle.Text = lblExpenditureTitle.Text.Substring(0, 1).ToUpper() + lblExpenditureTitle.Text.Substring(1);
@@ -132,9 +169,12 @@ namespace Hermes
             }
             else
             {
-                MessageBox.Show("Pas de dépense dans cet évènement - TEXTE A AJOUTER SUR L'INTERFACE"); // TODO 
+                this.lblNone.Visible = true;
+
                 lblExpenditureTitle.Visible = false;
                 pnlDetailExpenditure.Visible = false;
+                pnlListExpenditure.Visible = false;
+                pnlBeneficiary.Visible = false;
             }
         }
 
