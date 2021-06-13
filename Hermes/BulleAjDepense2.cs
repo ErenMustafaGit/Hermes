@@ -49,23 +49,31 @@ namespace Hermes
         private void BulleAjDepense2_Load(object sender, EventArgs e)
         {
             FontFamily helvetica = FontManager.GetFontFamily(AppFont.HelveticaNeue);
+            FontFamily helvetica_bold = FontManager.GetFontFamily(AppFont.HelveticaNeue_Bold);
             btnAnnuler.Font = new Font(helvetica, btnAnnuler.Font.Size);
             btnContinuer.Font = new Font(helvetica, btnContinuer.Font.Size);
-            chkEveryOne.Font = new Font(helvetica, chkEveryOne.Font.Size);
+            chkEveryOne.Font = new Font(helvetica_bold, chkEveryOne.Font.Size + 3);
             rtxtCommentaire.Font = new Font(helvetica, rtxtCommentaire.Font.Size);
 
             PartyEvent evenement = PartyEvent.GetFromId(this.codeEvenement);
             List<Participant> guests = evenement.GetGuests();
+
+            int compteur = 0;
             for (int i = 0; i < guests.Count; i++)
             {
-                CheckBox chkGuest = new CheckBox();
-                chkGuest.AutoSize = true;
-                chkGuest.Text = guests[i].LastName + " " + guests[i].FirstName;
-                chkGuest.Left = chkEveryOne.Left;
-                chkGuest.Top = 50 + 30 * i;
-                chkGuest.Tag = guests[i].CodeParticipant;
-                chkGuest.Font = new Font(helvetica, chkEveryOne.Font.Size);
-                pnlBeneficiaire.Controls.Add(chkGuest);
+                if(guests[i].CodeParticipant != codeParticipant)
+                {
+                    CheckBox chkGuest = new CheckBox();
+                    chkGuest.AutoSize = true;
+                    chkGuest.Text = guests[i].LastName + " " + guests[i].FirstName;
+                    chkGuest.Left = chkEveryOne.Left;
+                    chkGuest.Top = 50 + 30 * compteur;
+                    chkGuest.Tag = guests[i].CodeParticipant;
+                    chkGuest.Font = new Font(helvetica, chkEveryOne.Font.Size - 3);
+                    pnlBeneficiaire.Controls.Add(chkGuest);
+                    compteur++;
+                }
+                
             }
         }
 
@@ -93,55 +101,43 @@ namespace Hermes
 
         private void BtnContinuer_Click(object sender, EventArgs e)
         {
-            foreach (CheckBox chk in pnlBeneficiaire.Controls)
-            {
-                if (chk != chkEveryOne)
-                {
-                    if ((int)chk.Tag == codeParticipant)
-                    {
-                        chk.Checked = true;
-                    }
-                }
-            }
-
-            
             string comment = rtxtCommentaire.Text;
-            if(comment.Length <= 0)
+            if(comment.Length == 0)
             {
-                rtxtCommentaire.BackColor = Color.LightPink;
+                //rtxtCommentaire.BackColor = Color.LightPink;
+                comment = " ";
             }
-            else
+
+            Expense newExpenditure = new Expense()
             {
-                Expense newExpenditure = new Expense()
-                {
-                    Amount = this.montant,
-                    Description = this.description,
-                    Comment = comment,
-                    Date = this.dateDepense.Date,
-                    EventId = this.codeEvenement,
-                    AuthorId = this.codeParticipant,
-                };
+                Amount = this.montant,
+                Description = this.description,
+                Comment = comment,
+                Date = this.dateDepense.Date,
+                EventId = this.codeEvenement,
+                AuthorId = this.codeParticipant,
+            };
 
-                Database.InsertExpense(newExpenditure, getBeneficiary());
+            Database.InsertExpense(newExpenditure, getBeneficiary());
 
-                AppToast.CreateSuccessToast("La dépense a été ajoutée !")
-                    .SetDurationInSeconds(15)
-                    .ShowToast();
+            AppToast.CreateSuccessToast("La dépense a été ajoutée !")
+                .SetDurationInSeconds(15)
+                .ShowToast();
 
-                this.pnlBulleEmplacement.Controls.Clear();
-                this.pnlBulleEmplacement.Visible = false;
+            this.pnlBulleEmplacement.Controls.Clear();
+            this.pnlBulleEmplacement.Visible = false;
 
-                this.pnlPrincipal.Controls.Clear();
-                ViewExpenditures viewExpenditures = new ViewExpenditures(this.codeEvenement);
-                viewExpenditures.setPanel = this.pnlPrincipal;
-                this.pnlPrincipal.Controls.Add(viewExpenditures);
-            }
-            
+            this.pnlPrincipal.Controls.Clear();
+            ViewExpenditures viewExpenditures = new ViewExpenditures(this.codeEvenement);
+            viewExpenditures.setPanel = this.pnlPrincipal;
+            this.pnlPrincipal.Controls.Add(viewExpenditures);
+
         }
 
         public List<Participant> getBeneficiary()
         {
             List<Participant> beneficiary = new List<Participant>();
+            beneficiary.Add(Participant.GetParticipant(codeParticipant));
             foreach (CheckBox chk in pnlBeneficiaire.Controls)
             {
                 if (chk.Checked && chk != chkEveryOne)
