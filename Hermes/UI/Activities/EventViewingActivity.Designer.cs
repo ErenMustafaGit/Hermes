@@ -1,16 +1,17 @@
-﻿namespace Hermes
+﻿
+namespace Hermes.UI.Activities
 {
-    partial class CompleteInfoEvenement
+    partial class EventViewingActivity
     {
         /// <summary> 
-        /// Variable nécessaire au concepteur.
+        /// Required designer variable.
         /// </summary>
         private System.ComponentModel.IContainer components = null;
 
         /// <summary> 
-        /// Nettoyage des ressources utilisées.
+        /// Clean up any resources being used.
         /// </summary>
-        /// <param name="disposing">true si les ressources managées doivent être supprimées ; sinon, false.</param>
+        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
         protected override void Dispose(bool disposing)
         {
             if (disposing && (components != null))
@@ -20,11 +21,11 @@
             base.Dispose(disposing);
         }
 
-        #region Code généré par le Concepteur de composants
+        #region Component Designer generated code
 
         /// <summary> 
-        /// Méthode requise pour la prise en charge du concepteur - ne modifiez pas 
-        /// le contenu de cette méthode avec l'éditeur de code.
+        /// Required method for Designer support - do not modify 
+        /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent()
         {
@@ -291,7 +292,7 @@
             this.lblVueGlobale.MouseEnter += new System.EventHandler(this.lblGoBaaack_MouseEnter);
             this.lblVueGlobale.MouseLeave += new System.EventHandler(this.lblGoBaaack_MouseLeave);
             // 
-            // CompleteInfoEvenement
+            // EventViewingActivity
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -312,9 +313,9 @@
             this.Controls.Add(this.lblDateStart);
             this.Controls.Add(this.lblIconeDate);
             this.Controls.Add(this.pnlEvenementInfo);
-            this.Name = "CompleteInfoEvenement";
+            this.Name = "EventViewingActivity";
             this.Size = new System.Drawing.Size(1064, 640);
-            this.Load += new System.EventHandler(this.CompleteInfoEvenement_Load);
+            this.Load += new System.EventHandler(this.EventViewingActivity_Load);
             this.pnlEvenementInfo.ResumeLayout(false);
             this.pnlEvenementInfo.PerformLayout();
             this.ResumeLayout(false);

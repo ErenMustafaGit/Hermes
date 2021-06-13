@@ -1,24 +1,24 @@
-﻿using System;
+﻿using Hermes.DataModel;
+using Hermes.Extensions;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Drawing;
 using System.Data;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Data.OleDb;
-using Hermes.DataModel;
-using Hermes.Extensions;
 
-namespace Hermes
+namespace Hermes.UI.Activities
 {
-    public partial class CompleteInfoEvenement : UserControl
+    public partial class EventViewingActivity : UserControl
     {
         public int index;
         public Panel ecran;
         public BindingSource bindingSource;
-        public CompleteInfoEvenement()
+
+        public EventViewingActivity()
         {
             InitializeComponent();
             lblIconeDate.Text = Hermes.UI.Icons.CALENDAR_1;
@@ -39,7 +39,7 @@ namespace Hermes
             set { this.ecran = value; }
         }
 
-        private void CompleteInfoEvenement_Load(object sender, EventArgs e)
+        private void EventViewingActivity_Load(object sender, EventArgs e)
         {
             //Scrollbar sur le pnlParticipant
             pnlParticipant.AutoScroll = false;
@@ -50,7 +50,7 @@ namespace Hermes
 
             //BindingSource
             this.bindingSource = Database.GetBindingSource("Evenements");
-           
+
             //Met place les évènements max au label lblMax
             lblMax.Text = bindingSource.Count.ToString();
             bindingSource.Position = this.index;
@@ -91,7 +91,7 @@ namespace Hermes
                 lblSoldé.Text = "Non soldé";
             }
 
-            
+
             List<Participant> participant = currentEvent.GetGuests();
 
             int codeCreateur = (int)dataRowView[6];
@@ -169,7 +169,7 @@ namespace Hermes
             this.index = bindingSource.Position;
 
             //condition pour eviter de recharger le pnlParticipant après être arrivé au bout, mais marche pas :(
-             if(this.index != bindingSource.Count  || this.index != 1)
+            if (this.index != bindingSource.Count || this.index != 1)
             {
                 //Mise en place pour récuperer les informations nécessaire
                 DataRowView dataRowView = (DataRowView)bindingSource.Current;
