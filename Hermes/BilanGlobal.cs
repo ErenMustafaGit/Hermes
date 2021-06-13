@@ -21,9 +21,7 @@ namespace Hermes
         public int index;
 
 
-        //pour fix le double actualisation de la page
-        //Bricolage, mais efficace 
-        private int start = -2;
+
         public Panel setPanel
         {
             set { this.ecran = value; }
@@ -59,28 +57,6 @@ namespace Hermes
 
             exportPdf.Font = new Font(FontManager.GetFontFamily(AppFont.Icons), 24f);
             exportPdf.Text = Icons.PDF_FILE;
-        }
-
-        private void cboEvenements_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            btnBilanGlobal.Visible = true;
-            //Bricolage, mais efficace
-            start++;
-            if(start >= 1)
-            {
-                this.index = cboEvenements.SelectedIndex; this.index = cboEvenements.SelectedIndex;
-                Actualisation();
-            }
-
-            if (currentEvent.Completed)
-            {
-                btnBilanGlobal.Visible = false;
-                exportPdf.Location = new Point(799, 95);
-            }
-            else
-            {
-                exportPdf.Location = new Point(799, 63);
-            }
         }
 
         public void Actualisation()
@@ -199,6 +175,24 @@ namespace Hermes
         private void ClickableMouseLeave(object sender, EventArgs e)
         {
             this.Cursor = Cursors.Default;
+        }
+
+        private void CboEvenements_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            btnBilanGlobal.Visible = true;
+
+            this.index = cboEvenements.SelectedIndex; this.index = cboEvenements.SelectedIndex;
+            Actualisation();
+
+            if (currentEvent.Completed)
+            {
+                btnBilanGlobal.Visible = false;
+                exportPdf.Location = new Point(799, 95);
+            }
+            else
+            {
+                exportPdf.Location = new Point(799, 63);
+            }
         }
     }
 }
