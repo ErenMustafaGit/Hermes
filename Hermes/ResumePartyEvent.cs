@@ -101,8 +101,7 @@ namespace Hermes
 
         private void BtnMoreInfo_Click(object sender, EventArgs e)
         {
-            EventViewingActivity CIE = new EventViewingActivity();
-            CIE.setIndex = index;
+            EventViewingActivity CIE = new EventViewingActivity(index);
             CIE.setPanel = ecran;
             this.ecran.Controls.Clear();
             this.ecran.Controls.Add(CIE);

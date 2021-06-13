@@ -14,287 +14,179 @@ namespace Hermes.UI.Activities
 {
     public partial class EventViewingActivity : UserControl
     {
-        public int index;
-        public Panel ecran;
-        public BindingSource bindingSource;
+        private int m_OpenedOn = -1;
+        private BindingSource m_Source;
 
-        public EventViewingActivity()
+        public EventViewingActivity(int currentId = -1)
         {
             InitializeComponent();
-            calendarIconLabel.Text = Hermes.UI.Icons.CALENDAR_1;
-            nextItemLabel.Text = Hermes.UI.Icons.RIGHT;
-            firstItemLabel.Text = Hermes.UI.Icons.DOUBLE_LEFT;
-            previousItemLabel.Text = Hermes.UI.Icons.LEFT;
-            lastItemLabel.Text = Hermes.UI.Icons.DOUBLE_RIGHT;
-            backArrowLabel.Text = Hermes.UI.Icons.LEFT;
+
+            m_OpenedOn = currentId;
         }
 
-        public int setIndex
+        public EventViewingActivity(PartyEvent current)
+            : this(current.Id)
         {
-            set { this.index = value; }
         }
 
+        // Honestly, won't change this at this point... Alexander wrote it this way, I don't like it at all, but well...
+
+        public Panel ecran;
         public Panel setPanel
         {
             set { this.ecran = value; }
         }
 
-        private void EventViewingActivity_Load(object sender, EventArgs e)
-        {
-            //Scrollbar sur le pnlParticipant
-            invitedPanel.AutoScroll = false;
-            invitedPanel.HorizontalScroll.Enabled = false;
-            invitedPanel.HorizontalScroll.Visible = false;
-            invitedPanel.HorizontalScroll.Maximum = 0;
-            invitedPanel.AutoScroll = true;
-
-            //BindingSource
-            this.bindingSource = Database.GetBindingSource("Evenements");
-
-            //Met place les évènements max au label lblMax
-            lblMax.Text = bindingSource.Count.ToString();
-            bindingSource.Position = this.index;
-            lblCurrentPosition.Text = (bindingSource.Position + 1).ToString();
-
-            //Mise en place pour récuperer les informations
-            DataRowView dataRowView = (DataRowView)bindingSource.Current;
-
-            //Nom de l'évènement
-            eventNameLabel.Text = dataRowView[1].ToString();
-
-            //Date début
-            DateTime dateDebut = (DateTime)dataRowView[2];
-            dateBeginLabel.Text = dateDebut.ToFrenchLongDateString();
-
-            //Date fin
-            DateTime dateFin = (DateTime)dataRowView[3];
-            dateEndLabel.Text = dateFin.ToFrenchLongDateString();
-
-            //Description
-            descriptionLabel.Text = dataRowView[4].ToString();
-
-            //Participant à l'évènement
-            List<PartyEvent> evenement = Database.FetchEvents();
-            PartyEvent currentEvent = evenement[index];
-
-
-            //Soldé ou non
-            bool solde_y_n = (bool)dataRowView[5];
-            if (solde_y_n)
-            {
-                completedIconLabel.Text = Hermes.UI.Icons.TICK_OPEN_CIRCLE;
-                completedTextLabel.Text = "Soldé";
-            }
-            else
-            {
-                completedIconLabel.Text = Hermes.UI.Icons.CLOCK;
-                completedTextLabel.Text = "Non soldé";
-            }
-
-
-            List<Participant> participant = currentEvent.GetGuests();
-
-            int codeCreateur = (int)dataRowView[6];
-
-
-            Participant eventCreator = Participant.GetParticipant(codeCreateur);
-            //Ajout du createur de l'evenement en 1er
-            UserEvenement creator = new UserEvenement();
-            creator.setCodeCreateur = codeCreateur;
-            creator.recupParticipant = eventCreator;
-            creator.Top = 20 + 80 * 0;
-            invitedPanel.Controls.Add(creator);
-
-            //Suppression du créateur de la liste des invités
-            //participant.Remove(eventCreator);
-            for (int i = 0; i < participant.Count; i++)
-            {
-                if (participant[i].CodeParticipant == codeCreateur)
-                {
-                    participant.RemoveAt(i);
-                }
-            }
-
-            //Ajout des invités
-            for (int i = 0; i < participant.Count; i++)
-            {
-                UserEvenement user = new UserEvenement();
-                user.setCodeCreateur = codeCreateur;
-                user.recupParticipant = participant[i];
-                user.Top = 20 + 80 * (i + 1);
-                invitedPanel.Controls.Add(user);
-            }
-
-        }
-
-        private void LblIconeDroite_Click(object sender, EventArgs e)
-        {
-            Pagination("Droite");
-            lblCurrentPosition.Text = (bindingSource.Position + 1).ToString();
-        }
-
-        private void LblGauche_Click(object sender, EventArgs e)
-        {
-            Pagination("Gauche");
-            lblCurrentPosition.Text = (bindingSource.Position + 1).ToString();
-        }
-
-        private void LblIconeDroiteDroite_Click(object sender, EventArgs e)
-        {
-            Pagination("DroiteDroite");
-            lblCurrentPosition.Text = (bindingSource.Position + 1).ToString();
-        }
-
-        private void LblGaucheGauche_Click(object sender, EventArgs e)
-        {
-            Pagination("GaucheGauche");
-            lblCurrentPosition.Text = (bindingSource.Position + 1).ToString();
-        }
-
-        public void Pagination(string indication)
-        {
-            this.bindingSource.Position = this.index;
-            if (indication == "Droite")
-                this.bindingSource.MoveNext();
-
-            else if (indication == "DroiteDroite")
-                this.bindingSource.MoveLast();
-
-            else if (indication == "Gauche")
-                this.bindingSource.MovePrevious();
-
-            else if (indication == "GaucheGauche")
-                this.bindingSource.MoveFirst();
-
-            this.index = bindingSource.Position;
-
-            //condition pour eviter de recharger le pnlParticipant après être arrivé au bout, mais marche pas :(
-            if (this.index != bindingSource.Count || this.index != 1)
-            {
-                //Mise en place pour récuperer les informations nécessaire
-                DataRowView dataRowView = (DataRowView)bindingSource.Current;
-                //Nom de l'évènement
-                eventNameLabel.Text = dataRowView[1].ToString();
-                //Date début
-                DateTime dateDebut = (DateTime)dataRowView[2];
-                dateBeginLabel.Text = dateDebut.ToFrenchLongDateString();
-                //Date fin
-                DateTime dateFin = (DateTime)dataRowView[3];
-                dateEndLabel.Text = dateFin.ToFrenchLongDateString();
-                //Description de l'évènement
-                descriptionLabel.Text = dataRowView[4].ToString();
-                //Soldé ou non
-                bool solde_y_n = (bool)dataRowView[5];
-                if (solde_y_n)
-                {
-                    completedIconLabel.Text = Hermes.UI.Icons.TICK_OPEN_CIRCLE;
-                    completedTextLabel.Text = "Soldé";
-                }
-                else
-                {
-                    completedIconLabel.Text = Hermes.UI.Icons.CLOCK;
-                    completedTextLabel.Text = "Non soldé";
-                }
-                //Code créateur
-                int codeCreateur = (int)dataRowView[6];
-
-                //Pour remplir le panel contenant les participants à l'évènement
-                List<PartyEvent> evenement = Database.FetchEvents();
-                PartyEvent evenement_concerné = evenement[index];
-                List<Participant> participant = evenement_concerné.GetGuests();
-                invitedPanel.Controls.Clear();
-
-
-
-                Participant eventCreator = Participant.GetParticipant(codeCreateur);
-                //Ajout du createur de l'evenement en 1er
-                UserEvenement creator = new UserEvenement();
-                creator.setCodeCreateur = codeCreateur;
-                creator.recupParticipant = eventCreator;
-                creator.Top = 20 + 80 * 0;
-                invitedPanel.Controls.Add(creator);
-
-                //Suppression du créateur de la liste des invités
-                //participant.Remove(eventCreator);
-                for (int i = 0; i < participant.Count; i++)
-                {
-                    if (participant[i].CodeParticipant == codeCreateur)
-                    {
-                        participant.RemoveAt(i);
-                    }
-                }
-
-                //Ajout des invités
-                for (int i = 0; i < participant.Count; i++)
-                {
-                    UserEvenement user = new UserEvenement();
-                    user.setCodeCreateur = codeCreateur;
-                    user.recupParticipant = participant[i];
-                    user.Top = 20 + 80 * (i + 1);
-                    invitedPanel.Controls.Add(user);
-                }
-            }
-
-            //Mise à jour de la position actuel au niveau des évènements
-            lblCurrentPosition.Text = (bindingSource.Position + 1).ToString();
-        }
-
-        private void LblIconeDroite_MouseHover(object sender, EventArgs e)
-        {
-            this.Cursor = Cursors.Hand;
-        }
-
-        private void LblIconeDroite_MouseLeave(object sender, EventArgs e)
-        {
-            this.Cursor = Cursors.Default;
-        }
-
-        private void LblIconeDroiteDroite_MouseHover(object sender, EventArgs e)
-        {
-            this.Cursor = Cursors.Hand;
-        }
-
-        private void LblIconeDroiteDroite_MouseLeave(object sender, EventArgs e)
-        {
-            this.Cursor = Cursors.Default;
-        }
-
-        private void LblGauche_MouseHover(object sender, EventArgs e)
-        {
-            this.Cursor = Cursors.Hand;
-        }
-
-        private void LblGauche_MouseLeave(object sender, EventArgs e)
-        {
-            this.Cursor = Cursors.Default;
-        }
-
-        private void LblGaucheGauche_MouseHover(object sender, EventArgs e)
-        {
-            this.Cursor = Cursors.Hand;
-        }
-
-        private void LblGaucheGauche_MouseLeave(object sender, EventArgs e)
-        {
-            this.Cursor = Cursors.Default;
-        }
-
-        private void lblGoBaaack_Click(object sender, EventArgs e)
+        private void backLabels_Click(object sender, EventArgs e)
         {
             Evenements evenements = new Evenements();
             evenements.setPanel = this.ecran;
             this.ecran.Controls.Clear();
             this.ecran.Controls.Add(evenements);
         }
+        // 
 
-        private void lblGoBaaack_MouseEnter(object sender, EventArgs e)
+        private void SetupIcons()
         {
-            this.Cursor = Cursors.Hand;
+            calendarIconLabel.Text = Icons.CALENDAR_1;
+
+            backArrowLabel.Text = Icons.LEFT;
+
+            // Navigation bar.
+            firstItemLabel.Text = Icons.DOUBLE_LEFT;
+            previousItemLabel.Text = Icons.LEFT;
+            nextItemLabel.Text = Icons.RIGHT;
+            lastItemLabel.Text = Icons.DOUBLE_RIGHT;
         }
 
-        private void lblGoBaaack_MouseLeave(object sender, EventArgs e)
+        private void SetupBindings()
         {
-            this.Cursor = Cursors.Default;
+            m_Source = Database.GetBindingSource("Evenements");
+            m_Source.CurrentChanged += OnSourceRowChanged;
+
+            // Add bindings for basic text fields.
+            this.eventNameLabel.DataBindings.Add(new Binding(
+                nameof(this.eventNameLabel.Text), m_Source, "titreEvent"));
+            this.descriptionLabel.DataBindings.Add(new Binding(
+                nameof(this.descriptionLabel.Text), m_Source, "description"));
+
+            // Add bindings for dates.
+            {
+                ConvertEventHandler formatFrenchDate = 
+                    (_, e) => e.Value = ((DateTime)e.Value).ToFrenchLongDateString();
+
+                Binding b = new Binding(nameof(this.dateBeginLabel.Text), m_Source, "dateDebut");
+                b.Format += formatFrenchDate;
+                this.dateBeginLabel.DataBindings.Add(b);
+                
+                b = new Binding(nameof(this.dateEndLabel.Text), m_Source, "dateFin");
+                b.Format += formatFrenchDate;
+                this.dateEndLabel.DataBindings.Add(b);
+            }
+
+            // Add bindings for "completed" label and icon.
+            {
+                Binding b = new Binding(nameof(this.completedIconLabel.Text), m_Source, "soldeON");
+                b.Format += (_, e) => e.Value = (bool)e.Value ? Icons.TICK_OPEN_CIRCLE : Icons.CLOCK;
+                this.completedIconLabel.DataBindings.Add(b);
+
+                b = new Binding(nameof(this.completedTextLabel.Text), m_Source, "soldeON");
+                b.Format += (_, e) => e.Value = (bool)e.Value ? "Soldé" : "Non soldé";
+                this.completedTextLabel.DataBindings.Add(b);
+            }
+
+            if (m_OpenedOn != -1)
+                m_Source.Position = m_OpenedOn;
         }
+
+        // Would be preferable to have this fully automated using bindings as well, but this sounds like
+        // it would require implementing custom controls and all for this to work well.
+        private void UpdateInvitedList()
+        {
+            // Fetch the currently selected row.
+            DataRowView dataRowView = (DataRowView)m_Source.Current;
+
+            // Get the author's ID.
+            int authorId = (int)dataRowView["codeCreateur"];
+
+            // Fetch the list of people invited to the current event.
+            PartyEvent currentEvent = new PartyEvent() { Id = (int)dataRowView["codeEvent"] };
+            List<Participant> invited = currentEvent.GetGuests();
+
+            // Retrieve the author from the list, then remove it from that list.
+            int authorIndex = invited.FindIndex(p => p.CodeParticipant == authorId);
+            Participant author = null;
+
+            // It may be possible that the author isn't invited to its own event...
+            if (authorIndex != -1)
+            {
+                author = invited[authorIndex];
+                invited.RemoveAt(authorIndex);
+            }
+
+            // Clear the UI list, disable layout calculations.
+            invitedPanel.Controls.Clear();
+            invitedPanel.SuspendLayout();
+
+            // Add the author first.
+            int pos = 0;
+            if (author != null)
+            {
+                UserEvenement authorViewItem = new UserEvenement();
+                authorViewItem.setCodeCreateur = authorId;
+                authorViewItem.recupParticipant = author;
+                authorViewItem.Top = 20 + 80 * pos++;
+                invitedPanel.Controls.Add(authorViewItem);
+            }
+
+            // Then, add all of the other guests.
+            foreach (Participant p in invited)
+            {
+                UserEvenement user = new UserEvenement();
+                user.setCodeCreateur = authorId;
+                user.recupParticipant = p;
+                user.Top = 20 + 80 * pos++;
+                invitedPanel.Controls.Add(user);
+            }
+
+            // Resume layout calculations.
+            invitedPanel.ResumeLayout(true);
+        }
+
+        private void OnSourceRowChanged(object sender, EventArgs e)
+        {
+            // Update the current position on the UI when it gets changed.
+            this.currentIndexLabel.Text = (m_Source.Position + 1).ToString();
+
+            // Manually update the invited list.
+            this.UpdateInvitedList();
+        }
+
+        private void EventViewingActivity_Load(object sender, EventArgs e)
+        {
+            this.SetupIcons();
+
+            // Enable the vertical scroll bar on the invited people panel, only when required.
+            invitedPanel.HorizontalScroll.Enabled = false;
+            invitedPanel.HorizontalScroll.Visible = false;
+            invitedPanel.HorizontalScroll.Maximum = 0;
+            invitedPanel.AutoScroll = true;
+
+            this.SetupBindings();
+
+            // Set the maximum amount of events that exist on the navigation system.
+            this.maximumIndexLabel.Text = m_Source.Count.ToString();
+
+            // Force a refresh of the invited list.
+            this.UpdateInvitedList();
+        }
+
+        private void firstItemLabel_Click(object sender, EventArgs e) => m_Source.Position = 0;
+        private void previousItemLabel_Click(object sender, EventArgs e) => m_Source.Position--;
+        private void nextItemLabel_Click(object sender, EventArgs e) => m_Source.Position++;
+        private void lastItemLabel_Click(object sender, EventArgs e) => m_Source.Position = m_Source.Count - 1;
+
+        private void Clickable_MouseEnter(object sender, EventArgs e) => this.Cursor = Cursors.Hand;
+        private void Clickable_MouseLeave(object sender, EventArgs e) => this.Cursor = Cursors.Default;
     }
 }

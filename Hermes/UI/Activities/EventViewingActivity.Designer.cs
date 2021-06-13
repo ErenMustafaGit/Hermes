@@ -29,7 +29,7 @@ namespace Hermes.UI.Activities
         /// </summary>
         private void InitializeComponent()
         {
-            this.pnlEvenementInfo = new System.Windows.Forms.Panel();
+            this.eventInfoBackgroundPanel = new System.Windows.Forms.Panel();
             this.invitedPanel = new System.Windows.Forms.Panel();
             this.backTextLabel = new Hermes.UI.AppFontLabel();
             this.backArrowLabel = new Hermes.UI.AppFontLabel();
@@ -37,8 +37,8 @@ namespace Hermes.UI.Activities
             this.firstItemLabel = new Hermes.UI.AppFontLabel();
             this.lastItemLabel = new Hermes.UI.AppFontLabel();
             this.appFontLabel1 = new Hermes.UI.AppFontLabel();
-            this.lblMax = new Hermes.UI.AppFontLabel();
-            this.lblCurrentPosition = new Hermes.UI.AppFontLabel();
+            this.maximumIndexLabel = new Hermes.UI.AppFontLabel();
+            this.currentIndexLabel = new Hermes.UI.AppFontLabel();
             this.nextItemLabel = new Hermes.UI.AppFontLabel();
             this.completedIconLabel = new Hermes.UI.AppFontLabel();
             this.completedTextLabel = new Hermes.UI.AppFontLabel();
@@ -48,18 +48,18 @@ namespace Hermes.UI.Activities
             this.calendarIconLabel = new Hermes.UI.AppFontLabel();
             this.descriptionLabel = new Hermes.UI.AppFontLabel();
             this.eventNameLabel = new Hermes.UI.AppFontLabel();
-            this.pnlEvenementInfo.SuspendLayout();
+            this.eventInfoBackgroundPanel.SuspendLayout();
             this.SuspendLayout();
             // 
-            // pnlEvenementInfo
+            // eventInfoBackgroundPanel
             // 
-            this.pnlEvenementInfo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(147)))), ((int)(((byte)(248)))));
-            this.pnlEvenementInfo.Controls.Add(this.descriptionLabel);
-            this.pnlEvenementInfo.Controls.Add(this.eventNameLabel);
-            this.pnlEvenementInfo.Location = new System.Drawing.Point(0, 0);
-            this.pnlEvenementInfo.Name = "pnlEvenementInfo";
-            this.pnlEvenementInfo.Size = new System.Drawing.Size(1064, 270);
-            this.pnlEvenementInfo.TabIndex = 3;
+            this.eventInfoBackgroundPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(147)))), ((int)(((byte)(248)))));
+            this.eventInfoBackgroundPanel.Controls.Add(this.descriptionLabel);
+            this.eventInfoBackgroundPanel.Controls.Add(this.eventNameLabel);
+            this.eventInfoBackgroundPanel.Location = new System.Drawing.Point(0, 0);
+            this.eventInfoBackgroundPanel.Name = "eventInfoBackgroundPanel";
+            this.eventInfoBackgroundPanel.Size = new System.Drawing.Size(965, 270);
+            this.eventInfoBackgroundPanel.TabIndex = 3;
             // 
             // invitedPanel
             // 
@@ -79,9 +79,9 @@ namespace Hermes.UI.Activities
             this.backTextLabel.Size = new System.Drawing.Size(72, 14);
             this.backTextLabel.TabIndex = 22;
             this.backTextLabel.Text = "Vue globale";
-            this.backTextLabel.Click += new System.EventHandler(this.lblGoBaaack_Click);
-            this.backTextLabel.MouseEnter += new System.EventHandler(this.lblGoBaaack_MouseEnter);
-            this.backTextLabel.MouseLeave += new System.EventHandler(this.lblGoBaaack_MouseLeave);
+            this.backTextLabel.Click += new System.EventHandler(this.backLabels_Click);
+            this.backTextLabel.MouseEnter += new System.EventHandler(this.Clickable_MouseEnter);
+            this.backTextLabel.MouseLeave += new System.EventHandler(this.Clickable_MouseLeave);
             // 
             // backArrowLabel
             // 
@@ -95,61 +95,61 @@ namespace Hermes.UI.Activities
             this.backArrowLabel.TabIndex = 20;
             this.backArrowLabel.Text = "O";
             this.backArrowLabel.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.backArrowLabel.Click += new System.EventHandler(this.lblGoBaaack_Click);
-            this.backArrowLabel.MouseEnter += new System.EventHandler(this.lblGoBaaack_MouseEnter);
-            this.backArrowLabel.MouseLeave += new System.EventHandler(this.lblGoBaaack_MouseLeave);
+            this.backArrowLabel.Click += new System.EventHandler(this.backLabels_Click);
+            this.backArrowLabel.MouseEnter += new System.EventHandler(this.Clickable_MouseEnter);
+            this.backArrowLabel.MouseLeave += new System.EventHandler(this.Clickable_MouseLeave);
             // 
             // previousItemLabel
             // 
             this.previousItemLabel.AppFont = Hermes.AppFont.Icons;
             this.previousItemLabel.AppFontHeight = 22F;
             this.previousItemLabel.AutoSize = true;
-            this.previousItemLabel.Location = new System.Drawing.Point(392, 588);
+            this.previousItemLabel.Location = new System.Drawing.Point(384, 588);
             this.previousItemLabel.Name = "previousItemLabel";
             this.previousItemLabel.Size = new System.Drawing.Size(26, 31);
             this.previousItemLabel.TabIndex = 19;
             this.previousItemLabel.Text = "x";
             this.previousItemLabel.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.previousItemLabel.Click += new System.EventHandler(this.LblGauche_Click);
-            this.previousItemLabel.MouseLeave += new System.EventHandler(this.LblGauche_MouseLeave);
-            this.previousItemLabel.MouseHover += new System.EventHandler(this.LblGauche_MouseHover);
+            this.previousItemLabel.Click += new System.EventHandler(this.previousItemLabel_Click);
+            this.previousItemLabel.MouseLeave += new System.EventHandler(this.Clickable_MouseLeave);
+            this.previousItemLabel.MouseEnter += new System.EventHandler(this.Clickable_MouseEnter);
             // 
             // firstItemLabel
             // 
             this.firstItemLabel.AppFont = Hermes.AppFont.Icons;
             this.firstItemLabel.AppFontHeight = 22F;
             this.firstItemLabel.AutoSize = true;
-            this.firstItemLabel.Location = new System.Drawing.Point(366, 588);
+            this.firstItemLabel.Location = new System.Drawing.Point(356, 588);
             this.firstItemLabel.Name = "firstItemLabel";
             this.firstItemLabel.Size = new System.Drawing.Size(26, 31);
             this.firstItemLabel.TabIndex = 18;
             this.firstItemLabel.Text = "x";
             this.firstItemLabel.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.firstItemLabel.Click += new System.EventHandler(this.LblGaucheGauche_Click);
-            this.firstItemLabel.MouseLeave += new System.EventHandler(this.LblGaucheGauche_MouseLeave);
-            this.firstItemLabel.MouseHover += new System.EventHandler(this.LblGaucheGauche_MouseHover);
+            this.firstItemLabel.Click += new System.EventHandler(this.firstItemLabel_Click);
+            this.firstItemLabel.MouseLeave += new System.EventHandler(this.Clickable_MouseLeave);
+            this.firstItemLabel.MouseEnter += new System.EventHandler(this.Clickable_MouseEnter);
             // 
             // lastItemLabel
             // 
             this.lastItemLabel.AppFont = Hermes.AppFont.Icons;
             this.lastItemLabel.AppFontHeight = 22F;
             this.lastItemLabel.AutoSize = true;
-            this.lastItemLabel.Location = new System.Drawing.Point(525, 588);
+            this.lastItemLabel.Location = new System.Drawing.Point(534, 588);
             this.lastItemLabel.Name = "lastItemLabel";
             this.lastItemLabel.Size = new System.Drawing.Size(26, 31);
             this.lastItemLabel.TabIndex = 17;
             this.lastItemLabel.Text = "x";
             this.lastItemLabel.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.lastItemLabel.Click += new System.EventHandler(this.LblIconeDroiteDroite_Click);
-            this.lastItemLabel.MouseLeave += new System.EventHandler(this.LblIconeDroiteDroite_MouseLeave);
-            this.lastItemLabel.MouseHover += new System.EventHandler(this.LblIconeDroiteDroite_MouseHover);
+            this.lastItemLabel.Click += new System.EventHandler(this.lastItemLabel_Click);
+            this.lastItemLabel.MouseLeave += new System.EventHandler(this.Clickable_MouseLeave);
+            this.lastItemLabel.MouseEnter += new System.EventHandler(this.Clickable_MouseEnter);
             // 
             // appFontLabel1
             // 
             this.appFontLabel1.AppFont = Hermes.AppFont.HelveticaNeue;
             this.appFontLabel1.AppFontHeight = 12F;
             this.appFontLabel1.AutoSize = true;
-            this.appFontLabel1.Location = new System.Drawing.Point(441, 597);
+            this.appFontLabel1.Location = new System.Drawing.Point(441, 596);
             this.appFontLabel1.Name = "appFontLabel1";
             this.appFontLabel1.Size = new System.Drawing.Size(32, 19);
             this.appFontLabel1.TabIndex = 16;
@@ -157,41 +157,41 @@ namespace Hermes.UI.Activities
             // 
             // lblMax
             // 
-            this.lblMax.AppFont = Hermes.AppFont.HelveticaNeue;
-            this.lblMax.AppFontHeight = 12F;
-            this.lblMax.AutoSize = true;
-            this.lblMax.Location = new System.Drawing.Point(478, 597);
-            this.lblMax.Name = "lblMax";
-            this.lblMax.Size = new System.Drawing.Size(27, 19);
-            this.lblMax.TabIndex = 15;
-            this.lblMax.Text = "10";
+            this.maximumIndexLabel.AppFont = Hermes.AppFont.HelveticaNeue;
+            this.maximumIndexLabel.AppFontHeight = 12F;
+            this.maximumIndexLabel.AutoSize = true;
+            this.maximumIndexLabel.Location = new System.Drawing.Point(479, 596);
+            this.maximumIndexLabel.Name = "lblMax";
+            this.maximumIndexLabel.Size = new System.Drawing.Size(27, 19);
+            this.maximumIndexLabel.TabIndex = 15;
+            this.maximumIndexLabel.Text = "10";
             // 
             // lblCurrentPosition
             // 
-            this.lblCurrentPosition.AppFont = Hermes.AppFont.HelveticaNeue;
-            this.lblCurrentPosition.AppFontHeight = 12F;
-            this.lblCurrentPosition.AutoSize = true;
-            this.lblCurrentPosition.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(147)))), ((int)(((byte)(248)))));
-            this.lblCurrentPosition.Location = new System.Drawing.Point(417, 597);
-            this.lblCurrentPosition.Name = "lblCurrentPosition";
-            this.lblCurrentPosition.Size = new System.Drawing.Size(18, 19);
-            this.lblCurrentPosition.TabIndex = 14;
-            this.lblCurrentPosition.Text = "1";
+            this.currentIndexLabel.AppFont = Hermes.AppFont.HelveticaNeue;
+            this.currentIndexLabel.AppFontHeight = 12F;
+            this.currentIndexLabel.AutoSize = true;
+            this.currentIndexLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(147)))), ((int)(((byte)(248)))));
+            this.currentIndexLabel.Location = new System.Drawing.Point(417, 596);
+            this.currentIndexLabel.Name = "lblCurrentPosition";
+            this.currentIndexLabel.Size = new System.Drawing.Size(18, 19);
+            this.currentIndexLabel.TabIndex = 14;
+            this.currentIndexLabel.Text = "1";
             // 
             // nextItemLabel
             // 
             this.nextItemLabel.AppFont = Hermes.AppFont.Icons;
             this.nextItemLabel.AppFontHeight = 22F;
             this.nextItemLabel.AutoSize = true;
-            this.nextItemLabel.Location = new System.Drawing.Point(501, 588);
+            this.nextItemLabel.Location = new System.Drawing.Point(512, 588);
             this.nextItemLabel.Name = "nextItemLabel";
             this.nextItemLabel.Size = new System.Drawing.Size(26, 31);
             this.nextItemLabel.TabIndex = 13;
             this.nextItemLabel.Text = "x";
             this.nextItemLabel.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.nextItemLabel.Click += new System.EventHandler(this.LblIconeDroite_Click);
-            this.nextItemLabel.MouseLeave += new System.EventHandler(this.LblIconeDroite_MouseLeave);
-            this.nextItemLabel.MouseHover += new System.EventHandler(this.LblIconeDroite_MouseHover);
+            this.nextItemLabel.Click += new System.EventHandler(this.nextItemLabel_Click);
+            this.nextItemLabel.MouseLeave += new System.EventHandler(this.Clickable_MouseLeave);
+            this.nextItemLabel.MouseEnter += new System.EventHandler(this.Clickable_MouseEnter);
             // 
             // completedIconLabel
             // 
@@ -302,8 +302,8 @@ namespace Hermes.UI.Activities
             this.Controls.Add(this.firstItemLabel);
             this.Controls.Add(this.lastItemLabel);
             this.Controls.Add(this.appFontLabel1);
-            this.Controls.Add(this.lblMax);
-            this.Controls.Add(this.lblCurrentPosition);
+            this.Controls.Add(this.maximumIndexLabel);
+            this.Controls.Add(this.currentIndexLabel);
             this.Controls.Add(this.nextItemLabel);
             this.Controls.Add(this.invitedPanel);
             this.Controls.Add(this.completedIconLabel);
@@ -312,12 +312,12 @@ namespace Hermes.UI.Activities
             this.Controls.Add(this.dateToLabel);
             this.Controls.Add(this.dateBeginLabel);
             this.Controls.Add(this.calendarIconLabel);
-            this.Controls.Add(this.pnlEvenementInfo);
+            this.Controls.Add(this.eventInfoBackgroundPanel);
             this.Name = "EventViewingActivity";
             this.Size = new System.Drawing.Size(965, 640);
             this.Load += new System.EventHandler(this.EventViewingActivity_Load);
-            this.pnlEvenementInfo.ResumeLayout(false);
-            this.pnlEvenementInfo.PerformLayout();
+            this.eventInfoBackgroundPanel.ResumeLayout(false);
+            this.eventInfoBackgroundPanel.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -326,7 +326,7 @@ namespace Hermes.UI.Activities
         #endregion
 
         private UI.AppFontLabel eventNameLabel;
-        private System.Windows.Forms.Panel pnlEvenementInfo;
+        private System.Windows.Forms.Panel eventInfoBackgroundPanel;
         private UI.AppFontLabel descriptionLabel;
         private UI.AppFontLabel calendarIconLabel;
         private UI.AppFontLabel dateBeginLabel;
@@ -336,8 +336,8 @@ namespace Hermes.UI.Activities
         private UI.AppFontLabel completedIconLabel;
         private System.Windows.Forms.Panel invitedPanel;
         private UI.AppFontLabel nextItemLabel;
-        private UI.AppFontLabel lblCurrentPosition;
-        private UI.AppFontLabel lblMax;
+        private UI.AppFontLabel currentIndexLabel;
+        private UI.AppFontLabel maximumIndexLabel;
         private UI.AppFontLabel appFontLabel1;
         private UI.AppFontLabel lastItemLabel;
         private UI.AppFontLabel previousItemLabel;
