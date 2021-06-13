@@ -44,6 +44,12 @@ namespace Hermes
 
         private void BulleAjDepense2_Load(object sender, EventArgs e)
         {
+            FontFamily helvetica = FontManager.GetFontFamily(AppFont.HelveticaNeue);
+            btnAnnuler.Font = new Font(helvetica, btnAnnuler.Font.Size);
+            btnContinuer.Font = new Font(helvetica, btnContinuer.Font.Size);
+            chkEveryOne.Font = new Font(helvetica, chkEveryOne.Font.Size);
+            rtxtCommentaire.Font = new Font(helvetica, rtxtCommentaire.Font.Size);
+
             PartyEvent evenement = PartyEvent.GetFromId(this.codeEvenement);
             List<Participant> guests = evenement.GetGuests();
             for (int i = 0; i < guests.Count; i++)
@@ -54,6 +60,7 @@ namespace Hermes
                 chkGuest.Left = chkEveryOne.Left;
                 chkGuest.Top = 50 + 30 * i;
                 chkGuest.Tag = guests[i].CodeParticipant;
+                chkGuest.Font = new Font(helvetica, chkEveryOne.Font.Size);
                 pnlBeneficiaire.Controls.Add(chkGuest);
             }
         }

@@ -39,8 +39,11 @@ namespace Hermes
 
         private void MainForm_Load(object sender, EventArgs e)
         {
+            lblExit.Text = Icons.CLOSE;
+
             sideBarUserControls1.BringToFront();
             sideBarUserControls1.setPanel = pnlEcran;
+
             Accueil a1 = new Accueil();
             a1.setPanel = pnlEcran;
             this.pnlEcran.Controls.Add(a1);

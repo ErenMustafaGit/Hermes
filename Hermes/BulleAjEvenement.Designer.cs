@@ -117,9 +117,9 @@
             this.appFontLabel2.AutoSize = true;
             this.appFontLabel2.Location = new System.Drawing.Point(105, 68);
             this.appFontLabel2.Name = "appFontLabel2";
-            this.appFontLabel2.Size = new System.Drawing.Size(478, 40);
+            this.appFontLabel2.Size = new System.Drawing.Size(452, 40);
             this.appFontLabel2.TabIndex = 19;
-            this.appFontLabel2.Text = "Ajout d\'un nouvelle évènement\r\n";
+            this.appFontLabel2.Text = "Ajout d\'un nouvel évènement\r\n";
             // 
             // cboCreateur
             // 

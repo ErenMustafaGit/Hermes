@@ -63,11 +63,16 @@ namespace Hermes
 
         private void ViewExpenditures_Load(object sender, EventArgs e)
         {
+            lblIconCreator.Text = Hermes.UI.Icons.FINANCE;
+            lblIconMoney.Text = Hermes.UI.Icons.COINS;
+
+            FontFamily helvetica = FontManager.GetFontFamily(AppFont.HelveticaNeue);
+            cboEvenement.Font = new Font(helvetica, cboEvenement.Font.Size);
+            btnAddExpenditure.Font = new Font(helvetica, btnAddExpenditure.Font.Size);
+
             cboEvenement.DataSource = Database.FetchEvents().ToDataTable();
             cboEvenement.DisplayMember = "Name";
             cboEvenement.ValueMember = "Id";
-            lblIconCreator.Text = Hermes.UI.Icons.FINANCE;
-            lblIconMoney.Text = Hermes.UI.Icons.COINS;
 
             if (idBasicEvent != -1)
                 cboEvenement.SelectedValue = idBasicEvent;

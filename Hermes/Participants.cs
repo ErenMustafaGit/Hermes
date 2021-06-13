@@ -32,6 +32,10 @@ namespace Hermes
         }
         private void Participants_Load(object sender, EventArgs e)
         {
+            FontFamily helvetica = FontManager.GetFontFamily(AppFont.HelveticaNeue);
+            btnInviter.Font = new Font(helvetica, btnInviter.Font.Size);
+            cboEvenements.Font = new Font(helvetica, cboEvenements.Font.Size);
+
             this.participantsListe = Database.FetchParticipant();
             this.evenementsListe = Database.FetchEvents();
 

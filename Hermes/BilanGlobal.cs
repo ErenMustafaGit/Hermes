@@ -39,6 +39,10 @@ namespace Hermes
 
         private void BilanGlobal_Load(object sender, EventArgs e)
         {
+            FontFamily helvetica = FontManager.GetFontFamily(AppFont.HelveticaNeue);
+            btnBilanGlobal.Font = new Font(helvetica, btnBilanGlobal.Font.Size);
+            cboEvenements.Font = new Font(helvetica, cboEvenements.Font.Size);
+
             pnlBilanCasParCas.HorizontalScroll.Enabled = false;
             pnlBilanCasParCas.HorizontalScroll.Visible = false;
             pnlBilanCasParCas.HorizontalScroll.Maximum = 0;

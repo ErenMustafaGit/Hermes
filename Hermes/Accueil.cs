@@ -33,17 +33,6 @@ namespace Hermes
             List<PartyEvent> evenements = Database.FetchEvents();
             this.lblInformationParticipants.Text = String.Format("Il y a {0} participants inscrits.", participants.Count);
             this.lblevenementEnregistres.Text = String.Format("Il y a {0} évènements enregistrés.", evenements.Count);
-
-        }
-
-        private void AppFontLabel1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void ajoutRapideBouton1_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }

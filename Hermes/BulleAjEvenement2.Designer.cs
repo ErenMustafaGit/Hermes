@@ -61,6 +61,7 @@
             // rtxtDescription
             // 
             this.rtxtDescription.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.rtxtDescription.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rtxtDescription.Location = new System.Drawing.Point(364, 92);
             this.rtxtDescription.MaxLength = 200;
             this.rtxtDescription.Name = "rtxtDescription";
@@ -102,7 +103,7 @@
             this.lblDescription.AutoSize = true;
             this.lblDescription.Location = new System.Drawing.Point(361, 60);
             this.lblDescription.Name = "lblDescription";
-            this.lblDescription.Size = new System.Drawing.Size(85, 17);
+            this.lblDescription.Size = new System.Drawing.Size(88, 18);
             this.lblDescription.TabIndex = 3;
             this.lblDescription.Text = "Description";
             // 

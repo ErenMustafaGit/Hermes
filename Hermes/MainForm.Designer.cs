@@ -29,8 +29,6 @@ namespace Hermes
         /// </summary>
         private void InitializeComponent()
         {
-            this.Icon = Properties.Resources.AppIcon;
-
             this.pnlEcran = new System.Windows.Forms.Panel();
             this.pnlTitleBar = new System.Windows.Forms.Panel();
             this.lblMinimise = new Hermes.UI.AppFontLabel();
@@ -60,13 +58,12 @@ namespace Hermes
             // 
             // lblMinimise
             // 
-            this.lblMinimise.AppFont = Hermes.AppFont.HelveticaNeue;
-            this.lblMinimise.AppFontHeight = 15F;
-            this.lblMinimise.AutoSize = true;
+            this.lblMinimise.AppFont = Hermes.AppFont.HelveticaNeue_Medium;
+            this.lblMinimise.AppFontHeight = 16F;
             this.lblMinimise.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(249)))), ((int)(((byte)(249)))));
-            this.lblMinimise.Location = new System.Drawing.Point(1025, 3);
+            this.lblMinimise.Location = new System.Drawing.Point(1023, 0);
             this.lblMinimise.Name = "lblMinimise";
-            this.lblMinimise.Size = new System.Drawing.Size(20, 23);
+            this.lblMinimise.Size = new System.Drawing.Size(18, 24);
             this.lblMinimise.TabIndex = 3;
             this.lblMinimise.Text = "_";
             this.lblMinimise.Click += new System.EventHandler(this.LblMinimise_Click);
@@ -75,13 +72,12 @@ namespace Hermes
             // 
             // lblExit
             // 
-            this.lblExit.AppFont = Hermes.AppFont.HelveticaNeue;
+            this.lblExit.AppFont = Hermes.AppFont.Icons;
             this.lblExit.AppFontHeight = 10F;
-            this.lblExit.AutoSize = true;
             this.lblExit.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(249)))), ((int)(((byte)(249)))));
-            this.lblExit.Location = new System.Drawing.Point(1051, 9);
+            this.lblExit.Location = new System.Drawing.Point(1050, 8);
             this.lblExit.Name = "lblExit";
-            this.lblExit.Size = new System.Drawing.Size(17, 16);
+            this.lblExit.Size = new System.Drawing.Size(16, 16);
             this.lblExit.TabIndex = 1;
             this.lblExit.Text = "X";
             this.lblExit.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -110,6 +106,7 @@ namespace Hermes
             this.Controls.Add(this.sideBarUserControls1);
             this.Controls.Add(this.pnlEcran);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = global::Hermes.Properties.Resources.AppIcon;
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
@@ -117,7 +114,6 @@ namespace Hermes
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MainForm_MouseDown);
             this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.MainForm_MouseMove);
             this.pnlTitleBar.ResumeLayout(false);
-            this.pnlTitleBar.PerformLayout();
             this.ResumeLayout(false);
 
         }

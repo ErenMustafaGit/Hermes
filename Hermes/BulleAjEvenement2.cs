@@ -96,6 +96,13 @@ namespace Hermes
 
         private void BulleAjEvenement2_Load(object sender, EventArgs e)
         {
+            FontFamily helvetica = FontManager.GetFontFamily(AppFont.HelveticaNeue);
+            btnAnnuler.Font = new Font(helvetica, btnAnnuler.Font.Size);
+            btnValider.Font = new Font(helvetica, btnValider.Font.Size);
+            rtxtDescription.Font = new Font(helvetica, rtxtDescription.Font.Size);
+            chkEveryOne.Font = new Font(helvetica, chkEveryOne.Font.Size);
+
+
             pnlParticipants.HorizontalScroll.Enabled = false;
             pnlParticipants.HorizontalScroll.Visible = false;
             pnlParticipants.HorizontalScroll.Maximum = 0;
@@ -115,12 +122,9 @@ namespace Hermes
                     chkParticipant.AutoSize = false;
                     chkParticipant.Width = 300;
                     chkParticipant.Height = 20;
+                    chkParticipant.Font = new Font(helvetica, chkEveryOne.Font.Size);
                     compteur++;
                     pnlParticipants.Controls.Add(chkParticipant);
-                }
-                else
-                {
-
                 }
             }
         }

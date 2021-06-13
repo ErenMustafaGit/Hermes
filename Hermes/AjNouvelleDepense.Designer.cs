@@ -53,7 +53,6 @@
             this.cboEvenements.Name = "cboEvenements";
             this.cboEvenements.Size = new System.Drawing.Size(249, 28);
             this.cboEvenements.TabIndex = 1;
-            this.cboEvenements.SelectedIndexChanged += new System.EventHandler(this.cbbEvenement_SelectedIndexChanged);
             this.cboEvenements.SelectionChangeCommitted += new System.EventHandler(this.cboEvenements_SelectionChangeCommitted);
             // 
             // txtWhere
@@ -93,7 +92,6 @@
             this.dtp.Size = new System.Drawing.Size(263, 27);
             this.dtp.TabIndex = 4;
             this.dtp.Value = new System.DateTime(2021, 5, 18, 18, 23, 0, 0);
-            this.dtp.ValueChanged += new System.EventHandler(this.dtpDebut_ValueChanged);
             // 
             // cboPayePar
             // 
@@ -104,8 +102,6 @@
             this.cboPayePar.Name = "cboPayePar";
             this.cboPayePar.Size = new System.Drawing.Size(263, 28);
             this.cboPayePar.TabIndex = 5;
-            this.cboPayePar.SelectionChangeCommitted += new System.EventHandler(this.cboPayePar_SelectionChangeCommitted);
-            this.cboPayePar.SelectedValueChanged += new System.EventHandler(this.CboPayePar_SelectedValueChanged);
             // 
             // appFontLabel8
             // 

@@ -42,6 +42,12 @@ namespace Hermes
 
         private void BulleInvitations_Load(object sender, EventArgs e)
         {
+            FontFamily helvetica = FontManager.GetFontFamily(AppFont.HelveticaNeue);
+            cboEvenements.Font = new Font(helvetica, cboEvenements.Font.Size);
+            btnValider.Font = new Font(helvetica, btnValider.Font.Size);
+            button1.Font = new Font(helvetica, button1.Font.Size);
+
+
             //ScrollBar sur pnlParticipant si il y a trop de participant
             pnlParticipant.AutoScroll = false;
             pnlParticipant.HorizontalScroll.Enabled = false;
@@ -89,7 +95,7 @@ namespace Hermes
                 CheckBox chkEveryOne = new CheckBox();
                 chkEveryOne.Text = "Tout le monde";
                 chkEveryOne.AutoSize = true;
-                chkEveryOne.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Bold);
+                chkEveryOne.Font = new Font(FontManager.GetFontFamily(AppFont.HelveticaNeue_Bold), 11.25F);
                 chkEveryOne.Top = 20;
                 chkEveryOne.Left = 0;
                 chkEveryOne.CheckedChanged += new EventHandler(chkEveryOne_CheckedChanged);
@@ -111,7 +117,7 @@ namespace Hermes
                     chk.Text = fullname;
                     chk.Tag = uninvitedParticipants[i].CodeParticipant;
                     chk.AutoSize = true;
-                    chk.Font = new Font("Microsoft Sans Serif", 11.25F);
+                    chk.Font = new Font(FontManager.GetFontFamily(AppFont.HelveticaNeue), 11.25F);
                     chk.Top = 40 + 20 * (i / modulo);
                     chk.Left = 0 + 300 * (i % modulo);
                     pnlParticipant.Controls.Add(chk);

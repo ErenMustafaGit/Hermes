@@ -44,6 +44,15 @@ namespace Hermes
 
         private void BulleAjDepense_Load(object sender, EventArgs e)
         {
+            FontFamily helvetica = FontManager.GetFontFamily(AppFont.HelveticaNeue);
+            cboEvenement.Font = new Font(helvetica, cboEvenement.Font.Size);
+            dtpDateDepense.Font = new Font(helvetica, dtpDateDepense.Font.Size);
+            txtDescription.Font = new Font(helvetica, txtDescription.Font.Size);
+            cboCreateur.Font = new Font(helvetica, cboCreateur.Font.Size);
+            numAmount.Font = new Font(helvetica, numAmount.Font.Size);
+            btnAnnuler.Font = new Font(helvetica, btnAnnuler.Font.Size);
+            btnContinuer.Font = new Font(helvetica, btnContinuer.Font.Size);
+
             List<PartyEvent> listeEvenement = Database.FetchUncompletedEvents();
             DataTable dataTableEvenement = listeEvenement.ToDataTable();
             cboEvenement.DataSource = dataTableEvenement;

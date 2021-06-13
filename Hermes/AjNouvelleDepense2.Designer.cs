@@ -60,6 +60,7 @@
             // rtxtCommentaire
             // 
             this.rtxtCommentaire.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.rtxtCommentaire.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rtxtCommentaire.Location = new System.Drawing.Point(550, 174);
             this.rtxtCommentaire.MaxLength = 200;
             this.rtxtCommentaire.Name = "rtxtCommentaire";
@@ -101,7 +102,7 @@
             this.lblCommentaire.AutoSize = true;
             this.lblCommentaire.Location = new System.Drawing.Point(546, 138);
             this.lblCommentaire.Name = "lblCommentaire";
-            this.lblCommentaire.Size = new System.Drawing.Size(124, 22);
+            this.lblCommentaire.Size = new System.Drawing.Size(131, 22);
             this.lblCommentaire.TabIndex = 3;
             this.lblCommentaire.Text = "Commentaire";
             // 

@@ -68,7 +68,6 @@
             this.ajoutRapideBouton1.Name = "ajoutRapideBouton1";
             this.ajoutRapideBouton1.Size = new System.Drawing.Size(416, 386);
             this.ajoutRapideBouton1.TabIndex = 9;
-            this.ajoutRapideBouton1.Load += new System.EventHandler(this.ajoutRapideBouton1_Load);
             // 
             // appFontLabel2
             // 
@@ -98,7 +97,6 @@
             this.appFontLabel3.AppFont = Hermes.AppFont.HelveticaNeue;
             this.appFontLabel3.AppFontHeight = 13F;
             this.appFontLabel3.AutoSize = true;
-            this.appFontLabel3.BackColor = System.Drawing.SystemColors.Control;
             this.appFontLabel3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(147)))), ((int)(((byte)(248)))));
             this.appFontLabel3.Location = new System.Drawing.Point(307, 292);
             this.appFontLabel3.Name = "appFontLabel3";

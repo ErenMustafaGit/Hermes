@@ -44,6 +44,12 @@ namespace Hermes
 
         private void AjNouvelleDepense2_Load(object sender, EventArgs e)
         {
+            FontFamily helvetica = FontManager.GetFontFamily(AppFont.HelveticaNeue);
+            btnCancel.Font = new Font(helvetica, btnCancel.Font.Size);
+            btnValider.Font = new Font(helvetica, btnValider.Font.Size);
+            chkEveryOne.Font = new Font(helvetica, chkEveryOne.Font.Size);
+            rtxtCommentaire.Font = new Font(helvetica, rtxtCommentaire.Font.Size);
+
             PartyEvent evenement = PartyEvent.GetFromId(this.CodeEvenement);
             List<Participant> guests = evenement.GetGuests();
 
@@ -58,6 +64,7 @@ namespace Hermes
                 chkGuest.AutoSize = false;
                 chkGuest.Width = 300;
                 chkGuest.Height = 22;
+                chkGuest.Font = new Font(helvetica, chkEveryOne.Font.Size);
                 pnlBeneficiaire.Controls.Add(chkGuest);
             }
         }

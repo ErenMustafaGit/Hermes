@@ -46,6 +46,8 @@ namespace Hermes
 
         private void Bilan_Load(object sender, EventArgs e)
         {
+            cboParticipant.Font = new Font(FontManager.GetFontFamily(AppFont.HelveticaNeue), cboParticipant.Font.Size);
+
             List<Participant> listeParticipants = currentEvent.GetGuests();
             DataTable dataTableParticipants = Participant.toConcatenateDataTable(listeParticipants);
             cboParticipant.DataSource = dataTableParticipants;

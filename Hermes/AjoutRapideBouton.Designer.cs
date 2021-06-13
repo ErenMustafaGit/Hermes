@@ -47,11 +47,11 @@
             // cboEvenements
             // 
             this.cboEvenements.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboEvenements.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.cboEvenements.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboEvenements.FormattingEnabled = true;
             this.cboEvenements.Location = new System.Drawing.Point(80, 239);
             this.cboEvenements.Name = "cboEvenements";
-            this.cboEvenements.Size = new System.Drawing.Size(245, 24);
+            this.cboEvenements.Size = new System.Drawing.Size(245, 21);
             this.cboEvenements.TabIndex = 2;
             // 
             // btnAjouter
