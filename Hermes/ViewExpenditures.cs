@@ -163,7 +163,7 @@ namespace Hermes
                 lblExpenditureTitle.Text = expenses[0].Description;
                 lblExpenditureTitle.Text = lblExpenditureTitle.Text.Substring(0, 1).ToUpper() + lblExpenditureTitle.Text.Substring(1);
                 lblMoney.Text = expenses[0].Amount.ToEuros();
-                if (expenses[0].Comment.Length != 0)
+                if (expenses[0].Comment.Length != 0 || !String.IsNullOrWhiteSpace(expenses[0].Comment.ToString()))
                 {
                     lblDesc.Text = "\"" + expenses[0].Comment + "\"";
                 }
@@ -236,13 +236,13 @@ namespace Hermes
                 lblExpenditureTitle.Text = expenses[(int)depense.Tag].Description;
                 lblExpenditureTitle.Text = lblExpenditureTitle.Text.Substring(0, 1).ToUpper() + lblExpenditureTitle.Text.Substring(1);
                 lblMoney.Text = expenses[(int)depense.Tag].Amount.ToEuros();
-                if(expenses[(int)depense.Tag].Comment.Length != 0)
+                if(expenses[(int)depense.Tag].Comment.Length == 0 || String.IsNullOrWhiteSpace(expenses[(int)depense.Tag].Comment))
                 {
-                    lblDesc.Text = "\"" + expenses[(int)depense.Tag].Comment + "\"";
+                    lblDesc.Text = "Pas de commentaire";
                 }
                 else
                 {
-                    lblDesc.Text = "Pas de commentaire";
+                    lblDesc.Text = "\"" + expenses[(int)depense.Tag].Comment + "\"";
                 }
                 lblCreator.Text = participant.FirstName + " " + participant.LastName;
                 RefreshBeneficiaries(expenses, (int)depense.Tag);
