@@ -48,7 +48,7 @@ namespace Hermes
             this.cboEvenements.Name = "cboEvenements";
             this.cboEvenements.Size = new System.Drawing.Size(281, 28);
             this.cboEvenements.TabIndex = 7;
-            this.cboEvenements.SelectedIndexChanged += new System.EventHandler(this.cboEvenements_SelectedIndexChanged);
+            this.cboEvenements.SelectionChangeCommitted += new System.EventHandler(this.CboEvenements_SelectionChangeCommitted);
             // 
             // btnBilanGlobal
             // 
@@ -102,7 +102,7 @@ namespace Hermes
             this.lblVueGlobale.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(147)))), ((int)(((byte)(248)))));
             this.lblVueGlobale.Location = new System.Drawing.Point(48, 607);
             this.lblVueGlobale.Name = "lblVueGlobale";
-            this.lblVueGlobale.Size = new System.Drawing.Size(72, 14);
+            this.lblVueGlobale.Size = new System.Drawing.Size(69, 14);
             this.lblVueGlobale.TabIndex = 44;
             this.lblVueGlobale.Text = "Vue globale";
             this.lblVueGlobale.Click += new System.EventHandler(this.lblGoBaaack_Click);
@@ -132,7 +132,7 @@ namespace Hermes
             this.lblEvenement.AutoSize = true;
             this.lblEvenement.Location = new System.Drawing.Point(418, 69);
             this.lblEvenement.Name = "lblEvenement";
-            this.lblEvenement.Size = new System.Drawing.Size(178, 19);
+            this.lblEvenement.Size = new System.Drawing.Size(175, 19);
             this.lblEvenement.TabIndex = 8;
             this.lblEvenement.Text = "Pour quel évènement ?";
             // 
