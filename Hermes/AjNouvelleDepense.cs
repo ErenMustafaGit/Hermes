@@ -68,7 +68,7 @@ namespace Hermes
             if (wentBack)
             {
                 txtWhere.Text = this.description;
-                cboEvenements.SelectedValue = indice;
+                cboEvenements.SelectedValue = codeEvenement;
                 cboPayePar.SelectedIndex = indicePayePar;
                 numAmount.Value = amount;
                 dtp.Value = date;
@@ -87,14 +87,6 @@ namespace Hermes
             cboPayePar.DataSource = guests;
             cboPayePar.DisplayMember = "name";
             cboPayePar.ValueMember = "codeParticipant";
-            if (wentBack)
-            {
-                txtWhere.Text = this.description;
-                cboEvenements.SelectedValue = codeEvenement;
-                cboPayePar.SelectedIndex = indicePayePar;
-                numAmount.Value = amount;
-                dtp.Value = date;
-            }
         }
 
         private void appFontLabel7_Click(object sender, EventArgs e)
