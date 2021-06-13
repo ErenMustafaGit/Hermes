@@ -17,12 +17,8 @@ namespace Hermes
         private PartyEvent newEvent;
         private Panel ecran;
         private Delegate annuler;
-        private static Panel pnlPrincipal;
-        /*
-        public BulleAjEvenement2()
-        {
-            InitializeComponent();
-        }*/
+        private Panel pnlPrincipal;
+        private int index;
 
         public Panel setPanelPrincipal
         {
@@ -35,10 +31,12 @@ namespace Hermes
         }
 
 
-        public BulleAjEvenement2(PartyEvent newEvent)
+        public BulleAjEvenement2(PartyEvent newEvent, int index)
         {
             InitializeComponent();
             this.newEvent = newEvent;
+            this.index = index;
+            lblGoBaaack.Text = Hermes.UI.Icons.LEFT;
         }
         public Panel setPanel
         {
@@ -168,6 +166,23 @@ namespace Hermes
         private void rtxtDescription_KeyPress(object sender, KeyPressEventArgs e)
         {
             rtxtDescription.BackColor = Color.White;
+        }
+
+        private void lblGoBaaack_Click(object sender, EventArgs e)
+        {
+            BulleAjEvenement bulleAjEvenement = new BulleAjEvenement(true, newEvent, index, pnlPrincipal, ecran);
+            this.ecran.Controls.Clear();
+            this.ecran.Controls.Add(bulleAjEvenement);
+        }
+
+        private void ClickableMouseEnter(object sender, EventArgs e)
+        {
+            this.Cursor = Cursors.Hand;
+        }
+
+        private void ClickableMouseLeave(object sender, EventArgs e)
+        {
+            this.Cursor = Cursors.Default;
         }
     }
 }

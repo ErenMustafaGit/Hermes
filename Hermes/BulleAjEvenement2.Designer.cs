@@ -35,6 +35,8 @@
             this.btnValider = new System.Windows.Forms.Button();
             this.lblDescription = new Hermes.UI.AppFontLabel();
             this.lblParticipants = new Hermes.UI.AppFontLabel();
+            this.lblEnArriere = new Hermes.UI.AppFontLabel();
+            this.lblGoBaaack = new Hermes.UI.AppFontLabel();
             this.pnlParticipants.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -43,7 +45,7 @@
             this.pnlParticipants.Controls.Add(this.chkEveryOne);
             this.pnlParticipants.Location = new System.Drawing.Point(68, 92);
             this.pnlParticipants.Name = "pnlParticipants";
-            this.pnlParticipants.Size = new System.Drawing.Size(267, 272);
+            this.pnlParticipants.Size = new System.Drawing.Size(267, 259);
             this.pnlParticipants.TabIndex = 1;
             // 
             // chkEveryOne
@@ -65,7 +67,7 @@
             this.rtxtDescription.Location = new System.Drawing.Point(364, 92);
             this.rtxtDescription.MaxLength = 200;
             this.rtxtDescription.Name = "rtxtDescription";
-            this.rtxtDescription.Size = new System.Drawing.Size(258, 226);
+            this.rtxtDescription.Size = new System.Drawing.Size(258, 213);
             this.rtxtDescription.TabIndex = 2;
             this.rtxtDescription.Text = "";
             this.rtxtDescription.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.rtxtDescription_KeyPress);
@@ -75,7 +77,7 @@
             this.btnAnnuler.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(49)))), ((int)(((byte)(49)))));
             this.btnAnnuler.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAnnuler.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnAnnuler.Location = new System.Drawing.Point(364, 334);
+            this.btnAnnuler.Location = new System.Drawing.Point(364, 321);
             this.btnAnnuler.Name = "btnAnnuler";
             this.btnAnnuler.Size = new System.Drawing.Size(123, 30);
             this.btnAnnuler.TabIndex = 4;
@@ -88,7 +90,7 @@
             this.btnValider.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(147)))), ((int)(((byte)(248)))));
             this.btnValider.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnValider.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnValider.Location = new System.Drawing.Point(493, 334);
+            this.btnValider.Location = new System.Drawing.Point(493, 321);
             this.btnValider.Name = "btnValider";
             this.btnValider.Size = new System.Drawing.Size(129, 30);
             this.btnValider.TabIndex = 4;
@@ -103,7 +105,7 @@
             this.lblDescription.AutoSize = true;
             this.lblDescription.Location = new System.Drawing.Point(361, 60);
             this.lblDescription.Name = "lblDescription";
-            this.lblDescription.Size = new System.Drawing.Size(88, 18);
+            this.lblDescription.Size = new System.Drawing.Size(85, 17);
             this.lblDescription.TabIndex = 3;
             this.lblDescription.Text = "Description";
             // 
@@ -118,10 +120,43 @@
             this.lblParticipants.TabIndex = 0;
             this.lblParticipants.Text = "Participants";
             // 
+            // lblEnArriere
+            // 
+            this.lblEnArriere.AppFont = Hermes.AppFont.HelveticaNeue;
+            this.lblEnArriere.AppFontHeight = 9F;
+            this.lblEnArriere.AutoSize = true;
+            this.lblEnArriere.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(147)))), ((int)(((byte)(248)))));
+            this.lblEnArriere.Location = new System.Drawing.Point(50, 370);
+            this.lblEnArriere.Name = "lblEnArriere";
+            this.lblEnArriere.Size = new System.Drawing.Size(95, 14);
+            this.lblEnArriere.TabIndex = 48;
+            this.lblEnArriere.Text = "Retour en arrière";
+            this.lblEnArriere.Click += new System.EventHandler(this.lblGoBaaack_Click);
+            this.lblEnArriere.MouseEnter += new System.EventHandler(this.ClickableMouseEnter);
+            this.lblEnArriere.MouseLeave += new System.EventHandler(this.ClickableMouseLeave);
+            // 
+            // lblGoBaaack
+            // 
+            this.lblGoBaaack.AppFont = Hermes.AppFont.Icons;
+            this.lblGoBaaack.AppFontHeight = 20F;
+            this.lblGoBaaack.AutoSize = true;
+            this.lblGoBaaack.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(147)))), ((int)(((byte)(248)))));
+            this.lblGoBaaack.Location = new System.Drawing.Point(25, 362);
+            this.lblGoBaaack.Name = "lblGoBaaack";
+            this.lblGoBaaack.Size = new System.Drawing.Size(29, 27);
+            this.lblGoBaaack.TabIndex = 47;
+            this.lblGoBaaack.Text = "O";
+            this.lblGoBaaack.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.lblGoBaaack.Click += new System.EventHandler(this.lblGoBaaack_Click);
+            this.lblGoBaaack.MouseEnter += new System.EventHandler(this.ClickableMouseEnter);
+            this.lblGoBaaack.MouseLeave += new System.EventHandler(this.ClickableMouseLeave);
+            // 
             // BulleAjEvenement2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.lblEnArriere);
+            this.Controls.Add(this.lblGoBaaack);
             this.Controls.Add(this.btnValider);
             this.Controls.Add(this.btnAnnuler);
             this.Controls.Add(this.lblDescription);
@@ -147,5 +182,7 @@
         private System.Windows.Forms.Button btnAnnuler;
         private System.Windows.Forms.Button btnValider;
         private System.Windows.Forms.CheckBox chkEveryOne;
+        private UI.AppFontLabel lblEnArriere;
+        private UI.AppFontLabel lblGoBaaack;
     }
 }
