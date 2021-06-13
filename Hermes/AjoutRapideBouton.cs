@@ -32,7 +32,7 @@ namespace Hermes
         private void AjoutRapideBouton_Load(object sender, EventArgs e)
         {
             FontFamily helvetica = FontManager.GetFontFamily(AppFont.HelveticaNeue);
-            btnAjouter.Font = new Font(helvetica, btnAjouter.Font.Height);
+            btnAjouter.Font = new Font(helvetica, 12);
             cboEvenements.Font = new Font(helvetica, cboEvenements.Font.Height);
 
             DataTable table = Database.FetchUncompletedEvents().ToDataTable();
