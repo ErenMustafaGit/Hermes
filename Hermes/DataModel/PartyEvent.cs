@@ -264,8 +264,8 @@ namespace Hermes.DataModel
             // We balance benefits between people to regularize everything to zero.
             while (!balances.All(t => Decimal.Round(t.Value, 2) == 0))
             {
-                // Order values by lowest to highest.
-                var tmp = balances.OrderBy(kvp => kvp.Value);
+                // Order values by lowest to highest, while filtering balances at zero for safeguarding.
+                var tmp = balances.Where(kvp => Decimal.Round(kvp.Value) != 0).OrderBy(kvp => kvp.Value);
                 var lowest = tmp.First(); // the one that "gives"
                 var highest = tmp.Last(); // the one that "receives"
 
