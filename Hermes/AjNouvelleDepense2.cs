@@ -77,8 +77,12 @@ namespace Hermes
                     chkGuest.Font = new Font(helvetica, chkEveryOne.Font.Size - 3);
                     pnlBeneficiaire.Controls.Add(chkGuest);
                     compteur++;
-                }
-                    
+                }    
+            }
+            if (compteur == 0)
+            {
+                chkEveryOne.Text = "Aucune personne\n(autre que le créateur)";
+                chkEveryOne.Enabled = false;
             }
         }
 
