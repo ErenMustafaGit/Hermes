@@ -97,7 +97,7 @@
             this.txtPhoneNumber.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtPhoneNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F);
             this.txtPhoneNumber.Location = new System.Drawing.Point(132, 230);
-            this.txtPhoneNumber.MaxLength = 30;
+            this.txtPhoneNumber.MaxLength = 10;
             this.txtPhoneNumber.Name = "txtPhoneNumber";
             this.txtPhoneNumber.Size = new System.Drawing.Size(201, 27);
             this.txtPhoneNumber.TabIndex = 36;
@@ -141,7 +141,7 @@
             this.lblEmail.AutoSize = true;
             this.lblEmail.Location = new System.Drawing.Point(378, 201);
             this.lblEmail.Name = "lblEmail";
-            this.lblEmail.Size = new System.Drawing.Size(104, 16);
+            this.lblEmail.Size = new System.Drawing.Size(103, 16);
             this.lblEmail.TabIndex = 37;
             this.lblEmail.Text = "Adresse e-mail";
             // 
@@ -152,7 +152,7 @@
             this.lblNumero.AutoSize = true;
             this.lblNumero.Location = new System.Drawing.Point(129, 201);
             this.lblNumero.Name = "lblNumero";
-            this.lblNumero.Size = new System.Drawing.Size(149, 16);
+            this.lblNumero.Size = new System.Drawing.Size(146, 16);
             this.lblNumero.TabIndex = 35;
             this.lblNumero.Text = "Numéro de téléphone";
             // 
@@ -163,7 +163,7 @@
             this.lblNbPart.AutoSize = true;
             this.lblNbPart.Location = new System.Drawing.Point(129, 284);
             this.lblNbPart.Name = "lblNbPart";
-            this.lblNbPart.Size = new System.Drawing.Size(119, 16);
+            this.lblNbPart.Size = new System.Drawing.Size(115, 16);
             this.lblNbPart.TabIndex = 33;
             this.lblNbPart.Text = "Nombre de parts";
             // 
@@ -174,7 +174,7 @@
             this.lblPrenom.AutoSize = true;
             this.lblPrenom.Location = new System.Drawing.Point(378, 118);
             this.lblPrenom.Name = "lblPrenom";
-            this.lblPrenom.Size = new System.Drawing.Size(154, 16);
+            this.lblPrenom.Size = new System.Drawing.Size(149, 16);
             this.lblPrenom.TabIndex = 33;
             this.lblPrenom.Text = "Prénom du participant";
             // 
@@ -196,7 +196,7 @@
             this.lblNom.AutoSize = true;
             this.lblNom.Location = new System.Drawing.Point(129, 118);
             this.lblNom.Name = "lblNom";
-            this.lblNom.Size = new System.Drawing.Size(134, 16);
+            this.lblNom.Size = new System.Drawing.Size(129, 16);
             this.lblNom.TabIndex = 22;
             this.lblNom.Text = "Nom du participant";
             // 
