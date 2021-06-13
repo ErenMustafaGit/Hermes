@@ -80,6 +80,9 @@ namespace Hermes
             {
                 rtxtDescription.BackColor = Color.LightPink;
                 rtxtDescription.Focus();
+
+                AppToast.CreateErrorToast("La description est trop longue ! (200 caractères max.)")
+                        .SetDurationInSeconds(15).ShowToast();
             }
 
         }
