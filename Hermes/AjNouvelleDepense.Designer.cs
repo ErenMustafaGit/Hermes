@@ -33,14 +33,14 @@
             this.numAmount = new System.Windows.Forms.NumericUpDown();
             this.dtp = new System.Windows.Forms.DateTimePicker();
             this.cboPayePar = new System.Windows.Forms.ComboBox();
-            this.appFontLabel8 = new Hermes.UI.AppFontLabel();
-            this.lblAnnuler = new Hermes.UI.AppFontLabel();
             this.appFontLabel6 = new Hermes.UI.AppFontLabel();
             this.lblDate = new Hermes.UI.AppFontLabel();
             this.lblAmount = new Hermes.UI.AppFontLabel();
             this.appFontLabel2 = new Hermes.UI.AppFontLabel();
             this.appFontLabel1 = new Hermes.UI.AppFontLabel();
             this.lblNouvelleDepense = new Hermes.UI.AppFontLabel();
+            this.btnCancel = new System.Windows.Forms.Button();
+            this.btnContinue = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.numAmount)).BeginInit();
             this.SuspendLayout();
             // 
@@ -103,36 +103,6 @@
             this.cboPayePar.Size = new System.Drawing.Size(263, 28);
             this.cboPayePar.TabIndex = 5;
             // 
-            // appFontLabel8
-            // 
-            this.appFontLabel8.AppFont = Hermes.AppFont.HelveticaNeue;
-            this.appFontLabel8.AppFontHeight = 12F;
-            this.appFontLabel8.AutoSize = true;
-            this.appFontLabel8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(141)))), ((int)(((byte)(255)))));
-            this.appFontLabel8.Location = new System.Drawing.Point(783, 579);
-            this.appFontLabel8.Name = "appFontLabel8";
-            this.appFontLabel8.Size = new System.Drawing.Size(81, 19);
-            this.appFontLabel8.TabIndex = 6;
-            this.appFontLabel8.Text = "Continuer";
-            this.appFontLabel8.Click += new System.EventHandler(this.AppFontLabel8_Click);
-            this.appFontLabel8.MouseLeave += new System.EventHandler(this.AppFontLabel8_MouseLeave);
-            this.appFontLabel8.MouseHover += new System.EventHandler(this.AppFontLabel8_MouseHover);
-            // 
-            // lblAnnuler
-            // 
-            this.lblAnnuler.AppFont = Hermes.AppFont.HelveticaNeue;
-            this.lblAnnuler.AppFontHeight = 12F;
-            this.lblAnnuler.AutoSize = true;
-            this.lblAnnuler.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
-            this.lblAnnuler.Location = new System.Drawing.Point(702, 579);
-            this.lblAnnuler.Name = "lblAnnuler";
-            this.lblAnnuler.Size = new System.Drawing.Size(66, 19);
-            this.lblAnnuler.TabIndex = 7;
-            this.lblAnnuler.Text = "Annuler";
-            this.lblAnnuler.Click += new System.EventHandler(this.appFontLabel7_Click);
-            this.lblAnnuler.MouseLeave += new System.EventHandler(this.lblAnnuler_MouseLeave);
-            this.lblAnnuler.MouseHover += new System.EventHandler(this.appFontLabel7_MouseHover);
-            // 
             // appFontLabel6
             // 
             this.appFontLabel6.AppFont = Hermes.AppFont.HelveticaNeue;
@@ -140,7 +110,7 @@
             this.appFontLabel6.AutoSize = true;
             this.appFontLabel6.Location = new System.Drawing.Point(476, 312);
             this.appFontLabel6.Name = "appFontLabel6";
-            this.appFontLabel6.Size = new System.Drawing.Size(86, 16);
+            this.appFontLabel6.Size = new System.Drawing.Size(85, 16);
             this.appFontLabel6.TabIndex = 16;
             this.appFontLabel6.Text = "Payée par ?";
             // 
@@ -151,7 +121,7 @@
             this.lblDate.AutoSize = true;
             this.lblDate.Location = new System.Drawing.Point(476, 236);
             this.lblDate.Name = "lblDate";
-            this.lblDate.Size = new System.Drawing.Size(136, 16);
+            this.lblDate.Size = new System.Drawing.Size(132, 16);
             this.lblDate.TabIndex = 12;
             this.lblDate.Text = "Date de la dépense";
             // 
@@ -162,7 +132,7 @@
             this.lblAmount.AutoSize = true;
             this.lblAmount.Location = new System.Drawing.Point(168, 385);
             this.lblAmount.Name = "lblAmount";
-            this.lblAmount.Size = new System.Drawing.Size(159, 16);
+            this.lblAmount.Size = new System.Drawing.Size(154, 16);
             this.lblAmount.TabIndex = 8;
             this.lblAmount.Text = "Montant de la dépense";
             // 
@@ -173,7 +143,7 @@
             this.appFontLabel2.AutoSize = true;
             this.appFontLabel2.Location = new System.Drawing.Point(168, 312);
             this.appFontLabel2.Name = "appFontLabel2";
-            this.appFontLabel2.Size = new System.Drawing.Size(179, 16);
+            this.appFontLabel2.Size = new System.Drawing.Size(174, 16);
             this.appFontLabel2.TabIndex = 6;
             this.appFontLabel2.Text = "Description de la dépense";
             // 
@@ -184,7 +154,7 @@
             this.appFontLabel1.AutoSize = true;
             this.appFontLabel1.Location = new System.Drawing.Point(168, 231);
             this.appFontLabel1.Name = "appFontLabel1";
-            this.appFontLabel1.Size = new System.Drawing.Size(158, 16);
+            this.appFontLabel1.Size = new System.Drawing.Size(156, 16);
             this.appFontLabel1.TabIndex = 4;
             this.appFontLabel1.Text = "Pour quel évènement ?";
             // 
@@ -200,12 +170,38 @@
             this.lblNouvelleDepense.TabIndex = 2;
             this.lblNouvelleDepense.Text = "Nouvelle dépense";
             // 
+            // btnCancel
+            // 
+            this.btnCancel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(49)))), ((int)(((byte)(49)))));
+            this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCancel.ForeColor = System.Drawing.SystemColors.Control;
+            this.btnCancel.Location = new System.Drawing.Point(670, 556);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Size = new System.Drawing.Size(105, 30);
+            this.btnCancel.TabIndex = 17;
+            this.btnCancel.Text = "Annuler";
+            this.btnCancel.UseVisualStyleBackColor = false;
+            this.btnCancel.Click += new System.EventHandler(this.BtnCancel_Click);
+            // 
+            // btnContinue
+            // 
+            this.btnContinue.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(147)))), ((int)(((byte)(248)))));
+            this.btnContinue.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnContinue.ForeColor = System.Drawing.SystemColors.Control;
+            this.btnContinue.Location = new System.Drawing.Point(781, 556);
+            this.btnContinue.Name = "btnContinue";
+            this.btnContinue.Size = new System.Drawing.Size(105, 30);
+            this.btnContinue.TabIndex = 17;
+            this.btnContinue.Text = "Continuer";
+            this.btnContinue.UseVisualStyleBackColor = false;
+            this.btnContinue.Click += new System.EventHandler(this.BtnContinue_Click);
+            // 
             // AjNouvelleDepense
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.appFontLabel8);
-            this.Controls.Add(this.lblAnnuler);
+            this.Controls.Add(this.btnContinue);
+            this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.appFontLabel6);
             this.Controls.Add(this.cboPayePar);
             this.Controls.Add(this.lblDate);
@@ -239,7 +235,7 @@
         private UI.AppFontLabel lblDate;
         private UI.AppFontLabel appFontLabel6;
         private System.Windows.Forms.ComboBox cboPayePar;
-        private UI.AppFontLabel lblAnnuler;
-        private UI.AppFontLabel appFontLabel8;
+        private System.Windows.Forms.Button btnCancel;
+        private System.Windows.Forms.Button btnContinue;
     }
 }
