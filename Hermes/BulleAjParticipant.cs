@@ -92,7 +92,7 @@ namespace Hermes
                 valide = false;
                 txtPhoneNumber.BackColor = Color.LightPink;
 
-                AppToast.CreateErrorToast("Le numéro de téléphone entré est trop court !")
+                AppToast.CreateErrorToast("Numéro de téléphone trop court !")
                         .SetDurationInSeconds(15).ShowToast();
             }
 
