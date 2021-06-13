@@ -19,12 +19,14 @@ namespace Hermes
         private int codeParticipant;
         private int codeEvenement;
         private DateTime dateDepense;
+        private PartyEvent currentEvent;
+        private int index;
 
 
         private Panel pnlBulleEmplacement;
         private Panel pnlPrincipal;
 
-        public BulleAjDepense2(decimal montant, string description, int codeParticipant, int codeEvenement, DateTime dateDepense, Panel pnlPrincipal, Panel pnlBulleEmplacement)
+        public BulleAjDepense2(decimal montant, string description, int codeParticipant, int codeEvenement, DateTime dateDepense, Panel pnlPrincipal, Panel pnlBulleEmplacement, PartyEvent currentEvent, int index)
         {
             this.montant = montant;
             this.description = description;
@@ -33,8 +35,10 @@ namespace Hermes
             this.dateDepense = dateDepense;
             this.pnlPrincipal = pnlPrincipal;
             this.pnlBulleEmplacement = pnlBulleEmplacement;
+            this.currentEvent = currentEvent;
+            this.index = index;
             InitializeComponent();
-
+            lblGoBaaack.Text = Hermes.UI.Icons.LEFT;
             pnlBeneficiaire.HorizontalScroll.Enabled = false;
             pnlBeneficiaire.HorizontalScroll.Visible = false;
             pnlBeneficiaire.HorizontalScroll.Maximum = 0;
@@ -172,6 +176,24 @@ namespace Hermes
             {
                 rtxtCommentaire.BackColor = Color.White;
             }
+        }
+
+
+        private void lblGoBaaack_Click(object sender, EventArgs e)
+        {
+            BulleAjDepense bulleAjDepense = new BulleAjDepense(true, montant, description, codeParticipant, codeEvenement, dateDepense, pnlPrincipal, pnlBulleEmplacement, currentEvent, index);
+            this.pnlBulleEmplacement.Controls.Clear();
+            this.pnlBulleEmplacement.Controls.Add(bulleAjDepense);
+        }
+
+        private void ClickableMouseEnter(object sender, EventArgs e)
+        {
+            this.Cursor = Cursors.Hand;
+        }
+
+        private void ClickableMouseLeave(object sender, EventArgs e)
+        {
+            this.Cursor = Cursors.Default;
         }
     }
 }

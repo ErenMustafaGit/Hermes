@@ -21,7 +21,10 @@ namespace Hermes
         int CodePayeur;
         Decimal Amount;
 
-        public AjNouvelleDepense2(int codeEvenement, DateTime date, string description, int codePayeur, Decimal amount)
+        private int indiceEvenement;
+        private int indicePayePar;
+
+        public AjNouvelleDepense2(int codeEvenement, DateTime date, string description, int codePayeur, Decimal amount, int indiceEvenement, int indicePayePar)
         {
             InitializeComponent();
             this.CodeEvenement = codeEvenement;
@@ -29,6 +32,9 @@ namespace Hermes
             this.Description = description;
             this.CodePayeur = codePayeur;
             this.Amount = amount;
+            this.indiceEvenement = indiceEvenement;
+            this.indicePayePar = indicePayePar;
+            lblGoBaaack.Text = Hermes.UI.Icons.LEFT;
 
             pnlBeneficiaire.HorizontalScroll.Enabled = false;
             pnlBeneficiaire.HorizontalScroll.Visible = false;
@@ -178,6 +184,23 @@ namespace Hermes
             if(rtxtCommentaire.BackColor == Color.LightPink)
                 rtxtCommentaire.BackColor = Color.White;
 
+        }
+
+        private void lblGoBaaack_Click(object sender, EventArgs e)
+        {
+            AjNouvelleDepense ajNouvelleDepense = new AjNouvelleDepense(true, CodeEvenement, Date, Description, CodePayeur, Amount, indiceEvenement, indicePayePar, ecran);
+            this.ecran.Controls.Clear();
+            this.ecran.Controls.Add(ajNouvelleDepense);
+        }
+
+        private void ClickableMouseEnter(object sender, EventArgs e)
+        {
+            this.Cursor = Cursors.Hand;
+        }
+
+        private void ClickableMouseLeave(object sender, EventArgs e)
+        {
+            this.Cursor = Cursors.Default;
         }
     }
 }

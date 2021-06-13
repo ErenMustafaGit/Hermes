@@ -35,6 +35,8 @@
             this.btnCancel = new System.Windows.Forms.Button();
             this.lblCommentaire = new Hermes.UI.AppFontLabel();
             this.lblBeneficiaire = new Hermes.UI.AppFontLabel();
+            this.lblEnArriere = new Hermes.UI.AppFontLabel();
+            this.lblGoBaaack = new Hermes.UI.AppFontLabel();
             this.pnlBeneficiaire.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -102,7 +104,7 @@
             this.lblCommentaire.AutoSize = true;
             this.lblCommentaire.Location = new System.Drawing.Point(546, 138);
             this.lblCommentaire.Name = "lblCommentaire";
-            this.lblCommentaire.Size = new System.Drawing.Size(131, 22);
+            this.lblCommentaire.Size = new System.Drawing.Size(124, 22);
             this.lblCommentaire.TabIndex = 3;
             this.lblCommentaire.Text = "Commentaire";
             // 
@@ -117,10 +119,43 @@
             this.lblBeneficiaire.TabIndex = 0;
             this.lblBeneficiaire.Text = "Bénéficiaires";
             // 
+            // lblEnArriere
+            // 
+            this.lblEnArriere.AppFont = Hermes.AppFont.HelveticaNeue;
+            this.lblEnArriere.AppFontHeight = 9F;
+            this.lblEnArriere.AutoSize = true;
+            this.lblEnArriere.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(147)))), ((int)(((byte)(248)))));
+            this.lblEnArriere.Location = new System.Drawing.Point(136, 565);
+            this.lblEnArriere.Name = "lblEnArriere";
+            this.lblEnArriere.Size = new System.Drawing.Size(95, 14);
+            this.lblEnArriere.TabIndex = 50;
+            this.lblEnArriere.Text = "Retour en arrière";
+            this.lblEnArriere.Click += new System.EventHandler(this.lblGoBaaack_Click);
+            this.lblEnArriere.MouseEnter += new System.EventHandler(this.ClickableMouseEnter);
+            this.lblEnArriere.MouseLeave += new System.EventHandler(this.ClickableMouseLeave);
+            // 
+            // lblGoBaaack
+            // 
+            this.lblGoBaaack.AppFont = Hermes.AppFont.Icons;
+            this.lblGoBaaack.AppFontHeight = 20F;
+            this.lblGoBaaack.AutoSize = true;
+            this.lblGoBaaack.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(147)))), ((int)(((byte)(248)))));
+            this.lblGoBaaack.Location = new System.Drawing.Point(111, 557);
+            this.lblGoBaaack.Name = "lblGoBaaack";
+            this.lblGoBaaack.Size = new System.Drawing.Size(29, 27);
+            this.lblGoBaaack.TabIndex = 49;
+            this.lblGoBaaack.Text = "O";
+            this.lblGoBaaack.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.lblGoBaaack.Click += new System.EventHandler(this.lblGoBaaack_Click);
+            this.lblGoBaaack.MouseEnter += new System.EventHandler(this.ClickableMouseEnter);
+            this.lblGoBaaack.MouseLeave += new System.EventHandler(this.ClickableMouseLeave);
+            // 
             // AjNouvelleDepense2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.lblEnArriere);
+            this.Controls.Add(this.lblGoBaaack);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnValider);
             this.Controls.Add(this.lblCommentaire);
@@ -145,5 +180,7 @@
         private UI.AppFontLabel lblCommentaire;
         private System.Windows.Forms.Button btnValider;
         private System.Windows.Forms.Button btnCancel;
+        private UI.AppFontLabel lblEnArriere;
+        private UI.AppFontLabel lblGoBaaack;
     }
 }

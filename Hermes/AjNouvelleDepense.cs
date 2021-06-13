@@ -15,10 +15,30 @@ namespace Hermes
     {
         Panel ecran;
         int indice;
+        private bool wentBack;
+        private DateTime date;
+        private string description;
+        private int codePayeur;
+        private Decimal amount;
+        private int indicePayePar;
         public AjNouvelleDepense(int indice)
         {
             InitializeComponent();
             this.indice = indice;
+        }
+
+        public AjNouvelleDepense(bool wentBack, int codeEvenement, DateTime date, string description, int codePayeur, Decimal amount, int indiceEvenement, int indicePayePar, Panel ecran)
+        {
+            InitializeComponent();
+            this.indice = codeEvenement;
+            this.wentBack = wentBack;
+            this.date = date;
+            this.description = description;
+            this.codePayeur = codePayeur;
+            this.amount = amount;
+            this.indicePayePar = indicePayePar;
+            this.ecran = ecran;
+
         }
 
         public Panel setPanel
@@ -35,16 +55,19 @@ namespace Hermes
             cboPayePar.Font = new Font(helvetica, cboPayePar.Font.Size);
             numAmount.Font = new Font(helvetica, numAmount.Font.Size);
 
-            DataTable table = Database.FetchEvents().ToDataTable();
+            DataTable table = Database.FetchUncompletedEvents().ToDataTable();
             cboEvenements.DataSource = table;
             cboEvenements.DisplayMember = "Name";
             cboEvenements.ValueMember = "Id";
-            cboEvenements.SelectedIndex = indice - 1;
+            cboEvenements.SelectedIndex = indice - 2;
 
             PartyEvent selectedEvent = PartyEvent.GetFromId(int.Parse(cboEvenements.SelectedValue.ToString()));
-            updateGuests();
 
-            dtp.Value = selectedEvent.StartDate;
+            updateGuests();
+            if (!wentBack)
+            {
+                dtp.Value = selectedEvent.StartDate;
+            }
             dtp.MinDate = selectedEvent.StartDate;
         }
 
@@ -55,6 +78,14 @@ namespace Hermes
             cboPayePar.DataSource = guests;
             cboPayePar.DisplayMember = "name";
             cboPayePar.ValueMember = "codeParticipant";
+            if (wentBack)
+            {
+                txtWhere.Text = this.description;
+                cboEvenements.SelectedValue = indice;
+                cboPayePar.SelectedIndex = indicePayePar;
+                numAmount.Value = amount;
+                dtp.Value = date;
+            }
         }
 
         private void appFontLabel7_Click(object sender, EventArgs e)
@@ -128,7 +159,7 @@ namespace Hermes
                 string description = txtWhere.Text.Replace('\'', ' ');
 
                 this.ecran.Controls.Clear();
-                AjNouvelleDepense2 suite = new AjNouvelleDepense2(int.Parse(cboEvenements.SelectedValue.ToString()), dtp.Value,description, int.Parse(cboPayePar.SelectedValue.ToString()), numAmount.Value);
+                AjNouvelleDepense2 suite = new AjNouvelleDepense2(int.Parse(cboEvenements.SelectedValue.ToString()), dtp.Value,description, int.Parse(cboPayePar.SelectedValue.ToString()), numAmount.Value, indice, cboPayePar.SelectedIndex);
                 suite.setPanel = this.ecran;
                 this.ecran.Controls.Add(suite);
             }

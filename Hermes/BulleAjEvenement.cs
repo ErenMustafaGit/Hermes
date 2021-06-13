@@ -15,10 +15,25 @@ namespace Hermes
     {
         private Panel ecran;
         private Delegate annuler;
-        private static Panel pnlPrincipal;
+        private Panel pnlPrincipal;
+        private bool wentBack;
+        private PartyEvent currentEvent;
+        private int index;
+        
         public BulleAjEvenement()
         {
             InitializeComponent();
+            this.wentBack = false;
+        }
+
+        public BulleAjEvenement(bool wentBack, PartyEvent currentEvent, int index, Panel pnlPrincipal, Panel ecran)
+        {
+            InitializeComponent();
+            this.wentBack = wentBack;
+            this.currentEvent = currentEvent;
+            this.index = index;
+            this.pnlPrincipal = pnlPrincipal;
+            this.ecran = ecran;
         }
 
         public Panel setPanelPrincipal
@@ -61,6 +76,14 @@ namespace Hermes
             cboEventCreator.ValueMember = "CodeParticipant";
 
             dtpDateDebut.Text = DateTime.Now.ToShortTimeString();
+
+            if (wentBack)
+            {
+                cboEventCreator.SelectedIndex = index;
+                txtNomEvenement.Text = currentEvent.Name;
+                dtpDateDebut.Value = currentEvent.StartDate;
+                dtpDateFin.Value = currentEvent.EndDate;
+            }
         }
 
         //btnAnnuler_Click
@@ -88,7 +111,7 @@ namespace Hermes
                     Completed = false,
                     AuthorId = (int)cboEventCreator.SelectedValue
                 };
-                BulleAjEvenement2 suite = new BulleAjEvenement2(newEvent);
+                BulleAjEvenement2 suite = new BulleAjEvenement2(newEvent, cboEventCreator.SelectedIndex);
                 this.ecran.Controls.Clear();
                 suite.setPanel = this.ecran;
                 suite.setPanelPrincipal = pnlPrincipal;
