@@ -41,26 +41,19 @@ namespace Hermes
 
         private void BulleAjParticipant_Load(object sender, EventArgs e)
         {
-
+            FontFamily helvetica = FontManager.GetFontFamily(AppFont.HelveticaNeue);
+            txtFirstName.Font = new Font(helvetica, txtFirstName.Font.Size);
+            txtLastName.Font = new Font(helvetica, txtLastName.Font.Size);
+            txtMail.Font = new Font(helvetica, txtMail.Font.Size);
+            txtPhoneNumber.Font = new Font(helvetica, txtPhoneNumber.Font.Size);
+            nudNbPart.Font = new Font(helvetica, nudNbPart.Font.Size);
+            btnValider.Font = new Font(helvetica, btnValider.Font.Size);
+            button1.Font = new Font(helvetica, button1.Font.Size);
         }
 
         private void Button1_Click(object sender, EventArgs e)
         {
             annuler.DynamicInvoke();
-        }
-
-        //Return false ou true si l'email est valide ou pas
-        private bool IsValidEmail(string email)
-        {
-            try
-            {
-                var addr = new System.Net.Mail.MailAddress(email);
-                return addr.Address == email;
-            }
-            catch
-            {
-                return false;
-            }
         }
 
         private void btnValider_Click(object sender, EventArgs e)
@@ -79,7 +72,7 @@ namespace Hermes
                 txtFirstName.BackColor = Color.LightPink;
             }
 
-            if (!IsValidEmail(txtMail.Text))
+            if (!EmailManager.IsEmailValid(txtMail.Text))
             {
                 valide = false;
                 txtMail.BackColor = Color.LightPink;

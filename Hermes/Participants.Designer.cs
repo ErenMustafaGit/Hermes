@@ -58,11 +58,11 @@
             this.btnInviter.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnInviter.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnInviter.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnInviter.Location = new System.Drawing.Point(690, 113);
+            this.btnInviter.Location = new System.Drawing.Point(661, 113);
             this.btnInviter.Name = "btnInviter";
-            this.btnInviter.Size = new System.Drawing.Size(165, 37);
+            this.btnInviter.Size = new System.Drawing.Size(194, 37);
             this.btnInviter.TabIndex = 8;
-            this.btnInviter.Text = "Inviter";
+            this.btnInviter.Text = "Inviter à un évènement";
             this.btnInviter.UseVisualStyleBackColor = false;
             this.btnInviter.Click += new System.EventHandler(this.btnInviter_Click);
             // 
@@ -73,9 +73,9 @@
             this.lblEvenement.AutoSize = true;
             this.lblEvenement.Location = new System.Drawing.Point(72, 81);
             this.lblEvenement.Name = "lblEvenement";
-            this.lblEvenement.Size = new System.Drawing.Size(197, 19);
+            this.lblEvenement.Size = new System.Drawing.Size(219, 19);
             this.lblEvenement.TabIndex = 6;
-            this.lblEvenement.Text = "Dans quel évènements ? *";
+            this.lblEvenement.Text = "Chercher dans l\'évènement :";
             // 
             // Participants
             // 

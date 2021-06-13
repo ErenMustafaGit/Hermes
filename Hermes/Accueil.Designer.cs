@@ -68,7 +68,6 @@
             this.ajoutRapideBouton1.Name = "ajoutRapideBouton1";
             this.ajoutRapideBouton1.Size = new System.Drawing.Size(416, 386);
             this.ajoutRapideBouton1.TabIndex = 9;
-            this.ajoutRapideBouton1.Load += new System.EventHandler(this.ajoutRapideBouton1_Load);
             // 
             // appFontLabel2
             // 
@@ -77,9 +76,9 @@
             this.appFontLabel2.AutoSize = true;
             this.appFontLabel2.Location = new System.Drawing.Point(109, 292);
             this.appFontLabel2.Name = "appFontLabel2";
-            this.appFontLabel2.Size = new System.Drawing.Size(348, 42);
+            this.appFontLabel2.Size = new System.Drawing.Size(345, 42);
             this.appFontLabel2.TabIndex = 13;
-            this.appFontLabel2.Text = "Créez des évènements,  invitez des gens,\r\npartagez l\'addition.\r\n";
+            this.appFontLabel2.Text = "Créez des évènements, invitez des gens,\r\npartagez l\'addition.\r\n";
             // 
             // appFontLabel1
             // 
@@ -99,7 +98,7 @@
             this.appFontLabel3.AppFontHeight = 13F;
             this.appFontLabel3.AutoSize = true;
             this.appFontLabel3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(147)))), ((int)(((byte)(248)))));
-            this.appFontLabel3.Location = new System.Drawing.Point(311, 292);
+            this.appFontLabel3.Location = new System.Drawing.Point(307, 292);
             this.appFontLabel3.Name = "appFontLabel3";
             this.appFontLabel3.Size = new System.Drawing.Size(62, 21);
             this.appFontLabel3.TabIndex = 15;
@@ -113,7 +112,7 @@
             this.appFontLabel4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(147)))), ((int)(((byte)(248)))));
             this.appFontLabel4.Location = new System.Drawing.Point(109, 313);
             this.appFontLabel4.Name = "appFontLabel4";
-            this.appFontLabel4.Size = new System.Drawing.Size(82, 21);
+            this.appFontLabel4.Size = new System.Drawing.Size(83, 21);
             this.appFontLabel4.TabIndex = 16;
             this.appFontLabel4.Text = "partagez";
             // 
@@ -135,7 +134,7 @@
             this.lblInformationParticipants.AutoSize = true;
             this.lblInformationParticipants.Location = new System.Drawing.Point(197, 406);
             this.lblInformationParticipants.Name = "lblInformationParticipants";
-            this.lblInformationParticipants.Size = new System.Drawing.Size(182, 16);
+            this.lblInformationParticipants.Size = new System.Drawing.Size(187, 16);
             this.lblInformationParticipants.TabIndex = 19;
             this.lblInformationParticipants.Text = "Il y a X participants inscrits.";
             // 
@@ -146,7 +145,7 @@
             this.lblevenementEnregistres.AutoSize = true;
             this.lblevenementEnregistres.Location = new System.Drawing.Point(197, 481);
             this.lblevenementEnregistres.Name = "lblevenementEnregistres";
-            this.lblevenementEnregistres.Size = new System.Drawing.Size(212, 16);
+            this.lblevenementEnregistres.Size = new System.Drawing.Size(214, 16);
             this.lblevenementEnregistres.TabIndex = 20;
             this.lblevenementEnregistres.Text = "Il y a X évènements enregistrés.";
             // 

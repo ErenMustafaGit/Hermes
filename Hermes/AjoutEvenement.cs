@@ -28,6 +28,10 @@ namespace Hermes
         {
             InitializeComponent();
             lblAdd.Text = Hermes.UI.Icons.PLUS;
+
+            lblAdd.Location = new Point(
+                (this.Width - lblAdd.Width) / 2,
+                (this.Height - lblAdd.Height) / 2);
         }
 
         private void AjoutEvenement_Load(object sender, EventArgs e)

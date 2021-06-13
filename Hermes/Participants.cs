@@ -32,6 +32,10 @@ namespace Hermes
         }
         private void Participants_Load(object sender, EventArgs e)
         {
+            FontFamily helvetica = FontManager.GetFontFamily(AppFont.HelveticaNeue);
+            btnInviter.Font = new Font(helvetica, btnInviter.Font.Size);
+            cboEvenements.Font = new Font(helvetica, cboEvenements.Font.Size);
+
             this.participantsListe = Database.FetchParticipant();
             this.evenementsListe = Database.FetchEvents();
 
@@ -39,7 +43,7 @@ namespace Hermes
             DataRow rowTous = evenementTable.NewRow();
             rowTous["Name"] = "Tous";
             rowTous["Id"] = 0;
-            evenementTable.Rows.Add(rowTous);
+            evenementTable.Rows.InsertAt(rowTous, 0);
 
             cboEvenements.DataSource = evenementTable;
             cboEvenements.DisplayMember = "Name";
@@ -63,7 +67,7 @@ namespace Hermes
             }
 
             cboEvenements.SelectedIndexChanged += new EventHandler(CboEvenements_SelectedIndexChanged);
-            cboEvenements.SelectedIndex = evenementTable.Rows.Count- 1;
+            cboEvenements.SelectedIndex = 0;
         }
         public void CboEvenements_SelectedIndexChanged(object sender, EventArgs e)
         {

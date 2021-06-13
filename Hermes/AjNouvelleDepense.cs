@@ -28,6 +28,13 @@ namespace Hermes
 
         private void AjNouvelleDepense_Load(object sender, EventArgs e)
         {
+            FontFamily helvetica = FontManager.GetFontFamily(AppFont.HelveticaNeue);
+            cboEvenements.Font = new Font(helvetica, cboEvenements.Font.Size);
+            dtp.Font = new Font(helvetica, dtp.Font.Size);
+            txtWhere.Font = new Font(helvetica, txtWhere.Font.Size);
+            cboPayePar.Font = new Font(helvetica, cboPayePar.Font.Size);
+            numAmount.Font = new Font(helvetica, numAmount.Font.Size);
+
             DataTable table = Database.FetchEvents().ToDataTable();
             cboEvenements.DataSource = table;
             cboEvenements.DisplayMember = "Name";
@@ -40,6 +47,7 @@ namespace Hermes
             dtp.Value = selectedEvent.StartDate;
             dtp.MinDate = selectedEvent.StartDate;
         }
+
         public void updateGuests()
         {
             PartyEvent selectedEvent = PartyEvent.GetFromId(int.Parse(cboEvenements.SelectedValue.ToString()));
@@ -47,20 +55,6 @@ namespace Hermes
             cboPayePar.DataSource = guests;
             cboPayePar.DisplayMember = "name";
             cboPayePar.ValueMember = "codeParticipant";
-        }
-
-        private void cbbEvenement_SelectedIndexChanged(object sender, EventArgs e)
-        {
-           //supp
-        }
-
-        private void dtpFin_ValueChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void dtpDebut_ValueChanged(object sender, EventArgs e)
-        {
         }
 
         private void appFontLabel7_Click(object sender, EventArgs e)
@@ -91,16 +85,6 @@ namespace Hermes
         private void lblAnnuler_MouseLeave(object sender, EventArgs e)
         {
             this.Cursor = Cursors.Default;
-        }
-
-        private void CboPayePar_SelectedValueChanged(object sender, EventArgs e)
-        {
-            //sup
-        }
-
-        private void cboPayePar_SelectionChangeCommitted(object sender, EventArgs e)
-        {
-            //
         }
 
         private void cboEvenements_SelectionChangeCommitted(object sender, EventArgs e)

@@ -117,9 +117,9 @@
             this.appFontLabel2.AutoSize = true;
             this.appFontLabel2.Location = new System.Drawing.Point(105, 68);
             this.appFontLabel2.Name = "appFontLabel2";
-            this.appFontLabel2.Size = new System.Drawing.Size(478, 40);
+            this.appFontLabel2.Size = new System.Drawing.Size(452, 40);
             this.appFontLabel2.TabIndex = 19;
-            this.appFontLabel2.Text = "Ajout d\'un nouvelle évènement\r\n";
+            this.appFontLabel2.Text = "Ajout d\'un nouvel évènement\r\n";
             // 
             // cboCreateur
             // 
@@ -128,9 +128,9 @@
             this.cboCreateur.AutoSize = true;
             this.cboCreateur.Location = new System.Drawing.Point(109, 225);
             this.cboCreateur.Name = "cboCreateur";
-            this.cboCreateur.Size = new System.Drawing.Size(137, 16);
+            this.cboCreateur.Size = new System.Drawing.Size(169, 16);
             this.cboCreateur.TabIndex = 18;
-            this.cboCreateur.Text = "Nom du createur ? *";
+            this.cboCreateur.Text = "Créateur de l\'évènement";
             // 
             // lblFinEvenement
             // 
@@ -139,9 +139,9 @@
             this.lblFinEvenement.AutoSize = true;
             this.lblFinEvenement.Location = new System.Drawing.Point(373, 224);
             this.lblFinEvenement.Name = "lblFinEvenement";
-            this.lblFinEvenement.Size = new System.Drawing.Size(150, 16);
+            this.lblFinEvenement.Size = new System.Drawing.Size(131, 16);
             this.lblFinEvenement.TabIndex = 16;
-            this.lblFinEvenement.Text = "Fin de l\'évènement ? *";
+            this.lblFinEvenement.Text = "Fin de l\'évènement";
             // 
             // lblDebutEvenement
             // 
@@ -150,9 +150,9 @@
             this.lblDebutEvenement.AutoSize = true;
             this.lblDebutEvenement.Location = new System.Drawing.Point(373, 141);
             this.lblDebutEvenement.Name = "lblDebutEvenement";
-            this.lblDebutEvenement.Size = new System.Drawing.Size(169, 16);
+            this.lblDebutEvenement.Size = new System.Drawing.Size(152, 16);
             this.lblDebutEvenement.TabIndex = 14;
-            this.lblDebutEvenement.Text = "Début de l\'évènement ? *";
+            this.lblDebutEvenement.Text = "Début de l\'évènement";
             // 
             // lblNomEvenement
             // 
@@ -161,9 +161,9 @@
             this.lblNomEvenement.AutoSize = true;
             this.lblNomEvenement.Location = new System.Drawing.Point(109, 141);
             this.lblNomEvenement.Name = "lblNomEvenement";
-            this.lblNomEvenement.Size = new System.Drawing.Size(161, 16);
+            this.lblNomEvenement.Size = new System.Drawing.Size(142, 16);
             this.lblNomEvenement.TabIndex = 10;
-            this.lblNomEvenement.Text = "Nom de l\'évènement ? *";
+            this.lblNomEvenement.Text = "Nom de l\'évènement";
             // 
             // BulleAjEvenement
             // 

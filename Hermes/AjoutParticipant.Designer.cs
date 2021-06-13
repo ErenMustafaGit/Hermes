@@ -44,10 +44,8 @@
             this.lblIconeAjoutParticipant.Size = new System.Drawing.Size(58, 55);
             this.lblIconeAjoutParticipant.TabIndex = 1;
             this.lblIconeAjoutParticipant.Text = "O";
+            this.lblIconeAjoutParticipant.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.lblIconeAjoutParticipant.MouseClick += new System.Windows.Forms.MouseEventHandler(this.LblIconeAjoutParticipant_MouseClick);
-            this.lblIconeAjoutParticipant.MouseEnter += new System.EventHandler(this.lblIconeAjoutParticipant_MouseEnter);
-            this.lblIconeAjoutParticipant.MouseLeave += new System.EventHandler(this.LblIconeAjoutParticipant_MouseLeave);
-            this.lblIconeAjoutParticipant.MouseHover += new System.EventHandler(this.LblIconeAjoutParticipant_MouseHover);
             // 
             // pictureBox1
             // 
@@ -57,7 +55,6 @@
             this.pictureBox1.Size = new System.Drawing.Size(378, 177);
             this.pictureBox1.TabIndex = 2;
             this.pictureBox1.TabStop = false;
-            this.pictureBox1.Click += new System.EventHandler(this.PictureBox1_Click);
             // 
             // AjoutParticipant
             // 
@@ -70,7 +67,6 @@
             this.Load += new System.EventHandler(this.AjoutParticipant_Load);
             this.MouseEnter += new System.EventHandler(this.AjoutParticipant_MouseEnter);
             this.MouseLeave += new System.EventHandler(this.AjoutParticipant_MouseLeave);
-            this.MouseHover += new System.EventHandler(this.AjoutParticipant_MouseHover);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

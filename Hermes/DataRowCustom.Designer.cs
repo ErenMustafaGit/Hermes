@@ -87,9 +87,9 @@
             this.lblPersonnes.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(12)))), ((int)(((byte)(12)))));
             this.lblPersonnes.Location = new System.Drawing.Point(49, 13);
             this.lblPersonnes.Name = "lblPersonnes";
-            this.lblPersonnes.Size = new System.Drawing.Size(84, 19);
+            this.lblPersonnes.Size = new System.Drawing.Size(85, 19);
             this.lblPersonnes.TabIndex = 4;
-            this.lblPersonnes.Text = "Personnes";
+            this.lblPersonnes.Text = "Participant";
             this.lblPersonnes.Click += new System.EventHandler(this.DataRowCustom_Click);
             this.lblPersonnes.MouseEnter += new System.EventHandler(this.DataRowCustom_Enter);
             this.lblPersonnes.MouseLeave += new System.EventHandler(this.DataRowCustom_Leave);

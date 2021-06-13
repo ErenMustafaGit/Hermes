@@ -81,9 +81,15 @@ namespace Hermes
             //Soldé ou non
             bool solde_y_n = (bool)dataRowView[5];
             if (solde_y_n)
+            {
                 lblTrueFalse.Text = Hermes.UI.Icons.TICK_OPEN_CIRCLE;
+                lblSoldé.Text = "Soldé";
+            }
             else
+            {
                 lblTrueFalse.Text = Hermes.UI.Icons.CLOCK;
+                lblSoldé.Text = "Non soldé";
+            }
 
             
             List<Participant> participant = currentEvent.GetGuests();
@@ -180,9 +186,15 @@ namespace Hermes
                 //Soldé ou non
                 bool solde_y_n = (bool)dataRowView[5];
                 if (solde_y_n)
+                {
                     lblTrueFalse.Text = Hermes.UI.Icons.TICK_OPEN_CIRCLE;
+                    lblSoldé.Text = "Soldé";
+                }
                 else
+                {
                     lblTrueFalse.Text = Hermes.UI.Icons.CLOCK;
+                    lblSoldé.Text = "Non soldé";
+                }
                 //Code créateur
                 int codeCreateur = (int)dataRowView[6];
 

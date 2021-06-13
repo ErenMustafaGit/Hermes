@@ -72,6 +72,8 @@ namespace Hermes
         }
         private void ResumePartyEvent_Load(object sender, EventArgs e)
         {
+            btnMoreInfo.Font = new Font(FontManager.GetFontFamily(AppFont.HelveticaNeue), btnMoreInfo.Font.Size);
+
             //Ajout des evenements à l'UserControl
             this.MouseEnter += new System.EventHandler(UserControl_MouseEnter);
             this.MouseLeave += new System.EventHandler(UserControl_MouseLeave);

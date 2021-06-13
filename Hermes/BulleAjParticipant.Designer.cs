@@ -141,9 +141,9 @@
             this.lblEmail.AutoSize = true;
             this.lblEmail.Location = new System.Drawing.Point(378, 201);
             this.lblEmail.Name = "lblEmail";
-            this.lblEmail.Size = new System.Drawing.Size(116, 16);
+            this.lblEmail.Size = new System.Drawing.Size(104, 16);
             this.lblEmail.TabIndex = 37;
-            this.lblEmail.Text = "Adresse e-mail ?";
+            this.lblEmail.Text = "Adresse e-mail";
             // 
             // lblNumero
             // 
@@ -152,9 +152,9 @@
             this.lblNumero.AutoSize = true;
             this.lblNumero.Location = new System.Drawing.Point(129, 201);
             this.lblNumero.Name = "lblNumero";
-            this.lblNumero.Size = new System.Drawing.Size(170, 16);
+            this.lblNumero.Size = new System.Drawing.Size(149, 16);
             this.lblNumero.TabIndex = 35;
-            this.lblNumero.Text = "Numéro de téléphone ? *";
+            this.lblNumero.Text = "Numéro de téléphone";
             // 
             // lblNbPart
             // 
@@ -163,9 +163,9 @@
             this.lblNbPart.AutoSize = true;
             this.lblNbPart.Location = new System.Drawing.Point(129, 284);
             this.lblNbPart.Name = "lblNbPart";
-            this.lblNbPart.Size = new System.Drawing.Size(133, 16);
+            this.lblNbPart.Size = new System.Drawing.Size(119, 16);
             this.lblNbPart.TabIndex = 33;
-            this.lblNbPart.Text = "Nombre de part ? *";
+            this.lblNbPart.Text = "Nombre de parts";
             // 
             // lblPrenom
             // 
@@ -174,9 +174,9 @@
             this.lblPrenom.AutoSize = true;
             this.lblPrenom.Location = new System.Drawing.Point(378, 118);
             this.lblPrenom.Name = "lblPrenom";
-            this.lblPrenom.Size = new System.Drawing.Size(175, 16);
+            this.lblPrenom.Size = new System.Drawing.Size(154, 16);
             this.lblPrenom.TabIndex = 33;
-            this.lblPrenom.Text = "Prénom du participant ? *";
+            this.lblPrenom.Text = "Prénom du participant";
             // 
             // lblAjoutDunParticipant
             // 
@@ -196,9 +196,9 @@
             this.lblNom.AutoSize = true;
             this.lblNom.Location = new System.Drawing.Point(129, 118);
             this.lblNom.Name = "lblNom";
-            this.lblNom.Size = new System.Drawing.Size(155, 16);
+            this.lblNom.Size = new System.Drawing.Size(134, 16);
             this.lblNom.TabIndex = 22;
-            this.lblNom.Text = "Nom du participant ? *";
+            this.lblNom.Text = "Nom du participant";
             // 
             // BulleAjParticipant
             // 

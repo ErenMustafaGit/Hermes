@@ -58,7 +58,7 @@
             this.appFontLabel3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(249)))), ((int)(((byte)(249)))));
             this.appFontLabel3.Location = new System.Drawing.Point(686, 13);
             this.appFontLabel3.Name = "appFontLabel3";
-            this.appFontLabel3.Size = new System.Drawing.Size(47, 17);
+            this.appFontLabel3.Size = new System.Drawing.Size(48, 18);
             this.appFontLabel3.TabIndex = 3;
             this.appFontLabel3.Text = "Solde";
             // 
@@ -70,7 +70,7 @@
             this.appFontLabel2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(249)))), ((int)(((byte)(249)))));
             this.appFontLabel2.Location = new System.Drawing.Point(560, 13);
             this.appFontLabel2.Name = "appFontLabel2";
-            this.appFontLabel2.Size = new System.Drawing.Size(49, 17);
+            this.appFontLabel2.Size = new System.Drawing.Size(51, 18);
             this.appFontLabel2.TabIndex = 2;
             this.appFontLabel2.Text = "Moins";
             // 
@@ -82,7 +82,7 @@
             this.appFontLabel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(249)))), ((int)(((byte)(249)))));
             this.appFontLabel1.Location = new System.Drawing.Point(436, 13);
             this.appFontLabel1.Name = "appFontLabel1";
-            this.appFontLabel1.Size = new System.Drawing.Size(37, 17);
+            this.appFontLabel1.Size = new System.Drawing.Size(39, 18);
             this.appFontLabel1.TabIndex = 1;
             this.appFontLabel1.Text = "Plus";
             // 
@@ -94,9 +94,9 @@
             this.lblPersonnes.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(249)))), ((int)(((byte)(249)))));
             this.lblPersonnes.Location = new System.Drawing.Point(49, 13);
             this.lblPersonnes.Name = "lblPersonnes";
-            this.lblPersonnes.Size = new System.Drawing.Size(80, 17);
+            this.lblPersonnes.Size = new System.Drawing.Size(83, 18);
             this.lblPersonnes.TabIndex = 0;
-            this.lblPersonnes.Text = "Personnes";
+            this.lblPersonnes.Text = "Participant";
             // 
             // pnlRows
             // 

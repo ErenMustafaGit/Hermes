@@ -53,7 +53,6 @@
             this.cboEvenements.Name = "cboEvenements";
             this.cboEvenements.Size = new System.Drawing.Size(249, 28);
             this.cboEvenements.TabIndex = 1;
-            this.cboEvenements.SelectedIndexChanged += new System.EventHandler(this.cbbEvenement_SelectedIndexChanged);
             this.cboEvenements.SelectionChangeCommitted += new System.EventHandler(this.cboEvenements_SelectionChangeCommitted);
             // 
             // txtWhere
@@ -72,14 +71,14 @@
             this.numAmount.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.numAmount.DecimalPlaces = 2;
             this.numAmount.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F);
-            this.numAmount.Location = new System.Drawing.Point(174, 415);
+            this.numAmount.Location = new System.Drawing.Point(171, 415);
             this.numAmount.Maximum = new decimal(new int[] {
             10000,
             0,
             0,
             0});
             this.numAmount.Name = "numAmount";
-            this.numAmount.Size = new System.Drawing.Size(246, 27);
+            this.numAmount.Size = new System.Drawing.Size(249, 27);
             this.numAmount.TabIndex = 3;
             this.numAmount.ValueChanged += new System.EventHandler(this.numAmount_ValueChanged);
             this.numAmount.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.numAmount_KeyPress);
@@ -93,7 +92,6 @@
             this.dtp.Size = new System.Drawing.Size(263, 27);
             this.dtp.TabIndex = 4;
             this.dtp.Value = new System.DateTime(2021, 5, 18, 18, 23, 0, 0);
-            this.dtp.ValueChanged += new System.EventHandler(this.dtpDebut_ValueChanged);
             // 
             // cboPayePar
             // 
@@ -104,8 +102,6 @@
             this.cboPayePar.Name = "cboPayePar";
             this.cboPayePar.Size = new System.Drawing.Size(263, 28);
             this.cboPayePar.TabIndex = 5;
-            this.cboPayePar.SelectionChangeCommitted += new System.EventHandler(this.cboPayePar_SelectionChangeCommitted);
-            this.cboPayePar.SelectedValueChanged += new System.EventHandler(this.CboPayePar_SelectedValueChanged);
             // 
             // appFontLabel8
             // 
@@ -115,7 +111,7 @@
             this.appFontLabel8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(141)))), ((int)(((byte)(255)))));
             this.appFontLabel8.Location = new System.Drawing.Point(783, 579);
             this.appFontLabel8.Name = "appFontLabel8";
-            this.appFontLabel8.Size = new System.Drawing.Size(80, 19);
+            this.appFontLabel8.Size = new System.Drawing.Size(81, 19);
             this.appFontLabel8.TabIndex = 6;
             this.appFontLabel8.Text = "Continuer";
             this.appFontLabel8.Click += new System.EventHandler(this.AppFontLabel8_Click);
@@ -130,7 +126,7 @@
             this.lblAnnuler.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
             this.lblAnnuler.Location = new System.Drawing.Point(702, 579);
             this.lblAnnuler.Name = "lblAnnuler";
-            this.lblAnnuler.Size = new System.Drawing.Size(64, 19);
+            this.lblAnnuler.Size = new System.Drawing.Size(66, 19);
             this.lblAnnuler.TabIndex = 7;
             this.lblAnnuler.Text = "Annuler";
             this.lblAnnuler.Click += new System.EventHandler(this.appFontLabel7_Click);
@@ -146,7 +142,7 @@
             this.appFontLabel6.Name = "appFontLabel6";
             this.appFontLabel6.Size = new System.Drawing.Size(86, 16);
             this.appFontLabel6.TabIndex = 16;
-            this.appFontLabel6.Text = "Payé par ? *";
+            this.appFontLabel6.Text = "Payée par ?";
             // 
             // lblDate
             // 
@@ -155,9 +151,9 @@
             this.lblDate.AutoSize = true;
             this.lblDate.Location = new System.Drawing.Point(476, 236);
             this.lblDate.Name = "lblDate";
-            this.lblDate.Size = new System.Drawing.Size(59, 16);
+            this.lblDate.Size = new System.Drawing.Size(136, 16);
             this.lblDate.TabIndex = 12;
-            this.lblDate.Text = "Date ? *";
+            this.lblDate.Text = "Date de la dépense";
             // 
             // lblAmount
             // 
@@ -166,9 +162,9 @@
             this.lblAmount.AutoSize = true;
             this.lblAmount.Location = new System.Drawing.Point(168, 385);
             this.lblAmount.Name = "lblAmount";
-            this.lblAmount.Size = new System.Drawing.Size(130, 16);
+            this.lblAmount.Size = new System.Drawing.Size(159, 16);
             this.lblAmount.TabIndex = 8;
-            this.lblAmount.Text = "Somme à payer ? *";
+            this.lblAmount.Text = "Montant de la dépense";
             // 
             // appFontLabel2
             // 
@@ -177,9 +173,9 @@
             this.appFontLabel2.AutoSize = true;
             this.appFontLabel2.Location = new System.Drawing.Point(168, 312);
             this.appFontLabel2.Name = "appFontLabel2";
-            this.appFontLabel2.Size = new System.Drawing.Size(183, 16);
+            this.appFontLabel2.Size = new System.Drawing.Size(179, 16);
             this.appFontLabel2.TabIndex = 6;
-            this.appFontLabel2.Text = "Description de la dépense *";
+            this.appFontLabel2.Text = "Description de la dépense";
             // 
             // appFontLabel1
             // 
@@ -188,9 +184,9 @@
             this.appFontLabel1.AutoSize = true;
             this.appFontLabel1.Location = new System.Drawing.Point(168, 231);
             this.appFontLabel1.Name = "appFontLabel1";
-            this.appFontLabel1.Size = new System.Drawing.Size(175, 16);
+            this.appFontLabel1.Size = new System.Drawing.Size(158, 16);
             this.appFontLabel1.TabIndex = 4;
-            this.appFontLabel1.Text = "Dans quel évènements ? *";
+            this.appFontLabel1.Text = "Pour quel évènement ?";
             // 
             // lblNouvelleDepense
             // 

@@ -27,6 +27,10 @@ namespace Hermes
         {
             InitializeComponent();
             lblIconeAjoutParticipant.Text = Hermes.UI.Icons.PLUS;
+
+            lblIconeAjoutParticipant.Location = new Point(
+                (this.Width - lblIconeAjoutParticipant.Width) / 2,
+                (this.Height - lblIconeAjoutParticipant.Height) / 2);
         }
 
 
@@ -68,32 +72,6 @@ namespace Hermes
 
             bulle.Controls.Add(bulleAjParticipant);
             bulle.Visible = true;
-
-
-        }
-
-        private void LblIconeAjoutParticipant_MouseHover(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void LblIconeAjoutParticipant_MouseLeave(object sender, EventArgs e)
-        {
-           
-        }
-
-        private void AjoutParticipant_MouseHover(object sender, EventArgs e)
-        {
-        }
-
-        private void PictureBox1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void lblIconeAjoutParticipant_MouseEnter(object sender, EventArgs e)
-        {
-            
         }
 
         private void AjoutParticipant_MouseEnter(object sender, EventArgs e)
