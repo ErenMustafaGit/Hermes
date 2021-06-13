@@ -46,7 +46,7 @@ namespace Hermes
             // 
             // pnlTitleBar
             // 
-            this.pnlTitleBar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(147)))), ((int)(((byte)(248)))));
+            this.pnlTitleBar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(249)))), ((int)(((byte)(249)))));
             this.pnlTitleBar.Controls.Add(this.lblMinimise);
             this.pnlTitleBar.Controls.Add(this.lblExit);
             this.pnlTitleBar.Location = new System.Drawing.Point(0, 0);
@@ -60,7 +60,7 @@ namespace Hermes
             // 
             this.lblMinimise.AppFont = Hermes.AppFont.HelveticaNeue_Medium;
             this.lblMinimise.AppFontHeight = 16F;
-            this.lblMinimise.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(249)))), ((int)(((byte)(249)))));
+            this.lblMinimise.ForeColor = System.Drawing.SystemColors.ControlText;
             this.lblMinimise.Location = new System.Drawing.Point(1023, 0);
             this.lblMinimise.Name = "lblMinimise";
             this.lblMinimise.Size = new System.Drawing.Size(18, 24);
@@ -74,7 +74,7 @@ namespace Hermes
             // 
             this.lblExit.AppFont = Hermes.AppFont.Icons;
             this.lblExit.AppFontHeight = 10F;
-            this.lblExit.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(249)))), ((int)(((byte)(249)))));
+            this.lblExit.ForeColor = System.Drawing.SystemColors.ControlText;
             this.lblExit.Location = new System.Drawing.Point(1050, 8);
             this.lblExit.Name = "lblExit";
             this.lblExit.Size = new System.Drawing.Size(16, 16);
