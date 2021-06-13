@@ -132,7 +132,7 @@ namespace Hermes
             bool done = true;
             txtDescription.BackColor = Color.White;
             numAmount.BackColor = Color.White;
-            if(txtDescription.Text.Length == 0 || txtDescription.Text.Length >= 30)
+            if(txtDescription.Text.Length == 0 || txtDescription.Text.Length > 30)
             {
                 //Toast à mettre
                 done = false;
