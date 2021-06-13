@@ -65,7 +65,7 @@
             this.rtxtDescription.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.rtxtDescription.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rtxtDescription.Location = new System.Drawing.Point(364, 92);
-            this.rtxtDescription.MaxLength = 30;
+            this.rtxtDescription.MaxLength = 200;
             this.rtxtDescription.Name = "rtxtDescription";
             this.rtxtDescription.Size = new System.Drawing.Size(258, 213);
             this.rtxtDescription.TabIndex = 2;
@@ -105,7 +105,7 @@
             this.lblDescription.AutoSize = true;
             this.lblDescription.Location = new System.Drawing.Point(361, 60);
             this.lblDescription.Name = "lblDescription";
-            this.lblDescription.Size = new System.Drawing.Size(85, 17);
+            this.lblDescription.Size = new System.Drawing.Size(88, 18);
             this.lblDescription.TabIndex = 3;
             this.lblDescription.Text = "Description";
             // 
@@ -128,7 +128,7 @@
             this.lblEnArriere.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(147)))), ((int)(((byte)(248)))));
             this.lblEnArriere.Location = new System.Drawing.Point(50, 370);
             this.lblEnArriere.Name = "lblEnArriere";
-            this.lblEnArriere.Size = new System.Drawing.Size(95, 14);
+            this.lblEnArriere.Size = new System.Drawing.Size(100, 14);
             this.lblEnArriere.TabIndex = 48;
             this.lblEnArriere.Text = "Retour en arrière";
             this.lblEnArriere.Click += new System.EventHandler(this.lblGoBaaack_Click);
