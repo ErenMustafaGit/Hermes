@@ -163,13 +163,13 @@ namespace Hermes
                 lblExpenditureTitle.Text = expenses[0].Description;
                 lblExpenditureTitle.Text = lblExpenditureTitle.Text.Substring(0, 1).ToUpper() + lblExpenditureTitle.Text.Substring(1);
                 lblMoney.Text = expenses[0].Amount.ToEuros();
-                if (expenses[0].Comment.Length != 0 || !String.IsNullOrWhiteSpace(expenses[0].Comment.ToString()))
+                if (expenses[0].Comment.Length == 0 || String.IsNullOrWhiteSpace(expenses[0].Comment.ToString()))
                 {
-                    lblDesc.Text = "\"" + expenses[0].Comment + "\"";
+                    lblDesc.Text = "Pas de commentaire";
                 }
                 else
                 {
-                    lblDesc.Text = "Pas de commentaire";
+                    lblDesc.Text = "\"" + expenses[0].Comment + "\"";
                 }
                 
 
