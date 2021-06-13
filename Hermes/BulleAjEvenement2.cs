@@ -50,8 +50,19 @@ namespace Hermes
             if(rtxtDescription.Text.Length > 0 && rtxtDescription.Text.Length < 200)
             {
                 newEvent.Description = this.rtxtDescription.Text;
-                Database.InsertEvent(newEvent, getInvitedParticipant());
-                EmailManager.InviteList(newEvent, getInvitedParticipant())
+                List<Participant> invitedParticipants = getInvitedParticipant();
+
+                Database.InsertEvent(newEvent, invitedParticipants);
+
+                //Remove the Event creator from the invited list (FOR THE MAIL)
+                for(int i =0; i<invitedParticipants.Count; i++)
+                {
+                    if(invitedParticipants[i].CodeParticipant == newEvent.AuthorId)
+                        invitedParticipants.RemoveAt(i);
+                }
+
+                
+                EmailManager.InviteList(newEvent, invitedParticipants)
                     .ContinueWith(_ =>
                     {
                         MainForm.GetSingleton().Invoke(new MethodInvoker(() =>
@@ -59,7 +70,7 @@ namespace Hermes
                                 .SetDurationInSeconds(15)
                                 .ShowToast()));
                     });
-
+                    
                 this.ecran.Controls.Clear();
                 this.ecran.Visible = false;
                 pnlPrincipal.Controls.Clear();
