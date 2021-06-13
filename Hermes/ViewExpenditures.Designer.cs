@@ -32,14 +32,14 @@
             this.cboEvenement = new System.Windows.Forms.ComboBox();
             this.pnlDetailExpenditure = new System.Windows.Forms.Panel();
             this.pnlBeneficiary = new System.Windows.Forms.Panel();
-            this.btnAddExpenditure = new System.Windows.Forms.Button();
-            this.lblExpenditureTitle = new Hermes.UI.AppFontLabel();
-            this.lblDepense = new Hermes.UI.AppFontLabel();
             this.lblCreator = new Hermes.UI.AppFontLabel();
             this.lblMoney = new Hermes.UI.AppFontLabel();
             this.lblBeneficiary = new Hermes.UI.AppFontLabel();
             this.lblIconCreator = new Hermes.UI.AppFontLabel();
             this.lblIconMoney = new Hermes.UI.AppFontLabel();
+            this.btnAddExpenditure = new System.Windows.Forms.Button();
+            this.lblExpenditureTitle = new Hermes.UI.AppFontLabel();
+            this.lblDepense = new Hermes.UI.AppFontLabel();
             this.pnlDetailExpenditure.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -80,6 +80,63 @@
             this.pnlBeneficiary.Size = new System.Drawing.Size(306, 198);
             this.pnlBeneficiary.TabIndex = 2;
             // 
+            // lblCreator
+            // 
+            this.lblCreator.AppFont = Hermes.AppFont.HelveticaNeue;
+            this.lblCreator.AppFontHeight = 12F;
+            this.lblCreator.AutoSize = true;
+            this.lblCreator.Location = new System.Drawing.Point(107, 108);
+            this.lblCreator.Name = "lblCreator";
+            this.lblCreator.Size = new System.Drawing.Size(56, 19);
+            this.lblCreator.TabIndex = 1;
+            this.lblCreator.Text = "Auteur";
+            // 
+            // lblMoney
+            // 
+            this.lblMoney.AppFont = Hermes.AppFont.HelveticaNeue;
+            this.lblMoney.AppFontHeight = 12F;
+            this.lblMoney.AutoSize = true;
+            this.lblMoney.Location = new System.Drawing.Point(107, 38);
+            this.lblMoney.Name = "lblMoney";
+            this.lblMoney.Size = new System.Drawing.Size(53, 19);
+            this.lblMoney.TabIndex = 1;
+            this.lblMoney.Text = "0,00 €";
+            // 
+            // lblBeneficiary
+            // 
+            this.lblBeneficiary.AppFont = Hermes.AppFont.HelveticaNeue;
+            this.lblBeneficiary.AppFontHeight = 12F;
+            this.lblBeneficiary.AutoSize = true;
+            this.lblBeneficiary.Location = new System.Drawing.Point(35, 166);
+            this.lblBeneficiary.Name = "lblBeneficiary";
+            this.lblBeneficiary.Size = new System.Drawing.Size(111, 19);
+            this.lblBeneficiary.TabIndex = 1;
+            this.lblBeneficiary.Text = "Bénéficiaires :";
+            // 
+            // lblIconCreator
+            // 
+            this.lblIconCreator.AppFont = Hermes.AppFont.Icons;
+            this.lblIconCreator.AppFontHeight = 30F;
+            this.lblIconCreator.AutoSize = true;
+            this.lblIconCreator.Location = new System.Drawing.Point(32, 92);
+            this.lblIconCreator.Name = "lblIconCreator";
+            this.lblIconCreator.Size = new System.Drawing.Size(45, 41);
+            this.lblIconCreator.TabIndex = 0;
+            this.lblIconCreator.Text = "O";
+            this.lblIconCreator.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // lblIconMoney
+            // 
+            this.lblIconMoney.AppFont = Hermes.AppFont.Icons;
+            this.lblIconMoney.AppFontHeight = 25F;
+            this.lblIconMoney.AutoSize = true;
+            this.lblIconMoney.Location = new System.Drawing.Point(33, 29);
+            this.lblIconMoney.Name = "lblIconMoney";
+            this.lblIconMoney.Size = new System.Drawing.Size(38, 35);
+            this.lblIconMoney.TabIndex = 0;
+            this.lblIconMoney.Text = "O";
+            this.lblIconMoney.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // btnAddExpenditure
             // 
             this.btnAddExpenditure.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(147)))), ((int)(((byte)(248)))));
@@ -112,66 +169,9 @@
             this.lblDepense.AutoSize = true;
             this.lblDepense.Location = new System.Drawing.Point(87, 63);
             this.lblDepense.Name = "lblDepense";
-            this.lblDepense.Size = new System.Drawing.Size(222, 19);
+            this.lblDepense.Size = new System.Drawing.Size(218, 19);
             this.lblDepense.TabIndex = 1;
             this.lblDepense.Text = "Dépenses pour l\'évènement :";
-            // 
-            // lblCreator
-            // 
-            this.lblCreator.AppFont = Hermes.AppFont.HelveticaNeue;
-            this.lblCreator.AppFontHeight = 12F;
-            this.lblCreator.AutoSize = true;
-            this.lblCreator.Location = new System.Drawing.Point(107, 108);
-            this.lblCreator.Name = "lblCreator";
-            this.lblCreator.Size = new System.Drawing.Size(58, 19);
-            this.lblCreator.TabIndex = 1;
-            this.lblCreator.Text = "Auteur";
-            // 
-            // lblMoney
-            // 
-            this.lblMoney.AppFont = Hermes.AppFont.HelveticaNeue;
-            this.lblMoney.AppFontHeight = 12F;
-            this.lblMoney.AutoSize = true;
-            this.lblMoney.Location = new System.Drawing.Point(107, 38);
-            this.lblMoney.Name = "lblMoney";
-            this.lblMoney.Size = new System.Drawing.Size(53, 19);
-            this.lblMoney.TabIndex = 1;
-            this.lblMoney.Text = "0,00 €";
-            // 
-            // lblBeneficiary
-            // 
-            this.lblBeneficiary.AppFont = Hermes.AppFont.HelveticaNeue;
-            this.lblBeneficiary.AppFontHeight = 12F;
-            this.lblBeneficiary.AutoSize = true;
-            this.lblBeneficiary.Location = new System.Drawing.Point(35, 166);
-            this.lblBeneficiary.Name = "lblBeneficiary";
-            this.lblBeneficiary.Size = new System.Drawing.Size(113, 19);
-            this.lblBeneficiary.TabIndex = 1;
-            this.lblBeneficiary.Text = "Bénéficiaires :";
-            // 
-            // lblIconCreator
-            // 
-            this.lblIconCreator.AppFont = Hermes.AppFont.Icons;
-            this.lblIconCreator.AppFontHeight = 30F;
-            this.lblIconCreator.AutoSize = true;
-            this.lblIconCreator.Location = new System.Drawing.Point(32, 92);
-            this.lblIconCreator.Name = "lblIconCreator";
-            this.lblIconCreator.Size = new System.Drawing.Size(45, 41);
-            this.lblIconCreator.TabIndex = 0;
-            this.lblIconCreator.Text = "O";
-            this.lblIconCreator.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // lblIconMoney
-            // 
-            this.lblIconMoney.AppFont = Hermes.AppFont.Icons;
-            this.lblIconMoney.AppFontHeight = 25F;
-            this.lblIconMoney.AutoSize = true;
-            this.lblIconMoney.Location = new System.Drawing.Point(33, 29);
-            this.lblIconMoney.Name = "lblIconMoney";
-            this.lblIconMoney.Size = new System.Drawing.Size(38, 35);
-            this.lblIconMoney.TabIndex = 0;
-            this.lblIconMoney.Text = "O";
-            this.lblIconMoney.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // ViewExpenditures
             // 
