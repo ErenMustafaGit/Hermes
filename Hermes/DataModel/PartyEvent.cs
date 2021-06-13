@@ -265,7 +265,7 @@ namespace Hermes.DataModel
             while (!balances.All(t => Decimal.Round(t.Value, 2) == 0))
             {
                 // Order values by lowest to highest, while filtering balances at zero for safeguarding.
-                var tmp = balances.Where(kvp => Decimal.Round(kvp.Value) != 0).OrderBy(kvp => kvp.Value);
+                var tmp = balances.Where(kvp => Decimal.Round(kvp.Value, 2) != 0).OrderBy(kvp => kvp.Value);
                 var lowest = tmp.First(); // the one that "gives"
                 var highest = tmp.Last(); // the one that "receives"
 
