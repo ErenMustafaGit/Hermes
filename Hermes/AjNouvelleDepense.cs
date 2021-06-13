@@ -78,6 +78,7 @@ namespace Hermes
                 dtp.Value = selectedEvent.StartDate;
             }
             dtp.MinDate = selectedEvent.StartDate;
+            dtp.MaxDate = selectedEvent.EndDate;
         }
 
         public void updateGuests()
