@@ -21,12 +21,12 @@ namespace Hermes.UI.Activities
         public EventViewingActivity()
         {
             InitializeComponent();
-            lblIconeDate.Text = Hermes.UI.Icons.CALENDAR_1;
-            lblIconeDroite.Text = Hermes.UI.Icons.RIGHT;
-            lblGaucheGauche.Text = Hermes.UI.Icons.DOUBLE_LEFT;
-            lblGauche.Text = Hermes.UI.Icons.LEFT;
-            lblIconeDroiteDroite.Text = Hermes.UI.Icons.DOUBLE_RIGHT;
-            lblGoBaaack.Text = Hermes.UI.Icons.LEFT;
+            calendarIconLabel.Text = Hermes.UI.Icons.CALENDAR_1;
+            nextItemLabel.Text = Hermes.UI.Icons.RIGHT;
+            firstItemLabel.Text = Hermes.UI.Icons.DOUBLE_LEFT;
+            previousItemLabel.Text = Hermes.UI.Icons.LEFT;
+            lastItemLabel.Text = Hermes.UI.Icons.DOUBLE_RIGHT;
+            backArrowLabel.Text = Hermes.UI.Icons.LEFT;
         }
 
         public int setIndex
@@ -42,11 +42,11 @@ namespace Hermes.UI.Activities
         private void EventViewingActivity_Load(object sender, EventArgs e)
         {
             //Scrollbar sur le pnlParticipant
-            pnlParticipant.AutoScroll = false;
-            pnlParticipant.HorizontalScroll.Enabled = false;
-            pnlParticipant.HorizontalScroll.Visible = false;
-            pnlParticipant.HorizontalScroll.Maximum = 0;
-            pnlParticipant.AutoScroll = true;
+            invitedPanel.AutoScroll = false;
+            invitedPanel.HorizontalScroll.Enabled = false;
+            invitedPanel.HorizontalScroll.Visible = false;
+            invitedPanel.HorizontalScroll.Maximum = 0;
+            invitedPanel.AutoScroll = true;
 
             //BindingSource
             this.bindingSource = Database.GetBindingSource("Evenements");
@@ -60,18 +60,18 @@ namespace Hermes.UI.Activities
             DataRowView dataRowView = (DataRowView)bindingSource.Current;
 
             //Nom de l'évènement
-            lblNomEvenement.Text = dataRowView[1].ToString();
+            eventNameLabel.Text = dataRowView[1].ToString();
 
             //Date début
             DateTime dateDebut = (DateTime)dataRowView[2];
-            lblDateStart.Text = dateDebut.ToFrenchLongDateString();
+            dateBeginLabel.Text = dateDebut.ToFrenchLongDateString();
 
             //Date fin
             DateTime dateFin = (DateTime)dataRowView[3];
-            lblDateEnd.Text = dateFin.ToFrenchLongDateString();
+            dateEndLabel.Text = dateFin.ToFrenchLongDateString();
 
             //Description
-            lblDescEvenement.Text = dataRowView[4].ToString();
+            descriptionLabel.Text = dataRowView[4].ToString();
 
             //Participant à l'évènement
             List<PartyEvent> evenement = Database.FetchEvents();
@@ -82,13 +82,13 @@ namespace Hermes.UI.Activities
             bool solde_y_n = (bool)dataRowView[5];
             if (solde_y_n)
             {
-                lblTrueFalse.Text = Hermes.UI.Icons.TICK_OPEN_CIRCLE;
-                lblSoldé.Text = "Soldé";
+                completedIconLabel.Text = Hermes.UI.Icons.TICK_OPEN_CIRCLE;
+                completedTextLabel.Text = "Soldé";
             }
             else
             {
-                lblTrueFalse.Text = Hermes.UI.Icons.CLOCK;
-                lblSoldé.Text = "Non soldé";
+                completedIconLabel.Text = Hermes.UI.Icons.CLOCK;
+                completedTextLabel.Text = "Non soldé";
             }
 
 
@@ -103,7 +103,7 @@ namespace Hermes.UI.Activities
             creator.setCodeCreateur = codeCreateur;
             creator.recupParticipant = eventCreator;
             creator.Top = 20 + 80 * 0;
-            pnlParticipant.Controls.Add(creator);
+            invitedPanel.Controls.Add(creator);
 
             //Suppression du créateur de la liste des invités
             //participant.Remove(eventCreator);
@@ -122,7 +122,7 @@ namespace Hermes.UI.Activities
                 user.setCodeCreateur = codeCreateur;
                 user.recupParticipant = participant[i];
                 user.Top = 20 + 80 * (i + 1);
-                pnlParticipant.Controls.Add(user);
+                invitedPanel.Controls.Add(user);
             }
 
         }
@@ -174,26 +174,26 @@ namespace Hermes.UI.Activities
                 //Mise en place pour récuperer les informations nécessaire
                 DataRowView dataRowView = (DataRowView)bindingSource.Current;
                 //Nom de l'évènement
-                lblNomEvenement.Text = dataRowView[1].ToString();
+                eventNameLabel.Text = dataRowView[1].ToString();
                 //Date début
                 DateTime dateDebut = (DateTime)dataRowView[2];
-                lblDateStart.Text = dateDebut.ToFrenchLongDateString();
+                dateBeginLabel.Text = dateDebut.ToFrenchLongDateString();
                 //Date fin
                 DateTime dateFin = (DateTime)dataRowView[3];
-                lblDateEnd.Text = dateFin.ToFrenchLongDateString();
+                dateEndLabel.Text = dateFin.ToFrenchLongDateString();
                 //Description de l'évènement
-                lblDescEvenement.Text = dataRowView[4].ToString();
+                descriptionLabel.Text = dataRowView[4].ToString();
                 //Soldé ou non
                 bool solde_y_n = (bool)dataRowView[5];
                 if (solde_y_n)
                 {
-                    lblTrueFalse.Text = Hermes.UI.Icons.TICK_OPEN_CIRCLE;
-                    lblSoldé.Text = "Soldé";
+                    completedIconLabel.Text = Hermes.UI.Icons.TICK_OPEN_CIRCLE;
+                    completedTextLabel.Text = "Soldé";
                 }
                 else
                 {
-                    lblTrueFalse.Text = Hermes.UI.Icons.CLOCK;
-                    lblSoldé.Text = "Non soldé";
+                    completedIconLabel.Text = Hermes.UI.Icons.CLOCK;
+                    completedTextLabel.Text = "Non soldé";
                 }
                 //Code créateur
                 int codeCreateur = (int)dataRowView[6];
@@ -202,7 +202,7 @@ namespace Hermes.UI.Activities
                 List<PartyEvent> evenement = Database.FetchEvents();
                 PartyEvent evenement_concerné = evenement[index];
                 List<Participant> participant = evenement_concerné.GetGuests();
-                pnlParticipant.Controls.Clear();
+                invitedPanel.Controls.Clear();
 
 
 
@@ -212,7 +212,7 @@ namespace Hermes.UI.Activities
                 creator.setCodeCreateur = codeCreateur;
                 creator.recupParticipant = eventCreator;
                 creator.Top = 20 + 80 * 0;
-                pnlParticipant.Controls.Add(creator);
+                invitedPanel.Controls.Add(creator);
 
                 //Suppression du créateur de la liste des invités
                 //participant.Remove(eventCreator);
@@ -231,7 +231,7 @@ namespace Hermes.UI.Activities
                     user.setCodeCreateur = codeCreateur;
                     user.recupParticipant = participant[i];
                     user.Top = 20 + 80 * (i + 1);
-                    pnlParticipant.Controls.Add(user);
+                    invitedPanel.Controls.Add(user);
                 }
             }
 

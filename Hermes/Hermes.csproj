@@ -347,6 +347,9 @@
     <EmbeddedResource Include="ResumeEventBilan.resx">
       <DependentUpon>ResumeEventBilan.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UI\Activities\EventViewingActivity.resx">
+      <DependentUpon>EventViewingActivity.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UserBilan.resx">
       <DependentUpon>UserBilan.cs</DependentUpon>
     </EmbeddedResource>
