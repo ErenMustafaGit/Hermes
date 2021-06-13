@@ -90,12 +90,15 @@ namespace Hermes
             cboEventCreator.DataSource = dataTableParticipant;
             cboEventCreator.DisplayMember = "Name";
             cboEventCreator.ValueMember = "CodeParticipant";
+
             if (wentBack)
             {
-                txtDescription.Text = description;
-                numAmount.Value = montant;
+                cboEventCreator.SelectedIndex = this.index;
                 dtpDateDepense.Value = dateDepense;
+                dtpDateDepense.MinDate = currentEvent.StartDate;
+                dtpDateDepense.MaxDate = currentEvent.EndDate;
             }
+
 
             cboEvenement.SelectedIndexChanged += new System.EventHandler(cboEventCreator_SelectedIndexChanged);
             
@@ -103,6 +106,12 @@ namespace Hermes
 
             cboEvenement.SelectedValue = currentEvent.Id;
             RefreshGuests();
+
+            if (!wentBack)
+            {
+                dtpDateDepense.Value = currentEvent.StartDate;
+            }
+            dtpDateDepense.MinDate = currentEvent.StartDate;
         }
 
 
@@ -167,16 +176,18 @@ namespace Hermes
         private void RefreshGuests()
         {
             currentEvent = PartyEvent.GetFromId((int)cboEvenement.SelectedValue);
+            dtpDateDepense.MinDate = DateTime.Parse("01/01/2000");
+            dtpDateDepense.MaxDate = DateTime.Parse("01/01/2200");
+            dtpDateDepense.Value = currentEvent.StartDate;
+            dtpDateDepense.MinDate = currentEvent.StartDate;
+            dtpDateDepense.MaxDate = currentEvent.EndDate;
             List<Participant> listeParticipant = currentEvent.GetGuests();
 
             DataTable dataTableParticipant = Participant.toConcatenateDataTable(listeParticipant);
             cboEventCreator.DataSource = dataTableParticipant;
             cboEventCreator.DisplayMember = "Name";
             cboEventCreator.ValueMember = "CodeParticipant";
-            if (wentBack)
-            {
-                cboEventCreator.SelectedIndex = this.index;
-            }
+           
         }
     }
 }
