@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Hermes.DataModel;
 using Hermes.UI;
+using System.Text.RegularExpressions;
 
 namespace Hermes
 {
@@ -57,49 +58,72 @@ namespace Hermes
             annuler.DynamicInvoke();
         }
 
-        private void btnValider_Click(object sender, EventArgs e)
+        private bool ValidateFields(bool ignoreEmpty = false, bool sendToasts = false)
         {
-            bool valide = true;
-            if (txtLastName.Text.Length < 1 || String.IsNullOrWhiteSpace(txtLastName.Text))
+            bool valid = false;
+
+            txtPhoneNumber.Text = txtPhoneNumber.Text.Replace(" ", "");
+            var phoneNumberMatch = Regex.Match(txtPhoneNumber.Text, @"^(\+[0-9]+)|(0[0-9]{9})$");
+
+            nudNbPart.Validate();
+
+            if ((String.IsNullOrWhiteSpace(txtLastName.Text) || txtLastName.Text.Length < 1) && !ignoreEmpty)
             {
-                valide = false;
+                valid = false;
                 txtLastName.BackColor = Color.LightPink;
 
-                AppToast.CreateErrorToast("Veuillez entrer un nom valide !")
-                        .SetDurationInSeconds(15).ShowToast();
+                if (sendToasts)
+                {
+                    AppToast.CreateErrorToast("Veuillez entrer un nom valide !")
+                            .SetDurationInSeconds(15).ShowToast();
+                }
             }
-            if (txtFirstName.Text.Length < 1 || String.IsNullOrWhiteSpace(txtLastName.Text))
+
+            if ((String.IsNullOrWhiteSpace(txtFirstName.Text) || txtFirstName.Text.Length < 1) && !ignoreEmpty)
             {
-                valide = false;
+                valid = false;
                 txtFirstName.BackColor = Color.LightPink;
 
-                AppToast.CreateErrorToast("Veuillez entrer un prénom valide !")
+                if (sendToasts)
+                {
+                    AppToast.CreateErrorToast("Veuillez entrer un prénom valide !")
                         .SetDurationInSeconds(15).ShowToast();
+                }
             }
 
-            if (!EmailManager.IsEmailValid(txtMail.Text))
+            if ((String.IsNullOrWhiteSpace(txtMail.Text) && !ignoreEmpty) || (!String.IsNullOrWhiteSpace(txtMail.Text) && !EmailManager.IsEmailValid(txtMail.Text)))
             {
-                valide = false;
+                valid = false;
                 txtMail.BackColor = Color.LightPink;
 
-                AppToast.CreateErrorToast("L'adresse email entrée est invalide !")
+                if (sendToasts)
+                {
+                    AppToast.CreateErrorToast("L'adresse email entrée est invalide !")
                         .SetDurationInSeconds(15).ShowToast();
+                }
             }
 
-            if (txtPhoneNumber.Text.Length < 6)
+            if ((String.IsNullOrWhiteSpace(txtPhoneNumber.Text) && !ignoreEmpty) || (!String.IsNullOrWhiteSpace(txtPhoneNumber.Text) && !phoneNumberMatch.Success))
             {
-                valide = false;
+                valid = false;
                 txtPhoneNumber.BackColor = Color.LightPink;
 
-                AppToast.CreateErrorToast("Numéro de téléphone trop court !")
+                if (sendToasts)
+                {
+                    AppToast.CreateErrorToast("Numéro de téléphone invalide !")
                         .SetDurationInSeconds(15).ShowToast();
+                }
             }
 
+            return valid;
+        }
 
-           
+        private void btnValider_Click(object sender, EventArgs e)
+        {
+            bool valide = this.ValidateFields(sendToasts: true);
+
             if (valide)
             {
-
                 //Creation du nouveau participant
                 Participant newParticipant = new Participant()
                 {
@@ -125,23 +149,13 @@ namespace Hermes
 
         private void txtPhoneNumber_KeyPress(object sender, KeyPressEventArgs e)
         {
-            e.Handled = true;
-            txtPhoneNumber.BackColor = Color.LightPink;
-            if (char.IsDigit(e.KeyChar) || e.KeyChar == (char)Keys.Back)
+            txtPhoneNumber.BackColor = Color.White;
+
+            if (e.KeyChar == (char)Keys.Enter)
             {
-                e.Handled = false;
-                txtPhoneNumber.BackColor = Color.White;
-            }
-            else if (e.KeyChar == (char)Keys.Enter)
-            {
+                e.Handled = true;
                 txtMail.Focus();
-                txtPhoneNumber.BackColor = Color.White;
             }
-        }
-
-        private void TxtPhoneNumber_TextChanged(object sender, EventArgs e)
-        {
-
         }
 
         //txtLastName_KeyPress !!!! (nom)
@@ -193,6 +207,11 @@ namespace Hermes
             {
                 txtPhoneNumber.Focus();
             }
+        }
+
+        private void Field_FocusLeave(object sender, EventArgs e)
+        {
+            this.ValidateFields(ignoreEmpty: true);
         }
     }
 }
