@@ -158,7 +158,7 @@ namespace Hermes
             MessageBoxButtons buttons = MessageBoxButtons.YesNo;
             DialogResult result;
             string message = "Voulez vous vraiment annuler l'ajout ?";
-            string caption = "";
+            string caption = "Hermès";
             result = MessageBox.Show(this, message, caption, buttons,
             MessageBoxIcon.Question, MessageBoxDefaultButton.Button1,
             MessageBoxOptions.RightAlign);
