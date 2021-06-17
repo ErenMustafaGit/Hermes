@@ -169,11 +169,11 @@ namespace Hermes
 
         private void BtnAnnuler_Click(object sender, EventArgs e)
         {
-            string message = "Etes vous sur de vouloir annuler l'ajout ?";
+            string message = "Êtes-vous sûr.e de vouloir annuler l'ajout ?";
             MessageBoxButtons buttons = MessageBoxButtons.YesNo;
             DialogResult result;
 
-            result = MessageBox.Show(message, "",buttons);
+            result = MessageBox.Show(message, "Hermès", buttons);
             if (result == System.Windows.Forms.DialogResult.Yes)
             {
                 this.ecran.Controls.Clear();
