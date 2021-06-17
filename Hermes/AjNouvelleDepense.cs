@@ -178,9 +178,10 @@ namespace Hermes
             bool done = true;
             PartyEvent currentEvent = PartyEvent.GetFromId(int.Parse(cboEvenements.SelectedValue.ToString()));
 
-            //Les animations d'erreur sont juste de test ! Il faudra changer ABSOLUMENT !
             txtWhere.BackColor = Color.White;
             numAmount.BackColor = Color.White;
+
+            numAmount.Validate();
 
             if (String.IsNullOrWhiteSpace(txtWhere.Text))
             {

@@ -133,7 +133,10 @@ namespace Hermes
             bool done = true;
             txtDescription.BackColor = Color.White;
             numAmount.BackColor = Color.White;
-            if(String.IsNullOrWhiteSpace(txtDescription.Text) || txtDescription.Text.Length > 30)
+
+            numAmount.Validate();
+
+            if (String.IsNullOrWhiteSpace(txtDescription.Text) || txtDescription.Text.Length > 30)
             {
                 done = false;
                 txtDescription.Focus();
