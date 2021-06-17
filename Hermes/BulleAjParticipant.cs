@@ -60,7 +60,7 @@ namespace Hermes
 
         private bool ValidateFields(bool ignoreEmpty = false, bool sendToasts = false)
         {
-            bool valid = false;
+            bool valid = true;
 
             txtPhoneNumber.Text = txtPhoneNumber.Text.Replace(" ", "");
             var phoneNumberMatch = Regex.Match(txtPhoneNumber.Text, @"^(\+[0-9]+)|(0[0-9]{9})$");
