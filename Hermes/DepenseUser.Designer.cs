@@ -38,9 +38,9 @@
             this.lblAmountDepense.AppFont = Hermes.AppFont.HelveticaNeue_Medium;
             this.lblAmountDepense.AppFontHeight = 20F;
             this.lblAmountDepense.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(249)))), ((int)(((byte)(249)))));
-            this.lblAmountDepense.Location = new System.Drawing.Point(185, 70);
+            this.lblAmountDepense.Location = new System.Drawing.Point(228, 70);
             this.lblAmountDepense.Name = "lblAmountDepense";
-            this.lblAmountDepense.Size = new System.Drawing.Size(180, 35);
+            this.lblAmountDepense.Size = new System.Drawing.Size(137, 35);
             this.lblAmountDepense.TabIndex = 3;
             this.lblAmountDepense.Text = "120,00 €";
             this.lblAmountDepense.TextAlign = System.Drawing.ContentAlignment.TopRight;

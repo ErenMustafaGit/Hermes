@@ -62,7 +62,6 @@ namespace Hermes
             bool valide = true;
             if (txtLastName.Text.Length < 1 || String.IsNullOrWhiteSpace(txtLastName.Text))
             {
-                //AVEC DES ALERTES SUR LES CHAMPS NON REMPLIS
                 valide = false;
                 txtLastName.BackColor = Color.LightPink;
 

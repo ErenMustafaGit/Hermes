@@ -51,7 +51,7 @@
             this.cboEvenements.FormattingEnabled = true;
             this.cboEvenements.Location = new System.Drawing.Point(80, 239);
             this.cboEvenements.Name = "cboEvenements";
-            this.cboEvenements.Size = new System.Drawing.Size(245, 21);
+            this.cboEvenements.Size = new System.Drawing.Size(279, 21);
             this.cboEvenements.TabIndex = 2;
             // 
             // btnAjouter
